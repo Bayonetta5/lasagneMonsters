@@ -1,0 +1,13 @@
+# object files
+*.o
+
+# binaries
+lasagnaMonsters
+mapEditor
+
+# folders
+bin
+dev/*
+!dev/screenshots
+build
+dist

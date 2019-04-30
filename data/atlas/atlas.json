@@ -1,0 +1,114 @@
+[
+	{
+		"filename" : "gfx/particles/light.png",
+		"x" : 0,
+		"y" : 0,
+		"w" : 73,
+		"h" : 73,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/4.png",
+		"x" : 74,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/1.png",
+		"x" : 123,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/2.png",
+		"x" : 172,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/0.png",
+		"x" : 221,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/3.png",
+		"x" : 270,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/greenBugEyedMonster2.png",
+		"x" : 319,
+		"y" : 0,
+		"w" : 42,
+		"h" : 42,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/greenBugEyedMonster1.png",
+		"x" : 362,
+		"y" : 0,
+		"w" : 42,
+		"h" : 42,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/walter.png",
+		"x" : 405,
+		"y" : 0,
+		"w" : 38,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/key.png",
+		"x" : 444,
+		"y" : 0,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/battery.png",
+		"x" : 477,
+		"y" : 0,
+		"w" : 14,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/coin.png",
+		"x" : 74,
+		"y" : 49,
+		"w" : 24,
+		"h" : 24,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/waterBullet.png",
+		"x" : 99,
+		"y" : 49,
+		"w" : 22,
+		"h" : 14,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/particles/basic.png",
+		"x" : 492,
+		"y" : 0,
+		"w" : 7,
+		"h" : 7,
+		"rotated" : 0
+	}
+]
