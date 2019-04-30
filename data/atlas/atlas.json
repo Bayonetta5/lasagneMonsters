@@ -40,7 +40,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/tiles/3.png",
+		"filename" : "gfx/tiles/50.png",
 		"x" : 270,
 		"y" : 0,
 		"w" : 48,
@@ -48,8 +48,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/greenBugEyedMonster2.png",
+		"filename" : "gfx/tiles/3.png",
 		"x" : 319,
+		"y" : 0,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/greenBugEyedMonster2.png",
+		"x" : 368,
 		"y" : 0,
 		"w" : 42,
 		"h" : 42,
@@ -57,7 +65,7 @@
 	},
 	{
 		"filename" : "gfx/entities/greenBugEyedMonster1.png",
-		"x" : 362,
+		"x" : 411,
 		"y" : 0,
 		"w" : 42,
 		"h" : 42,
@@ -65,7 +73,7 @@
 	},
 	{
 		"filename" : "gfx/entities/walter.png",
-		"x" : 405,
+		"x" : 454,
 		"y" : 0,
 		"w" : 38,
 		"h" : 32,
@@ -73,18 +81,26 @@
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 444,
-		"y" : 0,
+		"x" : 0,
+		"y" : 74,
 		"w" : 32,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 477,
+		"x" : 493,
 		"y" : 0,
 		"w" : 14,
 		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/particles/alert.png",
+		"x" : 33,
+		"y" : 74,
+		"w" : 7,
+		"h" : 25,
 		"rotated" : 0
 	},
 	{
@@ -96,7 +112,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/waterBullet.png",
+		"filename" : "gfx/entities/slimeBullet.png",
 		"x" : 99,
 		"y" : 49,
 		"w" : 22,
@@ -104,9 +120,17 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/waterBullet.png",
+		"x" : 122,
+		"y" : 49,
+		"w" : 22,
+		"h" : 14,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 492,
-		"y" : 0,
+		"x" : 454,
+		"y" : 33,
 		"w" : 7,
 		"h" : 7,
 		"rotated" : 0

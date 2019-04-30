@@ -19,18 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "../json/cJSON.h"
 
-#define PLAYER_MOVE_SPEED      6
-
-extern void addDeathParticles(int x, int y);
-extern void addWaterBurstParticles(int x, int y);
-extern void clearControl(int type);
-extern AtlasImage *getAtlasImage(char *filename, int required);
-extern int isControl(int type);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
-extern void playSound(int id, int channel);
 extern Entity *spawnEntity(void);
+extern void initCoin(Entity *e);
+extern int isInsideMap(int x, int y);
+extern int getDistance(int x1, int y1, int x2, int y2);
 
 extern Entity *self;
 extern Stage stage;

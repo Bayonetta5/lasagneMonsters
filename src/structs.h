@@ -81,6 +81,7 @@ struct Entity {
 	void (*load)(cJSON *root);
 	void (*save)(cJSON *root);
 	long flags;
+	Entity *owner;
 	Entity *riding;
 	Entity *next;
 };
@@ -92,6 +93,10 @@ typedef struct {
 typedef struct {
 	int hp;
 	int maxHP;
+	int thinkTime;
+	int alertTimer;
+	int reload;
+	int shotsToFire;
 } Monster;
 
 typedef struct {

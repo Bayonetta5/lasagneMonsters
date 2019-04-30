@@ -88,6 +88,11 @@ static void touch(Entity *other)
 		
 		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
 	}
+	
+	if (other == NULL)
+	{
+		self->dx *= 0.95f;
+	}
 }
 
 static void die(void)

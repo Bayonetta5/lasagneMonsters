@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 
 static void tick(void);
+static void damage(int amount);
 static void die(void);
 static void fireWaterPistol(void);
 static void load(cJSON *root);
@@ -43,6 +44,7 @@ void initPlayer(Entity *e)
 	e->atlasImage = getAtlasImage("gfx/entities/walter.png", 1);
 	e->flags = EF_PUSH+EF_PUSHABLE+EF_SLOW_PUSH;
 	e->tick = tick;
+	e->damage = damage;
 	e->die = die;
 	e->load = load;
 	e->save = save;
@@ -105,6 +107,11 @@ static void tick(void)
 	}
 }
 
+static void damage(int amount)
+{
+	
+}
+
 static void die(void)
 {
 	addDeathParticles(self->x, self->y);
@@ -132,7 +139,7 @@ static void bulletTouch(Entity *other)
 	{
 		if (other != NULL)
 		{
-			if (other->damage)
+			if (other->damage && other != self->owner)
 			{
 				oldSelf = self;
 				
@@ -185,6 +192,7 @@ void fireWaterPistol(void)
 	e->h = e->atlasImage->rect.h;
 	e->touch = bulletTouch;
 	e->die = bulletDie;
+	e->owner = self;
 	
 	e->y += (e->h / 2);
 	
