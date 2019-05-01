@@ -20,18 +20,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define WALK_SPEED   2
 #define RUN_SPEED    4
+#define WALK_SPEED   2
 
+extern void addSlimeBurstParticles(int x, int y);
+extern void chasePlayer(int speed);
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void monsterBecomeCoins(int n);
 extern void haltAtEdge(void);
 extern int lookForPlayer(void);
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern void chasePlayer(int speed);
-extern void addSlimeBurstParticles(int x, int y);
-extern Entity *spawnEntity(void);
+extern void monsterBecomeCoins(int n);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern Entity *spawnEntity(void);
 
 extern Entity *self;
 extern Stage stage;

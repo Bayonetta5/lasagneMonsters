@@ -20,8 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern Entity *spawnEntity(void);
 extern void initCoin(Entity *e);
+extern Entity *spawnEntity(void);
 
 extern Entity *self;
-extern Stage stage;

@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../json/cJSON.h"
 
 extern void initCoin(Entity *e);
-extern void initKey(Entity *e);
-extern void initPlayer(Entity *e);
 extern void initGreenBugEyedMonster(Entity *e);
 extern void initGreenHorse(Entity *e);
+extern void initKey(Entity *e);
+extern void initPlayer(Entity *e);
 
 extern Entity *self;
 extern Stage stage;

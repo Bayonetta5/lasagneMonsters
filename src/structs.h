@@ -91,8 +91,8 @@ typedef struct {
 } Item;
 
 typedef struct {
-	int hp;
-	int maxHP;
+	int health;
+	int maxHealth;
 	int thinkTime;
 	int alertTimer;
 	int reload;
@@ -100,11 +100,15 @@ typedef struct {
 } Monster;
 
 typedef struct {
-	int hp;
-	int maxHP;
+	int health;
+	int maxHealth;
 	int action;
 	int reload;
 } Walter;
+
+typedef struct {
+	int health;
+} Bullet;
 
 struct Particle {
 	float x;

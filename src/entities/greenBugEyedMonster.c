@@ -36,7 +36,7 @@ void initGreenBugEyedMonster(Entity *e)
 	m = malloc(sizeof(Monster));
 	memset(m, 0, sizeof(Monster));
 	
-	m->hp = m->maxHP = 10;
+	m->health = m->maxHealth = 10;
 	
 	e->typeName = "greenBugEyedMonster";
 	e->type = ET_MONSTER;
@@ -242,9 +242,9 @@ static void damage(int amount)
 	
 	m = (Monster*)self->data;
 	
-	m->hp -= amount;
+	m->health -= amount;
 	
-	if (m->hp <= 0)
+	if (m->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
 	}

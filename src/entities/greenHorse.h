@@ -23,10 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define WALK_SPEED   2
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void monsterBecomeCoins(int n);
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void haltAtEdge(void);
+extern void monsterBecomeCoins(int n);
 extern void throwPusBalls(int n, int x, int y);
 
 extern Entity *self;
-extern Stage stage;

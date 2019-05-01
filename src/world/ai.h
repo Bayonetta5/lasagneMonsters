@@ -20,10 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern Entity *spawnEntity(void);
-extern void initCoin(Entity *e);
-extern int isInsideMap(int x, int y);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern int isInsideMap(int x, int y);
 
 extern Entity *self;
 extern Stage stage;

@@ -105,7 +105,8 @@ void initGame(void)
 		initWidgets,
 		initEntityFactory,
 		initParticles,
-		initEffects
+		initEffects,
+		initBullets
 	};
 	
 	srand(time(NULL));

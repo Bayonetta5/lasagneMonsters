@@ -23,11 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void tick(void);
 static void damage(int amount);
 static void die(void);
-static void fireWaterPistol(void);
 static void load(cJSON *root);
 static void save(cJSON *root);
-
-static AtlasImage *bulletTexture;
 
 void initPlayer(Entity *e)
 {
@@ -38,7 +35,7 @@ void initPlayer(Entity *e)
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
 	
-	w->hp = w->maxHP = 10;
+	w->health = w->maxHealth = 10;
 	
 	e->typeName = "player";
 	e->data = w;
@@ -53,8 +50,6 @@ void initPlayer(Entity *e)
 	
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	
-	bulletTexture = getAtlasImage("gfx/entities/waterBullet.png", 1);
 }
 
 static void tick(void)
@@ -95,7 +90,7 @@ static void tick(void)
 		{
 			clearControl(CONTROL_FIRE);
 			
-			fireWaterPistol();
+			initWaterBullet(self);
 			
 			playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, stage.player->x, stage.player->y);
 		}
@@ -115,9 +110,9 @@ static void damage(int amount)
 	
 	w = (Walter*)self->data;
 	
-	w->hp -= amount;
+	w->health -= amount;
 	
-	if (w->hp <= 0)
+	if (w->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
 	}
@@ -138,77 +133,4 @@ static void load(cJSON *root)
 static void save(cJSON *root)
 {
 	cJSON_AddStringToObject(root, "facing", self->facing == 0 ? "left" : "right");
-}
-
-/* === Water pistol bullets === */
-
-static void bulletTouch(Entity *other)
-{
-	Entity *oldSelf;
-	
-	if (self->alive == ALIVE_ALIVE)
-	{
-		if (other != NULL)
-		{
-			if (other->damage && other != self->owner)
-			{
-				oldSelf = self;
-				
-				self = other;
-				
-				other->damage(1);
-				
-				self = oldSelf;
-				
-				self->alive = ALIVE_DEAD;
-				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
-			}
-			else if (other->flags & EF_SOLID)
-			{
-				self->alive = ALIVE_DEAD;
-				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
-			}
-		}
-		else
-		{
-			self->alive = ALIVE_DEAD;
-			
-			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
-		}
-	}
-}
-
-static void bulletDie(void)
-{
-	addWaterBurstParticles(self->x, self->y);
-}
-
-void fireWaterPistol(void)
-{
-	Entity *e;
-	
-	e = spawnEntity();
-	
-	e->type = ET_BULLET;
-	e->typeName = "bullet";
-	e->x = self->x;
-	e->y = self->y;
-	e->facing = self->facing;
-	e->dx = self->facing ? 12 : -12;
-	e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE;
-	e->atlasImage = bulletTexture;
-	e->w = e->atlasImage->rect.w;
-	e->h = e->atlasImage->rect.h;
-	e->touch = bulletTouch;
-	e->die = bulletDie;
-	e->owner = self;
-	
-	e->y += (e->h / 2);
-	
-	if (e->facing)
-	{
-		e->x += self->w;
-	}
 }
