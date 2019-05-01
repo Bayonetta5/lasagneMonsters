@@ -104,7 +104,8 @@ void initGame(void)
 		initJoypad,
 		initWidgets,
 		initEntityFactory,
-		initParticles
+		initParticles,
+		initEffects
 	};
 	
 	srand(time(NULL));

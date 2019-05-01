@@ -34,6 +34,7 @@ void initEntityFactory(void)
 	addInitFunc("coin", initCoin);
 	addInitFunc("key", initKey);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
+	addInitFunc("greenHorse", initGreenHorse);
 	
 	entityId = 0;
 }

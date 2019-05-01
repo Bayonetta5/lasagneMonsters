@@ -38,6 +38,8 @@ void initPlayer(Entity *e)
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
 	
+	w->hp = w->maxHP = 10;
+	
 	e->typeName = "player";
 	e->data = w;
 	e->type = ET_PLAYER;
@@ -109,7 +111,16 @@ static void tick(void)
 
 static void damage(int amount)
 {
+	Walter *w;
 	
+	w = (Walter*)self->data;
+	
+	w->hp -= amount;
+	
+	if (w->hp <= 0)
+	{
+		self->alive = ALIVE_DEAD;
+	}
 }
 
 static void die(void)

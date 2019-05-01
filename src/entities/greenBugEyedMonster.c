@@ -36,7 +36,7 @@ void initGreenBugEyedMonster(Entity *e)
 	m = malloc(sizeof(Monster));
 	memset(m, 0, sizeof(Monster));
 	
-	m->hp = m->maxHP = 1;
+	m->hp = m->maxHP = 10;
 	
 	e->typeName = "greenBugEyedMonster";
 	e->type = ET_MONSTER;
@@ -57,8 +57,6 @@ static void tick(void)
 	Monster *m;
 	
 	m = (Monster*)self->data;
-	
-	m->thinkTime = MAX(m->thinkTime - 1, 0);
 	
 	lookForPlayer();
 	
@@ -101,6 +99,15 @@ static void chase(void)
 	m = (Monster*)self->data;
 	
 	chasePlayer(RUN_SPEED);
+	
+	if (self->dx < 0)
+	{
+		self->facing = 0;
+	}
+	else if (self->dx > 0)
+	{
+		self->facing = 1;
+	}
 	
 	haltAtEdge();
 	
@@ -189,34 +196,37 @@ static void spit(void)
 	
 	if (m->reload == 0)
 	{
-		e = spawnEntity();
-	
-		e->type = ET_BULLET;
-		e->typeName = "bullet";
-		e->x = self->x;
-		e->y = self->y;
-		e->facing = self->facing;
-		e->dx = self->facing ? 12 : -12;
-		e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE;
-		e->atlasImage = bulletTexture;
-		e->w = e->atlasImage->rect.w;
-		e->h = e->atlasImage->rect.h;
-		e->touch = bulletTouch;
-		e->die = bulletDie;
-		e->owner = self;
-		
-		e->y += (e->h / 2);
-		
-		if (e->facing)
+		if (abs(self->y - stage.player->y) <= TILE_SIZE / 2)
 		{
-			e->x += self->w;
-		}
+			e = spawnEntity();
 		
-		m->reload = FPS / 2;
-		
-		if (--m->shotsToFire <= 0)
-		{
-			self->tick = tick;
+			e->type = ET_BULLET;
+			e->typeName = "bullet";
+			e->x = self->x;
+			e->y = self->y;
+			e->facing = self->facing;
+			e->dx = self->facing ? 12 : -12;
+			e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE;
+			e->atlasImage = bulletTexture;
+			e->w = e->atlasImage->rect.w;
+			e->h = e->atlasImage->rect.h;
+			e->touch = bulletTouch;
+			e->die = bulletDie;
+			e->owner = self;
+			
+			e->y += (e->h / 2);
+			
+			if (e->facing)
+			{
+				e->x += self->w;
+			}
+			
+			m->reload = FPS / 2;
+			
+			if (--m->shotsToFire <= 0)
+			{
+				self->tick = tick;
+			}
 		}
 	}
 	
@@ -244,11 +254,11 @@ static void touch(Entity *other)
 {
 	if (other == stage.player)
 	{
-		other->damage(2);
+		stage.player->damage(2);
 	}
 }
 
 static void die(void)
 {
-	monsterBecomeCoins(10);
+	monsterBecomeCoins(1 + rand() % 2);
 }

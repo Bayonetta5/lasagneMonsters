@@ -72,16 +72,24 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/walter.png",
+		"filename" : "gfx/entities/greenHorse1.png",
 		"x" : 454,
 		"y" : 0,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/walter.png",
+		"x" : 0,
+		"y" : 74,
 		"w" : 38,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 0,
+		"x" : 39,
 		"y" : 74,
 		"w" : 32,
 		"h" : 32,
@@ -89,7 +97,7 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 493,
+		"x" : 487,
 		"y" : 0,
 		"w" : 14,
 		"h" : 32,
@@ -97,8 +105,8 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 33,
-		"y" : 74,
+		"x" : 502,
+		"y" : 0,
 		"w" : 7,
 		"h" : 25,
 		"rotated" : 0
@@ -128,8 +136,32 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/particles/basic.png",
+		"filename" : "gfx/entities/pusBall3.png",
 		"x" : 454,
+		"y" : 33,
+		"w" : 8,
+		"h" : 8,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/pusBall2.png",
+		"x" : 463,
+		"y" : 33,
+		"w" : 8,
+		"h" : 8,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/pusBall1.png",
+		"x" : 472,
+		"y" : 33,
+		"w" : 8,
+		"h" : 8,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/particles/basic.png",
+		"x" : 481,
 		"y" : 33,
 		"w" : 7,
 		"h" : 7,

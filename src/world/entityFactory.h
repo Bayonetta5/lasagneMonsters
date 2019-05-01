@@ -25,6 +25,7 @@ extern void initCoin(Entity *e);
 extern void initKey(Entity *e);
 extern void initPlayer(Entity *e);
 extern void initGreenBugEyedMonster(Entity *e);
+extern void initGreenHorse(Entity *e);
 
 extern Entity *self;
 extern Stage stage;

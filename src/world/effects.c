@@ -18,29 +18,36 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+#include "effects.h"
 
-#include <time.h>
+static AtlasImage *pusBallTexture[3];
 
-#include "../common.h"
+void initEffects(void)
+{
+	pusBallTexture[0] = getAtlasImage("gfx/entities/pusBall1.png", 1);
+	pusBallTexture[1] = getAtlasImage("gfx/entities/pusBall2.png", 1);
+	pusBallTexture[2] = getAtlasImage("gfx/entities/pusBall3.png", 1);
+}
 
-extern void createSaveFolder(void);
-extern void destroySounds(void);
-extern void destroyTextures(void);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void initAtlas(void);
-extern void initEntityFactory(void);
-extern void initFonts(void);
-extern void initGraphics(void);
-extern void initLookups(void);
-extern void initParticles(void);
-extern void initSounds(void);
-extern void initWidgets(void);
-extern void initEffects(void);
-extern void loadConfig(void);
-extern void prepareScene(void);
-extern void presentScene(void);
-
-extern App app;
+void throwPusBalls(int n, int x, int y)
+{
+	Entity *e;
+	int i;
+	
+	for (i = 0 ; i < n ; i++)
+	{
+		e = spawnEntity();
+		
+		initPusBall(e);
+		
+		e->x = x;
+		e->y = y;
+		e->dx = (rand() % 500) - (rand() % 500);
+		e->dx /= 100;
+		
+		e->dy = -(1000 + rand() % 1000);
+		e->dy /= 100;
+		
+		e->atlasImage = pusBallTexture[rand() % 3];
+	}
+}

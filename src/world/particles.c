@@ -134,30 +134,52 @@ void addPowerupParticles(int x, int y)
 	}
 }
 
-void addToiletSplashParticles(int x, int y)
+void addPusParticle(int x, int y)
+{
+	Particle *p;
+	
+	p = spawnParticle();
+	
+	p->x = x;
+	p->y = y;
+	
+	p->atlasImage = basicTexture;
+	
+	p->life = 15 + rand() % 30;
+	
+	p->color.r = 240;
+	p->color.g = 240;
+	p->color.b = 200;
+	p->color.a = 255;
+}
+
+void addPusBurstParticles(int x, int y)
 {
 	Particle *p;
 	int i;
 	
-	for (i = 0 ; i < 20 ; i++)
+	for (i = 0 ; i < 25 ; i++)
 	{
 		p = spawnParticle();
 		
 		p->x = x;
 		p->y = y;
 		
-		p->dx = 150 - (rand() % 300);
+		p->dx = 200 - (rand() % 400);
 		p->dx /= 100;
 		
-		p->dy = -(200 + rand() % 400);
+		p->dy = 200 - (rand() % 400);
 		p->dy /= 100;
 		
 		p->atlasImage = basicTexture;
 		
-		p->life = 15 + rand() % 30;
+		p->life = 15 + rand() % 15;
+		p->weightless = 1;
 		
-		p->color.b = 255;
-		p->color.r = p->color.g = 128 + rand() % 128;
+		p->color.r = 240;
+		p->color.g = 240;
+		p->color.b = 200;
+		p->color.a = 255;
 	}
 }
 

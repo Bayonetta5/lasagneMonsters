@@ -18,29 +18,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+#include "pusBall.h"
 
-#include <time.h>
+static void tick(void);
+static void touch(Entity *other);
 
-#include "../common.h"
+void initPusBall(Entity *e)
+{
+	e->tick = tick;
+	e->touch = touch;
+}
 
-extern void createSaveFolder(void);
-extern void destroySounds(void);
-extern void destroyTextures(void);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void initAtlas(void);
-extern void initEntityFactory(void);
-extern void initFonts(void);
-extern void initGraphics(void);
-extern void initLookups(void);
-extern void initParticles(void);
-extern void initSounds(void);
-extern void initWidgets(void);
-extern void initEffects(void);
-extern void loadConfig(void);
-extern void prepareScene(void);
-extern void presentScene(void);
+static void tick(void)
+{
+	addPusParticle(self->x, self->y);
+}
 
-extern App app;
+static void touch(Entity *other)
+{
+	if (other == NULL)
+	{
+		self->alive = ALIVE_DEAD;
+		
+		addPusBurstParticles(self->x, self->y);
+	}
+}
