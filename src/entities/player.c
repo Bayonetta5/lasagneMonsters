@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 
 static void tick(void);
+static void draw(void);
 static void damage(int amount);
 static void die(void);
 static void load(cJSON *root);
@@ -43,6 +44,7 @@ void initPlayer(Entity *e)
 	e->atlasImage = getAtlasImage("gfx/entities/walter.png", 1);
 	e->flags = EF_PUSH+EF_PUSHABLE+EF_SLOW_PUSH;
 	e->tick = tick;
+	e->draw = draw;
 	e->damage = damage;
 	e->die = die;
 	e->load = load;
@@ -60,6 +62,8 @@ static void tick(void)
 	
 	self->dx = 0;
 	w->action = 0;
+	
+	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	
 	if (self->alive == ALIVE_ALIVE)
 	{
@@ -104,17 +108,34 @@ static void tick(void)
 	}
 }
 
+static void draw(void)
+{
+	Walter *w;
+	
+	w = (Walter*)self->data;
+	
+	if (w->immuneTimer % 5 == 0)
+	{
+		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	}
+}
+
 static void damage(int amount)
 {
 	Walter *w;
 	
 	w = (Walter*)self->data;
 	
-	w->health -= amount;
-	
-	if (w->health <= 0)
+	if (w->immuneTimer == 0)
 	{
-		self->alive = ALIVE_DEAD;
+		w->health -= amount;
+		
+		if (w->health <= 0)
+		{
+			self->alive = ALIVE_DEAD;
+		}
+		
+		w->immuneTimer = FPS;
 	}
 }
 

@@ -229,7 +229,15 @@ static void moveToWorld(Entity *e, float dx, float dy)
 			
 			e->dy = 0;
 			
-			e->isOnGround = dy > 0;
+			if (dy > 0)
+			{
+				e->isOnGround = 1;
+				
+				if (e->flags & EF_FRICTION)
+				{
+					e->dx *= 0.975;
+				}
+			}
 		}
 	}
 	

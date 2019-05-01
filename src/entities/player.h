@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define PLAYER_MOVE_SPEED      6
 
 extern void addDeathParticles(int x, int y);
+extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void clearControl(int type);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void initWaterBullet(Entity *owner);

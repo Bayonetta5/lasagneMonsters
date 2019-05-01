@@ -28,7 +28,7 @@ extern void chasePlayer(int speed);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void haltAtEdge(void);
 extern int lookForPlayer(void);
-extern void monsterBecomeCoins(int n);
+extern void throwCoins(int x, int y, int n);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern Entity *spawnEntity(void);
 

@@ -19,28 +19,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "monsters.h"
-
-void monsterBecomeCoins(int n)
-{
-	Entity *e;
-	int i;
-	
-	for (i = 0 ; i < n ; i++)
-	{
-		e = spawnEntity();
-		e->x = self->x + (self->w / 2);
-		e->y = self->y;
-		
-		initCoin(e);
-		
-		e->dx = (rand() % 500) - (rand() % 500);
-		e->dy = -(700 + rand() % 700);
-		
-		e->dx /= 100;
-		e->dy /= 100;
-		
-		e->tick = NULL;
-		
-		e->flags &= ~(EF_STATIC|EF_WEIGHTLESS);
-	}
-}

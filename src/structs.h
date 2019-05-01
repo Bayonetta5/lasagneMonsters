@@ -88,6 +88,9 @@ struct Entity {
 
 typedef struct {
 	float bobValue;
+	int health;
+	int value;
+	int dying;
 } Item;
 
 typedef struct {
@@ -100,6 +103,7 @@ typedef struct {
 } Monster;
 
 typedef struct {
+	int immuneTimer;
 	int health;
 	int maxHealth;
 	int action;

@@ -72,8 +72,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/greenHorse1.png",
+		"filename" : "gfx/entities/beer.png",
 		"x" : 454,
+		"y" : 0,
+		"w" : 20,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/greenHorse1.png",
+		"x" : 475,
 		"y" : 0,
 		"w" : 32,
 		"h" : 32,
@@ -97,15 +105,31 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 487,
-		"y" : 0,
+		"x" : 72,
+		"y" : 74,
 		"w" : 14,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/chocolate.png",
+		"x" : 87,
+		"y" : 74,
+		"w" : 20,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/apple.png",
+		"x" : 108,
+		"y" : 74,
+		"w" : 24,
+		"h" : 30,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 72,
+		"x" : 133,
 		"y" : 74,
 		"w" : 26,
 		"h" : 26,
@@ -113,7 +137,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 99,
+		"x" : 160,
 		"y" : 74,
 		"w" : 26,
 		"h" : 26,
@@ -121,8 +145,8 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 502,
-		"y" : 0,
+		"x" : 187,
+		"y" : 74,
 		"w" : 7,
 		"h" : 25,
 		"rotated" : 0

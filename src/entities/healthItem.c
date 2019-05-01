@@ -18,25 +18,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "coin.h"
+
+#include "healthItem.h"
 
 static void tick(void);
 static void draw(void);
 static void touch(Entity *other);
 
-static AtlasImage *coinTexture = NULL;
-static AtlasImage *sparkleTexture = NULL;
+static AtlasImage *appleTexture = NULL;
+static AtlasImage *chocolateTexture = NULL;
+static AtlasImage *beerTexture = NULL;
 
-void initCoin(Entity *e)
+void initHealthItem(Entity *e)
 {
 	Item *i;
+	int n;
 	
 	i = malloc(sizeof(Item));
 	memset(i, 0, sizeof(Item));
 	
 	i->health = FPS * 5;
 	
-	e->typeName = "coin";
+	e->typeName = "health";
 	e->type = ET_ITEM;
 	e->data = i;
 	e->flags = EF_DELETE+EF_FRICTION;
@@ -44,13 +47,31 @@ void initCoin(Entity *e)
 	e->draw = draw;
 	e->touch = touch;
 	
-	if (coinTexture == NULL)
+	if (appleTexture == NULL)
 	{
-		coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
+		appleTexture = getAtlasImage("gfx/entities/apple.png", 1);
+		chocolateTexture = getAtlasImage("gfx/entities/chocolate.png", 1);
+		beerTexture = getAtlasImage("gfx/entities/beer.png", 1);
 	}
 	
-	e->atlasImage = coinTexture;
+	n = rand() % 25;
+	
+	if (n == 0)
+	{
+		e->atlasImage = beerTexture;
+		i->value = 5;
+	}
+	else if (n < 10)
+	{
+		e->atlasImage = chocolateTexture;
+		i->value = 2;
+	}
+	else
+	{
+		e->atlasImage = appleTexture;
+		i->value = 1;
+	}
+	
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 }
@@ -69,30 +90,29 @@ static void tick(void)
 
 static void draw(void)
 {
-	int x, y;
+	Item *i;
 	
-	x = self->x + (self->w / 2) - stage.camera.x;
-	y = self->y + (self->h / 2) - stage.camera.y;
-		
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 0);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
+	i = (Item*)self->data;
 	
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-	
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
-	
-	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	if (i->health > FPS * 2 || (i->health < FPS * 2 && i->health % 5 == 0))
+	{
+		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	}
 }
 
 static void touch(Entity *other)
 {
+	Item *i;
+	Walter *w;
+	
 	if (self->alive == ALIVE_ALIVE && other == stage.player)
 	{
+		i = (Item*)self->data;
+		
+		w = (Walter*)other->data;
+		
+		w->health = MIN(w->health + i->value, w->maxHealth);
+		
 		self->alive = ALIVE_DEAD;
-		
-		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
-		
-		addCoinParticles(self->x + self->w / 2, self->y + self->h / 2);
 	}
 }

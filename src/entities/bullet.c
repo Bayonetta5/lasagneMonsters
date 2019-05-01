@@ -65,8 +65,6 @@ static void tick(void)
 	
 	if (--b->health <= 0)
 	{
-		self->die = NULL;
-		
 		self->alive = ALIVE_DEAD;
 	}
 }
@@ -91,27 +89,24 @@ static void touch(Entity *other)
 				
 				self->alive = ALIVE_DEAD;
 				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
 			}
 			else if (other->flags & EF_SOLID)
 			{
 				self->alive = ALIVE_DEAD;
-				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
 			}
 		}
 		else
 		{
 			self->alive = ALIVE_DEAD;
-			
+		}
+		
+		if (self->alive == ALIVE_DEAD)
+		{
 			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
+			
+			addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
 		}
 	}
-}
-
-static void die(void)
-{
-	addWaterBurstParticles(self->x, self->y);
 }
 
 static Entity *initBullet(Entity *owner)
@@ -138,7 +133,6 @@ static Entity *initBullet(Entity *owner)
 	
 	e->tick = tick;
 	e->touch = touch;
-	e->die = die;
 	
 	if (e->facing)
 	{

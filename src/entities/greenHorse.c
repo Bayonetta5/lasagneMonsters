@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "greenHorse.h"
 
 static void tick(void);
+static void touch(Entity *other);
 static void damage(int amount);
 static void die(void);
 
@@ -40,6 +41,7 @@ void initGreenHorse(Entity *e)
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->tick = tick;
+	e->touch = touch;
 	e->damage = damage;
 	e->die = die;
 }
@@ -78,6 +80,22 @@ static void tick(void)
 	haltAtEdge();
 }
 
+static void touch(Entity *other)
+{
+	Entity *oldSelf;
+	
+	if (other == stage.player)
+	{
+		oldSelf = self;
+		
+		self = other;
+		
+		stage.player->damage(1);
+		
+		self = oldSelf;
+	}
+}
+
 static void damage(int amount)
 {
 	Monster *m;
@@ -94,7 +112,12 @@ static void damage(int amount)
 
 static void die(void)
 {
-	throwPusBalls(8, self->x, self->y);
+	throwPusBalls(self->x, self->y, 8);
 	
-	monsterBecomeCoins(1 + rand() % 2);
+	throwCoins(self->x, self->y, 1 + rand() % 2);
+	
+	if (rand() % 5 == 0)
+	{
+		spawnRandomHealthItem(self->x, self->y);
+	}
 }

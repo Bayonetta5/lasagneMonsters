@@ -260,5 +260,5 @@ static void touch(Entity *other)
 
 static void die(void)
 {
-	monsterBecomeCoins(1 + rand() % 2);
+	throwCoins(self->x, self->y, 1 + rand() % 2);
 }
