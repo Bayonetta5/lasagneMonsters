@@ -44,6 +44,8 @@ void initGreenHorse(Entity *e)
 	e->touch = touch;
 	e->damage = damage;
 	e->die = die;
+	
+	stage.numMonsters = ++stage.totalMonsters;
 }
 
 static void tick(void)
@@ -120,4 +122,6 @@ static void die(void)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
+	
+	stage.numMonsters--;
 }

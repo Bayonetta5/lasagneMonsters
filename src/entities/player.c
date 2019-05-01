@@ -66,7 +66,7 @@ static void tick(void)
 	
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	w->reload = MAX(w->reload - 1, 0);
-	w->ammo = MIN(w->ammo + 0.1f, w->maxAmmo);
+	w->ammo = MIN(w->ammo + 0.05f, w->maxAmmo);
 	
 	if (self->alive == ALIVE_ALIVE)
 	{
@@ -99,7 +99,7 @@ static void tick(void)
 			
 			if (w->ammo > 0)
 			{
-				w->ammo -= 2;
+				w->ammo--;
 				
 				/* don't let the player fire too quickly */
 				w->reload = 4;

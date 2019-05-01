@@ -120,8 +120,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/apple.png",
+		"filename" : "gfx/hud/monsters.png",
 		"x" : 108,
+		"y" : 74,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/apple.png",
+		"x" : 141,
 		"y" : 74,
 		"w" : 24,
 		"h" : 30,
@@ -129,7 +137,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 133,
+		"x" : 166,
 		"y" : 74,
 		"w" : 26,
 		"h" : 26,
@@ -137,7 +145,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 160,
+		"x" : 193,
 		"y" : 74,
 		"w" : 26,
 		"h" : 26,
@@ -145,7 +153,7 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 187,
+		"x" : 220,
 		"y" : 74,
 		"w" : 7,
 		"h" : 25,
@@ -160,8 +168,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/slimeBullet.png",
+		"filename" : "gfx/hud/water.png",
 		"x" : 99,
+		"y" : 49,
+		"w" : 14,
+		"h" : 22,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/slimeBullet.png",
+		"x" : 114,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,
@@ -169,7 +185,7 @@
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 122,
+		"x" : 137,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,

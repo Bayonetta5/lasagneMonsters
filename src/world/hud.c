@@ -22,14 +22,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void drawHealth(void);
 static void drawAmmo(void);
+static void drawCoins(void);
+static void drawMonsterInfo(void);
 
-static AtlasImage *heartFull;
-static AtlasImage *heartEmpty;
+static AtlasImage *heartFullTexture;
+static AtlasImage *heartEmptyTexture;
+static AtlasImage *coinTexture;
+static AtlasImage *waterTexture;
+static AtlasImage *monstersTexture;
 
 void initHud(void)
 {
-	heartFull = getAtlasImage("gfx/hud/heartFull.png", 1);
-	heartEmpty = getAtlasImage("gfx/hud/heartEmpty.png", 1);
+	heartFullTexture = getAtlasImage("gfx/hud/heartFull.png", 1);
+	heartEmptyTexture = getAtlasImage("gfx/hud/heartEmpty.png", 1);
+	coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
+	waterTexture = getAtlasImage("gfx/hud/water.png", 1);
+	monstersTexture = getAtlasImage("gfx/hud/monsters.png", 1);
 }
 
 void drawHud(void)
@@ -39,6 +47,10 @@ void drawHud(void)
 	drawHealth();
 	
 	drawAmmo();
+	
+	drawCoins();
+	
+	drawMonsterInfo();
 }
 
 static void drawHealth(void)
@@ -54,11 +66,11 @@ static void drawHealth(void)
 	{
 		if (w->health > i)
 		{
-			blitAtlasImage(heartFull, x, 8, 0, SDL_FLIP_NONE);
+			blitAtlasImage(heartFullTexture, x, 8, 0, SDL_FLIP_NONE);
 		}
 		else
 		{
-			blitAtlasImage(heartEmpty, x, 8, 0, SDL_FLIP_NONE);
+			blitAtlasImage(heartEmptyTexture, x, 8, 0, SDL_FLIP_NONE);
 		}
 		
 		x += 32;
@@ -70,12 +82,28 @@ static void drawAmmo(void)
 	Walter *w;
 	int width, maxWidth;
 	
+	blitAtlasImage(waterTexture, 400, 8, 0, SDL_FLIP_NONE);
+	
 	w = (Walter*)stage.player->data;
 	
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
 	
-	drawRect(400, 12, maxWidth, 16, 0, 200, 255, 128);
-	drawRect(400, 12, width, 16, 0, 200, 255, 255);
-	drawOutlineRect(400, 12, maxWidth, 16, 0, 0, 0, 255);
+	drawRect(432, 12, maxWidth, 16, 0, 200, 255, 128);
+	drawRect(432, 12, width, 16, 0, 200, 255, 255);
+	drawOutlineRect(432, 12, maxWidth, 16, 0, 0, 0, 255);
+}
+
+static void drawCoins(void)
+{
+	blitAtlasImage(coinTexture, 800, 8, 0, SDL_FLIP_NONE);
+	
+	drawText(832, 6, 32, TEXT_LEFT, app.colors.white, "x %03d", game.coins);
+}
+	
+static void drawMonsterInfo(void)
+{
+	blitAtlasImage(monstersTexture, 1100, 4, 0, SDL_FLIP_NONE);
+	
+	drawText(1152, 6, 32, TEXT_LEFT, app.colors.white, "%d / %d", stage.totalMonsters - stage.numMonsters, stage.totalMonsters);
 }

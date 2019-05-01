@@ -24,5 +24,8 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 
+extern App app;
+extern Game game;
 extern Stage stage;

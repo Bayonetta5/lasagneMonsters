@@ -50,6 +50,8 @@ void initGreenBugEyedMonster(Entity *e)
 	e->die = die;
 	
 	bulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
+	
+	stage.numMonsters = ++stage.totalMonsters;
 }
 
 static void tick(void)
@@ -261,4 +263,6 @@ static void touch(Entity *other)
 static void die(void)
 {
 	throwCoins(self->x, self->y, 1 + rand() % 2);
+	
+	stage.numMonsters--;
 }

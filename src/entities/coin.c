@@ -70,6 +70,9 @@ static void tick(void)
 static void draw(void)
 {
 	int x, y;
+	Item *i;
+	
+	i = (Item*)self->data;
 	
 	x = self->x + (self->w / 2) - stage.camera.x;
 	y = self->y + (self->h / 2) - stage.camera.y;
@@ -82,7 +85,10 @@ static void draw(void)
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
 	
-	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
+	{
+		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	}
 }
 
 static void touch(Entity *other)
@@ -94,5 +100,7 @@ static void touch(Entity *other)
 		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
 		
 		addCoinParticles(self->x + self->w / 2, self->y + self->h / 2);
+		
+		game.coins++;
 	}
 }

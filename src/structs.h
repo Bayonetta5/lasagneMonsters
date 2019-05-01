@@ -139,6 +139,7 @@ struct Quadtree {
 typedef struct {
 	int num;
 	int map[MAP_WIDTH][MAP_HEIGHT];
+	int numMonsters, totalMonsters;
 	AtlasImage *tiles[MAX_TILES];
 	Entity entityHead, *entityTail;
 	Entity *player;
@@ -155,6 +156,7 @@ typedef struct {
 } Stage;
 
 typedef struct {
+	unsigned int coins;
 	unsigned int stats[STAT_MAX];
 } Game;
 
