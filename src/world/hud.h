@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
+extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 
 extern Stage stage;

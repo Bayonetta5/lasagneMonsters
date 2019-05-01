@@ -37,6 +37,7 @@ void initPlayer(Entity *e)
 	memset(w, 0, sizeof(Walter));
 	
 	w->health = w->maxHealth = 5;
+	w->ammo = w->maxAmmo = 5;
 	
 	e->typeName = "player";
 	e->data = w;
@@ -64,6 +65,8 @@ static void tick(void)
 	w->action = 0;
 	
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
+	w->reload = MAX(w->reload - 1, 0);
+	w->ammo = MIN(w->ammo + 0.1f, w->maxAmmo);
 	
 	if (self->alive == ALIVE_ALIVE)
 	{
@@ -94,9 +97,17 @@ static void tick(void)
 		{
 			clearControl(CONTROL_FIRE);
 			
-			initWaterBullet(self);
-			
-			playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, stage.player->x, stage.player->y);
+			if (w->ammo > 0)
+			{
+				w->ammo -= 2;
+				
+				/* don't let the player fire too quickly */
+				w->reload = 4;
+				
+				initWaterBullet(self);
+				
+				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, stage.player->x, stage.player->y);
+			}
 		}
 		
 		if (isControl(CONTROL_USE))

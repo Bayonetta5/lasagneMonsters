@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "hud.h"
 
 static void drawHealth(void);
+static void drawAmmo(void);
 
 static AtlasImage *heartFull;
 static AtlasImage *heartEmpty;
@@ -36,6 +37,8 @@ void drawHud(void)
 	drawRect(0, 0, SCREEN_WIDTH, 40, 0, 0, 0, 128);
 	
 	drawHealth();
+	
+	drawAmmo();
 }
 
 static void drawHealth(void)
@@ -60,4 +63,19 @@ static void drawHealth(void)
 		
 		x += 32;
 	}
+}
+
+static void drawAmmo(void)
+{
+	Walter *w;
+	int width, maxWidth;
+	
+	w = (Walter*)stage.player->data;
+	
+	maxWidth = MAX(w->maxAmmo * 25, 0);
+	width = MAX(w->ammo * 25, 0);
+	
+	drawRect(400, 12, maxWidth, 16, 0, 200, 255, 128);
+	drawRect(400, 12, width, 16, 0, 200, 255, 255);
+	drawOutlineRect(400, 12, maxWidth, 16, 0, 0, 0, 255);
 }

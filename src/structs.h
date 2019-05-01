@@ -104,9 +104,9 @@ typedef struct {
 
 typedef struct {
 	int immuneTimer;
-	int health;
-	int maxHealth;
+	int health, maxHealth;
 	int action;
+	float ammo, maxAmmo;
 	int reload;
 } Walter;
 
