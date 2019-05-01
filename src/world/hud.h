@@ -18,31 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
-
-#include <time.h>
-
 #include "../common.h"
 
-extern void createSaveFolder(void);
-extern void destroySounds(void);
-extern void destroyTextures(void);
+extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void initAtlas(void);
-extern void initBullets(void);
-extern void initEffects(void);
-extern void initEntityFactory(void);
-extern void initFonts(void);
-extern void initGraphics(void);
-extern void initHud(void);
-extern void initLookups(void);
-extern void initParticles(void);
-extern void initSounds(void);
-extern void initWidgets(void);
-extern void loadConfig(void);
-extern void prepareScene(void);
-extern void presentScene(void);
+extern AtlasImage *getAtlasImage(char *filename, int required);
 
-extern App app;
+extern Stage stage;

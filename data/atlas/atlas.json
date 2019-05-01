@@ -104,6 +104,22 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/hud/heartEmpty.png",
+		"x" : 72,
+		"y" : 74,
+		"w" : 26,
+		"h" : 26,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/heartFull.png",
+		"x" : 99,
+		"y" : 74,
+		"w" : 26,
+		"h" : 26,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/particles/alert.png",
 		"x" : 502,
 		"y" : 0,

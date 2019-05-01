@@ -39,6 +39,7 @@ extern void doParticles(void);
 extern void doWidgets(const char *groupName);
 extern int doWipe(void);
 extern void drawEntities(int background);
+extern void drawHud(void);
 extern void drawMap(void);
 extern void drawParticles(void);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);

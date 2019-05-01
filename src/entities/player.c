@@ -35,7 +35,7 @@ void initPlayer(Entity *e)
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
 	
-	w->health = w->maxHealth = 10;
+	w->health = w->maxHealth = 5;
 	
 	e->typeName = "player";
 	e->data = w;

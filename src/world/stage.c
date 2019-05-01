@@ -23,7 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void logic(void);
 static void draw(void);
 static void drawBackground(void);
-static void drawHud(void);
 static void doControls(void);
 static void initBackgroundData(void);
 static void doGame(void);
@@ -252,11 +251,6 @@ static void drawBackground(void)
 		
 		my++;
 	}
-}
-
-static void drawHud(void)
-{
-	
 }
 
 void destroyStage(void)
