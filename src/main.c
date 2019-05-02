@@ -81,17 +81,22 @@ static void handleCommandLine(int argc, char *argv[])
 {
 	int i;
 	
+	stage.num = 1;
+	
+	initStage();
+	
 	for (i = 1 ; i < argc ; i++)
 	{
 		if (strcmp(argv[i], "-debug") == 0)
 		{
 			app.dev.debug = 1;
 		}
+		
+		if (strcmp(argv[i], "-stage") == 0)
+		{
+			stage.num = atoi(argv[i + 1]);
+		}
 	}
-	
-	initStage();
-	
-	stage.num = 1;
 	
 	loadStage(1);
 }

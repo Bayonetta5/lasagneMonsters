@@ -1,0 +1,18 @@
+{
+	"entities":	[{
+			"type":	"player",
+			"x":	88,
+			"y":	592,
+			"facing":	"right"
+		}, {
+			"type":	"greenHorse",
+			"x":	616,
+			"y":	640
+		}],
+	"map":	{
+		"data":	"eJzt17EJACAMRcFVHEGL7L+aldgEhDRCOK78TV6ZNVbBbKPSov/31fr169evX79+/fr1V/sjcdZsi2b9mVva/f8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeNmRDwH",
+		"eLen":	132,
+		"cLen":	99,
+		"dLen":	32768
+	}
+}
