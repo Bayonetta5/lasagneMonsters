@@ -81,9 +81,9 @@ static void handleCommandLine(int argc, char *argv[])
 {
 	int i;
 	
-	stage.num = 1;
-	
 	initStage();
+	
+	stage.num = 1;
 	
 	for (i = 1 ; i < argc ; i++)
 	{

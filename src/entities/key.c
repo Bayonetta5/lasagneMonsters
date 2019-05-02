@@ -95,5 +95,7 @@ static void touch(Entity *other)
 		playPositionalSound(SND_KEY, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
 		
 		addPowerupParticles(self->x + self->w / 2, self->y + self->h / 2);
+		
+		addGameText(self->x, self->y, "+Key");
 	}
 }

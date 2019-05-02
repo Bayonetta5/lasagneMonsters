@@ -99,6 +99,8 @@ static void touch(Entity *other)
 		
 		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
 		
+		addGameText(self->x, self->y, "+1g");
+		
 		addCoinParticles(self->x + self->w / 2, self->y + self->h / 2);
 		
 		game.coins++;

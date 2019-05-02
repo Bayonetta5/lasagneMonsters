@@ -53,6 +53,7 @@ void initStage(int n)
 	
 	stage.entityTail = &stage.entityHead;
 	stage.particleTail = &stage.particleHead;
+	stage.gameTextTail = &stage.gameTextHead;
 	
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
@@ -135,6 +136,8 @@ static void doGame(void)
 	doEntities();
 	
 	doParticles();
+	
+	doHud();
 }
 
 static void doMenu(void)

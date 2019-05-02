@@ -24,6 +24,7 @@ extern void addCoinParticles(int x, int y);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern void addGameText(int x, int y, char *format, ...);
 
 extern Entity *self;
 extern Game game;

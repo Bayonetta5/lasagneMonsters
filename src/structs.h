@@ -26,8 +26,8 @@ typedef struct Particle Particle;
 typedef struct cJSON cJSON;
 typedef struct AtlasImage AtlasImage;
 typedef struct Lookup Lookup;
+typedef struct GameText GameText;
 typedef struct Widget Widget;
-typedef struct Credit Credit;
 
 struct Texture {
 	char name[MAX_NAME_LENGTH];
@@ -147,6 +147,13 @@ struct Quadtree {
 	Quadtree *node[4];
 };
 
+struct GameText {
+	char text[MAX_NAME_LENGTH];
+	int x, y;
+	int health;
+	GameText *next;
+};
+
 typedef struct {
 	int num;
 	int map[MAP_WIDTH][MAP_HEIGHT];
@@ -156,6 +163,7 @@ typedef struct {
 	Entity entityHead, *entityTail;
 	Entity *player;
 	Particle particleHead, *particleTail;
+	GameText gameTextHead, *gameTextTail;
 	Quadtree quadtree;
 	struct {
 		int x;

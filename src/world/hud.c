@@ -20,11 +20,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "hud.h"
 
+static void doGameText(void);
 static void drawHealth(void);
 static void drawAmmo(void);
 static void drawCoins(void);
 static void drawMonsterInfo(void);
 static void drawKeys(void);
+static void drawGameText(void);
 
 static AtlasImage *heartFullTexture;
 static AtlasImage *heartEmptyTexture;
@@ -43,6 +45,60 @@ void initHud(void)
 	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
 }
 
+void addGameText(int x, int y, char *format, ...)
+{
+	GameText *g;
+	char buffer[MAX_DESCRIPTION_LENGTH];
+	va_list args;
+	
+	memset(&buffer, '\0', sizeof(buffer));
+
+	va_start(args, format);
+	vsprintf(buffer, format, args);
+	va_end(args);
+	
+	g = malloc(sizeof(GameText));
+	memset(g, 0, sizeof(GameText));
+	stage.gameTextTail->next = g;
+	stage.gameTextTail = g;
+	
+	g->x = x;
+	g->y = y;
+	STRNCPY(g->text, buffer, MAX_NAME_LENGTH);
+	g->health = FPS;
+}
+
+void doHud(void)
+{
+	doGameText();
+}
+
+static void doGameText(void)
+{
+	GameText *g, *prev;
+	
+	prev = &stage.gameTextHead;
+	
+	for (g = stage.gameTextHead.next ; g != NULL ; g = g->next)
+	{
+		g->y--;
+		
+		if (--g->health <= 0)
+		{
+			if (g == stage.gameTextTail)
+			{
+				stage.gameTextTail = prev;
+			}
+			
+			prev->next = g->next;
+			free(g);
+			g = prev;
+		}
+		
+		prev = g;
+	}
+}
+
 void drawHud(void)
 {
 	drawHealth();
@@ -54,6 +110,8 @@ void drawHud(void)
 	drawCoins();
 	
 	drawKeys();
+	
+	drawGameText();
 }
 
 static void drawHealth(void)
@@ -125,4 +183,18 @@ static void drawKeys(void)
 	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 96, 0, SDL_FLIP_NONE);
 	
 	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", stage.keys);
+}
+
+static void drawGameText(void)
+{
+	GameText *g;
+	int x, y;
+	
+	for (g = stage.gameTextHead.next ; g != NULL ; g = g->next)
+	{
+		x = g->x - stage.camera.x;
+		y = g->y - stage.camera.y;
+		
+		drawText(x, y, 32, TEXT_CENTER, app.colors.white, g->text);
+	}
 }

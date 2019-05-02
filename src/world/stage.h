@@ -60,6 +60,7 @@ extern char *readFile(const char *filename);
 extern void resumeSound(void);
 extern void saveGame(void);
 extern void showWidgets(const char *groupName, int visible);
+extern void doHud(void);
 
 extern App app;
 extern Stage stage;

@@ -113,6 +113,8 @@ static void touch(Entity *other)
 		
 		w->health = MIN(w->health + i->value, w->maxHealth);
 		
+		addGameText(self->x, self->y, "+%dHP", i->value);
+		
 		self->alive = ALIVE_DEAD;
 	}
 }
