@@ -24,12 +24,14 @@ static void drawHealth(void);
 static void drawAmmo(void);
 static void drawCoins(void);
 static void drawMonsterInfo(void);
+static void drawKeys(void);
 
 static AtlasImage *heartFullTexture;
 static AtlasImage *heartEmptyTexture;
 static AtlasImage *coinTexture;
 static AtlasImage *waterTexture;
 static AtlasImage *monstersTexture;
+static AtlasImage *keyTexture;
 
 void initHud(void)
 {
@@ -38,19 +40,20 @@ void initHud(void)
 	coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
 	waterTexture = getAtlasImage("gfx/hud/water.png", 1);
 	monstersTexture = getAtlasImage("gfx/hud/monsters.png", 1);
+	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
 }
 
 void drawHud(void)
 {
-	drawRect(0, 0, SCREEN_WIDTH, 40, 0, 0, 0, 128);
-	
 	drawHealth();
 	
 	drawAmmo();
 	
+	drawMonsterInfo();
+	
 	drawCoins();
 	
-	drawMonsterInfo();
+	drawKeys();
 }
 
 static void drawHealth(void)
@@ -82,28 +85,35 @@ static void drawAmmo(void)
 	Walter *w;
 	int width, maxWidth;
 	
-	blitAtlasImage(waterTexture, 400, 8, 0, SDL_FLIP_NONE);
+	blitAtlasImage(waterTexture, 10, 48, 0, SDL_FLIP_NONE);
 	
 	w = (Walter*)stage.player->data;
 	
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
 	
-	drawRect(432, 12, maxWidth, 16, 0, 200, 255, 128);
-	drawRect(432, 12, width, 16, 0, 200, 255, 255);
-	drawOutlineRect(432, 12, maxWidth, 16, 0, 0, 0, 255);
+	drawRect(42, 54, maxWidth, 16, 0, 200, 255, 128);
+	drawRect(42, 54, width, 16, 0, 200, 255, 255);
+	drawOutlineRect(42, 54, maxWidth, 16, 0, 0, 0, 255);
+}
+
+static void drawMonsterInfo(void)
+{
+	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 128, 4, 0, SDL_FLIP_NONE);
+	
+	drawText(SCREEN_WIDTH - 10, 6, 32, TEXT_RIGHT, app.colors.white, "%d / %d", stage.totalMonsters - stage.numMonsters, stage.totalMonsters);
 }
 
 static void drawCoins(void)
 {
-	blitAtlasImage(coinTexture, 800, 8, 0, SDL_FLIP_NONE);
+	blitAtlasImage(coinTexture, SCREEN_WIDTH - 109, 53, 0, SDL_FLIP_NONE);
 	
-	drawText(832, 6, 32, TEXT_LEFT, app.colors.white, "x %03d", game.coins);
+	drawText(SCREEN_WIDTH - 10, 48, 32, TEXT_RIGHT, app.colors.white, "x %03d", game.coins);
 }
-	
-static void drawMonsterInfo(void)
+
+static void drawKeys(void)
 {
-	blitAtlasImage(monstersTexture, 1100, 4, 0, SDL_FLIP_NONE);
+	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 96, 0, SDL_FLIP_NONE);
 	
-	drawText(1152, 6, 32, TEXT_LEFT, app.colors.white, "%d / %d", stage.totalMonsters - stage.numMonsters, stage.totalMonsters);
+	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", stage.keys);
 }

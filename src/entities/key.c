@@ -21,7 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "key.h"
 
 static void tick(void);
+static void draw(void);
 static void touch(Entity *other);
+
+static AtlasImage *keyTexture = NULL;
+static AtlasImage *sparkleTexture = NULL;
 
 void initKey(Entity *e)
 {
@@ -35,12 +39,20 @@ void initKey(Entity *e)
 	e->typeName = "key";
 	e->type = ET_ITEM;
 	e->data = k;
-	e->atlasImage = getAtlasImage("gfx/entities/key.png", 1);
-	e->w = e->atlasImage->rect.w;
-	e->h = e->atlasImage->rect.h;
 	e->flags = EF_WEIGHTLESS+EF_NO_ENT_CLIP+EF_STATIC+EF_DELETE;
 	e->tick = tick;
+	e->draw = draw;
 	e->touch = touch;
+	
+	if (keyTexture == NULL)
+	{
+		keyTexture = getAtlasImage("gfx/entities/key.png", 1);
+		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
+	}
+	
+	e->atlasImage = keyTexture;
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
 }
 
 static void tick(void)
@@ -52,6 +64,24 @@ static void tick(void)
 	k->bobValue += 0.1;
 	
 	self->y += sin(k->bobValue) * 0.5;
+}
+
+static void draw(void)
+{
+	int x, y;
+	
+	x = self->x + (self->w / 2) - stage.camera.x;
+	y = self->y + (self->h / 2) - stage.camera.y;
+	
+	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 128, 64);
+	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
+	
+	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
+	
+	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
+	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	
+	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
 static void touch(Entity *other)
