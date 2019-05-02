@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "greenHorse.h"
 
 static void tick(void);
+static void standAndStare(void);
+static void chase(void);
 
 void initGreenHorse(Entity *e)
 {
@@ -30,6 +32,7 @@ void initGreenHorse(Entity *e)
 	memset(m, 0, sizeof(Monster));
 	
 	m->health = m->maxHealth = 5;
+	m->coins = 1;
 	
 	e->typeName = "greenHorse";
 	e->type = ET_MONSTER;
@@ -54,7 +57,24 @@ static void tick(void)
 	
 	monsterTick();
 	
-	if (--m->thinkTime <= 0)
+	lookForPlayer();
+	
+	if (m->alertTimer > 0)
+	{
+		switch (rand() % 3)
+		{
+			case 0:
+				m->alertTimer = FPS * 2;
+				self->tick = chase;
+				break;
+			
+			default:
+				m->alertTimer = FPS;
+				self->tick = standAndStare;
+				break;
+		}
+	}
+	else if (--m->thinkTime <= 0)
 	{
 		switch (rand() % 3)
 		{
@@ -70,14 +90,41 @@ static void tick(void)
 		}
 	}
 	
-	if (self->dx < 0)
-	{
-		self->facing = 0;
-	}
-	else if (self->dx > 0)
-	{
-		self->facing = 1;
-	}
-	
 	haltAtEdge();
+	
+	faceMoveDir();
+}
+
+static void standAndStare(void)
+{
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
+	monsterTick();
+	
+	self->dx = 0;
+	
+	if (m->alertTimer <= 0)
+	{
+		self->tick = tick;
+	}
+}
+
+static void chase(void)
+{
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
+	monsterTick();
+	
+	chasePlayer(RUN_SPEED);
+	
+	faceMoveDir();
+	
+	if (m->alertTimer <= 0)
+	{
+		self->tick = tick;
+	}
 }

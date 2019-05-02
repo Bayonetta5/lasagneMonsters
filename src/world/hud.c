@@ -108,7 +108,7 @@ static void drawAmmo(void)
 
 static void drawMonsterInfo(void)
 {
-	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 128, 4, 0, SDL_FLIP_NONE);
+	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 112, 8, 0, SDL_FLIP_NONE);
 	
 	drawText(SCREEN_WIDTH - 10, 6, 32, TEXT_RIGHT, app.colors.white, "%d / %d", stage.totalMonsters - stage.numMonsters, stage.totalMonsters);
 }

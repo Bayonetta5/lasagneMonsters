@@ -21,6 +21,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ai.h"
 
 static int hasLOS(int x1, int y1, int x2, int y2);
+void haltAtEdge(void);
+
+void faceMoveDir(void)
+{
+	if (self->dx < 0)
+	{
+		self->facing = FACING_LEFT;
+	}
+	else if (self->dx > 0)
+	{
+		self->facing = FACING_RIGHT;
+	}
+}
 
 void chasePlayer(int speed)
 {
@@ -32,6 +45,8 @@ void chasePlayer(int speed)
 	{
 		self->dx = -speed;
 	}
+	
+	haltAtEdge();
 }
 
 void haltAtEdge(void)
@@ -79,7 +94,7 @@ int lookForPlayer(void)
 			{
 				m = (Monster*)self->data;
 				
-				m->alertTimer = FPS;
+				m->alertTimer = 1;
 				
 				return 1;
 			}

@@ -159,10 +159,10 @@ static void die(void)
 
 static void load(cJSON *root)
 {
-	self->facing = strcmp(cJSON_GetObjectItem(root, "facing")->valuestring, "left") == 0 ? 0 : 1;
+	self->facing = strcmp(cJSON_GetObjectItem(root, "facing")->valuestring, "left") == 0 ? FACING_LEFT : FACING_RIGHT;
 }
 
 static void save(cJSON *root)
 {
-	cJSON_AddStringToObject(root, "facing", self->facing == 0 ? "left" : "right");
+	cJSON_AddStringToObject(root, "facing", self->facing == FACING_LEFT ? "left" : "right");
 }

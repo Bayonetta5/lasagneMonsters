@@ -128,16 +128,8 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/monsters.png",
-		"x" : 108,
-		"y" : 97,
-		"w" : 32,
-		"h" : 32,
-		"rotated" : 0
-	},
-	{
 		"filename" : "gfx/entities/apple.png",
-		"x" : 141,
+		"x" : 108,
 		"y" : 97,
 		"w" : 24,
 		"h" : 30,
@@ -145,7 +137,7 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 166,
+		"x" : 133,
 		"y" : 97,
 		"w" : 18,
 		"h" : 26,
@@ -153,7 +145,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 185,
+		"x" : 152,
 		"y" : 97,
 		"w" : 26,
 		"h" : 26,
@@ -161,7 +153,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 212,
+		"x" : 179,
 		"y" : 97,
 		"w" : 26,
 		"h" : 26,
@@ -169,7 +161,7 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 239,
+		"x" : 206,
 		"y" : 97,
 		"w" : 7,
 		"h" : 25,
@@ -184,8 +176,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/key.png",
+		"filename" : "gfx/hud/monsters.png",
 		"x" : 116,
+		"y" : 49,
+		"w" : 24,
+		"h" : 24,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/key.png",
+		"x" : 141,
 		"y" : 49,
 		"w" : 32,
 		"h" : 18,
@@ -193,7 +193,7 @@
 	},
 	{
 		"filename" : "gfx/entities/slimeBullet.png",
-		"x" : 149,
+		"x" : 174,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,
@@ -201,7 +201,7 @@
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 172,
+		"x" : 197,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,

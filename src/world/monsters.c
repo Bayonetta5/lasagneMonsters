@@ -27,6 +27,7 @@ void monsterTick(void)
 	m = (Monster*)self->data;
 	
 	m->hitTimer = MAX(m->hitTimer - 16, 0);
+	m->alertTimer = MAX(m->alertTimer -1, 0);
 }
 
 void monsterDraw(void)
@@ -59,6 +60,7 @@ void monsterTakeDamage(int amount)
 	
 	m->health -= amount;
 	m->hitTimer = 255;
+	m->alertTimer = FPS;
 	
 	if (m->health <= 0)
 	{
@@ -68,9 +70,13 @@ void monsterTakeDamage(int amount)
 
 void monsterDie(void)
 {
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
 	throwPusBalls(self->x, self->y, 8);
 	
-	throwCoins(self->x, self->y, 1 + rand() % 2);
+	throwCoins(self->x, self->y, m->coins);
 	
 	if (rand() % 5 == 0)
 	{
