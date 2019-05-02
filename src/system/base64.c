@@ -99,7 +99,7 @@ unsigned char *base64Decode(const char *data, unsigned long inputLength)
 			outputLength--;
 		}
 		
-		decodedData = malloc(outputLength);
+		decodedData = malloc(outputLength + 1);
 		
 		if (decodedData != NULL)
 		{

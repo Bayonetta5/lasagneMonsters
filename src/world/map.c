@@ -136,6 +136,8 @@ static void loadMap(cJSON *root)
 	
 	stage.camera.minY *= TILE_SIZE;
 	stage.camera.maxY *= TILE_SIZE;
+	
+	free(data);
 }
 
 void randomizeTiles(void)

@@ -177,6 +177,8 @@ char *decompressData(const char *src, unsigned long eLength, unsigned long compr
 	
 	uncompress((Bytef *)dest, &decompressedLen, decoded, compressedLen);
 	
+	free(decoded);
+	
 	return dest;
 }
 
