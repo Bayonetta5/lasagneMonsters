@@ -24,9 +24,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void haltAtEdge(void);
+extern void spawnRandomHealthItem(int x, int y);
 extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
-extern void spawnRandomHealthItem(int x, int y);
 
 extern Entity *self;
 extern Stage stage;

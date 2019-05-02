@@ -31,6 +31,7 @@ extern void destroySounds(void);
 extern void destroyTextures(void);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void initAtlas(void);
+extern void initBase64(void);
 extern void initBullets(void);
 extern void initEffects(void);
 extern void initEntityFactory(void);
@@ -42,7 +43,6 @@ extern void initParticles(void);
 extern void initSounds(void);
 extern void initWidgets(void);
 extern void loadConfig(void);
-extern void initBase64(void);
 extern void prepareScene(void);
 extern void presentScene(void);
 
