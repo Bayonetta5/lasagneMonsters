@@ -19,10 +19,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-
-#include "sys/stat.h"
-#include "dirent.h"
-#include <zlib.h>
-
-extern char *base64Encode(const unsigned char *data, unsigned long inputLength, unsigned long *outputLength);
-extern unsigned char *base64Decode(const char *data, unsigned long inputLength);

@@ -97,6 +97,7 @@ void initGame(void)
 {
 	int i, numInitFuns;
 	void (*initFuncs[]) (void) = {
+		initBase64,
 		initLookups,
 		initAtlas,
 		initFonts,

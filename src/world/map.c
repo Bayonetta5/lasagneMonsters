@@ -84,10 +84,16 @@ static void loadTiles(void)
 
 static void loadMap(cJSON *root)
 {
-	char *data, *p;
+	char *data, *cData, *p;
 	int x, y;
+	unsigned long eLen, cLen, dLen;
 	
-	data = cJSON_GetObjectItem(root, "map")->valuestring;
+	cData = cJSON_GetObjectItem(root, "data")->valuestring;
+	eLen = cJSON_GetObjectItem(root, "eLen")->valueint;
+	cLen = cJSON_GetObjectItem(root, "cLen")->valueint;
+	dLen = cJSON_GetObjectItem(root, "dLen")->valueint;
+	
+	data = decompressData(cData, eLen, cLen, dLen);
 	
 	if (data)
 	{

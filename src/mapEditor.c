@@ -34,11 +34,12 @@ static int mode;
 static void saveMap(cJSON *root)
 {
 	int x, y;
-	unsigned long l;
+	unsigned long dLen, eLen, cLen;
 	FILE *fp;
-	char *buff;
+	char *buff, *cData;
+	cJSON *mapJSON;
 	
-	fp = open_memstream(&buff, &l);
+	fp = open_memstream(&buff, &dLen);
 			
 	for (y = 0 ; y < MAP_HEIGHT ; y++)
 	{
@@ -49,10 +50,21 @@ static void saveMap(cJSON *root)
 	}
 	
 	fclose(fp);
-		
-	cJSON_AddStringToObject(root, "map", buff);
+	
+	cData = compressData(buff, &eLen, &cLen);
+	
+	mapJSON = cJSON_CreateObject();
+	
+	cJSON_AddStringToObject(mapJSON, "data", cData);
+	cJSON_AddNumberToObject(mapJSON, "eLen", eLen);
+	cJSON_AddNumberToObject(mapJSON, "cLen", cLen);
+	cJSON_AddNumberToObject(mapJSON, "dLen", dLen);
+	
+	cJSON_AddItemToObject(root, "map", mapJSON);
 	
 	free(buff);
+	
+	free(cData);
 }
 
 static void saveEntities(cJSON *root)

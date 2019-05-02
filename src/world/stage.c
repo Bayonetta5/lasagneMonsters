@@ -91,7 +91,7 @@ void loadStage(int randomTiles)
 	
 	show = SHOW_GAME;
 	
-	initMap(root);
+	initMap(cJSON_GetObjectItem(root, "map"));
 	
 	initQuadtree(&stage.quadtree);
 	

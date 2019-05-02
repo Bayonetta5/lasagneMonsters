@@ -146,6 +146,40 @@ char **getFileList(const char *dir, int *count)
 	return filenames;
 }
 
+char *compressData(const char *src, unsigned long *eLength, unsigned long *compressedLen)
+{
+	unsigned char *dest;
+	unsigned long sLen;
+	char *e;
+	
+	sLen = strlen(src);
+	*compressedLen = (sLen * 1.01) + 12;
+	
+	dest = malloc(*compressedLen);
+	
+	compress(dest, compressedLen, (const Bytef *)src, sLen);
+	
+	e = base64Encode(dest, *compressedLen, eLength);
+	
+	free(dest);
+	
+	return e;
+}
+
+char *decompressData(const char *src, unsigned long eLength, unsigned long compressedLen, unsigned long decompressedLen)
+{
+	unsigned char *decoded;
+	char *dest;
+	
+	decoded = base64Decode(src, eLength);
+	
+	dest = malloc(decompressedLen);
+	
+	uncompress((Bytef *)dest, &decompressedLen, decoded, compressedLen);
+	
+	return dest;
+}
+
 static int stringComparator(const void *a, const void *b)
 {
     char **s1 = (char **)a;

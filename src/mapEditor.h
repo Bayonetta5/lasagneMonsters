@@ -48,6 +48,7 @@ extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 extern int writeFile(const char *filename, const char *data);
+extern char *compressData(const char *src, unsigned long *eLength, unsigned long *compressedLen);
 
 App app;
 Entity *player;
