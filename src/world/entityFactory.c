@@ -32,6 +32,7 @@ void initEntityFactory(void)
 	
 	addInitFunc("player", initPlayer);
 	addInitFunc("coin", initCoin);
+	addInitFunc("door", initDoor);
 	addInitFunc("key", initKey);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);

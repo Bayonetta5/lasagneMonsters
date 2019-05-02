@@ -124,6 +124,7 @@ enum
 	SND_COIN,
 	SND_KEY,
 	SND_DEATH,
+	SND_DOOR,
 	SND_MAX
 };
 
@@ -133,6 +134,7 @@ enum
 	CH_SHOOT,
 	CH_HIT,
 	CH_ITEM,
+	CH_STRUCTURE,
 	CH_MAX
 };
 

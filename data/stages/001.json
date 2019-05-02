@@ -60,11 +60,31 @@
 			"type":	"greenHorse",
 			"x":	2864,
 			"y":	304
+		}, {
+			"type":	"key",
+			"x":	1664,
+			"y":	112
+		}, {
+			"type":	"key",
+			"x":	1768,
+			"y":	560
+		}, {
+			"type":	"door",
+			"x":	2464,
+			"y":	672,
+			"open":	0,
+			"requiresKey":	1
+		}, {
+			"type":	"door",
+			"x":	3424,
+			"y":	96,
+			"open":	0,
+			"requiresKey":	1
 		}],
 	"map":	{
-		"data":	"eJzt1UESwiAMBdCreAR7/8u5roUSqECcefN2Skl+hHq8jj/wnqZ/75HuzquiNXPmv05gVv7Ssxnyf89gds3s+Xsn0XvbM+Zvp6gni2Q/Titn5h89x+Pv73alo3P9jvzRCfQ91Z7GvPwz68Tnde1kXf7dJ628ZmX+kTPbL9bVvvy1TsfznPeIdrY/f6123wRi+WvfZPz/7zsFkfx3N29v/nIHYzehNc3y5/vz3/1mo2+F0i6RqazNf9dF62REphQxM3/r5j7vIn/+Uo3fdPI8+6r8mckPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZfABgLAR",
-		"eLen":	328,
-		"cLen":	246,
+		"data":	"eJzt1UsSgyAQBcCr5Ajx/pfLWgUZUGRS1dU7w2feCGb7bH/gO03/2iPV7UfVZ2ynWfnynzvwXP723Az5jz2YvWf2/L2d6L3tGfO3U9STRbJvu5Ez84+e4/Hvd3un43cwY/5oB/pmtbsxL//MfeL9OlfyXv7VJ6085s38I2e2X6yqdflrlY7n2a8RrWx9/trefR2I5a/9kvH/v+8URPJf3by1+csVjN2EdjdLz9fnv3pno1+F8iql5yvzX1XROhmRLkXMzN+6uferyJ+/tMczldzP/lb+zOQHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAMfsCNBGQ",
+		"eLen":	332,
+		"cLen":	248,
 		"dLen":	32768
 	}
 }

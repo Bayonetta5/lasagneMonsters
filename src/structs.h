@@ -114,6 +114,15 @@ typedef struct {
 	int health;
 } Bullet;
 
+typedef struct {
+	int sx;
+	int sy;
+	int ex;
+	int ey;
+	int open;
+	int requiresKey;
+} Door;
+
 struct Particle {
 	float x;
 	float y;
@@ -140,6 +149,7 @@ typedef struct {
 	int num;
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters, totalMonsters;
+	int keys;
 	AtlasImage *tiles[MAX_TILES];
 	Entity entityHead, *entityTail;
 	Entity *player;

@@ -58,6 +58,8 @@ static void touch(Entity *other)
 {
 	if (self->alive == ALIVE_ALIVE && other != NULL && other->type == ET_PLAYER)
 	{
+		stage.keys++;
+		
 		self->alive = ALIVE_DEAD;
 		
 		playPositionalSound(SND_KEY, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
