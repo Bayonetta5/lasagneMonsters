@@ -83,7 +83,7 @@ static void drawHealth(void)
 static void drawAmmo(void)
 {
 	Walter *w;
-	int width, maxWidth;
+	int i, width, maxWidth, x;
 	
 	blitAtlasImage(waterTexture, 10, 48, 0, SDL_FLIP_NONE);
 	
@@ -92,9 +92,18 @@ static void drawAmmo(void)
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
 	
-	drawRect(42, 54, maxWidth, 16, 0, 200, 255, 128);
+	drawRect(42, 54, maxWidth, 16, 0, 64, 128, 192);
 	drawRect(42, 54, width, 16, 0, 200, 255, 255);
 	drawOutlineRect(42, 54, maxWidth, 16, 0, 0, 0, 255);
+	
+	x = 42;
+	
+	for (i = 0 ; i < w->maxAmmo ; i++)
+	{
+		drawLine(x, 54, x, 70, 0, 0, 0, 255);
+		
+		x += 25;
+	}
 }
 
 static void drawMonsterInfo(void)

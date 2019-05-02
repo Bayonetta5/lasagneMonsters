@@ -27,6 +27,11 @@ extern void haltAtEdge(void);
 extern void spawnRandomHealthItem(int x, int y);
 extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
+extern void monsterDraw(void);
+extern void monsterTick(void);
+extern void monsterTakeDamage(int amount);
+extern void monsterDie(void);
+extern void monsterTouch(Entity *other);
 
 extern Entity *self;
 extern Stage stage;

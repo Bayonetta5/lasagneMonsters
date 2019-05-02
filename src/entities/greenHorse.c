@@ -21,9 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "greenHorse.h"
 
 static void tick(void);
-static void touch(Entity *other);
-static void damage(int amount);
-static void die(void);
 
 void initGreenHorse(Entity *e)
 {
@@ -41,9 +38,10 @@ void initGreenHorse(Entity *e)
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->tick = tick;
-	e->touch = touch;
-	e->damage = damage;
-	e->die = die;
+	e->draw = monsterDraw;
+	e->touch = monsterTouch;
+	e->damage = monsterTakeDamage;
+	e->die = monsterDie;
 	
 	stage.numMonsters = ++stage.totalMonsters;
 }
@@ -53,6 +51,8 @@ static void tick(void)
 	Monster *m;
 	
 	m = (Monster*)self->data;
+	
+	monsterTick();
 	
 	if (--m->thinkTime <= 0)
 	{
@@ -80,48 +80,4 @@ static void tick(void)
 	}
 	
 	haltAtEdge();
-}
-
-static void touch(Entity *other)
-{
-	Entity *oldSelf;
-	
-	if (other == stage.player)
-	{
-		oldSelf = self;
-		
-		self = other;
-		
-		stage.player->damage(1);
-		
-		self = oldSelf;
-	}
-}
-
-static void damage(int amount)
-{
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	m->health -= amount;
-	
-	if (m->health <= 0)
-	{
-		self->alive = ALIVE_DEAD;
-	}
-}
-
-static void die(void)
-{
-	throwPusBalls(self->x, self->y, 8);
-	
-	throwCoins(self->x, self->y, 1 + rand() % 2);
-	
-	if (rand() % 5 == 0)
-	{
-		spawnRandomHealthItem(self->x, self->y);
-	}
-	
-	stage.numMonsters--;
 }

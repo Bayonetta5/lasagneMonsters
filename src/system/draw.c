@@ -104,6 +104,8 @@ void drawRect(int x, int y, int w, int h, int r, int g, int b, int a)
 	SDL_SetRenderDrawBlendMode(app.renderer, a < 255 ? SDL_BLENDMODE_BLEND : SDL_BLENDMODE_NONE);
 	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
 	SDL_RenderFillRect(app.renderer, &rect);
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 }
 
 void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a)
@@ -117,6 +119,17 @@ void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a)
 	SDL_SetRenderDrawBlendMode(app.renderer, a < 255 ? SDL_BLENDMODE_BLEND : SDL_BLENDMODE_NONE);
 	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
 	SDL_RenderDrawRect(app.renderer, &rect);
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+}
+
+void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a)
+{
+	SDL_SetRenderDrawBlendMode(app.renderer, a < 255 ? SDL_BLENDMODE_BLEND : SDL_BLENDMODE_NONE);
+	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
+	SDL_RenderDrawLine(app.renderer, x1, y1, x2, y2);
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 }
 
 static void initColor(SDL_Color *c, int r, int g, int b)

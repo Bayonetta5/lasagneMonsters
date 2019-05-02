@@ -100,6 +100,7 @@ typedef struct {
 	int alertTimer;
 	int reload;
 	int shotsToFire;
+	int hitTimer;
 } Monster;
 
 typedef struct {
