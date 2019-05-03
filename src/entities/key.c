@@ -35,6 +35,7 @@ void initKey(Entity *e)
 	memset(k, 0, sizeof(Item));
 	
 	k->bobValue = rand() % 10;
+	k->by = e->y;
 	
 	e->typeName = "key";
 	e->type = ET_ITEM;
@@ -63,15 +64,18 @@ static void tick(void)
 	
 	k->bobValue += 0.1;
 	
-	self->y += sin(k->bobValue) * 0.5;
+	k->by += sin(k->bobValue) * 0.5;
 }
 
 static void draw(void)
 {
+	Item *k;
 	int x, y;
 	
+	k = (Item*)self->data;
+	
 	x = self->x + (self->w / 2) - stage.camera.x;
-	y = self->y + (self->h / 2) - stage.camera.y;
+	y = k->by + (self->h / 2) - stage.camera.y;
 	
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 128, 64);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
@@ -81,7 +85,7 @@ static void draw(void)
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
 	
-	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, k->by - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
 static void touch(Entity *other)
