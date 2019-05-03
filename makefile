@@ -1,4 +1,4 @@
-PROG = lasagnaMonsters
+PROG = lasagneMonsters
 MAP_PROG = mapEditor
 
 CC = gcc

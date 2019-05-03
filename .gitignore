@@ -2,7 +2,7 @@
 *.o
 
 # binaries
-lasagnaMonsters
+lasagneMonsters
 mapEditor
 
 # folders
