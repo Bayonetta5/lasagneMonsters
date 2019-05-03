@@ -35,6 +35,7 @@ extern void destroyParticles(void);
 extern void destroyQuadtree(void);
 extern void doCamera(void);
 extern void doEntities(void);
+extern void doHud(void);
 extern void doParticles(void);
 extern void doWidgets(const char *groupName);
 extern int doWipe(void);
@@ -58,9 +59,7 @@ extern void pauseSound(void);
 extern void randomizeTiles(void);
 extern char *readFile(const char *filename);
 extern void resumeSound(void);
-extern void saveGame(void);
 extern void showWidgets(const char *groupName, int visible);
-extern void doHud(void);
 
 extern App app;
 extern Stage stage;

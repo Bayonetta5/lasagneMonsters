@@ -8,11 +8,23 @@
 			"type":	"greenHorse",
 			"x":	584,
 			"y":	448
+		}, {
+			"type":	"transferCube",
+			"x":	1296,
+			"y":	528,
+			"targetStage":	1,
+			"targetFlag":	"topLeft"
+		}, {
+			"type":	"transferCube",
+			"x":	1296,
+			"y":	576,
+			"targetStage":	1,
+			"targetFlag":	"topLeft"
 		}],
 	"map":	{
-		"data":	"eJzt17EJACAMAMFVHEGL7L+aA1gEgiDE41oDPqTJGqtgtlFp0f/61/r169evX7/+O/2R6N0f6cs4Zjqw/9nen3r1/33/AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQ22GYCVA=",
-		"eLen":	140,
-		"cLen":	103,
+		"data":	"eJzt17EJACAMAMFVHEEL91/NDQwEQYzHtSl8jIWjjYReRqZF/+1T69evX79+/frP9M9A7f4ZTsYTL6p0l7n+aO/3b+F1md/f7zsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/GUBuw0CVg=",
+		"eLen":	148,
+		"cLen":	109,
 		"dLen":	32768
 	}
 }

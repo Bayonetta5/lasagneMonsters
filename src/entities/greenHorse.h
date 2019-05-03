@@ -20,22 +20,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define WALK_SPEED   2
 #define RUN_SPEED    6
+#define WALK_SPEED   2
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern int haltAtEdge(void);
-extern void chasePlayer(int speed);
-extern void spawnRandomHealthItem(int x, int y);
-extern void throwCoins(int x, int y, int n);
-extern void throwPusBalls(int x, int y, int n);
-extern void monsterDraw(void);
-extern void monsterTick(void);
-extern void monsterTakeDamage(int amount);
-extern void monsterDie(void);
-extern void monsterTouch(Entity *other);
-extern void faceMoveDir(void);
 extern void lookForPlayer(void);
+extern void monsterDie(void);
+extern void monsterDraw(void);
+extern void monsterTakeDamage(int amount);
+extern void monsterTick(void);
+extern void monsterTouch(Entity *other);
 
 extern Entity *self;
 extern Stage stage;

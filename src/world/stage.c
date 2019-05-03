@@ -29,6 +29,7 @@ static void doGame(void);
 static void doMenu(void);
 static void drawGame(void);
 static void drawMenu(void);
+static void transfer(void);
 static void resume(void);
 static void stats(void);
 static void options(void);
@@ -44,7 +45,7 @@ static Widget *quitWidget;
 static Widget *previousWidget;
 static int backgroundData[MAP_WIDTH][MAP_HEIGHT];
 
-void initStage(int n)
+void initStage(void)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
@@ -70,8 +71,6 @@ void initStage(int n)
 	initBackgroundData();
 	
 	backgroundTile = getAtlasImage("gfx/tiles/0.png", 1);
-	
-	saveGame();
 	
 	initWipe(WIPE_FADE);
 }
@@ -131,6 +130,11 @@ static void logic(void)
 
 static void doGame(void)
 {
+	if (stage.transferCube != NULL)
+	{
+		transfer();
+	}
+	
 	doControls();
 	
 	doEntities();
@@ -263,6 +267,53 @@ void destroyStage(void)
 	destroyEntities();
 	
 	destroyParticles();
+	
+	memset(&stage, 0, sizeof(Stage));
+	
+	stage.entityTail = &stage.entityHead;
+	stage.particleTail = &stage.particleHead;
+	stage.gameTextTail = &stage.gameTextHead;
+}
+
+static Entity *findStartPoint(const char *name)
+{
+	Entity *e;
+	
+	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_START_POINT && strcmp(e->name, name) == 0)
+		{
+			return e;
+		}
+	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such start point '%s'", name);
+	exit(1);
+	
+	return NULL;
+}
+
+static void transfer(void)
+{
+	TransferCube transferCube;
+	Walter walter;
+	Entity *e;
+	
+	memcpy(&walter, stage.player->data, sizeof(Walter));
+	memcpy(&transferCube, stage.transferCube, sizeof(TransferCube));
+	
+	destroyStage();
+	
+	stage.num = transferCube.targetStage;
+	
+	loadStage(1);
+	
+	e = findStartPoint(transferCube.targetFlag);
+	
+	memcpy(stage.player->data, &walter, sizeof(Walter));
+	
+	stage.player->x = e->x;
+	stage.player->y = e->y;
 }
 
 static void initBackgroundData(void)

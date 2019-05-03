@@ -43,7 +43,7 @@ void initPlayer(Entity *e)
 	e->data = w;
 	e->type = ET_PLAYER;
 	e->atlasImage = getAtlasImage("gfx/entities/walter.png", 1);
-	e->flags = EF_PUSH+EF_PUSHABLE+EF_SLOW_PUSH;
+	e->flags = EF_PUSH+EF_PUSHABLE+EF_SLOW_PUSH+EF_NO_MAP_BOUNDS;
 	e->tick = tick;
 	e->draw = draw;
 	e->damage = damage;

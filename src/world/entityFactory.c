@@ -36,6 +36,8 @@ void initEntityFactory(void)
 	addInitFunc("key", initKey);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);
+	addInitFunc("transferCube", initTransferCube);
+	addInitFunc("startPoint", initStartPoint);
 	
 	entityId = 0;
 }
@@ -63,6 +65,7 @@ Entity *spawnEntity(void)
 	stage.entityTail = e;
 	
 	e->id = ++entityId;
+	e->facing = FACING_RIGHT;
 	
 	return e;
 }

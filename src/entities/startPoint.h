@@ -19,12 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
-extern void addGameText(int x, int y, char *format, ...);
-extern void addPowerupParticles(int x, int y);
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 
-extern Entity *self;
-extern Stage stage;
+extern App app;

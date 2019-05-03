@@ -126,6 +126,16 @@ typedef struct {
 	int requiresKey;
 } Door;
 
+typedef struct {
+	int destinationStage;
+	int destinationName[MAX_NAME_LENGTH];
+} Portal;
+
+typedef struct {
+	int targetStage;
+	char targetFlag[MAX_NAME_LENGTH];
+} TransferCube;
+
 struct Particle {
 	float x;
 	float y;
@@ -166,6 +176,7 @@ typedef struct {
 	Particle particleHead, *particleTail;
 	GameText gameTextHead, *gameTextTail;
 	Quadtree quadtree;
+	TransferCube *transferCube;
 	struct {
 		int x;
 		int y;
@@ -173,7 +184,7 @@ typedef struct {
 		int maxX;
 		int minY;
 		int maxY;
-	} camera;
+	} camera;;
 } Stage;
 
 typedef struct {

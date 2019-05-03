@@ -20,14 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define RUN_SPEED    4
-#define WALK_SPEED   2
-
 extern void addSlimeBurstParticles(int x, int y);
-extern void chasePlayer(int speed);
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void haltAtEdge(void);
-extern int lookForPlayer(void);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern Entity *spawnEntity(void);
 extern void throwCoins(int x, int y, int n);
