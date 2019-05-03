@@ -56,89 +56,17 @@ void initGreenBugEyedMonster(Entity *e)
 
 static void tick(void)
 {
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	lookForPlayer();
-	
-	if (m->alertTimer > 0)
+	if (0)
 	{
 		preAttack();
-	}
-	else if (--m->thinkTime <= 0)
-	{
-		switch (rand() % 3)
-		{
-			case 0:
-				self->dx = 0;
-				m->thinkTime = FPS * (1 + (rand() % 3));
-				break;
-				
-			default:
-				self->dx = rand() % 2 == 0 ? - WALK_SPEED : WALK_SPEED;
-				m->thinkTime = FPS * (1 + (rand() % 2));
-				break;
-		}
-	}
-	
-	if (self->dx < 0)
-	{
-		self->facing = 0;
-	}
-	else if (self->dx > 0)
-	{
-		self->facing = 1;
-	}
-	
-	haltAtEdge();
-}
-
-static void chase(void)
-{
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	chasePlayer(RUN_SPEED);
-	
-	if (self->dx < 0)
-	{
-		self->facing = 0;
-	}
-	else if (self->dx > 0)
-	{
-		self->facing = 1;
-	}
-	
-	haltAtEdge();
-	
-	if (--m->alertTimer <= 0)
-	{
-		self->tick = tick;
 	}
 }
 
 static void preAttack(void)
 {
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	switch (rand() % 3)
+	if (0)
 	{
-		case 0:
-			/* don't do anything!*/
-			break;
-			
-		case 1:
-			m->shotsToFire = 1 + (rand() % 3);
-			self->tick = spit;
-			break;
-			
-		default:
-			self->tick = chase;
-			break;
+		spit();
 	}
 }
 
@@ -230,11 +158,6 @@ static void spit(void)
 				self->tick = tick;
 			}
 		}
-	}
-	
-	if (--m->alertTimer <= 0)
-	{
-		self->tick = tick;
 	}
 }
 

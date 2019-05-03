@@ -71,6 +71,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_DELETE          (2 << 10)
 #define EF_FRICTION        (2 << 11)
 
+#define AIF_NONE           0
+#define AIF_HALT_AT_EDGE   (2 << 0)
+
 enum
 {
 	ET_PLAYER,

@@ -21,8 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "greenHorse.h"
 
 static void tick(void);
-static void standAndStare(void);
-static void chase(void);
+static void patrol(void);
+static void preCharge(void);
+static void charge(void);
 
 void initGreenHorse(Entity *e)
 {
@@ -33,6 +34,7 @@ void initGreenHorse(Entity *e)
 	
 	m->health = m->maxHealth = 5;
 	m->coins = 1;
+	m->aiFlags = AIF_HALT_AT_EDGE;
 	
 	e->typeName = "greenHorse";
 	e->type = ET_MONSTER;
@@ -55,76 +57,95 @@ static void tick(void)
 	
 	m = (Monster*)self->data;
 	
-	monsterTick();
-	
 	lookForPlayer();
 	
-	if (m->alertTimer > 0)
+	if (m->alert)
 	{
-		switch (rand() % 3)
+		self->facing = self->x < stage.player->x ? FACING_RIGHT : FACING_LEFT;
+		
+		preCharge();
+		
+		m->alert = 0;
+	}
+	else
+	{
+		patrol();
+	}
+	
+	monsterTick();
+}
+
+static void preCharge(void)
+{
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
+	if (abs(self->y - stage.player->y) <= 16)
+	{
+		self->dx = 0;
+		m->thinkTime = FPS;
+		self->tick = charge;
+	}
+	else
+	{
+		self->tick = tick;
+	}
+}
+
+static void charge(void)
+{
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
+	if (m->thinkTime > 0)
+	{
+		if (--m->thinkTime <= 0)
 		{
-			case 0:
-				m->alertTimer = FPS * 2;
-				self->tick = chase;
-				break;
+			if (self->facing == FACING_LEFT)
+			{
+				self->dx = -RUN_SPEED;
+			}
+			else
+			{
+				self->dx = RUN_SPEED;
+			}
+		}
+	}
+	else if (self->dx == 0)
+	{
+		self->tick = tick;
+	}
+	
+	monsterTick();
+}
+
+static void patrol(void)
+{
+	Monster *m;
+	
+	m = (Monster*)self->data;
+	
+	/* blocked - turn around */
+	if (self->dx == 0)
+	{
+		if (m->thinkTime == 0)
+		{
+			m->thinkTime = FPS;
+		}
+		else if (--m->thinkTime <= 0)
+		{
+			self->facing = !self->facing;
 			
-			default:
-				m->alertTimer = FPS;
-				self->tick = standAndStare;
-				break;
+			if (self->facing == FACING_LEFT)
+			{
+				self->dx = -WALK_SPEED;
+			}
+			else
+			{
+				self->dx = WALK_SPEED;
+			}
 		}
-	}
-	else if (--m->thinkTime <= 0)
-	{
-		switch (rand() % 3)
-		{
-			case 0:
-				self->dx = 0;
-				m->thinkTime = FPS * (1 + (rand() % 3));
-				break;
-				
-			default:
-				self->dx = rand() % 2 == 0 ? - WALK_SPEED : WALK_SPEED;
-				m->thinkTime = FPS * (1 + (rand() % 2));
-				break;
-		}
-	}
-	
-	haltAtEdge();
-	
-	faceMoveDir();
-}
-
-static void standAndStare(void)
-{
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	monsterTick();
-	
-	self->dx = 0;
-	
-	if (m->alertTimer <= 0)
-	{
-		self->tick = tick;
-	}
-}
-
-static void chase(void)
-{
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	monsterTick();
-	
-	chasePlayer(RUN_SPEED);
-	
-	faceMoveDir();
-	
-	if (m->alertTimer <= 0)
-	{
-		self->tick = tick;
 	}
 }

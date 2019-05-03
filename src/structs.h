@@ -97,11 +97,12 @@ typedef struct {
 	int health;
 	int maxHealth;
 	int thinkTime;
-	int alertTimer;
 	int reload;
 	int shotsToFire;
 	int hitTimer;
 	int coins;
+	int alert;
+	long aiFlags;
 } Monster;
 
 typedef struct {

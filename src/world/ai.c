@@ -35,51 +35,9 @@ void faceMoveDir(void)
 	}
 }
 
-void chasePlayer(int speed)
-{
-	if (self->x < stage.player->x)
-	{
-		self->dx = speed;
-	}
-	else if (self->x > stage.player->x)
-	{
-		self->dx = -speed;
-	}
-	
-	haltAtEdge();
-}
-
-void haltAtEdge(void)
-{
-	int mx, my;
-	
-	if (self->dx != 0)
-	{
-		my = (self->y + self->h) / TILE_SIZE;
-		
-		if (self->dx < 0)
-		{
-			mx = self->x - 1;
-		}
-		else
-		{
-			mx = self->x + self->w;
-		}
-		
-		mx /= TILE_SIZE;
-		
-		if (stage.map[mx][my] == 0)
-		{
-			self->dx = 0;
-			((Monster*)self->data)->thinkTime = FPS / 4;
-		}
-	}
-}
-
-int lookForPlayer(void)
+void lookForPlayer(void)
 {
 	int x1, y1, x2, y2;
-	Monster *m;
 	
 	if (getDistance(self->x, self->y, stage.player->x, stage.player->y) <= SCREEN_HEIGHT)
 	{
@@ -92,16 +50,12 @@ int lookForPlayer(void)
 			
 			if (hasLOS(x1, y1, x2, y2))
 			{
-				m = (Monster*)self->data;
+				((Monster*)self->data)->alert = 1;
 				
-				m->alertTimer = 1;
-				
-				return 1;
+				return;
 			}
 		}
 	}
-	
-	return 0;
 }
 
 static int hasLOS(int x1, int y1, int x2, int y2)

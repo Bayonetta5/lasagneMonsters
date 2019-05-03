@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "monsters.h"
 
+static void haltAtEdge(void);
+
 void monsterTick(void)
 {
 	Monster *m;
@@ -27,7 +29,37 @@ void monsterTick(void)
 	m = (Monster*)self->data;
 	
 	m->hitTimer = MAX(m->hitTimer - 16, 0);
-	m->alertTimer = MAX(m->alertTimer -1, 0);
+	
+	if (m->aiFlags & AIF_HALT_AT_EDGE)
+	{
+		haltAtEdge();
+	}
+}
+
+static void haltAtEdge(void)
+{
+	int mx, my;
+	
+	if (self->dx != 0)
+	{
+		my = (self->y + self->h) / TILE_SIZE;
+		
+		if (self->dx < 0)
+		{
+			mx = self->x - 1;
+		}
+		else
+		{
+			mx = self->x + self->w;
+		}
+		
+		mx /= TILE_SIZE;
+		
+		if (stage.map[mx][my] == 0)
+		{
+			self->dx = 0;
+		}
+	}
 }
 
 void monsterDraw(void)
@@ -60,7 +92,7 @@ void monsterTakeDamage(int amount)
 	
 	m->health -= amount;
 	m->hitTimer = 255;
-	m->alertTimer = FPS;
+	m->alert = 1;
 	
 	if (m->health <= 0)
 	{
