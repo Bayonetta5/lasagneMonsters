@@ -31,101 +31,6 @@ static Entity *entity;
 static Entity *selectedEntity;
 static int mode;
 
-static void saveMap(cJSON *root)
-{
-	int x, y;
-	unsigned long dLen, eLen, cLen;
-	FILE *fp;
-	char *buff, *cData;
-	cJSON *mapJSON;
-	
-	fp = open_memstream(&buff, &dLen);
-			
-	for (y = 0 ; y < MAP_HEIGHT ; y++)
-	{
-		for (x = 0 ; x < MAP_WIDTH ; x++)
-		{
-			fprintf(fp, "%d ", stage.map[x][y]);
-		}
-	}
-	
-	fclose(fp);
-	
-	cData = compressData(buff, &eLen, &cLen);
-	
-	mapJSON = cJSON_CreateObject();
-	
-	cJSON_AddStringToObject(mapJSON, "data", cData);
-	cJSON_AddNumberToObject(mapJSON, "eLen", eLen);
-	cJSON_AddNumberToObject(mapJSON, "cLen", cLen);
-	cJSON_AddNumberToObject(mapJSON, "dLen", dLen);
-	
-	cJSON_AddItemToObject(root, "map", mapJSON);
-	
-	free(buff);
-	
-	free(cData);
-}
-
-static void saveEntities(cJSON *root)
-{
-	Entity *e;
-	cJSON *entityJSON, *entitiesJSON;
-	
-	entitiesJSON = cJSON_CreateArray();
-	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
-	{
-		self = e;
-		
-		entityJSON = cJSON_CreateObject();
-		
-		cJSON_AddStringToObject(entityJSON, "type", e->typeName);
-		cJSON_AddNumberToObject(entityJSON, "x", e->x);
-		cJSON_AddNumberToObject(entityJSON, "y", e->y);
-		
-		if (strlen(e->name) > 0)
-		{
-			cJSON_AddStringToObject(entityJSON, "name", e->name);
-		}
-		
-		if (e->save)
-		{
-			e->save(entityJSON);
-		}
-		
-		cJSON_AddItemToArray(entitiesJSON, entityJSON);
-	}
-	
-	cJSON_AddItemToObject(root, "entities", entitiesJSON);
-}
-
-static void saveStage(void)
-{
-	char filename[MAX_FILENAME_LENGTH], *out;
-	cJSON *root;
-	
-	sprintf(filename, "data/stages/%03d.json", stage.num);
-	
-	printf("Saving %s ...\n", filename);
-	
-	root = cJSON_CreateObject();
-	
-	saveEntities(root);
-	
-	saveMap(root);
-	
-	out = cJSON_Print(root);
-	
-	writeFile(filename, out);
-	
-	cJSON_Delete(root);
-	
-	free(out);
-	
-	printf("Saved %s\n", filename);
-}
-
 static void createEntity(void)
 {
 	Entity *e;
@@ -263,6 +168,19 @@ static void flipSelectedEntity(void)
 	}
 }
 
+static void save(void)
+{
+	char filename[MAX_FILENAME_LENGTH];
+	
+	sprintf(filename, "data/stages/%03d.json", stage.num);
+	
+	printf("Saving %s ...\n", filename);
+	
+	saveStage(filename);
+	
+	printf("Saving %s ... - done\n", filename);
+}
+
 static void logic(void)
 {
 	int x, y;
@@ -342,7 +260,7 @@ static void logic(void)
 	{
 		app.keyboard[SDL_SCANCODE_SPACE] = 0;
 		
-		saveStage();
+		save();
 	}
 	
 	if (app.keyboard[SDL_SCANCODE_1])
@@ -391,8 +309,8 @@ static void logic(void)
 		}
 		
 		/* use 64, so things don't look wonky on the right-hand side */
-		stage.camera.x = MIN(MAX(stage.camera.x, 0), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + (TILE_SIZE - 64));
-		stage.camera.y = MIN(MAX(stage.camera.y, 0), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT);
+		stage.camera.x = MIN(MAX(stage.camera.x, -(TILE_SIZE * 4)), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + (TILE_SIZE - 64));
+		stage.camera.y = MIN(MAX(stage.camera.y, -(TILE_SIZE * 4)), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT);
 	}
 }
 
@@ -503,7 +421,7 @@ static void tryLoadStage(void)
 	
 	if (fileExists(filename))
 	{
-		loadStage(0);
+		loadStage(filename);
 		
 		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
 		{
@@ -539,6 +457,12 @@ static void centreOnPlayer(void)
 			
 			stage.camera.x -= SCREEN_WIDTH / 2;
 			stage.camera.y -= SCREEN_HEIGHT / 2;
+			
+			stage.camera.x /= TILE_SIZE;
+			stage.camera.y /= TILE_SIZE;
+			
+			stage.camera.x *= TILE_SIZE;
+			stage.camera.y *= TILE_SIZE;
 		}
 		
 		e->flags &= ~EF_INVISIBLE;

@@ -1,95 +1,42 @@
 {
 	"entities":	[{
-			"type":	"greenHorse",
-			"x":	976,
-			"y":	448
-		}, {
-			"type":	"greenHorse",
-			"x":	528,
-			"y":	880
-		}, {
-			"type":	"greenHorse",
-			"x":	1360,
-			"y":	880
-		}, {
-			"type":	"greenHorse",
+			"type":	"player",
 			"x":	88,
-			"y":	784
-		}, {
-			"type":	"greenHorse",
-			"x":	1760,
-			"y":	160
-		}, {
-			"type":	"greenHorse",
-			"x":	2232,
-			"y":	208
-		}, {
-			"type":	"greenHorse",
-			"x":	2320,
-			"y":	448
-		}, {
-			"type":	"greenHorse",
-			"x":	2040,
-			"y":	688
-		}, {
-			"type":	"greenHorse",
-			"x":	2648,
-			"y":	736
-		}, {
-			"type":	"greenHorse",
-			"x":	3576,
-			"y":	736
-		}, {
-			"type":	"greenHorse",
-			"x":	3856,
-			"y":	208
-		}, {
-			"type":	"greenHorse",
-			"x":	3264,
-			"y":	160
-		}, {
-			"type":	"greenHorse",
-			"x":	3000,
-			"y":	160
-		}, {
-			"type":	"greenHorse",
-			"x":	2864,
-			"y":	304
-		}, {
-			"type":	"key",
-			"x":	1664,
-			"y":	112
-		}, {
-			"type":	"key",
-			"x":	1768,
-			"y":	560
-		}, {
-			"type":	"door",
-			"x":	2464,
-			"y":	672,
-			"open":	0,
-			"requiresKey":	1
-		}, {
-			"type":	"door",
-			"x":	3424,
-			"y":	96,
-			"open":	0,
-			"requiresKey":	1
+			"y":	304,
+			"facing":	"right"
 		}, {
 			"type":	"startPoint",
-			"x":	80,
-			"y":	256,
-			"name":	"topLeft"
+			"x":	1256,
+			"y":	640,
+			"name":	"rightFlag"
 		}, {
-			"type":	"player",
-			"x":	136,
-			"y":	256,
-			"facing":	"right"
+			"type":	"transferCube",
+			"x":	1296,
+			"y":	624,
+			"targetStage":	2,
+			"targetFlag":	"topLeft"
+		}, {
+			"type":	"transferCube",
+			"x":	1296,
+			"y":	576,
+			"targetStage":	2,
+			"targetFlag":	"topLeft"
+		}, {
+			"type":	"door",
+			"x":	1216,
+			"y":	576,
+			"open":	0,
+			"requiresKey":	0,
+			"speed":	1,
+			"sx":	1216,
+			"sy":	576,
+			"ex":	1216,
+			"ey":	484
 		}],
 	"map":	{
-		"data":	"eJzt1ltugzAQBdCtdAnlY/a/tapS8wD8TuwS6ehI+UAx+A4em+1r+wDf0/Tfe2R2+3/lR2ynUdfLf67A+/LXx14h/7EGs585M/+o5/xx1zo2ij4hf2ofqOWKwsjjWoq/318z85fq3p+/bf+u54nO/497rY9Hzq4orpP0c9bk710BvW6ruSRVh1X551bgOXl9NrG7uir/llmFtX2tRU+n7SuwMn/5RGvt8fNT9vdom1kkRq/JX++Ivr5py/8/+9976lY+P1vyR+a0mHv+t9w7nS3dNWOzeOwPcbje1l9z8+dXeGnnaK9Fbm+MxLX1+dNv5pE/X5W436H9ZNiS12fmL7+pd8yitsfWzcyf69zzuxnp7/oX3xXyHzs3P+tXvnqunf/K5uUHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAeP+txB6o",
-		"eLen":	436,
-		"cLen":	326,
+		"data":	"eJzt17ENwCAMRcFVGCHsvxxlugAWUqTP6Rbwc2O5t17wxNhv0a//76n169d/pn/3omX2r1fl9q+VZffP6/L7vwvv6M+qrPXfsIPK95e/FQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDXAHV+AcU",
+		"eLen":	152,
+		"cLen":	113,
 		"dLen":	32768
 	}
 }

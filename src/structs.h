@@ -124,6 +124,7 @@ typedef struct {
 	int ey;
 	int open;
 	int requiresKey;
+	int speed;
 } Door;
 
 typedef struct {
@@ -168,7 +169,7 @@ struct GameText {
 typedef struct {
 	int num;
 	int map[MAP_WIDTH][MAP_HEIGHT];
-	int numMonsters, totalMonsters;
+	int numMonsters;
 	int keys;
 	AtlasImage *tiles[MAX_TILES];
 	Entity entityHead, *entityTail;
@@ -184,7 +185,7 @@ typedef struct {
 		int maxX;
 		int minY;
 		int maxY;
-	} camera;;
+	} camera;
 } Stage;
 
 typedef struct {

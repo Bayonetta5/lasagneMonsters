@@ -36,6 +36,7 @@ static void options(void);
 static void quit(void);
 void destroyStage(void);
 
+static int delay;
 static int show;
 static AtlasImage *backgroundTile;
 static Widget *resumeWidget;
@@ -73,17 +74,16 @@ void initStage(void)
 	backgroundTile = getAtlasImage("gfx/tiles/0.png", 1);
 	
 	initWipe(WIPE_FADE);
+	
+	delay = 0;
 }
 
-void loadStage(int randomTiles)
+void loadStage(char *filename)
 {
 	cJSON *root;
 	char *json;
-	char filename[MAX_FILENAME_LENGTH];
 	
 	srand(256 * stage.num);
-	
-	sprintf(filename, "data/stages/%03d.json", stage.num);
 	
 	json = readFile(getFileLocation(filename));
 		
@@ -97,12 +97,10 @@ void loadStage(int randomTiles)
 	
 	initEntities(root);
 	
-	if (randomTiles)
-	{
-		randomizeTiles();
-		
-		dropToFloor();
-	}
+	dropToFloor();
+	
+	/* could be caused by dropToFloor */
+	stage.transferCube = NULL;
 	
 	free(json);
 	
@@ -298,6 +296,11 @@ static void transfer(void)
 	TransferCube transferCube;
 	Walter walter;
 	Entity *e;
+	char filename[MAX_PATH_LENGTH];
+	
+	sprintf(filename, "%s/%03d.json", app.saveDir, stage.num);
+	
+	saveStage(filename);
 	
 	memcpy(&walter, stage.player->data, sizeof(Walter));
 	memcpy(&transferCube, stage.transferCube, sizeof(TransferCube));
@@ -306,7 +309,20 @@ static void transfer(void)
 	
 	stage.num = transferCube.targetStage;
 	
-	loadStage(1);
+	sprintf(filename, "%s/%03d.json", app.saveDir, stage.num);
+	
+	if (fileExists(filename))
+	{
+		loadStage(filename);
+	}
+	else
+	{
+		sprintf(filename, "data/stages/%03d.json", stage.num);
+		
+		loadStage(filename);
+	}
+	
+	randomizeTiles();
 	
 	e = findStartPoint(transferCube.targetFlag);
 	

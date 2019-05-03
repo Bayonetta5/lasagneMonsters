@@ -20,11 +20,16 @@
 			"y":	576,
 			"targetStage":	1,
 			"targetFlag":	"topLeft"
+		}, {
+			"type":	"startPoint",
+			"x":	1248,
+			"y":	592,
+			"name":	"rightFlag"
 		}],
 	"map":	{
-		"data":	"eJzt17EJACAMAMFVHEEL91/NDQwEQYzHtSl8jIWjjYReRqZF/+1T69evX79+/frP9M9A7f4ZTsYTL6p0l7n+aO/3b+F1md/f7zsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/GUBuw0CVg=",
-		"eLen":	148,
-		"cLen":	109,
+		"data":	"eJzt2LENgDAMRcFVGIEU3n81CioqhwgJ8Tldm4KnOIUZ21iwx1hp0f/2V+vXr1+/fv36n+mvRnZ/tSf7E1+UdJer/d3kX19ARU3C3fuvX+9/Fbj/zk3z+QIS9/8x9fZT/38AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAw5wAYMgK",
+		"eLen":	176,
+		"cLen":	132,
 		"dLen":	32768
 	}
 }

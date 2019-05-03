@@ -51,7 +51,7 @@ void initGreenBugEyedMonster(Entity *e)
 	
 	bulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
 	
-	stage.numMonsters = ++stage.totalMonsters;
+	stage.numMonsters++;
 }
 
 static void tick(void)

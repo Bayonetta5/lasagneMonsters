@@ -80,6 +80,7 @@ int main(int argc, char *argv[])
 static void handleCommandLine(int argc, char *argv[])
 {
 	int i;
+	char filename[MAX_NAME_LENGTH];
 	
 	initStage();
 	
@@ -98,7 +99,11 @@ static void handleCommandLine(int argc, char *argv[])
 		}
 	}
 	
-	loadStage(1);
+	sprintf(filename, "data/stages/%03d.json", stage.num);
+	
+	loadStage(filename);
+	
+	randomizeTiles();
 }
 
 static void capFrameRate(long *then, float *remainder)

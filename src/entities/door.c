@@ -37,6 +37,7 @@ void initDoor(Entity *e)
 	d->sy = e->y;
 	d->ex = e->x;
 	d->ey = e->y;
+	d->speed = 1;
 	
 	e->typeName = "door";
 	e->type = ET_STRUCTURE;
@@ -70,7 +71,7 @@ static void tick(void)
 	{
 		if (self->y > d->ey)
 		{
-			self->dy = -4;
+			self->dy = -d->speed;
 			
 			self->y = MAX(self->y, d->ey);
 			
@@ -81,7 +82,7 @@ static void tick(void)
 	{
 		if (self->y < d->sy)
 		{
-			self->dy = 4;
+			self->dy = d->speed;
 			
 			self->y = MIN(self->y, d->sy);
 			
@@ -133,6 +134,11 @@ static void load(cJSON *root)
 	
 	d->open = cJSON_GetObjectItem(root, "open")->valueint;
 	d->requiresKey = cJSON_GetObjectItem(root, "requiresKey")->valueint;
+	d->speed = cJSON_GetObjectItem(root, "speed")->valueint;
+	d->sx = cJSON_GetObjectItem(root, "sx")->valueint;
+	d->sy = cJSON_GetObjectItem(root, "sy")->valueint;
+	d->ex = cJSON_GetObjectItem(root, "ex")->valueint;
+	d->ey = cJSON_GetObjectItem(root, "ey")->valueint;
 }
 
 static void save(cJSON *root)
@@ -143,4 +149,9 @@ static void save(cJSON *root)
 	
 	cJSON_AddNumberToObject(root, "open", d->open);
 	cJSON_AddNumberToObject(root, "requiresKey", d->requiresKey);
+	cJSON_AddNumberToObject(root, "speed", d->speed);
+	cJSON_AddNumberToObject(root, "sx", d->sx);
+	cJSON_AddNumberToObject(root, "sy", d->sy);
+	cJSON_AddNumberToObject(root, "ex", d->ex);
+	cJSON_AddNumberToObject(root, "ey", d->ey);
 }

@@ -128,7 +128,7 @@ static Entity *initBullet(Entity *owner)
 	e->y = owner->y;
 	e->facing = owner->facing;
 	e->dx = owner->facing ? 12 : -12;
-	e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE;
+	e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE+EF_TRANSIENT;
 	e->owner = self;
 	
 	e->tick = tick;

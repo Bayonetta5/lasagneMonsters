@@ -43,12 +43,13 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Entity **initAllEnts(int *numEnts);
 extern void initGame(void);
 extern void initSDL(void);
-extern void loadStage(int randomTiles);
+extern void loadStage(const char *filename);
 extern void prepareScene(void);
 extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 extern int writeFile(const char *filename, const char *data);
+extern void saveStage(const char *filename);
 
 App app;
 Entity *player;

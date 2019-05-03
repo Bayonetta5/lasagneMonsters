@@ -48,7 +48,7 @@ void initGreenHorse(Entity *e)
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;
 	
-	stage.numMonsters = ++stage.totalMonsters;
+	stage.numMonsters++;
 }
 
 static void tick(void)

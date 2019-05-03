@@ -90,6 +90,11 @@ void doEntities(void)
 			}
 			else
 			{
+				if (e->data)
+				{
+					free(e->data);
+				}
+				
 				free(e);
 			}
 			

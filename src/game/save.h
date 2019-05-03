@@ -18,20 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "common.h"
+#include "../common.h"
+#include "../json/cJSON.h"
 
-extern void cleanup(void);
-extern void doInput(void);
-extern void initGame(void);
-extern void initSDL(void);
-extern void initStage(void);
-extern void loadStage(const char *filename);
-extern void randomizeTiles(void);
-extern void prepareScene(void);
-extern void presentScene(void);
+extern int writeFile(const char *filename, const char *data);
+extern char *compressData(const char *src, unsigned long *eLength, unsigned long *compressedLen);
 
-App app;
-Entity *player;
-Entity *self;
-Game game;
-Stage stage;
+extern Entity *self;
+extern Stage stage;
