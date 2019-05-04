@@ -22,7 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../json/cJSON.h"
 
 extern char *compressData(const char *src, unsigned long *eLength, unsigned long *compressedLen);
+extern char *getLookupName(char *prefix, long num);
 extern int writeFile(const char *filename, const char *data);
 
+extern App app;
 extern Entity *self;
+extern Game game;
 extern Stage *stage;
+extern World world;

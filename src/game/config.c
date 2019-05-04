@@ -18,71 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "game.h"
+#include "config.h"
 
 static void loadConfigFile(const char *filename);
-
-void loadGame(void)
-{
-	char filename[MAX_PATH_LENGTH], *json;
-	cJSON *root, *node, *child;
-	int n;
-	
-	sprintf(filename, "%s/%s", app.saveDir, SAVE_FILENAME);
-	
-	if (fileExists(filename))
-	{
-		json = readFile(filename);
-			
-		root = cJSON_Parse(json);
-		
-		node = cJSON_GetObjectItem(root, "stats");
-		
-		for (child = node->child ; child != NULL ; child = child->next)
-		{
-			n = lookup(cJSON_GetObjectItem(child, "key")->valuestring);
-			
-			game.stats[n] = cJSON_GetObjectItem(child, "value")->valueint;
-		}
-		
-		cJSON_Delete(root);
-	
-		free(json);
-	}
-}
-
-void saveGame(void)
-{
-	char filename[MAX_PATH_LENGTH], *out;
-	cJSON *root, *node, *statsJSON;
-	int i;
-	
-	root = cJSON_CreateObject();
-		
-	statsJSON = cJSON_CreateArray();
-	
-	for (i = 0 ; i < STAT_MAX ; i++)
-	{
-		node = cJSON_CreateObject();
-		
-		cJSON_AddStringToObject(node, "key", getLookupName("STAT_", i));
-		cJSON_AddNumberToObject(node, "value", game.stats[i]);
-		
-		cJSON_AddItemToArray(statsJSON, node);
-	}
-	
-	cJSON_AddItemToObject(root, "stats", statsJSON);
-	
-	sprintf(filename, "%s/%s", app.saveDir, SAVE_FILENAME);
-	
-	out = cJSON_Print(root);
-	
-	writeFile(filename, out);
-	
-	cJSON_Delete(root);
-	
-	free(out);
-}
 
 void loadConfig(void)
 {

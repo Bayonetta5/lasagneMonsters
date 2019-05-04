@@ -20,21 +20,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "save.h"
 
+static void saveStages(cJSON *root);
 static void saveMap(cJSON *root);
 static void saveEntities(cJSON *root);
+static void saveStats(cJSON *root);
 
-void saveStage(const char *filename)
+void saveGame(void)
 {
-	char *out;
+	char filename[MAX_PATH_LENGTH], *out;
 	cJSON *root;
 	
 	root = cJSON_CreateObject();
 	
-	cJSON_AddNumberToObject(root, "id", stage->id);
+	saveStages(root);
 	
-	saveEntities(root);
+	saveStats(root);
 	
-	saveMap(root);
+	sprintf(filename, "%s/%s", app.saveDir, SAVE_FILENAME);
 	
 	out = cJSON_Print(root);
 	
@@ -43,6 +45,65 @@ void saveStage(const char *filename)
 	cJSON_Delete(root);
 	
 	free(out);
+}
+
+static void saveStages(cJSON *root)
+{
+	Stage *s;
+	cJSON *stagesJSON, *stageJSON;
+	
+	stagesJSON = cJSON_CreateArray();
+	
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		stageJSON = cJSON_CreateObject();
+		
+		cJSON_AddNumberToObject(stageJSON, "id", s->id);
+		
+		saveEntities(stageJSON);
+	
+		saveMap(stageJSON);
+		
+		cJSON_AddItemToArray(stagesJSON, stageJSON);
+	}
+	
+	cJSON_AddItemToObject(root, "stages", stagesJSON);
+}
+
+static void saveEntities(cJSON *root)
+{
+	Entity *e;
+	cJSON *entityJSON, *entitiesJSON;
+	
+	entitiesJSON = cJSON_CreateArray();
+	
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (!(e->flags & EF_TRANSIENT))
+		{
+			self = e;
+			
+			entityJSON = cJSON_CreateObject();
+			
+			cJSON_AddStringToObject(entityJSON, "type", e->typeName);
+			cJSON_AddNumberToObject(entityJSON, "x", e->x);
+			cJSON_AddNumberToObject(entityJSON, "y", e->y);
+			
+			if (strlen(e->name) > 0)
+			{
+				cJSON_AddStringToObject(entityJSON, "name", e->name);
+			}
+			
+			if (e->save)
+			{
+				e->save(entityJSON);
+			}
+			
+			cJSON_AddItemToArray(entitiesJSON, entityJSON);
+		}
+	}
+	
+	cJSON_AddItemToObject(root, "entities", entitiesJSON);
 }
 
 static void saveMap(cJSON *root)
@@ -81,38 +142,45 @@ static void saveMap(cJSON *root)
 	free(cData);
 }
 
-static void saveEntities(cJSON *root)
+static void saveStats(cJSON *root)
 {
-	Entity *e;
-	cJSON *entityJSON, *entitiesJSON;
+	cJSON *statsJSON, *statJSON;
+	int i;
 	
-	entitiesJSON = cJSON_CreateArray();
+	statsJSON = cJSON_CreateArray();
 	
-	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	for (i = 0 ; i < STAT_MAX ; i++)
 	{
-		if (!(e->flags & EF_TRANSIENT))
-		{
-			self = e;
-			
-			entityJSON = cJSON_CreateObject();
-			
-			cJSON_AddStringToObject(entityJSON, "type", e->typeName);
-			cJSON_AddNumberToObject(entityJSON, "x", e->x);
-			cJSON_AddNumberToObject(entityJSON, "y", e->y);
-			
-			if (strlen(e->name) > 0)
-			{
-				cJSON_AddStringToObject(entityJSON, "name", e->name);
-			}
-			
-			if (e->save)
-			{
-				e->save(entityJSON);
-			}
-			
-			cJSON_AddItemToArray(entitiesJSON, entityJSON);
-		}
+		statJSON = cJSON_CreateObject();
+		
+		cJSON_AddStringToObject(statJSON, "key", getLookupName("STAT_", i));
+		cJSON_AddNumberToObject(statJSON, "value", game.stats[i]);
+		
+		cJSON_AddItemToArray(statsJSON, statJSON);
 	}
 	
-	cJSON_AddItemToObject(root, "entities", entitiesJSON);
+	cJSON_AddItemToObject(root, "stats", statsJSON);
+}
+
+/* used by map editor */
+void saveStage(const char *filename)
+{
+	char *out;
+	cJSON *root;
+	
+	root = cJSON_CreateObject();
+	
+	cJSON_AddNumberToObject(root, "id", stage->id);
+	
+	saveEntities(root);
+	
+	saveMap(root);
+	
+	out = cJSON_Print(root);
+	
+	writeFile(filename, out);
+	
+	cJSON_Delete(root);
+	
+	free(out);
 }
