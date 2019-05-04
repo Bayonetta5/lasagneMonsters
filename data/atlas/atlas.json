@@ -25,175 +25,183 @@
 	},
 	{
 		"filename" : "gfx/entities/transferCube.png",
-		"x" : 0,
-		"y" : 121,
+		"x" : 212,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/5.png",
-		"x" : 49,
-		"y" : 121,
+		"x" : 261,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/4.png",
-		"x" : 98,
-		"y" : 121,
+		"x" : 310,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/1.png",
-		"x" : 147,
-		"y" : 121,
+		"x" : 359,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/2.png",
-		"x" : 196,
-		"y" : 121,
+		"x" : 408,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/0.png",
-		"x" : 0,
-		"y" : 170,
+		"x" : 457,
+		"y" : 0,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/50.png",
-		"x" : 49,
-		"y" : 170,
+		"x" : 0,
+		"y" : 121,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/tiles/3.png",
-		"x" : 98,
-		"y" : 170,
+		"x" : 49,
+		"y" : 121,
 		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/greenBugEyedMonster2.png",
-		"x" : 212,
-		"y" : 0,
+		"x" : 98,
+		"y" : 121,
 		"w" : 42,
 		"h" : 42,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/greenBugEyedMonster1.png",
-		"x" : 147,
-		"y" : 170,
+		"x" : 141,
+		"y" : 121,
 		"w" : 42,
 		"h" : 42,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/beer.png",
-		"x" : 190,
-		"y" : 170,
+		"x" : 184,
+		"y" : 121,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/startPoint.png",
-		"x" : 211,
-		"y" : 170,
+		"x" : 205,
+		"y" : 121,
 		"w" : 32,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/greenHorse1.png",
-		"x" : 0,
-		"y" : 219,
+		"x" : 238,
+		"y" : 121,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/redHorse1.png",
+		"x" : 271,
+		"y" : 121,
 		"w" : 32,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/walter.png",
-		"x" : 33,
-		"y" : 219,
+		"x" : 304,
+		"y" : 121,
 		"w" : 38,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 72,
-		"y" : 219,
+		"x" : 343,
+		"y" : 121,
 		"w" : 18,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 91,
-		"y" : 219,
+		"x" : 362,
+		"y" : 121,
 		"w" : 14,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/chocolate.png",
-		"x" : 106,
-		"y" : 219,
+		"x" : 377,
+		"y" : 121,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/apple.png",
-		"x" : 212,
-		"y" : 43,
+		"x" : 398,
+		"y" : 121,
 		"w" : 24,
 		"h" : 30,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 237,
-		"y" : 43,
+		"x" : 423,
+		"y" : 121,
 		"w" : 18,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 127,
-		"y" : 219,
+		"x" : 442,
+		"y" : 121,
 		"w" : 26,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 154,
-		"y" : 219,
+		"x" : 469,
+		"y" : 121,
 		"w" : 26,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 245,
+		"x" : 496,
 		"y" : 121,
 		"w" : 7,
 		"h" : 25,
@@ -201,72 +209,72 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 181,
-		"y" : 219,
+		"x" : 212,
+		"y" : 49,
 		"w" : 24,
 		"h" : 24,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 206,
-		"y" : 219,
+		"x" : 237,
+		"y" : 49,
 		"w" : 24,
 		"h" : 24,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/key.png",
-		"x" : 138,
-		"y" : 74,
+		"x" : 262,
+		"y" : 49,
 		"w" : 32,
 		"h" : 18,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/slimeBullet.png",
-		"x" : 171,
-		"y" : 74,
+		"x" : 295,
+		"y" : 49,
 		"w" : 22,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 194,
-		"y" : 74,
+		"x" : 318,
+		"y" : 49,
 		"w" : 22,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall3.png",
-		"x" : 217,
-		"y" : 74,
+		"x" : 341,
+		"y" : 49,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall2.png",
-		"x" : 226,
-		"y" : 74,
+		"x" : 350,
+		"y" : 49,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall1.png",
-		"x" : 235,
-		"y" : 74,
+		"x" : 359,
+		"y" : 49,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 244,
-		"y" : 74,
+		"x" : 368,
+		"y" : 49,
 		"w" : 7,
 		"h" : 7,
 		"rotated" : 0
