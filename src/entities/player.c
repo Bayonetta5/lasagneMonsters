@@ -93,19 +93,23 @@ static void tick(void)
 		
 		if (isControl(CONTROL_FIRE))
 		{
-			clearControl(CONTROL_FIRE);
+			/*clearControl(CONTROL_FIRE);*/
 			
-			if (w->ammo > 0)
+			if (w->ammo > 0 && w->reload == 0)
 			{
 				w->ammo--;
 				
 				/* don't let the player fire too quickly */
-				w->reload = 4;
+				w->reload = 16;
 				
 				initWaterBullet(self);
 				
 				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, world.player->x, world.player->y);
 			}
+		}
+		else
+		{
+			w->reload = 0;
 		}
 		
 		if (isControl(CONTROL_USE))
