@@ -32,6 +32,7 @@ extern void destroyTextures(void);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void initAtlas(void);
 extern void initBase64(void);
+extern void initGame(void);
 extern void initBullets(void);
 extern void initEffects(void);
 extern void initEntityFactory(void);

@@ -47,7 +47,7 @@ extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Entity **initAllEnts(int *numEnts);
-extern void initGame(void);
+extern void initGameSystem(void);
 extern void initSDL(void);
 extern void initStage(int i, int fade);
 extern void prepareScene(void);

@@ -93,7 +93,7 @@ static void initJoypad(void)
 	}
 }
 
-void initGame(void)
+void initGameSystem(void)
 {
 	int i, numInitFuns;
 	void (*initFuncs[]) (void) = {
@@ -105,6 +105,7 @@ void initGame(void)
 		initJoypad,
 		initWidgets,
 		initEntityFactory,
+		initGame,
 		initWorld,
 		initParticles,
 		initEffects,

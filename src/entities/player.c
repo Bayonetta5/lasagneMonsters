@@ -93,14 +93,17 @@ static void tick(void)
 		
 		if (isControl(CONTROL_FIRE))
 		{
-			/*clearControl(CONTROL_FIRE);*/
+			if (!game.autoFire)
+			{
+				clearControl(CONTROL_FIRE);
+			}
 			
 			if (w->ammo > 0 && w->reload == 0)
 			{
 				w->ammo--;
 				
 				/* don't let the player fire too quickly */
-				w->reload = 16;
+				w->reload = game.autoFire;
 				
 				initWaterBullet(self);
 				

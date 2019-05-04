@@ -211,6 +211,7 @@ typedef struct {
 typedef struct {
 	unsigned int coins;
 	unsigned int stats[STAT_MAX];
+	unsigned int autoFire;
 } Game;
 
 struct Widget {

@@ -33,4 +33,5 @@ extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, 
 extern void playSound(int id, int channel);
 
 extern Entity *self;
+extern Game game;
 extern World world;

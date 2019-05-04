@@ -586,7 +586,7 @@ int main(int argc, char *argv[])
 	
 	SDL_ShowCursor(1);
 	
-	initGame();
+	initGameSystem();
 	
 	handleCommandLine(argc, argv);
 	
