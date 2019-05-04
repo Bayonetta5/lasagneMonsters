@@ -117,13 +117,16 @@ void randomizeTiles(void)
 {
 	int x, y;
 	
-	for (y = 0 ; y < MAP_HEIGHT ; y++)
+	if (!app.dev.editor)
 	{
-		for (x = 0 ; x < MAP_WIDTH ; x++)
+		for (y = 0 ; y < MAP_HEIGHT ; y++)
 		{
-			if (stage->map[x][y] == 1)
+			for (x = 0 ; x < MAP_WIDTH ; x++)
 			{
-				stage->map[x][y] += rand() % 4;
+				if (stage->map[x][y] == 1)
+				{
+					stage->map[x][y] += rand() % 4;
+				}
 			}
 		}
 	}

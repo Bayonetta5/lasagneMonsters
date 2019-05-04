@@ -44,8 +44,11 @@ Stage *getStage(int i)
 		}
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such stage: %d", i);
-	exit(1);
+	if (!app.dev.editor)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such stage: %d", i);
+		exit(1);
+	}
 	
 	return NULL;
 }
@@ -63,8 +66,11 @@ void updatePlayer(void)
 		}
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Player not found in stage: %d", stage->id);
-	exit(1);
+	if (!app.dev.editor)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Player not found in stage: %d", stage->id);
+		exit(1);
+	}
 }
 
 static void initAllStages(void)

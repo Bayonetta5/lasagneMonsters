@@ -25,5 +25,6 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern char *decompressData(const char *src, unsigned long eLength, unsigned long compressedLen, unsigned long decompressedLen);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 
+extern App app;
 extern Stage *stage;
 extern World world;

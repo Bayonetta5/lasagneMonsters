@@ -23,5 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern char **getFileList(const char *dir, int *count);
 extern void loadStage(char *filename);
 
+extern App app;
 extern Stage *stage;
 extern World world;

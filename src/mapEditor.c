@@ -451,6 +451,34 @@ static void centreOnPlayer(void)
 	}
 }
 
+static void tryLoadStage(int n)
+{
+	Stage *s, *last;
+	
+	last = &world.stagesHead;
+	
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		if (s->id == n)
+		{
+			initStage(n, 0);
+			return;
+		}
+		
+		last = s;
+	}
+	
+	s = malloc(sizeof(Stage));
+	memset(s, 0, sizeof(Stage));
+	last->next = s;
+	last = s;
+	
+	s->id = n;
+	s->entityTail = &s->entityHead;
+	
+	initStage(n, 0);
+}
+
 static void handleCommandLine(int argc, char *argv[])
 {
 	int i;
@@ -459,7 +487,7 @@ static void handleCommandLine(int argc, char *argv[])
 	{
 		if (strcmp(argv[i], "-stage") == 0)
 		{
-			initStage(atoi(argv[i + 1]), 0);
+			tryLoadStage(atoi(argv[i + 1]));
 		}
 	}
 }
@@ -471,6 +499,7 @@ int main(int argc, char *argv[])
 	
 	memset(&app, 0, sizeof(App));
 	app.texturesTail = &app.texturesHead;
+	app.dev.editor = 1;
 	
 	tile = 1;
 	cameraTimer = 0;

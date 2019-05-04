@@ -278,5 +278,6 @@ typedef struct {
 		int ents;
 		int collisions;
 		int drawing;
+		int editor;
 	} dev;
 } App;
