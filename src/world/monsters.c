@@ -110,7 +110,7 @@ void monsterDie(void)
 	
 	throwCoins(self->x, self->y, m->coins);
 	
-	if (rand() % 5 == 0)
+	if (rand() % 10 == 0)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
