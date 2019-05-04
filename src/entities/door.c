@@ -110,10 +110,10 @@ static void touch(Entity *other)
 	{
 		d = (Door*)self->data;
 		
-		if (d->requires == DR_KEY && stage->keys > 0)
+		if (d->requires == DR_KEY && game.keys > 0)
 		{
 			d->requires = DR_NOTHING;
-			stage->keys--;
+			game.keys--;
 		}
 		
 		if (!d->open && d->requires == DR_NOTHING)

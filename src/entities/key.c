@@ -92,7 +92,7 @@ static void touch(Entity *other)
 {
 	if (self->alive == ALIVE_ALIVE && other != NULL && other->type == ET_PLAYER)
 	{
-		stage->keys++;
+		game.keys++;
 		
 		self->alive = ALIVE_DEAD;
 		

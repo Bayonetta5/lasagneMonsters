@@ -185,7 +185,6 @@ struct Stage {
 	int id;
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters;
-	int keys;
 	Entity entityHead, *entityTail;
 	Stage *next;
 };
@@ -210,8 +209,9 @@ typedef struct {
 
 typedef struct {
 	unsigned int coins;
-	unsigned int stats[STAT_MAX];
+	unsigned int keys;
 	unsigned int autoFire;
+	unsigned int stats[STAT_MAX];
 } Game;
 
 struct Widget {

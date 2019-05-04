@@ -182,7 +182,7 @@ static void drawKeys(void)
 {
 	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 96, 0, SDL_FLIP_NONE);
 	
-	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", stage->keys);
+	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", game.keys);
 }
 
 static void drawGameText(void)

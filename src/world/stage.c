@@ -157,6 +157,13 @@ static void doControls(void)
 		
 		pauseSound();
 	}
+	
+	if (app.dev.debug && app.keyboard[SDL_SCANCODE_F1])
+	{
+		app.keyboard[SDL_SCANCODE_F1] = 0;
+		
+		saveGame();
+	}
 }
 
 static void draw(void)

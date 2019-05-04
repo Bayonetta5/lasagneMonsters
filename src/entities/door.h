@@ -27,5 +27,6 @@ extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);
 
 extern Entity *self;
+extern Game game;
 extern Stage *stage;
 extern World world;

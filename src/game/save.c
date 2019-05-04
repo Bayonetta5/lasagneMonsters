@@ -20,9 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "save.h"
 
+static void saveGameData(cJSON *root);
 static void saveStages(cJSON *root);
-static void saveMap(cJSON *root);
-static void saveEntities(cJSON *root);
+static void saveMap(Stage *s, cJSON *root);
+static void saveEntities(Stage *s, cJSON *root);
 static void saveStats(cJSON *root);
 
 void saveGame(void)
@@ -30,13 +31,17 @@ void saveGame(void)
 	char filename[MAX_PATH_LENGTH], *out;
 	cJSON *root;
 	
+	sprintf(filename, "%s/%s", app.saveDir, SAVE_FILENAME);
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Saving game '%s' ...", filename);
+	
 	root = cJSON_CreateObject();
+	
+	saveGameData(root);
 	
 	saveStages(root);
 	
 	saveStats(root);
-	
-	sprintf(filename, "%s/%s", app.saveDir, SAVE_FILENAME);
 	
 	out = cJSON_Print(root);
 	
@@ -45,6 +50,19 @@ void saveGame(void)
 	cJSON_Delete(root);
 	
 	free(out);
+}
+
+static void saveGameData(cJSON *root)
+{
+	cJSON *gameJSON;
+	
+	gameJSON = cJSON_CreateObject();
+	
+	cJSON_AddNumberToObject(gameJSON, "coins", game.coins);
+	cJSON_AddNumberToObject(gameJSON, "keys", game.keys);
+	cJSON_AddNumberToObject(gameJSON, "autoFire", game.autoFire);
+	
+	cJSON_AddItemToObject(root, "game", gameJSON);
 }
 
 static void saveStages(cJSON *root)
@@ -60,9 +78,9 @@ static void saveStages(cJSON *root)
 		
 		cJSON_AddNumberToObject(stageJSON, "id", s->id);
 		
-		saveEntities(stageJSON);
+		saveEntities(s, stageJSON);
 	
-		saveMap(stageJSON);
+		saveMap(s, stageJSON);
 		
 		cJSON_AddItemToArray(stagesJSON, stageJSON);
 	}
@@ -70,14 +88,14 @@ static void saveStages(cJSON *root)
 	cJSON_AddItemToObject(root, "stages", stagesJSON);
 }
 
-static void saveEntities(cJSON *root)
+static void saveEntities(Stage *s, cJSON *root)
 {
 	Entity *e;
 	cJSON *entityJSON, *entitiesJSON;
 	
 	entitiesJSON = cJSON_CreateArray();
 	
-	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	for (e = s->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (!(e->flags & EF_TRANSIENT))
 		{
@@ -106,7 +124,7 @@ static void saveEntities(cJSON *root)
 	cJSON_AddItemToObject(root, "entities", entitiesJSON);
 }
 
-static void saveMap(cJSON *root)
+static void saveMap(Stage *s, cJSON *root)
 {
 	int x, y;
 	unsigned long dLen, eLen, cLen;
@@ -120,7 +138,7 @@ static void saveMap(cJSON *root)
 	{
 		for (x = 0 ; x < MAP_WIDTH ; x++)
 		{
-			fprintf(fp, "%d ", stage->map[x][y]);
+			fprintf(fp, "%d ", s->map[x][y]);
 		}
 	}
 	
@@ -172,9 +190,9 @@ void saveStage(const char *filename)
 	
 	cJSON_AddNumberToObject(root, "id", stage->id);
 	
-	saveEntities(root);
+	saveEntities(stage, root);
 	
-	saveMap(root);
+	saveMap(stage, root);
 	
 	out = cJSON_Print(root);
 	
