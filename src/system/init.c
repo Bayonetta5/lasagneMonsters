@@ -30,7 +30,7 @@ void initSDL(void)
 	
 	windowFlags = 0;
 
-	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO|SDL_INIT_JOYSTICK) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) < 0)
 	{
 		printf("Couldn't initialize SDL: %s\n", SDL_GetError());
 		exit(1);
@@ -105,6 +105,7 @@ void initGame(void)
 		initJoypad,
 		initWidgets,
 		initEntityFactory,
+		initWorld,
 		initParticles,
 		initEffects,
 		initBullets,

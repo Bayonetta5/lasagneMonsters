@@ -41,13 +41,13 @@ void doEntities(void)
 {
 	Entity *e, *prev;
 	
-	prev = &stage.entityHead;
+	prev = &stage->entityHead;
 	
 	app.dev.collisions = app.dev.ents = 0;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		removeFromQuadtree(e, &stage.quadtree);
+		removeFromQuadtree(e, &world.quadtree);
 		
 		app.dev.ents++;
 		
@@ -65,7 +65,7 @@ void doEntities(void)
 		
 		if (e->alive != ALIVE_DEAD)
 		{
-			addToQuadtree(e, &stage.quadtree);
+			addToQuadtree(e, &world.quadtree);
 		}
 		else
 		{
@@ -74,9 +74,9 @@ void doEntities(void)
 				e->die();
 			}
 			
-			if (e == stage.entityTail)
+			if (e == stage->entityTail)
 			{
-				stage.entityTail = prev;
+				stage->entityTail = prev;
 			}
 			
 			prev->next = e->next;
@@ -104,9 +104,9 @@ void doEntities(void)
 		prev = e;
 	}
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		removeFromQuadtree(e, &stage.quadtree);
+		removeFromQuadtree(e, &world.quadtree);
 		
 		if (e->riding != NULL)
 		{
@@ -115,11 +115,11 @@ void doEntities(void)
 		
 		if (!(e->flags & (EF_NO_WORLD_CLIP|EF_NO_MAP_BOUNDS)))
 		{
-			e->x = MIN(MAX(e->x, stage.camera.minX), stage.camera.maxX - (e->w + 16));
+			e->x = MIN(MAX(e->x, world.camera.minX), world.camera.maxX - (e->w + 16));
 			e->y = MIN(MAX(e->y, 0), MAP_HEIGHT * TILE_SIZE);
 		}
 		
-		addToQuadtree(e, &stage.quadtree);
+		addToQuadtree(e, &world.quadtree);
 	}
 }
 
@@ -183,14 +183,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 		
 		hit = 0;
 		
-		if (!isInsideMap(mx, my) || stage.map[mx][my] != 0)
+		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
 		{
 			hit = 1;
 		}
 		
 		my = (e->y + e->h - 1) / TILE_SIZE;
 		
-		if (!isInsideMap(mx, my) || stage.map[mx][my] != 0)
+		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
 		{
 			hit = 1;
 		}
@@ -214,14 +214,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 		
 		hit = 0;
 		
-		if (!isInsideMap(mx, my) || stage.map[mx][my] != 0)
+		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
 		{
 			hit = 1;
 		}
 		
 		mx = (e->x + e->w - 1) / TILE_SIZE;
 		
-		if (!isInsideMap(mx, my) || stage.map[mx][my] != 0)
+		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
 		{
 			hit = 1;
 		}
@@ -270,7 +270,7 @@ static void moveToEntities(Entity *e, float dx, float dy)
 			{
 				if (canPush(e, other))
 				{
-					removeFromQuadtree(other, &stage.quadtree);
+					removeFromQuadtree(other, &world.quadtree);
 					
 					pushPower = e->flags & EF_SLOW_PUSH ? 0.5f : 1.0f;
 					
@@ -314,7 +314,7 @@ static void moveToEntities(Entity *e, float dx, float dy)
 					
 					self = oldSelf;
 					
-					addToQuadtree(other, &stage.quadtree);
+					addToQuadtree(other, &world.quadtree);
 				}
 				
 				if (other->flags & EF_SOLID)
@@ -388,26 +388,26 @@ void dropToFloor(void)
 	
 	onGround = 0;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		addToQuadtree(e, &stage.quadtree);
+		addToQuadtree(e, &world.quadtree);
 	}
 	
 	while (!onGround)
 	{
 		onGround = 1;
 		
-		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+		for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 		{
 			self = e;
 			
 			if ((!(e->flags & EF_WEIGHTLESS)) && !e->isOnGround)
 			{
-				removeFromQuadtree(e, &stage.quadtree);
+				removeFromQuadtree(e, &world.quadtree);
 				
 				push(e, 0, 8);
 				
-				addToQuadtree(e, &stage.quadtree);
+				addToQuadtree(e, &world.quadtree);
 				
 				onGround = 0;
 			}
@@ -420,7 +420,7 @@ void drawEntities(int background)
 	Entity *candidates[MAX_QT_CANDIDATES];
 	int i;
 	
-	getAllEntsWithin(stage.camera.x, stage.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, candidates, NULL);
+	getAllEntsWithin(world.camera.x, world.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, candidates, NULL);
 	
 	for (i = 0, self = candidates[0] ; i < MAX_QT_CANDIDATES && self != NULL ; self = candidates[++i])
 	{
@@ -434,7 +434,7 @@ void drawEntities(int background)
 			}
 			else
 			{
-				blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+				blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 			}
 		}
 	}
@@ -446,7 +446,7 @@ void activeEntities(char *targetName, int active)
 	
 	oldSelf = self;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->activate && strcmp(e->name, targetName) == 0)
 		{
@@ -462,14 +462,6 @@ void activeEntities(char *targetName, int active)
 void destroyEntities(void)
 {
 	Entity *e;
-	
-	while (stage.entityHead.next)
-	{
-		e = stage.entityHead.next;
-		stage.entityHead.next = e->next;
-		free(e->data);
-		free(e);
-	}
 	
 	while (deadListHead.next)
 	{

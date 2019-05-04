@@ -28,4 +28,4 @@ extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, 
 
 extern Entity *self;
 extern Game game;
-extern Stage stage;
+extern World world;

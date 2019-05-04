@@ -32,4 +32,5 @@ extern void monsterTick(void);
 extern void monsterTouch(Entity *other);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;
+extern World world;

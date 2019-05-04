@@ -74,8 +74,8 @@ static void draw(void)
 	
 	i = (Item*)self->data;
 	
-	x = self->x + (self->w / 2) - stage.camera.x;
-	y = self->y + (self->h / 2) - stage.camera.y;
+	x = self->x + (self->w / 2) - world.camera.x;
+	y = self->y + (self->h / 2) - world.camera.y;
 		
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 0);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
@@ -87,17 +87,17 @@ static void draw(void)
 	
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{
-		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 }
 
 static void touch(Entity *other)
 {
-	if (self->alive == ALIVE_ALIVE && other == stage.player)
+	if (self->alive == ALIVE_ALIVE && other == world.player)
 	{
 		self->alive = ALIVE_DEAD;
 		
-		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
+		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, world.player->x, world.player->y);
 		
 		addGameText(self->x, self->y, "+1g");
 		

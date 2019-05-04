@@ -39,32 +39,32 @@ static void createEntity(void)
 	x = (app.mouse.x / 8) * 8;
 	y = (app.mouse.y / 8) * 8;
 	
-	x += stage.camera.x;
-	y += stage.camera.y;
+	x += world.camera.x;
+	y += world.camera.y;
 	
 	e = spawnEditorEntity(entity->typeName, x, y);
 	
-	addToQuadtree(e, &stage.quadtree);
+	addToQuadtree(e, &world.quadtree);
 }
 
 static void deleteEntity(void)
 {
 	Entity *e, *prev;
 	
-	prev = &stage.entityHead;
+	prev = &stage->entityHead;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (collision(app.mouse.x + stage.camera.x, app.mouse.y + stage.camera.y, 1, 1, e->x, e->y, e->w, e->h))
+		if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 		{
-			if (e == stage.entityTail)
+			if (e == stage->entityTail)
 			{
-				stage.entityTail = prev;
+				stage->entityTail = prev;
 			}
 			
 			prev->next = e->next;
 			
-			removeFromQuadtree(e, &stage.quadtree);
+			removeFromQuadtree(e, &world.quadtree);
 			
 			/* loaded, so safe to delete */
 			if (e->id != -1)
@@ -98,7 +98,7 @@ static void cycleTile(int dir)
 			tile = 0;
 		}
 		
-		ok = stage.tiles[tile] != NULL;
+		ok = world.tiles[tile] != NULL;
 	}
 	while (!ok);
 }
@@ -125,9 +125,9 @@ static void toggleSelectEntity(void)
 	
 	if (selectedEntity == NULL)
 	{
-		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+		for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (collision(app.mouse.x + stage.camera.x, app.mouse.y + stage.camera.y, 1, 1, e->x, e->y, e->w, e->h))
+			if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 			{
 				selectedEntity = e;
 				return;
@@ -136,12 +136,12 @@ static void toggleSelectEntity(void)
 	}
 	else
 	{
-		removeFromQuadtree(selectedEntity, &stage.quadtree);
+		removeFromQuadtree(selectedEntity, &world.quadtree);
 		
-		selectedEntity->x = ((app.mouse.x / 8) * 8) + stage.camera.x;
-		selectedEntity->y = ((app.mouse.y / 8) * 8) + stage.camera.y;
+		selectedEntity->x = ((app.mouse.x / 8) * 8) + world.camera.x;
+		selectedEntity->y = ((app.mouse.y / 8) * 8) + world.camera.y;
 		
-		addToQuadtree(selectedEntity, &stage.quadtree);
+		addToQuadtree(selectedEntity, &world.quadtree);
 		
 		selectedEntity = NULL;
 	}
@@ -157,9 +157,9 @@ static void flipSelectedEntity(void)
 	}
 	else
 	{
-		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+		for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (collision(app.mouse.x + stage.camera.x, app.mouse.y + stage.camera.y, 1, 1, e->x, e->y, e->w, e->h))
+			if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 			{
 				e->facing = !e->facing;
 				return;
@@ -172,7 +172,7 @@ static void save(void)
 {
 	char filename[MAX_FILENAME_LENGTH];
 	
-	sprintf(filename, "data/stages/%03d.json", stage.num);
+	sprintf(filename, "data/stages/%03d.json", stage->id);
 	
 	printf("Saving %s ...\n", filename);
 	
@@ -190,9 +190,9 @@ static void logic(void)
 		switch (mode)
 		{
 			case MODE_TILE:
-				x = (app.mouse.x + stage.camera.x) / TILE_SIZE;
-				y = (app.mouse.y + stage.camera.y) / TILE_SIZE;
-				stage.map[x][y] = tile;
+				x = (app.mouse.x + world.camera.x) / TILE_SIZE;
+				y = (app.mouse.y + world.camera.y) / TILE_SIZE;
+				stage->map[x][y] = tile;
 				break;
 				
 			case MODE_ENT:
@@ -212,9 +212,9 @@ static void logic(void)
 		switch (mode)
 		{
 			case MODE_TILE:
-				x = (app.mouse.x + stage.camera.x) / TILE_SIZE;
-				y = (app.mouse.y + stage.camera.y) / TILE_SIZE;
-				stage.map[x][y] = 0;
+				x = (app.mouse.x + world.camera.x) / TILE_SIZE;
+				y = (app.mouse.y + world.camera.y) / TILE_SIZE;
+				stage->map[x][y] = 0;
 				break;
 				
 			case MODE_ENT:
@@ -290,27 +290,27 @@ static void logic(void)
 		
 		if (app.keyboard[SDL_SCANCODE_W])
 		{
-			stage.camera.y -= TILE_SIZE;
+			world.camera.y -= TILE_SIZE;
 		}
 		
 		if (app.keyboard[SDL_SCANCODE_S])
 		{
-			stage.camera.y += TILE_SIZE;
+			world.camera.y += TILE_SIZE;
 		}
 		
 		if (app.keyboard[SDL_SCANCODE_A])
 		{
-			stage.camera.x -= TILE_SIZE;
+			world.camera.x -= TILE_SIZE;
 		}
 		
 		if (app.keyboard[SDL_SCANCODE_D])
 		{
-			stage.camera.x += TILE_SIZE;
+			world.camera.x += TILE_SIZE;
 		}
 		
 		/* use 64, so things don't look wonky on the right-hand side */
-		stage.camera.x = MIN(MAX(stage.camera.x, -(TILE_SIZE * 4)), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + (TILE_SIZE - 64));
-		stage.camera.y = MIN(MAX(stage.camera.y, -(TILE_SIZE * 4)), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT);
+		world.camera.x = MIN(MAX(world.camera.x, -(TILE_SIZE * 4)), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + (TILE_SIZE - 64));
+		world.camera.y = MIN(MAX(world.camera.y, -(TILE_SIZE * 4)), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT);
 	}
 }
 
@@ -322,7 +322,7 @@ static void drawCurrentTile(void)
 	x = (app.mouse.x / TILE_SIZE) * TILE_SIZE;
 	y = (app.mouse.y / TILE_SIZE) * TILE_SIZE;
 	
-	blitAtlasImage(stage.tiles[tile], x, y, 0, SDL_FLIP_NONE);
+	blitAtlasImage(world.tiles[tile], x, y, 0, SDL_FLIP_NONE);
 	
 	r.x = x;
 	r.y = y;
@@ -352,12 +352,12 @@ static void drawSelectedEnt(void)
 		x = (app.mouse.x / 8) * 8;
 		y = (app.mouse.y / 8) * 8;
 		
-		removeFromQuadtree(selectedEntity, &stage.quadtree);
+		removeFromQuadtree(selectedEntity, &world.quadtree);
 		
-		selectedEntity->x = x + stage.camera.x;
-		selectedEntity->y = y + stage.camera.y;
+		selectedEntity->x = x + world.camera.x;
+		selectedEntity->y = y + world.camera.y;
 		
-		addToQuadtree(selectedEntity, &stage.quadtree);
+		addToQuadtree(selectedEntity, &world.quadtree);
 	}
 }
 
@@ -366,22 +366,22 @@ static void drawInfo(void)
 	Entity *e;
 	int x, y;
 	
-	x = ((app.mouse.x + stage.camera.x) / TILE_SIZE) * TILE_SIZE;
-	y = ((app.mouse.y + stage.camera.y) / TILE_SIZE) * TILE_SIZE;
+	x = ((app.mouse.x + world.camera.x) / TILE_SIZE) * TILE_SIZE;
+	y = ((app.mouse.y + world.camera.y) / TILE_SIZE) * TILE_SIZE;
 	
 	drawRect(0, 0, SCREEN_WIDTH, 30, 0, 0, 0, 192);
 	
-	drawText(10, 0, 32, TEXT_LEFT, app.colors.white, "Stage: %d", stage.num);
+	drawText(10, 0, 32, TEXT_LEFT, app.colors.white, "Stage: %d", stage->id);
 	
 	drawText(310, 0, 32, TEXT_LEFT, app.colors.white, "Pos: %d,%d", x, y);
 	
 	if (mode == MODE_PICK)
 	{
-		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+		for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (collision(app.mouse.x + stage.camera.x, app.mouse.y + stage.camera.y, 1, 1, e->x, e->y, e->w, e->h))
+			if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 			{
-				drawText(e->x + (e->w / 2) - stage.camera.x, e->y - 32 - stage.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", (int)e->x, (int)e->y);
+				drawText(e->x + (e->w / 2) - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", (int)e->x, (int)e->y);
 			}
 		}
 	}
@@ -412,24 +412,6 @@ static void draw(void)
 	drawInfo();
 }
 
-static void tryLoadStage(void)
-{
-	Entity *e;
-	char filename[MAX_FILENAME_LENGTH];
-	
-	sprintf(filename, "data/stages/%03d.json", stage.num);
-	
-	if (fileExists(filename))
-	{
-		loadStage(filename);
-		
-		for (e = stage.entityHead.next ; e != NULL ; e = e->next)
-		{
-			addToQuadtree(e, &stage.quadtree);
-		}
-	}
-}
-
 /* defaults */
 static void loadTiles(void)
 {
@@ -440,7 +422,7 @@ static void loadTiles(void)
 	{
 		sprintf(filename, "gfx/tiles/%d.png", i);
 		
-		stage.tiles[i] = getAtlasImage(filename, 0);
+		world.tiles[i] = getAtlasImage(filename, 0);
 	}
 }
 
@@ -448,21 +430,21 @@ static void centreOnPlayer(void)
 {
 	Entity *e;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_PLAYER)
 		{
-			stage.camera.x = e->x;
-			stage.camera.y = e->y;
+			world.camera.x = e->x;
+			world.camera.y = e->y;
 			
-			stage.camera.x -= SCREEN_WIDTH / 2;
-			stage.camera.y -= SCREEN_HEIGHT / 2;
+			world.camera.x -= SCREEN_WIDTH / 2;
+			world.camera.y -= SCREEN_HEIGHT / 2;
 			
-			stage.camera.x /= TILE_SIZE;
-			stage.camera.y /= TILE_SIZE;
+			world.camera.x /= TILE_SIZE;
+			world.camera.y /= TILE_SIZE;
 			
-			stage.camera.x *= TILE_SIZE;
-			stage.camera.y *= TILE_SIZE;
+			world.camera.x *= TILE_SIZE;
+			world.camera.y *= TILE_SIZE;
 		}
 		
 		e->flags &= ~EF_INVISIBLE;
@@ -477,7 +459,7 @@ static void handleCommandLine(int argc, char *argv[])
 	{
 		if (strcmp(argv[i], "-stage") == 0)
 		{
-			stage.num = atoi(argv[i + 1]);
+			initStage(atoi(argv[i + 1]), 0);
 		}
 	}
 }
@@ -504,17 +486,12 @@ int main(int argc, char *argv[])
 	
 	initGame();
 	
-	memset(&stage, 0, sizeof(Stage));
-	stage.entityTail = &stage.entityHead;
-	
 	handleCommandLine(argc, argv);
 	
 	entities = initAllEnts(&numEnts);
 	entity = entities[0];
 	
 	loadTiles();
-	
-	tryLoadStage();
 	
 	centreOnPlayer();
 	

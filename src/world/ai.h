@@ -24,4 +24,5 @@ extern int getDistance(int x1, int y1, int x2, int y2);
 extern int isInsideMap(int x, int y);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;
+extern World world;

@@ -31,4 +31,5 @@ extern void removeFromQuadtree(Entity *e, Quadtree *root);
 
 extern App app;
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;
+extern World world;

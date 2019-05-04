@@ -1,4 +1,5 @@
 {
+	"id" : 999,
 	"entities":	[{
 			"type":	"player",
 			"x":	88,

@@ -26,4 +26,5 @@ extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;
+extern World world;

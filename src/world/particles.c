@@ -33,9 +33,9 @@ void doParticles(void)
 {
 	Particle *p, *prev;
 	
-	prev = &stage.particleHead;
+	prev = &world.particleHead;
 	
-	for (p = stage.particleHead.next ; p != NULL ; p = p->next)
+	for (p = world.particleHead.next ; p != NULL ; p = p->next)
 	{
 		p->x += p->dx;
 		p->y += p->dy;
@@ -47,9 +47,9 @@ void doParticles(void)
 		
 		if (--p->life <= 0)
 		{
-			if (p == stage.particleTail)
+			if (p == world.particleTail)
 			{
-				stage.particleTail = prev;
+				world.particleTail = prev;
 			}
 			
 			prev->next = p->next;
@@ -65,11 +65,11 @@ void drawParticles(void)
 {
 	Particle *p;
 	
-	for (p = stage.particleHead.next ; p != NULL ; p = p->next)
+	for (p = world.particleHead.next ; p != NULL ; p = p->next)
 	{
 		SDL_SetTextureColorMod(p->atlasImage->texture, p->color.r, p->color.g, p->color.b);
 		
-		blitAtlasImage(p->atlasImage, p->x - stage.camera.x, p->y - stage.camera.y, 1, SDL_FLIP_NONE);
+		blitAtlasImage(p->atlasImage, p->x - world.camera.x, p->y - world.camera.y, 1, SDL_FLIP_NONE);
 	}
 	
 	/* restore colour */
@@ -270,8 +270,8 @@ static Particle *spawnParticle(void)
 	
 	p = malloc(sizeof(Particle));
 	memset(p, 0, sizeof(Particle));
-	stage.particleTail->next = p;
-	stage.particleTail = p;
+	world.particleTail->next = p;
+	world.particleTail = p;
 	
 	return p;
 }
@@ -280,10 +280,10 @@ void destroyParticles(void)
 {
 	Particle *p;
 	
-	while (stage.particleHead.next)
+	while (world.particleHead.next)
 	{
-		p = stage.particleHead.next;
-		stage.particleHead.next = p->next;
+		p = world.particleHead.next;
+		world.particleHead.next = p->next;
 		free(p);
 	}
 }

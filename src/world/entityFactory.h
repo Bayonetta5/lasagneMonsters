@@ -31,4 +31,4 @@ extern void initStartPoint(Entity *e);
 extern void initTransferCube(Entity *e);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;

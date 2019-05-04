@@ -96,7 +96,7 @@ static void draw(void)
 	
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{
-		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 }
 
@@ -105,7 +105,7 @@ static void touch(Entity *other)
 	Item *i;
 	Walter *w;
 	
-	if (self->alive == ALIVE_ALIVE && other == stage.player)
+	if (self->alive == ALIVE_ALIVE && other == world.player)
 	{
 		i = (Item*)self->data;
 		

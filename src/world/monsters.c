@@ -55,7 +55,7 @@ static void haltAtEdge(void)
 		
 		mx /= TILE_SIZE;
 		
-		if (stage.map[mx][my] == 0)
+		if (stage->map[mx][my] == 0)
 		{
 			self->dx = 0;
 		}
@@ -73,14 +73,14 @@ void monsterDraw(void)
 		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_ADD);
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255 - m->hitTimer, 128 - m->hitTimer, 255);
 		
-		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 		
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
 		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_BLEND);
 	}
 	else
 	{
-		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 }
 
@@ -115,7 +115,7 @@ void monsterDie(void)
 		spawnRandomHealthItem(self->x, self->y);
 	}
 	
-	stage.numMonsters--;
+	stage->numMonsters--;
 }
 
 
@@ -123,13 +123,13 @@ void monsterTouch(Entity *other)
 {
 	Entity *oldSelf;
 	
-	if (other == stage.player)
+	if (other == world.player)
 	{
 		oldSelf = self;
 		
 		self = other;
 		
-		stage.player->damage(1);
+		world.player->damage(1);
 		
 		self = oldSelf;
 	}

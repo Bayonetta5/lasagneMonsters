@@ -79,12 +79,9 @@ int main(int argc, char *argv[])
 
 static void handleCommandLine(int argc, char *argv[])
 {
-	int i;
-	char filename[MAX_NAME_LENGTH];
+	int i, n;
 	
-	initStage();
-	
-	stage.num = 1;
+	n = 1;
 	
 	for (i = 1 ; i < argc ; i++)
 	{
@@ -95,15 +92,11 @@ static void handleCommandLine(int argc, char *argv[])
 		
 		if (strcmp(argv[i], "-stage") == 0)
 		{
-			stage.num = atoi(argv[i + 1]);
+			n = atoi(argv[i + 1]);
 		}
 	}
 	
-	sprintf(filename, "data/stages/%03d.json", stage.num);
-	
-	loadStage(filename);
-	
-	randomizeTiles();
+	initStage(n, 1);
 }
 
 static void capFrameRate(long *then, float *remainder)

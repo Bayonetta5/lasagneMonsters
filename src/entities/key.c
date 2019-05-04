@@ -74,8 +74,8 @@ static void draw(void)
 	
 	k = (Item*)self->data;
 	
-	x = self->x + (self->w / 2) - stage.camera.x;
-	y = k->by + (self->h / 2) - stage.camera.y;
+	x = self->x + (self->w / 2) - world.camera.x;
+	y = k->by + (self->h / 2) - world.camera.y;
 	
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 128, 64);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
@@ -85,18 +85,18 @@ static void draw(void)
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
 	
-	blitAtlasImage(self->atlasImage, self->x - stage.camera.x, k->by - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, k->by - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
 static void touch(Entity *other)
 {
 	if (self->alive == ALIVE_ALIVE && other != NULL && other->type == ET_PLAYER)
 	{
-		stage.keys++;
+		stage->keys++;
 		
 		self->alive = ALIVE_DEAD;
 		
-		playPositionalSound(SND_KEY, CH_ITEM, self->x, self->y, stage.player->x, stage.player->y);
+		playPositionalSound(SND_KEY, CH_ITEM, self->x, self->y, world.player->x, world.player->y);
 		
 		addPowerupParticles(self->x + self->w / 2, self->y + self->h / 2);
 		

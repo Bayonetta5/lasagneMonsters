@@ -48,7 +48,7 @@ void initGreenHorse(Entity *e)
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;
 	
-	stage.numMonsters++;
+	stage->numMonsters++;
 }
 
 static void tick(void)
@@ -61,7 +61,7 @@ static void tick(void)
 	
 	if (m->alert)
 	{
-		self->facing = self->x < stage.player->x ? FACING_RIGHT : FACING_LEFT;
+		self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
 		
 		preCharge();
 		
@@ -81,7 +81,7 @@ static void preCharge(void)
 	
 	m = (Monster*)self->data;
 	
-	if (abs(self->y - stage.player->y) <= 16)
+	if (abs(self->y - world.player->y) <= 16)
 	{
 		self->dx = 0;
 		m->thinkTime = FPS;

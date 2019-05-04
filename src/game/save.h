@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern int writeFile(const char *filename, const char *data);
 extern char *compressData(const char *src, unsigned long *eLength, unsigned long *compressedLen);
+extern int writeFile(const char *filename, const char *data);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;

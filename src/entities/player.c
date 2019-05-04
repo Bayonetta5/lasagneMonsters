@@ -31,8 +31,6 @@ void initPlayer(Entity *e)
 {
 	Walter *w;
 	
-	stage.player = e;
-	
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
 	
@@ -106,7 +104,7 @@ static void tick(void)
 				
 				initWaterBullet(self);
 				
-				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, stage.player->x, stage.player->y);
+				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, world.player->x, world.player->y);
 			}
 		}
 		
@@ -127,7 +125,7 @@ static void draw(void)
 	
 	if (w->immuneTimer % 5 == 0)
 	{
-		blitAtlasImage(self->atlasImage, self->x - stage.camera.x, self->y - stage.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 }
 

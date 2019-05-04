@@ -102,7 +102,7 @@ static void touch(Entity *other)
 		
 		if (self->alive == ALIVE_DEAD)
 		{
-			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
+			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 			
 			addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
 		}

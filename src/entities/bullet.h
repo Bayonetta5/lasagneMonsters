@@ -26,4 +26,4 @@ extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, 
 extern Entity *spawnEntity(void);
 
 extern Entity *self;
-extern Stage stage;
+extern World world;

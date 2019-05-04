@@ -59,8 +59,8 @@ void addGameText(int x, int y, char *format, ...)
 	
 	g = malloc(sizeof(GameText));
 	memset(g, 0, sizeof(GameText));
-	stage.gameTextTail->next = g;
-	stage.gameTextTail = g;
+	world.gameTextTail->next = g;
+	world.gameTextTail = g;
 	
 	g->x = x;
 	g->y = y;
@@ -77,17 +77,17 @@ static void doGameText(void)
 {
 	GameText *g, *prev;
 	
-	prev = &stage.gameTextHead;
+	prev = &world.gameTextHead;
 	
-	for (g = stage.gameTextHead.next ; g != NULL ; g = g->next)
+	for (g = world.gameTextHead.next ; g != NULL ; g = g->next)
 	{
 		g->y--;
 		
 		if (--g->health <= 0)
 		{
-			if (g == stage.gameTextTail)
+			if (g == world.gameTextTail)
 			{
-				stage.gameTextTail = prev;
+				world.gameTextTail = prev;
 			}
 			
 			prev->next = g->next;
@@ -119,7 +119,7 @@ static void drawHealth(void)
 	int i, x;
 	Walter *w;
 	
-	w = (Walter*)stage.player->data;
+	w = (Walter*)world.player->data;
 	
 	x = 10;
 	
@@ -145,7 +145,7 @@ static void drawAmmo(void)
 	
 	blitAtlasImage(waterTexture, 10, 48, 0, SDL_FLIP_NONE);
 	
-	w = (Walter*)stage.player->data;
+	w = (Walter*)world.player->data;
 	
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
@@ -168,7 +168,7 @@ static void drawMonsterInfo(void)
 {
 	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 108, 8, 0, SDL_FLIP_NONE);
 	
-	drawText(SCREEN_WIDTH - 10, 6, 32, TEXT_RIGHT, app.colors.white, "x %03d", stage.numMonsters);
+	drawText(SCREEN_WIDTH - 10, 6, 32, TEXT_RIGHT, app.colors.white, "x %03d", stage->numMonsters);
 }
 
 static void drawCoins(void)
@@ -182,7 +182,7 @@ static void drawKeys(void)
 {
 	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 96, 0, SDL_FLIP_NONE);
 	
-	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", stage.keys);
+	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", stage->keys);
 }
 
 static void drawGameText(void)
@@ -190,10 +190,10 @@ static void drawGameText(void)
 	GameText *g;
 	int x, y;
 	
-	for (g = stage.gameTextHead.next ; g != NULL ; g = g->next)
+	for (g = world.gameTextHead.next ; g != NULL ; g = g->next)
 	{
-		x = g->x - stage.camera.x;
-		y = g->y - stage.camera.y;
+		x = g->x - world.camera.x;
+		y = g->y - world.camera.y;
 		
 		drawText(x, y, 32, TEXT_CENTER, app.colors.white, g->text);
 	}

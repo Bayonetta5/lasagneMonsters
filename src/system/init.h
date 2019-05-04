@@ -42,6 +42,7 @@ extern void initLookups(void);
 extern void initParticles(void);
 extern void initSounds(void);
 extern void initWidgets(void);
+extern void initWorld(void);
 extern void loadConfig(void);
 extern void prepareScene(void);
 extern void presentScene(void);

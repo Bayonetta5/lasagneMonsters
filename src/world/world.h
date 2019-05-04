@@ -20,14 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
-extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern AtlasImage *getAtlasImage(char *filename, int required);
+extern char **getFileList(const char *dir, int *count);
+extern void loadStage(char *filename);
 
-extern App app;
-extern Game game;
 extern Stage *stage;
 extern World world;

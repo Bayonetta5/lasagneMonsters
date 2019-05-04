@@ -35,8 +35,8 @@ static void stats(void);
 static void options(void);
 static void quit(void);
 void destroyStage(void);
+void loadStage(char *filename);
 
-static int delay;
 static int show;
 static AtlasImage *backgroundTile;
 static Widget *resumeWidget;
@@ -46,16 +46,12 @@ static Widget *quitWidget;
 static Widget *previousWidget;
 static int backgroundData[MAP_WIDTH][MAP_HEIGHT];
 
-void initStage(void)
+void initStage(int n, int fade)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
 	
-	memset(&stage, 0, sizeof(Stage));
-	
-	stage.entityTail = &stage.entityHead;
-	stage.particleTail = &stage.particleHead;
-	stage.gameTextTail = &stage.gameTextHead;
+	stage = getStage(n);
 	
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
@@ -73,38 +69,23 @@ void initStage(void)
 	
 	backgroundTile = getAtlasImage("gfx/tiles/0.png", 1);
 	
-	initWipe(WIPE_FADE);
+	randomizeTiles();
 	
-	delay = 0;
-}
-
-void loadStage(char *filename)
-{
-	cJSON *root;
-	char *json;
+	updatePlayer();
 	
-	srand(256 * stage.num);
+	updateCameraBounds();
 	
-	json = readFile(getFileLocation(filename));
-		
-	root = cJSON_Parse(json);
-	
-	show = SHOW_GAME;
-	
-	initMap(cJSON_GetObjectItem(root, "map"));
-	
-	initQuadtree(&stage.quadtree);
-	
-	initEntities(root);
+	initQuadtree(&world.quadtree);
 	
 	dropToFloor();
 	
 	/* could be caused by dropToFloor */
-	stage.transferCube = NULL;
+	world.transferCube = NULL;
 	
-	free(json);
-	
-	cJSON_Delete(root);
+	if (fade)
+	{
+		initWipe(WIPE_FADE);
+	}
 }
 
 static void logic(void)
@@ -128,7 +109,7 @@ static void logic(void)
 
 static void doGame(void)
 {
-	if (stage.transferCube != NULL)
+	if (world.transferCube != NULL)
 	{
 		transfer();
 	}
@@ -229,16 +210,16 @@ static void drawBackground(void)
 {
 	int x, y, x1, x2, y1, y2, mx, my, camX;
 	
-	camX = stage.camera.x * 0.5f;
+	camX = world.camera.x * 0.5f;
 	
 	x1 = (camX % TILE_SIZE) * -1;
 	x2 = x1 + MAP_RENDER_WIDTH * TILE_SIZE + (x1 == 0 ? 0 : TILE_SIZE);
 
-	y1 = (stage.camera.y % TILE_SIZE) * -1;
+	y1 = (world.camera.y % TILE_SIZE) * -1;
 	y2 = y1 + MAP_RENDER_HEIGHT * TILE_SIZE + (y1 == 0 ? 0 : TILE_SIZE);
 	
 	mx = camX / TILE_SIZE;
-	my = stage.camera.y / TILE_SIZE;
+	my = world.camera.y / TILE_SIZE;
 	
 	for (y = y1 ; y < y2 ; y += TILE_SIZE)
 	{
@@ -266,18 +247,15 @@ void destroyStage(void)
 	
 	destroyParticles();
 	
-	memset(&stage, 0, sizeof(Stage));
-	
-	stage.entityTail = &stage.entityHead;
-	stage.particleTail = &stage.particleHead;
-	stage.gameTextTail = &stage.gameTextHead;
+	world.particleTail = &world.particleHead;
+	world.gameTextTail = &world.gameTextHead;
 }
 
 static Entity *findStartPoint(const char *name)
 {
 	Entity *e;
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_START_POINT && strcmp(e->name, name) == 0)
 		{
@@ -296,40 +274,22 @@ static void transfer(void)
 	TransferCube transferCube;
 	Walter walter;
 	Entity *e;
-	char filename[MAX_PATH_LENGTH];
 	
-	sprintf(filename, "%s/%03d.json", app.saveDir, stage.num);
-	
-	saveStage(filename);
-	
-	memcpy(&walter, stage.player->data, sizeof(Walter));
-	memcpy(&transferCube, stage.transferCube, sizeof(TransferCube));
+	memcpy(&walter, world.player->data, sizeof(Walter));
+	memcpy(&transferCube, world.transferCube, sizeof(TransferCube));
 	
 	destroyStage();
 	
-	stage.num = transferCube.targetStage;
-	
-	sprintf(filename, "%s/%03d.json", app.saveDir, stage.num);
-	
-	if (fileExists(filename))
-	{
-		loadStage(filename);
-	}
-	else
-	{
-		sprintf(filename, "data/stages/%03d.json", stage.num);
-		
-		loadStage(filename);
-	}
+	initStage(transferCube.targetStage, 0);
 	
 	randomizeTiles();
 	
 	e = findStartPoint(transferCube.targetFlag);
 	
-	memcpy(stage.player->data, &walter, sizeof(Walter));
+	memcpy(world.player->data, &walter, sizeof(Walter));
 	
-	stage.player->x = e->x;
-	stage.player->y = e->y;
+	world.player->x = e->x;
+	world.player->y = e->y;
 }
 
 static void initBackgroundData(void)
@@ -350,6 +310,26 @@ static void initBackgroundData(void)
 			}
 		}
 	}
+}
+
+void loadStage(char *filename)
+{
+	cJSON *root;
+	char *json;
+	
+	json = readFile(getFileLocation(filename));
+		
+	root = cJSON_Parse(json);
+	
+	stage->id = cJSON_GetObjectItem(root, "id")->valueint;
+	
+	initMap(cJSON_GetObjectItem(root, "map"));
+	
+	initEntities(root);
+	
+	free(json);
+	
+	cJSON_Delete(root);
 }
 
 static void resume(void)

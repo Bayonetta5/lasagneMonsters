@@ -26,7 +26,7 @@ int isInsideMap(int x, int y);
 
 void initMap(cJSON *root)
 {
-	memset(&stage.map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
+	memset(&stage->map, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
 	
 	loadTiles();
 	
@@ -37,14 +37,14 @@ void drawMap(void)
 {
 	int x, y, n, x1, x2, y1, y2, mx, my;
 	
-	x1 = (stage.camera.x % TILE_SIZE) * -1;
+	x1 = (world.camera.x % TILE_SIZE) * -1;
 	x2 = x1 + MAP_RENDER_WIDTH * TILE_SIZE + (x1 == 0 ? 0 : TILE_SIZE);
 
-	y1 = (stage.camera.y % TILE_SIZE) * -1;
+	y1 = (world.camera.y % TILE_SIZE) * -1;
 	y2 = y1 + MAP_RENDER_HEIGHT * TILE_SIZE + (y1 == 0 ? 0 : TILE_SIZE);
 	
-	mx = stage.camera.x / TILE_SIZE;
-	my = stage.camera.y / TILE_SIZE;
+	mx = world.camera.x / TILE_SIZE;
+	my = world.camera.y / TILE_SIZE;
 	
 	for (y = y1 ; y < y2 ; y += TILE_SIZE)
 	{
@@ -52,18 +52,18 @@ void drawMap(void)
 		{
 			if (isInsideMap(mx, my))
 			{
-				n = stage.map[mx][my];
+				n = stage->map[mx][my];
 				
 				if (n > 0)
 				{
-					blitAtlasImage(stage.tiles[n], x, y, 0, SDL_FLIP_NONE);
+					blitAtlasImage(world.tiles[n], x, y, 0, SDL_FLIP_NONE);
 				}
 			}
 			
 			mx++;
 		}
 		
-		mx = stage.camera.x / TILE_SIZE;
+		mx = world.camera.x / TILE_SIZE;
 		
 		my++;
 	}
@@ -78,7 +78,7 @@ static void loadTiles(void)
 	{
 		sprintf(filename, "gfx/tiles/%d.png", i);
 		
-		stage.tiles[i] = getAtlasImage(filename, 0);
+		world.tiles[i] = getAtlasImage(filename, 0);
 	}
 }
 
@@ -103,39 +103,12 @@ static void loadMap(cJSON *root)
 		{
 			for (x = 0 ; x < MAP_WIDTH ; x++)
 			{
-				stage.map[x][y] = atoi(p);
+				stage->map[x][y] = atoi(p);
 				
 				do {p++;} while (*p != ' ');
 			}
 		}
 	}
-	
-	stage.camera.minX = MAP_WIDTH;
-	stage.camera.maxX = 0;
-	
-	stage.camera.minY = MAP_HEIGHT;
-	stage.camera.maxY = 0;
-	
-	for (y = 0 ; y < MAP_HEIGHT ; y++)
-	{
-		for (x = 0 ; x < MAP_WIDTH ; x++)
-		{
-			if (stage.map[x][y] != 0)
-			{
-				stage.camera.maxX = MAX(stage.camera.maxX, x + 1);
-				stage.camera.minX = MIN(stage.camera.minX, x);
-				
-				stage.camera.maxY = MAX(stage.camera.maxY, y + 1);
-				stage.camera.minY = MIN(stage.camera.minY, y);
-			}
-		}
-	}
-	
-	stage.camera.minX *= TILE_SIZE;
-	stage.camera.maxX *= TILE_SIZE;
-	
-	stage.camera.minY *= TILE_SIZE;
-	stage.camera.maxY *= TILE_SIZE;
 	
 	free(data);
 }
@@ -148,9 +121,9 @@ void randomizeTiles(void)
 	{
 		for (x = 0 ; x < MAP_WIDTH ; x++)
 		{
-			if (stage.map[x][y] == 1)
+			if (stage->map[x][y] == 1)
 			{
-				stage.map[x][y] += rand() % 4;
+				stage->map[x][y] += rand() % 4;
 			}
 		}
 	}

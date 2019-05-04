@@ -28,6 +28,7 @@ typedef struct AtlasImage AtlasImage;
 typedef struct Lookup Lookup;
 typedef struct GameText GameText;
 typedef struct Widget Widget;
+typedef struct Stage Stage;
 
 struct Texture {
 	char name[MAX_NAME_LENGTH];
@@ -167,14 +168,19 @@ struct GameText {
 	GameText *next;
 };
 
-typedef struct {
-	int num;
+struct Stage {
+	int id;
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters;
 	int keys;
-	AtlasImage *tiles[MAX_TILES];
 	Entity entityHead, *entityTail;
+	Stage *next;
+};
+
+typedef struct {
 	Entity *player;
+	Stage stagesHead;
+	AtlasImage *tiles[MAX_TILES];
 	Particle particleHead, *particleTail;
 	GameText gameTextHead, *gameTextTail;
 	Quadtree quadtree;
@@ -187,7 +193,7 @@ typedef struct {
 		int minY;
 		int maxY;
 	} camera;
-} Stage;
+} World;
 
 typedef struct {
 	unsigned int coins;

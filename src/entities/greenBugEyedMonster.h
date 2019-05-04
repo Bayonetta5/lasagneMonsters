@@ -27,4 +27,5 @@ extern Entity *spawnEntity(void);
 extern void throwCoins(int x, int y, int n);
 
 extern Entity *self;
-extern Stage stage;
+extern Stage *stage;
+extern World world;

@@ -47,9 +47,9 @@ void initTransferCube(Entity *e)
 
 static void touch(Entity *other)
 {
-	if (other == stage.player && abs((self->x + (self->w / 2)) - (other->x + (other->w / 2))) <= other->w / 2)
+	if (other == world.player && abs((self->x + (self->w / 2)) - (other->x + (other->w / 2))) <= other->w / 2)
 	{
-		stage.transferCube = (TransferCube*)self->data;
+		world.transferCube = (TransferCube*)self->data;
 	}
 }
 

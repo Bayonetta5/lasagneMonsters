@@ -99,21 +99,21 @@ static void activate(int active)
 	
 	d->open = !d->open;
 	
-	playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, stage.player->x, stage.player->y);
+	playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 }
 
 static void touch(Entity *other)
 {
 	Door *d;
 	
-	if (other == stage.player)
+	if (other == world.player)
 	{
 		d = (Door*)self->data;
 		
-		if (d->requiresKey && stage.keys > 0)
+		if (d->requiresKey && stage->keys > 0)
 		{
 			d->requiresKey = 0;
-			stage.keys--;
+			stage->keys--;
 		}
 		
 		if (!d->open && !d->requiresKey)
@@ -121,7 +121,7 @@ static void touch(Entity *other)
 			d->open = 1;
 			self->flags |= EF_NO_WORLD_CLIP;
 			
-			playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, stage.player->x, stage.player->y);
+			playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }

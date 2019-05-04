@@ -61,8 +61,8 @@ Entity *spawnEntity(void)
 	
 	e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));
-	stage.entityTail->next = e;
-	stage.entityTail = e;
+	stage->entityTail->next = e;
+	stage->entityTail = e;
 	
 	e->id = ++entityId;
 	e->facing = FACING_RIGHT;

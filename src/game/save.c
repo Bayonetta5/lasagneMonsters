@@ -30,6 +30,8 @@ void saveStage(const char *filename)
 	
 	root = cJSON_CreateObject();
 	
+	cJSON_AddNumberToObject(root, "id", stage->id);
+	
 	saveEntities(root);
 	
 	saveMap(root);
@@ -57,7 +59,7 @@ static void saveMap(cJSON *root)
 	{
 		for (x = 0 ; x < MAP_WIDTH ; x++)
 		{
-			fprintf(fp, "%d ", stage.map[x][y]);
+			fprintf(fp, "%d ", stage->map[x][y]);
 		}
 	}
 	
@@ -86,7 +88,7 @@ static void saveEntities(cJSON *root)
 	
 	entitiesJSON = cJSON_CreateArray();
 	
-	for (e = stage.entityHead.next ; e != NULL ; e = e->next)
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (!(e->flags & EF_TRANSIENT))
 		{

@@ -39,14 +39,14 @@ void lookForPlayer(void)
 {
 	int x1, y1, x2, y2;
 	
-	if (getDistance(self->x, self->y, stage.player->x, stage.player->y) <= SCREEN_HEIGHT)
+	if (getDistance(self->x, self->y, world.player->x, world.player->y) <= SCREEN_HEIGHT)
 	{
-		if ((self->facing == FACING_LEFT && stage.player->x < self->x) || (self->facing == FACING_RIGHT && stage.player->x > self->x))
+		if ((self->facing == FACING_LEFT && world.player->x < self->x) || (self->facing == FACING_RIGHT && world.player->x > self->x))
 		{
 			x1 = (self->x + (self->w / 2)) / TILE_SIZE;
 			y1 = (self->y + (self->h / 2)) / TILE_SIZE;
-			x2 = (stage.player->x + (stage.player->w / 2)) / TILE_SIZE;
-			y2 = (stage.player->y + (stage.player->h / 2)) / TILE_SIZE;
+			x2 = (world.player->x + (world.player->w / 2)) / TILE_SIZE;
+			y2 = (world.player->y + (world.player->h / 2)) / TILE_SIZE;
 			
 			if (hasLOS(x1, y1, x2, y2))
 			{
@@ -90,7 +90,7 @@ static int hasLOS(int x1, int y1, int x2, int y2)
 			return 1;
 		}
 		
-		if (!isInsideMap(x1, y1) || stage.map[x1][y1] != 0)
+		if (!isInsideMap(x1, y1) || stage->map[x1][y1] != 0)
 		{
 			return 0;
 		}

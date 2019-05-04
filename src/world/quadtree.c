@@ -242,7 +242,7 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity **candidates, Entit
 	
 	memset(candidates, 0, sizeof(Entity*) * MAX_QT_CANDIDATES);
 	
-	getAllEntsWithinNode(x, y, w, h, candidates, ignore, &stage.quadtree);
+	getAllEntsWithinNode(x, y, w, h, candidates, ignore, &world.quadtree);
 	
 	return candidates;
 }
@@ -290,7 +290,7 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity **candidates
 
 void destroyQuadtree(void)
 {
-	destroyQuadtreeNode(&stage.quadtree);
+	destroyQuadtreeNode(&world.quadtree);
 }
 
 static void destroyQuadtreeNode(Quadtree *root)

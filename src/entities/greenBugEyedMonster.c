@@ -51,7 +51,7 @@ void initGreenBugEyedMonster(Entity *e)
 	
 	bulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
 	
-	stage.numMonsters++;
+	stage->numMonsters++;
 }
 
 static void tick(void)
@@ -92,20 +92,20 @@ static void bulletTouch(Entity *other)
 				
 				self->alive = ALIVE_DEAD;
 				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
+				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 			}
 			else if (other->flags & EF_SOLID)
 			{
 				self->alive = ALIVE_DEAD;
 				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
+				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 			}
 		}
 		else
 		{
 			self->alive = ALIVE_DEAD;
 			
-			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, stage.player->x, stage.player->y);
+			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }
@@ -126,7 +126,7 @@ static void spit(void)
 	
 	if (m->reload == 0)
 	{
-		if (abs(self->y - stage.player->y) <= TILE_SIZE / 2)
+		if (abs(self->y - world.player->y) <= TILE_SIZE / 2)
 		{
 			e = spawnEntity();
 		
@@ -177,9 +177,9 @@ static void damage(int amount)
 
 static void touch(Entity *other)
 {
-	if (other == stage.player)
+	if (other == world.player)
 	{
-		stage.player->damage(2);
+		world.player->damage(2);
 	}
 }
 
@@ -187,5 +187,5 @@ static void die(void)
 {
 	throwCoins(self->x, self->y, 1 + rand() % 2);
 	
-	stage.numMonsters--;
+	stage->numMonsters--;
 }

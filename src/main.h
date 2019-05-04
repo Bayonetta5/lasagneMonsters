@@ -24,9 +24,7 @@ extern void cleanup(void);
 extern void doInput(void);
 extern void initGame(void);
 extern void initSDL(void);
-extern void initStage(void);
-extern void loadStage(const char *filename);
-extern void randomizeTiles(void);
+extern void initStage(int n, int i);
 extern void prepareScene(void);
 extern void presentScene(void);
 
@@ -34,4 +32,5 @@ App app;
 Entity *player;
 Entity *self;
 Game game;
-Stage stage;
+Stage *stage;
+World world;
