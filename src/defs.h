@@ -96,6 +96,13 @@ enum
 
 enum
 {
+	DR_NOTHING,
+	DR_KEY,
+	DR_REMOTE
+};
+
+enum
+{
 	WIPE_FADE,
 	WIPE_IN,
 	WIPE_OUT

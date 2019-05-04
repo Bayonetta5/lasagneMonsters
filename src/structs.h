@@ -125,7 +125,7 @@ typedef struct {
 	int ex;
 	int ey;
 	int open;
-	int requiresKey;
+	int requires;
 	int speed;
 } Door;
 

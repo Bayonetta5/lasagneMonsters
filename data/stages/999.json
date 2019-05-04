@@ -35,7 +35,7 @@
 			"x":	336,
 			"y":	200,
 			"open":	0,
-			"requiresKey":	0,
+			"requires":	"DR_NOTHING",
 			"speed":	1,
 			"sx":	336,
 			"sy":	192,

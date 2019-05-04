@@ -13,10 +13,10 @@
 			"targetStage":	2,
 			"targetFlag":	"topRight"
 		}, {
-			"name" : "topLeft",
 			"type":	"startPoint",
 			"x":	40,
-			"y":	2272
+			"y":	2272,
+			"name":	"topLeft"
 		}, {
 			"type":	"player",
 			"x":	96,
@@ -77,7 +77,7 @@
 		}, {
 			"type":	"greenHorse",
 			"x":	1760,
-			"y":	3328
+			"y":	3288
 		}, {
 			"type":	"redHorse",
 			"x":	2192,
@@ -95,7 +95,7 @@
 			"x":	1312,
 			"y":	2016,
 			"open":	0,
-			"requiresKey":	0,
+			"requires":	"DR_NOTHING",
 			"speed":	1,
 			"sx":	1312,
 			"sy":	2016,
@@ -106,7 +106,7 @@
 			"x":	2296,
 			"y":	1536,
 			"open":	0,
-			"requiresKey":	0,
+			"requires":	"DR_NOTHING",
 			"speed":	1,
 			"sx":	2296,
 			"sy":	1536,
@@ -121,7 +121,7 @@
 			"x":	2496,
 			"y":	3984,
 			"open":	0,
-			"requiresKey":	0,
+			"requires":	"DR_NOTHING",
 			"speed":	1,
 			"sx":	2496,
 			"sy":	3984,
@@ -142,13 +142,14 @@
 			"type":	"platform",
 			"x":	1728,
 			"y":	3320,
+			"name":	"hDoor1",
 			"sx":	1728,
 			"sy":	3320,
 			"ex":	1728,
 			"ey":	2304,
 			"pause":	60,
 			"speed":	2,
-			"enabled":	1
+			"enabled":	0
 		}, {
 			"type":	"platform",
 			"x":	2376,
@@ -176,17 +177,29 @@
 			"x":	1616,
 			"y":	2736,
 			"open":	0,
-			"requiresKey":	0,
+			"requires":	"DR_NOTHING",
 			"speed":	1,
 			"sx":	1616,
 			"sy":	2736,
 			"ex":	1616,
 			"ey":	2644
+		}, {
+			"type":	"horizontalDoor",
+			"x":	1728,
+			"y":	2312,
+			"name":	"hDoor1",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"speed":	1,
+			"sx":	1728,
+			"sy":	2312,
+			"ex":	1636,
+			"ey":	2312
 		}],
 	"map":	{
-		"data":	"eJzt2ltuwyAQQNGtdAnJB/vfWlRFSRwbHIbBzAxcnZ+qtYMv9bu9/d0AAAAAAAAAAAAAABO4D2NdWuq/enZHjOO1f/w48u1KGyv2b6Vunp/++SpGfz/p/ene+1tnTbbciv1p6f70dd332388Y/1Wc668B+lvWUd+37dqv2Ycr/2ex/G6XX77ZXd0/87Pl9H6ZXd0n+va2dPCcTa89kulzIzULDNHfzrsE8c52C/ju1/2VJc/Ll6zkF/Gd7/sXub8Oh/z/of+fv1n41iX0k8//bL++vVW69+v+fxO+blhvv7az6J/zv7jXr7S8Z97ypmvv/5JaM7+evTPeP2T9pd+Qj/91qU9+jXjWJfq+3XjWJdq+7XjWJfq+rfryN4Zv+6XrEtL/dI18m/Br95/vPS31s/R314/Q7+mPn6/rj56v7Y+dr++PnJ/j/q4/X3qo/b3qo/Z368+Yn/P+nj9+Xrr7R3VX/rdW2/vmP7f9fInYOvS+v78f7DVzE+847+F37cZPdq87qnX9e7/rtfyfivu8T+KdSkAAAAAAAAAAAAAAAAAzOUBVqMNgQ=",
-		"eLen":	568,
-		"cLen":	424,
+		"data":	"eJzt2ltugzAQQNGtdAnJh/e/taiKSAhg4/EMeMa+Oj9VCzHX4p0+/h4AAAAAAAAAAAAAgAE8b9O7NNd/9ezeMY7X/vvHkW9XWpmxfy2ZeX/696cY/XbS59O997fOmmy5GfvT1P3p57rvt39/xjpXc658BulvWUd+3zdrv2Ycr/2ex/G6XX77ZXd0/8rny2j9sju673Wt9LSwnw2v/VLpYEbKyyxXw95bbl2/1J0ts70S+CJ7qjs+LpZZyC/jt192L1O+ztfdCfhCv2V/aZzepfTTT7+sv3692fq3a75/k39uGK+/9rPoH7N/v5fPdPxv7/PH7K9/Ehqzvx79I17/pP25v9BPf+9Si37NOL1L9f26cXqXavu14/Qu1fWv15G9M/b9/l++Xfk33FfuP176W+vH6G+vH6FfUx+/X1cfvV9bH7tfXx+536I+br9NfdR+q/qY/Xb1Efst6+P1H9f33t67+mP9F5N1/3m9/Am4d2l9/9F3O3XzE+/4b+H3bYZFm9c99bre7fd6Le+34h7/d+ldCgAAAAAAAAAAAAAAAABjeQHUjw2",
+		"eLen":	564,
+		"cLen":	423,
 		"dLen":	32768
 	}
 }

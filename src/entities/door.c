@@ -110,13 +110,13 @@ static void touch(Entity *other)
 	{
 		d = (Door*)self->data;
 		
-		if (d->requiresKey && stage->keys > 0)
+		if (d->requires == DR_KEY && stage->keys > 0)
 		{
-			d->requiresKey = 0;
+			d->requires = DR_NOTHING;
 			stage->keys--;
 		}
 		
-		if (!d->open && !d->requiresKey)
+		if (!d->open && d->requires == DR_NOTHING)
 		{
 			d->open = 1;
 			self->flags |= EF_NO_WORLD_CLIP;
@@ -133,7 +133,7 @@ static void load(cJSON *root)
 	d = (Door*)self->data;
 	
 	d->open = cJSON_GetObjectItem(root, "open")->valueint;
-	d->requiresKey = cJSON_GetObjectItem(root, "requiresKey")->valueint;
+	d->requires = lookup(cJSON_GetObjectItem(root, "requires")->valuestring);
 	d->speed = cJSON_GetObjectItem(root, "speed")->valueint;
 	d->sx = cJSON_GetObjectItem(root, "sx")->valueint;
 	d->sy = cJSON_GetObjectItem(root, "sy")->valueint;
@@ -148,7 +148,7 @@ static void save(cJSON *root)
 	d = (Door*)self->data;
 	
 	cJSON_AddNumberToObject(root, "open", d->open);
-	cJSON_AddNumberToObject(root, "requiresKey", d->requiresKey);
+	cJSON_AddStringToObject(root, "requires", getLookupName("DR_", d->requires));
 	cJSON_AddNumberToObject(root, "speed", d->speed);
 	cJSON_AddNumberToObject(root, "sx", d->sx);
 	cJSON_AddNumberToObject(root, "sy", d->sy);

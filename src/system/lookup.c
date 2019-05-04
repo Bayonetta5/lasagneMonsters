@@ -36,6 +36,10 @@ void initLookups(void)
 	
 	addLookup("STAT_TIME", STAT_TIME);
 	
+	addLookup("DR_NOTHING", DR_NOTHING);
+	addLookup("DR_KEY", DR_KEY);
+	addLookup("DR_REMOTE", DR_REMOTE);
+	
 	addLookup("left", CONTROL_LEFT);
 	addLookup("right", CONTROL_RIGHT);
 	addLookup("up", CONTROL_UP);

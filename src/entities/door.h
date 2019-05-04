@@ -23,6 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern char *getLookupName(char *prefix, long num);
+extern long lookup(char *name);
 
 extern Entity *self;
 extern Stage *stage;
