@@ -29,6 +29,7 @@ extern void initKey(Entity *e);
 extern void initPlayer(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTransferCube(Entity *e);
+extern void initRedHorse(Entity *e);
 
 extern Entity *self;
 extern Stage *stage;

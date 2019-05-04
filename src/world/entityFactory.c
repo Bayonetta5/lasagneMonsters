@@ -31,11 +31,11 @@ void initEntityFactory(void)
 	initFuncTail = &initFuncHead;
 	
 	addInitFunc("player", initPlayer);
-	addInitFunc("coin", initCoin);
 	addInitFunc("door", initDoor);
 	addInitFunc("key", initKey);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);
+	addInitFunc("redHorse", initRedHorse);
 	addInitFunc("transferCube", initTransferCube);
 	addInitFunc("startPoint", initStartPoint);
 	

@@ -21,11 +21,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "common.h"
 #include "json/cJSON.h"
 
+
+typedef struct Node Node;
+
 enum
 {
 	MODE_TILE,
 	MODE_ENT,
 	MODE_PICK
+};
+
+struct Node {
+	int x, y;
+	Node *next;
 };
 
 extern void addToQuadtree(Entity *e, Quadtree *root);

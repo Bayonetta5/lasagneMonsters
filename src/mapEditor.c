@@ -30,6 +30,7 @@ static int entIndex;
 static Entity *entity;
 static Entity *selectedEntity;
 static int mode;
+static Node nodeListHead, *nodeListTail;
 
 static void createEntity(void)
 {
@@ -181,6 +182,59 @@ static void save(void)
 	printf("Saving %s ... - done\n", filename);
 }
 
+static void addNode(int x, int y)
+{
+	Node *n;
+	
+	n = malloc(sizeof(Node));
+	memset(n, 0, sizeof(Node));
+	nodeListTail->next = n;
+	nodeListTail = n;
+	
+	n->x = x;
+	n->y = y;
+}
+
+static void floodFill(int to)
+{
+	Node *n;
+	int x, y, from;
+	
+	x = (app.mouse.x + world.camera.x) / TILE_SIZE;
+	y = (app.mouse.y + world.camera.y) / TILE_SIZE;
+	
+	from = stage->map[x][y];
+	
+	if (from != to)
+	{
+		memset(&nodeListHead, 0, sizeof(Node));
+		nodeListTail = &nodeListHead;
+		
+		addNode(x, y);
+		
+		while (nodeListHead.next)
+		{
+			n = nodeListHead.next;
+			
+			if (n->x >= 0 && n->y >= 0 && n->x < MAP_WIDTH && n->y < MAP_HEIGHT)
+			{
+				if (stage->map[n->x][n->y] == from)
+				{
+					stage->map[n->x][n->y] = to;
+					
+					addNode(n->x, n->y - 1);
+					addNode(n->x, n->y + 1);
+					addNode(n->x - 1, n->y);
+					addNode(n->x + 1, n->y);
+				}
+			}
+			
+			nodeListHead.next = n->next;
+			free(n);
+		}
+	}
+}
+
 static void logic(void)
 {
 	int x, y;
@@ -282,6 +336,23 @@ static void logic(void)
 		app.keyboard[SDL_SCANCODE_3] = 0;
 		
 		mode = MODE_PICK;
+	}
+	
+	if (mode == MODE_TILE)
+	{
+		if (app.keyboard[SDL_SCANCODE_F1])
+		{
+			floodFill(tile);
+			
+			app.keyboard[SDL_SCANCODE_F1] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_F2])
+		{
+			floodFill(0);
+			
+			app.keyboard[SDL_SCANCODE_F2] = 0;
+		}
 	}
 	
 	if (--cameraTimer <= 0)
@@ -506,6 +577,8 @@ int main(int argc, char *argv[])
 	mode = MODE_TILE;
 	entIndex = 0;
 	selectedEntity = NULL;
+	
+	nodeListTail = &nodeListHead;
 	
 	initSDL();
 	
