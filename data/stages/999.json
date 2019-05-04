@@ -1,9 +1,9 @@
 {
-	"id" : 999,
+	"id":	999,
 	"entities":	[{
 			"type":	"player",
-			"x":	88,
-			"y":	592,
+			"x":	120,
+			"y":	160,
 			"facing":	"right"
 		}, {
 			"type":	"greenHorse",
@@ -30,11 +30,22 @@
 			"type":	"key",
 			"x":	600,
 			"y":	544
+		}, {
+			"type":	"horizontalDoor",
+			"x":	336,
+			"y":	200,
+			"open":	0,
+			"requiresKey":	0,
+			"speed":	1,
+			"sx":	336,
+			"sy":	192,
+			"ex":	244,
+			"ey":	192
 		}],
 	"map":	{
-		"data":	"eJzt17EJACAMAMFVHEEL91/NDQwEQYzHtSl8jIWjjYReRqZF/+1T69evX79+/frP9M9A7f4ZTsYTL6p0l7n+aO/3b+F1md/f7zsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/GUBuw0CVg=",
-		"eLen":	148,
-		"cLen":	109,
+		"data":	"eJzt17ENwCAMAMFVGAEK9l8tfaTEkoso2KcrgeIFLlhjJcwynlsyK+fR373/PtfxlNfq/+bMX+nXr1//HDtQu3+HO+MdJ6p0l7n+6N2/z8LpMr+/7m8GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6OUCiJACZA=",
+		"eLen":	164,
+		"cLen":	121,
 		"dLen":	32768
 	}
 }

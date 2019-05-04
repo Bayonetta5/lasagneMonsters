@@ -30,15 +30,18 @@ void initEntityFactory(void)
 	memset(&initFuncHead, 0, sizeof(InitFunc));
 	initFuncTail = &initFuncHead;
 	
-	addInitFunc("player", initPlayer);
 	addInitFunc("door", initDoor);
-	addInitFunc("key", initKey);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);
-	addInitFunc("redHorse", initRedHorse);
-	addInitFunc("transferCube", initTransferCube);
-	addInitFunc("startPoint", initStartPoint);
+	addInitFunc("horizontalDoor", initHorizontalDoor);
+	addInitFunc("key", initKey);
+	addInitFunc("player", initPlayer);
 	addInitFunc("platform", initPlatform);
+	addInitFunc("redHorse", initRedHorse);
+	addInitFunc("startPoint", initStartPoint);
+	addInitFunc("transferCube", initTransferCube);
+	
+	
 	
 	entityId = 0;
 }
