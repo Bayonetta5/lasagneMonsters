@@ -139,6 +139,19 @@ typedef struct {
 	char targetFlag[MAX_NAME_LENGTH];
 } TransferCube;
 
+typedef struct {
+	float sx;
+	float sy;
+	float ex;
+	float ey;
+	int speed;
+	int pause;
+	int pauseTimer;
+	int enabled;
+	float dx;
+	float dy;
+} Platform;
+
 struct Particle {
 	float x;
 	float y;

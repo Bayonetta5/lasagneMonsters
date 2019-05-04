@@ -232,8 +232,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/slimeBullet.png",
+		"filename" : "gfx/entities/platform.png",
 		"x" : 295,
+		"y" : 49,
+		"w" : 96,
+		"h" : 16,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/slimeBullet.png",
+		"x" : 392,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,
@@ -241,7 +249,7 @@
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 318,
+		"x" : 415,
 		"y" : 49,
 		"w" : 22,
 		"h" : 14,
@@ -249,7 +257,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall3.png",
-		"x" : 341,
+		"x" : 438,
 		"y" : 49,
 		"w" : 8,
 		"h" : 8,
@@ -257,7 +265,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall2.png",
-		"x" : 350,
+		"x" : 447,
 		"y" : 49,
 		"w" : 8,
 		"h" : 8,
@@ -265,7 +273,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall1.png",
-		"x" : 359,
+		"x" : 456,
 		"y" : 49,
 		"w" : 8,
 		"h" : 8,
@@ -273,7 +281,7 @@
 	},
 	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 368,
+		"x" : 465,
 		"y" : 49,
 		"w" : 7,
 		"h" : 7,

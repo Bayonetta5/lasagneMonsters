@@ -38,6 +38,7 @@ void initEntityFactory(void)
 	addInitFunc("redHorse", initRedHorse);
 	addInitFunc("transferCube", initTransferCube);
 	addInitFunc("startPoint", initStartPoint);
+	addInitFunc("platform", initPlatform);
 	
 	entityId = 0;
 }
