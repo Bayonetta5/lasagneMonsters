@@ -40,7 +40,9 @@ static void touch(Entity *other)
 	if (other == NULL)
 	{
 		self->alive = ALIVE_DEAD;
-		
+
+		playPositionalSound(SND_PUS_SPLAT, CH_SPLAT, self->x, self->y, world.player->x, world.player->y);
+
 		addPusBurstParticles(self->x, self->y);
 	}
 }

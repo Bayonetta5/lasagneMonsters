@@ -22,32 +22,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadSounds(void);
 static void channelDone(int c);
+static int findFreeChannel(void);
 
 static Mix_Chunk *sounds[SND_MAX];
 static Mix_Music *music;
-static char *musicFilenames[] = {
-	"music/contemplation.ogg", "music/puzzle-1-a.mp3", "music/puzzle-1-b.mp3"
-};
-static int lastRandomMusic;
 static int channelVolumes[CH_MAX];
 
 void initSounds(void)
 {
 	int i;
-	
+
 	memset(sounds, 0, sizeof(Mix_Chunk*) * SND_MAX);
-	
+
 	music = NULL;
-	
-	lastRandomMusic = -1;
-	
+
 	loadSounds();
-	
+
 	for (i = 0 ; i < CH_MAX ; i++)
 	{
 		channelVolumes[i] = 0;
 	}
-	
+
 	Mix_ChannelFinished(channelDone);
 }
 
@@ -70,7 +65,15 @@ void playMusic(int loop)
 
 void playSound(int id, int channel)
 {
-	Mix_PlayChannel(channel, sounds[id], 0);
+	int c;
+
+	c = Mix_PlayChannel(channel, sounds[id], 0);
+
+	if (c != -1)
+	{
+		Mix_SetPosition(c, 0, 0);
+		Mix_SetDistance(c, 0);
+	}
 }
 
 void playPositionalSound(int id, int channel, int srcX, int srcY, int destX, int destY)
@@ -84,7 +87,12 @@ void playPositionalSound(int id, int channel, int srcX, int srcY, int destX, int
 		vol = 255;
 		vol /= SCREEN_WIDTH;
 		vol *= distance;
-		
+
+		if (channel == -1)
+		{
+			channel = findFreeChannel();
+		}
+
 		if (vol >= channelVolumes[channel])
 		{
 			Mix_PlayChannel(channel, sounds[id], 0);
@@ -100,6 +108,21 @@ void playPositionalSound(int id, int channel, int srcX, int srcY, int destX, int
 			}
 		}
 	}
+}
+
+static int findFreeChannel(void)
+{
+	int i;
+
+	for (i = 0 ; i < CH_MAX ; i++)
+	{
+		if (!Mix_Playing(i))
+		{
+			return i;
+		}
+	}
+
+	return rand() % CH_MAX;
 }
 
 void pauseSound(void)
@@ -124,22 +147,15 @@ static void loadSounds(void)
 	sounds[SND_KEY] = Mix_LoadWAV("sound/mortice_key_drop_on_concrete_floor.ogg");
 	sounds[SND_DEATH] = Mix_LoadWAV("sound/death.ogg");
 	sounds[SND_SHOOT] = Mix_LoadWAV("sound/258047__jagadamba__water-spraying-from-a-bottle-02.mp3");
-}
+	sounds[SND_WATER_HIT] = Mix_LoadWAV("sound/446115__justinvoke__wet-splat.ogg");
+	sounds[SND_TRAFFIC_LIGHT] = Mix_LoadWAV("sound/264446__kickhat__open-button-1.ogg");
+	sounds[SND_PUS_SPLAT] = Mix_LoadWAV("sound/87535__flasher21__splat.ogg");
+	sounds[SND_MONSTER_DIE] = Mix_LoadWAV("sound/447930__breviceps__step-on-a-slug-splat-2.ogg");
+	sounds[SND_INJURED] = Mix_LoadWAV("sound/163441__under7dude__man-getting-hit.ogg");
+	sounds[SND_SCREAM] = Mix_LoadWAV("sound/270447__littlerobotsoundfactory__scream-male-02.ogg");
+	sounds[SND_DOOR] = Mix_LoadWAV("sound/145702__d-w__brick-drag-concrete-01.ogg");
+	sounds[SND_DOOR_DONE] = Mix_LoadWAV("sound/15901__someonesilly__knock.ogg");
 
-void loadRandomStageMusic(void)
-{
-	int r;
-	
-	r = rand() % (sizeof(musicFilenames) / sizeof(char*));
-	
-	if (r != lastRandomMusic)
-	{
-		lastRandomMusic = r;
-		
-		loadMusic(musicFilenames[r]);
-		
-		playMusic(1);
-	}
 }
 
 void destroySounds(void)

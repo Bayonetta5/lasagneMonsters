@@ -25,11 +25,11 @@ static void haltAtEdge(void);
 void monsterTick(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	m->hitTimer = MAX(m->hitTimer - 16, 0);
-	
+
 	if (m->aiFlags & AIF_HALT_AT_EDGE)
 	{
 		haltAtEdge();
@@ -39,11 +39,11 @@ void monsterTick(void)
 static void haltAtEdge(void)
 {
 	int mx, my;
-	
+
 	if (self->dx != 0)
 	{
 		my = (self->y + self->h) / TILE_SIZE;
-		
+
 		if (self->dx < 0)
 		{
 			mx = self->x - 1;
@@ -52,9 +52,9 @@ static void haltAtEdge(void)
 		{
 			mx = self->x + self->w;
 		}
-		
+
 		mx /= TILE_SIZE;
-		
+
 		if (stage->map[mx][my] == 0)
 		{
 			self->dx = 0;
@@ -65,16 +65,16 @@ static void haltAtEdge(void)
 void monsterDraw(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	if (m->hitTimer > 0)
 	{
 		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_ADD);
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255 - m->hitTimer, 128 - m->hitTimer, 255);
-		
+
 		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-		
+
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
 		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_BLEND);
 	}
@@ -87,13 +87,13 @@ void monsterDraw(void)
 void monsterTakeDamage(int amount)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	m->health -= amount;
 	m->hitTimer = 255;
 	m->alert = 1;
-	
+
 	if (m->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
@@ -103,18 +103,20 @@ void monsterTakeDamage(int amount)
 void monsterDie(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
+	playPositionalSound(SND_MONSTER_DIE, -1, self->x, self->y, world.player->x, world.player->y);
+
 	throwPusBalls(self->x, self->y, 8);
-	
+
 	throwCoins(self->x, self->y, m->coins);
-	
+
 	if (rand() % 10 == 0)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
-	
+
 	stage->numMonsters--;
 }
 
@@ -122,15 +124,15 @@ void monsterDie(void)
 void monsterTouch(Entity *other)
 {
 	Entity *oldSelf;
-	
+
 	if (other == world.player)
 	{
 		oldSelf = self;
-		
+
 		self = other;
-		
+
 		world.player->damage(1);
-		
+
 		self = oldSelf;
 	}
 }

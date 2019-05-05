@@ -1,5 +1,5 @@
 {
-	"id" : 1,
+	"id":	1,
 	"entities":	[{
 			"type":	"player",
 			"x":	88,
@@ -35,9 +35,9 @@
 			"ey":	484
 		}],
 	"map":	{
-		"data":	"eJzt17ENwCAMRcFVGCHsvxxlugAWUqTP6Rbwc2O5t17wxNhv0a//76n169d/pn/3omX2r1fl9q+VZffP6/L7vwvv6M+qrPXfsIPK95e/FQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDXAHV+AcU",
-		"eLen":	152,
-		"cLen":	113,
+		"data":	"eJzt18ENgCAQRcFWLEEO9N+aiV6JLMZIXCbTwL5/IKFs5YE9jfEW/fpnX61fv/53+utp3f5LfIOc/fEN8vbHNsjd398gf//Ye/Bvd7+cFTbo/fRq0+yrAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL5zALlHAi0",
+		"eLen":	164,
+		"cLen":	122,
 		"dLen":	32768
 	}
 }

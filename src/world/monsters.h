@@ -24,6 +24,7 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern void spawnRandomHealthItem(int x, int y);
 extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
+extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 
 extern Entity *self;
 extern Stage *stage;

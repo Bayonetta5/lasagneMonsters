@@ -25,17 +25,17 @@ static void tick(void);
 void initHorizontalDoor(Entity *e)
 {
 	Door *d;
-	
+
 	initDoor(e);
-	
+
 	d = (Door*)e->data;
-	
+
 	e->typeName = "horizontalDoor";
 	e->tick = tick;
 	e->atlasImage = getAtlasImage("gfx/entities/horizontalDoor.png", 1);
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	
+
 	/* when opened */
 	d->ey = e->y;
 	d->ex = e->x - (e->w - 4);
@@ -45,14 +45,14 @@ static void tick(void)
 {
 	Door *d;
 	int tx;
-	
+
 	d = (Door*)self->data;
-	
+
 	self->dx = 0;
 	self->flags |= EF_STATIC;
-	
+
 	tx = self->x;
-	
+
 	if (d->open && self->x != d->ex)
 	{
 		tx = d->ex;
@@ -61,7 +61,7 @@ static void tick(void)
 	{
 		tx = d->sx;
 	}
-	
+
 	if (tx != self->x)
 	{
 		if (abs(self->x - tx) > d->speed)
@@ -73,6 +73,8 @@ static void tick(void)
 		{
 			self->x = tx;
 			self->dx = 0;
+
+			playPositionalSound(SND_DOOR_DONE, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }

@@ -29,16 +29,16 @@ static void save(cJSON *root);
 void initDoor(Entity *e)
 {
 	Door *d;
-	
+
 	d = malloc(sizeof(Door));
 	memset(d, 0, sizeof(Door));
-	
+
 	d->sx = e->x;
 	d->sy = e->y;
 	d->ex = e->x;
 	d->ey = e->y;
 	d->speed = 1;
-	
+
 	e->typeName = "door";
 	e->type = ET_STRUCTURE;
 	e->data = d;
@@ -50,10 +50,10 @@ void initDoor(Entity *e)
 	e->h = e->atlasImage->rect.h;
 	e->flags = EF_SOLID+EF_WEIGHTLESS+EF_PUSH+EF_NO_WORLD_CLIP;
 	e->background = 1;
-	
+
 	/* when opened */
 	d->ey = e->y - (e->h - 4);
-	
+
 	e->load = load;
 	e->save = save;
 }
@@ -61,32 +61,37 @@ void initDoor(Entity *e)
 static void tick(void)
 {
 	Door *d;
-	
+	int ty;
+
 	d = (Door*)self->data;
-	
+
 	self->dy = 0;
 	self->flags |= EF_STATIC;
-	
-	if (d->open)
+
+	ty = self->y;
+
+	if (d->open && self->y != d->ey)
 	{
-		if (self->y > d->ey)
+		ty = d->ey;
+	}
+	else if (!d->open && self->y != d->sy)
+	{
+		ty = d->sy;
+	}
+
+	if (ty != self->y)
+	{
+		if (abs(self->y - ty) > d->speed)
 		{
-			self->dy = -d->speed;
-			
-			self->y = MAX(self->y, d->ey);
-			
+			self->dy = (self->y < ty) ? d->speed : -d->speed;
 			self->flags &= ~EF_STATIC;
 		}
-	}
-	else
-	{
-		if (self->y < d->sy)
+		else
 		{
-			self->dy = d->speed;
-			
-			self->y = MIN(self->y, d->sy);
-			
-			self->flags &= ~EF_STATIC;
+			self->y = ty;
+			self->dy = 0;
+
+			playPositionalSound(SND_DOOR_DONE, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }
@@ -94,33 +99,33 @@ static void tick(void)
 static void activate(int active)
 {
 	Door *d;
-	
+
 	d = (Door*)self->data;
-	
+
 	d->open = !d->open;
-	
+
 	playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 }
 
 static void touch(Entity *other)
 {
 	Door *d;
-	
+
 	if (other == world.player)
 	{
 		d = (Door*)self->data;
-		
+
 		if (d->requires == DR_KEY && game.keys > 0)
 		{
 			d->requires = DR_NOTHING;
 			game.keys--;
 		}
-		
+
 		if (!d->open && d->requires == DR_NOTHING)
 		{
 			d->open = 1;
 			self->flags |= EF_NO_WORLD_CLIP;
-			
+
 			playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
@@ -129,9 +134,9 @@ static void touch(Entity *other)
 static void load(cJSON *root)
 {
 	Door *d;
-	
+
 	d = (Door*)self->data;
-	
+
 	d->open = cJSON_GetObjectItem(root, "open")->valueint;
 	d->requires = lookup(cJSON_GetObjectItem(root, "requires")->valuestring);
 	d->speed = cJSON_GetObjectItem(root, "speed")->valueint;
@@ -144,9 +149,9 @@ static void load(cJSON *root)
 static void save(cJSON *root)
 {
 	Door *d;
-	
+
 	d = (Door*)self->data;
-	
+
 	cJSON_AddNumberToObject(root, "open", d->open);
 	cJSON_AddStringToObject(root, "requires", getLookupName("DR_", d->requires));
 	cJSON_AddNumberToObject(root, "speed", d->speed);

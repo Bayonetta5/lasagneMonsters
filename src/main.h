@@ -27,6 +27,8 @@ extern void initSDL(void);
 extern void initStage(int n, int i);
 extern void prepareScene(void);
 extern void presentScene(void);
+extern void loadMusic(char *filename);
+extern void playMusic(int loop);
 
 App app;
 Entity *player;

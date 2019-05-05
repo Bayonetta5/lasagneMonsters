@@ -30,13 +30,13 @@ static void save(cJSON *root);
 void initPlayer(Entity *e)
 {
 	Walter *w;
-	
+
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
-	
+
 	w->health = w->maxHealth = 3;
 	w->ammo = w->maxAmmo = 5;
-	
+
 	e->typeName = "player";
 	e->data = w;
 	e->type = ET_PLAYER;
@@ -48,7 +48,7 @@ void initPlayer(Entity *e)
 	e->die = die;
 	e->load = load;
 	e->save = save;
-	
+
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 }
@@ -56,57 +56,57 @@ void initPlayer(Entity *e)
 static void tick(void)
 {
 	Walter *w;
-	
+
 	w = (Walter*)self->data;
-	
+
 	self->dx = 0;
 	w->action = 0;
-	
+
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	w->reload = MAX(w->reload - 1, 0);
 	w->ammo = MIN(w->ammo + 0.05f, w->maxAmmo);
-	
+
 	if (self->alive == ALIVE_ALIVE)
 	{
 		if (isControl(CONTROL_LEFT))
 		{
 			self->dx = -PLAYER_MOVE_SPEED;
-			
+
 			self->facing = FACING_LEFT;
 		}
-		
+
 		if (isControl(CONTROL_RIGHT))
 		{
 			self->dx = PLAYER_MOVE_SPEED;
-			
+
 			self->facing = FACING_RIGHT;
 		}
-		
+
 		if (isControl(CONTROL_JUMP) && self->isOnGround)
 		{
 			self->riding = NULL;
-			
+
 			self->dy = -20;
-			
+
 			playSound(SND_JUMP, CH_PLAYER);
 		}
-		
+
 		if (isControl(CONTROL_FIRE))
 		{
 			if (!game.autoFire)
 			{
 				clearControl(CONTROL_FIRE);
 			}
-			
+
 			if (w->ammo > 0 && w->reload == 0)
 			{
 				w->ammo--;
-				
+
 				/* don't let the player fire too quickly */
 				w->reload = game.autoFire;
-				
+
 				initWaterBullet(self);
-				
+
 				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, world.player->x, world.player->y);
 			}
 		}
@@ -114,11 +114,11 @@ static void tick(void)
 		{
 			w->reload = 0;
 		}
-		
+
 		if (isControl(CONTROL_USE))
 		{
 			clearControl(CONTROL_USE);
-			
+
 			w->action = 1;
 		}
 	}
@@ -127,9 +127,9 @@ static void tick(void)
 static void draw(void)
 {
 	Walter *w;
-	
+
 	w = (Walter*)self->data;
-	
+
 	if (w->immuneTimer % 5 == 0)
 	{
 		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
@@ -139,27 +139,31 @@ static void draw(void)
 static void damage(int amount)
 {
 	Walter *w;
-	
+
 	w = (Walter*)self->data;
-	
+
 	if (w->immuneTimer == 0)
 	{
 		w->health -= amount;
-		
+
 		if (w->health <= 0)
 		{
 			self->alive = ALIVE_DEAD;
 		}
-		
+
 		w->immuneTimer = FPS;
+
+		playSound(SND_INJURED, -1);
 	}
 }
 
 static void die(void)
 {
 	addDeathParticles(self->x, self->y);
-	
-	playSound(SND_DEATH, CH_PLAYER);
+
+	playSound(SND_DEATH, -1);
+
+	playSound(SND_SCREAM, CH_PLAYER);
 }
 
 static void load(cJSON *root)
