@@ -21,16 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "common.h"
 #include "json/cJSON.h"
 
-
-
 enum
 {
 	MODE_TILE,
 	MODE_ENT,
 	MODE_PICK
-};
-
-struct Node {
 };
 
 extern void addToQuadtree(Entity *e, Quadtree *root);
@@ -53,12 +48,9 @@ extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 
-	Node *next;
-	int x, y;
 App app;
 Entity *player;
 Entity *self;
 Game game;
 Stage *stage;
 World world;
-typedef struct Node Node;

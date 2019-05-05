@@ -55,7 +55,6 @@ extern void initQuadtree(Quadtree *root);
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);
-extern void randomizeTiles(void);
 extern char *readFile(const char *filename);
 extern void resetSavePoints(void);
 extern void resumeSound(void);

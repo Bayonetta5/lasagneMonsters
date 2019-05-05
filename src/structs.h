@@ -29,6 +29,7 @@ typedef struct Lookup Lookup;
 typedef struct GameText GameText;
 typedef struct Widget Widget;
 typedef struct Stage Stage;
+typedef struct Node Node;
 
 struct Texture {
 	char name[MAX_NAME_LENGTH];
@@ -242,6 +243,11 @@ struct Widget {
 	void (*action)(void);
 	Widget *prev;
 	Widget *next;
+};
+
+struct Node {
+	Node *next;
+	int x, y;
 };
 
 typedef struct {

@@ -69,8 +69,6 @@ void initStage(int n, int fade)
 
 	backgroundTile = getAtlasImage("gfx/tiles/0.png", 1);
 
-	randomizeTiles();
-
 	updatePlayer();
 
 	updateCameraBounds();
@@ -290,8 +288,6 @@ static void transfer(void)
 	destroyStage();
 
 	initStage(transferCube.targetStage, 0);
-
-	randomizeTiles();
 
 	e = findStartPoint(transferCube.targetFlag);
 
