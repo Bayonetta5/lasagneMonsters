@@ -216,6 +216,14 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/main/saving.png",
+		"x" : 58,
+		"y" : 170,
+		"w" : 30,
+		"h" : 30,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/hud/water.png",
 		"x" : 492,
 		"y" : 121,
@@ -225,7 +233,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 58,
+		"x" : 89,
 		"y" : 170,
 		"w" : 26,
 		"h" : 26,
@@ -233,7 +241,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 85,
+		"x" : 116,
 		"y" : 170,
 		"w" : 26,
 		"h" : 26,
@@ -241,7 +249,7 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 112,
+		"x" : 143,
 		"y" : 170,
 		"w" : 7,
 		"h" : 25,
@@ -249,7 +257,7 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 120,
+		"x" : 151,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,
@@ -257,7 +265,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 145,
+		"x" : 176,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,

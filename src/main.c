@@ -72,6 +72,17 @@ int main(int argc, char *argv[])
 
 			frames = 0;
 		}
+
+		if (app.save.saving > 0)
+		{
+			app.save.saving = MAX(app.save.saving - 1, 0);
+			app.save.pulse += 0.1;
+
+			if (app.save.saving == FPS)
+			{
+				saveGame();
+			}
+		}
 	}
 
 	return 0;

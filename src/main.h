@@ -29,6 +29,7 @@ extern void prepareScene(void);
 extern void presentScene(void);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);
+extern void saveGame(void);
 
 App app;
 Entity *player;

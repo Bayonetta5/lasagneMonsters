@@ -35,7 +35,7 @@ void initSavePoint(Entity *e)
 	memset(s, 0, sizeof(SavePoint));
 
 	e->typeName = "savePoint";
-	e->type = ET_STRUCTURE;
+	e->type = ET_SAVE_POINT;
 	e->data = s;
 	e->flags = EF_WEIGHTLESS+EF_STATIC;
 	e->tick = tick;
@@ -115,7 +115,7 @@ static void touch(Entity *other)
 
 			playSound(SND_COMPUTER, -1);
 
-			saveGame();
+			app.save.saving = FPS * 2;
 		}
 	}
 }

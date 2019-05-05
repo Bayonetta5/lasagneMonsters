@@ -298,6 +298,11 @@ typedef struct {
 		int value;
 	} wipe;
 	struct {
+		int saving;
+		float pulse;
+		AtlasImage *atlasImage;
+	} save;
+	struct {
 		int debug;
 		int fps;
 		int ents;

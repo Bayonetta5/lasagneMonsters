@@ -50,38 +50,40 @@ void initStage(int n, int fade)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
-	
+
 	stage = getStage(n);
-	
+
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
-	
+
 	statsWidget = getWidget("stats", "stage");
 	statsWidget->action = stats;
-	
+
 	optionsWidget = getWidget("options", "stage");
 	optionsWidget->action = options;
-	
+
 	quitWidget = getWidget("quit", "stage");
 	quitWidget->action = quit;
-	
+
 	initBackgroundData();
-	
+
 	backgroundTile = getAtlasImage("gfx/tiles/0.png", 1);
-	
+
 	randomizeTiles();
-	
+
 	updatePlayer();
-	
+
 	updateCameraBounds();
-	
+
 	initQuadtree(&world.quadtree);
-	
+
 	dropToFloor();
-	
+
+	resetSavePoints();
+
 	/* could be caused by dropToFloor */
 	world.transferCube = NULL;
-	
+
 	if (fade)
 	{
 		initWipe(WIPE_FADE);
@@ -97,13 +99,13 @@ static void logic(void)
 			case SHOW_MENU:
 				doMenu();
 				break;
-				
+
 			default:
 				doGame();
 				break;
 		}
 	}
-	
+
 	doCamera();
 }
 
@@ -113,28 +115,28 @@ static void doGame(void)
 	{
 		transfer();
 	}
-	
+
 	doControls();
-	
+
 	doEntities();
-	
+
 	doParticles();
-	
+
 	doHud();
 }
 
 static void doMenu(void)
 {
 	doWidgets("stage");
-	
+
 	if (app.keyboard[SDL_SCANCODE_ESCAPE] || isControl(CONTROL_PAUSE))
 	{
 		resumeSound();
-		
+
 		app.keyboard[SDL_SCANCODE_ESCAPE] = 0;
-		
+
 		clearControl(CONTROL_PAUSE);
-		
+
 		show = SHOW_GAME;
 	}
 }
@@ -144,24 +146,24 @@ static void doControls(void)
 	if (app.keyboard[SDL_SCANCODE_ESCAPE] || isControl(CONTROL_PAUSE))
 	{
 		app.keyboard[SDL_SCANCODE_ESCAPE] = 0;
-		
+
 		clearControl(CONTROL_PAUSE);
-		
+
 		show = SHOW_MENU;
-		
+
 		showWidgets("stage", 1);
-	
+
 		calculateWidgetFrame("stage");
-		
+
 		app.selectedWidget = resumeWidget;
-		
+
 		pauseSound();
 	}
-	
+
 	if (app.dev.debug && app.keyboard[SDL_SCANCODE_F1])
 	{
 		app.keyboard[SDL_SCANCODE_F1] = 0;
-		
+
 		saveGame();
 	}
 }
@@ -173,42 +175,42 @@ static void draw(void)
 		case SHOW_MENU:
 			drawMenu();
 			break;
-		
+
 		default:
 			drawGame();
 			break;
 	}
-	
+
 	drawWipe();
 }
 
 static void drawGame()
 {
 	app.dev.drawing = 0;
-	
+
 	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 64, 64, 64, 64);
-	
+
 	drawBackground();
-	
+
 	drawEntities(1);
-	
+
 	drawMap();
-	
+
 	drawEntities(0);
-	
+
 	drawParticles();
-	
+
 	drawHud();
 }
 
 static void drawMenu()
 {
 	drawGame();
-	
+
 	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0, 96);
-	
+
 	drawWidgetFrame();
-	
+
 	drawWidgets("stage");
 }
 
@@ -216,18 +218,18 @@ static void drawMenu()
 static void drawBackground(void)
 {
 	int x, y, x1, x2, y1, y2, mx, my, camX;
-	
+
 	camX = world.camera.x * 0.5f;
-	
+
 	x1 = (camX % TILE_SIZE) * -1;
 	x2 = x1 + MAP_RENDER_WIDTH * TILE_SIZE + (x1 == 0 ? 0 : TILE_SIZE);
 
 	y1 = (world.camera.y % TILE_SIZE) * -1;
 	y2 = y1 + MAP_RENDER_HEIGHT * TILE_SIZE + (y1 == 0 ? 0 : TILE_SIZE);
-	
+
 	mx = camX / TILE_SIZE;
 	my = world.camera.y / TILE_SIZE;
-	
+
 	for (y = y1 ; y < y2 ; y += TILE_SIZE)
 	{
 		for (x = x1 ; x < x2 ; x += TILE_SIZE)
@@ -236,12 +238,12 @@ static void drawBackground(void)
 			{
 				blitAtlasImage(backgroundTile, x, y, 0, SDL_FLIP_NONE);
 			}
-			
+
 			mx++;
 		}
-		
+
 		mx = camX / TILE_SIZE;
-		
+
 		my++;
 	}
 }
@@ -249,11 +251,11 @@ static void drawBackground(void)
 void destroyStage(void)
 {
 	destroyQuadtree();
-	
+
 	destroyEntities();
-	
+
 	destroyParticles();
-	
+
 	world.particleTail = &world.particleHead;
 	world.gameTextTail = &world.gameTextHead;
 }
@@ -261,7 +263,7 @@ void destroyStage(void)
 static Entity *findStartPoint(const char *name)
 {
 	Entity *e;
-	
+
 	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_START_POINT && strcmp(e->name, name) == 0)
@@ -269,10 +271,10 @@ static Entity *findStartPoint(const char *name)
 			return e;
 		}
 	}
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such start point '%s'", name);
 	exit(1);
-	
+
 	return NULL;
 }
 
@@ -281,20 +283,20 @@ static void transfer(void)
 	TransferCube transferCube;
 	Walter walter;
 	Entity *e;
-	
+
 	memcpy(&walter, world.player->data, sizeof(Walter));
 	memcpy(&transferCube, world.transferCube, sizeof(TransferCube));
-	
+
 	destroyStage();
-	
+
 	initStage(transferCube.targetStage, 0);
-	
+
 	randomizeTiles();
-	
+
 	e = findStartPoint(transferCube.targetFlag);
-	
+
 	memcpy(world.player->data, &walter, sizeof(Walter));
-	
+
 	world.player->x = e->x;
 	world.player->y = e->y;
 }
@@ -302,15 +304,15 @@ static void transfer(void)
 static void initBackgroundData(void)
 {
 	int x, y, n;
-	
+
 	memset(backgroundData, 0, sizeof(int) * MAP_WIDTH * MAP_HEIGHT);
-	
+
 	for (x = 0 ; x < MAP_WIDTH ; x++)
 	{
 		for (y = 0; y < MAP_HEIGHT ; y++)
 		{
 			n = ((x ^ y) / 3) % 4;
-			
+
 			if (n == 3)
 			{
 				backgroundData[x][y] = 1;
@@ -323,19 +325,19 @@ void loadStage(char *filename)
 {
 	cJSON *root;
 	char *json;
-	
+
 	json = readFile(getFileLocation(filename));
-		
+
 	root = cJSON_Parse(json);
-	
+
 	stage->id = cJSON_GetObjectItem(root, "id")->valueint;
-	
+
 	initMap(cJSON_GetObjectItem(root, "map"));
-	
+
 	initEntities(root);
-	
+
 	free(json);
-	
+
 	cJSON_Delete(root);
 }
 
@@ -347,20 +349,20 @@ static void resume(void)
 static void options(void)
 {
 	previousWidget = optionsWidget;
-	
+
 	showWidgets("stage", 0);
 }
 
 static void stats(void)
 {
 	previousWidget = statsWidget;
-	
+
 	showWidgets("stage", 0);
 }
 
 static void quit(void)
 {
 	destroyStage();
-	
+
 	exit(1);
 }

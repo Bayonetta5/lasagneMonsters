@@ -460,6 +460,21 @@ void activeEntities(char *targetName, int active)
 	self = oldSelf;
 }
 
+void resetSavePoints(void)
+{
+	Entity *e;
+	SavePoint *s;
+
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_SAVE_POINT)
+		{
+			s = (SavePoint*)e->data;
+			s->active = s->frame = s->frameTime = 0;
+		}
+	}
+}
+
 void destroyEntities(void)
 {
 	Entity *e;

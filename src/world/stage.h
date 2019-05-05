@@ -62,6 +62,7 @@ extern void showWidgets(const char *groupName, int visible);
 extern void updateCameraBounds(void);
 extern void updatePlayer(void);
 extern void saveGame(void);
+extern void resetSavePoints(void);
 
 extern App app;
 extern Stage *stage;
