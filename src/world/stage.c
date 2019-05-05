@@ -281,9 +281,12 @@ static void transfer(void)
 	TransferCube transferCube;
 	Walter walter;
 	Entity *e;
+	int facing;
 
 	memcpy(&walter, world.player->data, sizeof(Walter));
 	memcpy(&transferCube, world.transferCube, sizeof(TransferCube));
+
+	facing = world.player->facing;
 
 	destroyStage();
 
@@ -295,6 +298,7 @@ static void transfer(void)
 
 	world.player->x = e->x;
 	world.player->y = e->y;
+	world.player->facing = facing;
 }
 
 static void initBackgroundData(void)
