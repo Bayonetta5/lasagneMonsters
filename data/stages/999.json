@@ -33,7 +33,7 @@
 		}, {
 			"type":	"horizontalDoor",
 			"x":	336,
-			"y":	200,
+			"y":	192,
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,

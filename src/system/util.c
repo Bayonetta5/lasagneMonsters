@@ -22,6 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
 {
+	app.dev.collisions++;
+
 	return (MAX(x1, x2) < MIN(x1 + w1, x2 + w2)) && (MAX(y1, y2) < MIN(y1 + h1, y2 + h2));
 }
 
@@ -73,7 +75,7 @@ unsigned long hashcode(const char *str)
 	}
 
 	hash = ((hash << 5) + hash);
-	
+
 	return hash;
 }
 
@@ -81,27 +83,27 @@ void *resize(void *array, int oldSize, int newSize)
 {
 	void **newArray;
 	int copySize;
-	
+
 	copySize = newSize > oldSize ? oldSize : newSize;
-	
+
 	newArray = malloc(newSize);
 	memset(newArray, 0, newSize);
 	memcpy(newArray, array, copySize);
 	free(array);
-	
+
 	return newArray;
 }
 
 int getJSONIntVal(cJSON *root, char *name, int defaultValue)
 {
 	cJSON *node;
-	
+
 	node = cJSON_GetObjectItem(root, name);
-	
+
 	if (node)
 	{
 		return node->valueint;
 	}
-	
+
 	return defaultValue;
 }
