@@ -41,6 +41,10 @@
 			"sy":	192,
 			"ex":	244,
 			"ey":	192
+		}, {
+			"type":	"savePoint",
+			"x":	536,
+			"y":	160
 		}],
 	"map":	{
 		"data":	"eJzt17ENwCAMAMFVGAEK9l8tfaTEkoso2KcrgeIFLlhjJcwynlsyK+fR373/PtfxlNfq/+bMX+nXr1//HDtQu3+HO+MdJ6p0l7n+6N2/z8LpMr+/7m8GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6OUCiJACZA=",

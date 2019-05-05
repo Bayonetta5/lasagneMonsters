@@ -201,6 +201,57 @@
 			"y":	2056,
 			"targetName":	"hDoor1",
 			"on":	0
+		}, {
+			"name" : "bottomRightLower",
+			"type":	"startPoint",
+			"x":	2496,
+			"y":	4240
+		}, {
+			"name" : "bottomRightUpper",
+			"type":	"startPoint",
+			"x":	2456,
+			"y":	4048
+		}, {
+			"name" : "bottomLeft",
+			"type":	"startPoint",
+			"x":	48,
+			"y":	4240
+		}, {
+			"type":	"transferCube",
+			"x":	-48,
+			"y":	4176,
+			"targetStage":	0,
+			"targetFlag":	""
+		}, {
+			"type":	"transferCube",
+			"x":	-48,
+			"y":	4224,
+			"targetStage":	0,
+			"targetFlag":	""
+		}, {
+			"type":	"transferCube",
+			"x":	2544,
+			"y":	3984,
+			"targetStage":	4,
+			"targetFlag":	"topLeft"
+		}, {
+			"type":	"transferCube",
+			"x":	2544,
+			"y":	4032,
+			"targetStage":	4,
+			"targetFlag":	"topLeft"
+		}, {
+			"type":	"transferCube",
+			"x":	2544,
+			"y":	4176,
+			"targetStage":	4,
+			"targetFlag":	"bottomLeft"
+		}, {
+			"type":	"transferCube",
+			"x":	2544,
+			"y":	4224,
+			"targetStage":	4,
+			"targetFlag":	"bottomLeft"
 		}],
 	"map":	{
 		"data":	"eJzt2ltugzAQQNGtdAnJh/e/taiKSAhg4/EMeMa+Oj9VCzHX4p0+/h4AAAAAAAAAAAAAgAE8b9O7NNd/9ezeMY7X/vvHkW9XWpmxfy2ZeX/696cY/XbS59O997fOmmy5GfvT1P3p57rvt39/xjpXc658BulvWUd+3zdrv2Ycr/2ex/G6XX77ZXd0/8rny2j9sju673Wt9LSwnw2v/VLpYEbKyyxXw95bbl2/1J0ts70S+CJ7qjs+LpZZyC/jt192L1O+ztfdCfhCv2V/aZzepfTTT7+sv3692fq3a75/k39uGK+/9rPoH7N/v5fPdPxv7/PH7K9/Ehqzvx79I17/pP25v9BPf+9Si37NOL1L9f26cXqXavu14/Qu1fWv15G9M/b9/l++Xfk33FfuP176W+vH6G+vH6FfUx+/X1cfvV9bH7tfXx+536I+br9NfdR+q/qY/Xb1Efst6+P1H9f33t67+mP9F5N1/3m9/Am4d2l9/9F3O3XzE+/4b+H3bYZFm9c99bre7fd6Le+34h7/d+ldCgAAAAAAAAAAAAAAAABjeQHUjw2",

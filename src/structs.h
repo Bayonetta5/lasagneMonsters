@@ -157,6 +157,12 @@ typedef struct {
 	char targetName[MAX_NAME_LENGTH];
 } TrafficLight;
 
+typedef struct {
+	int active;
+	int frame;
+	int frameTime;
+} SavePoint;
+
 struct Particle {
 	float x;
 	float y;

@@ -136,7 +136,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/greenHorse1.png",
+		"filename" : "gfx/entities/computer2.png",
 		"x" : 266,
 		"y" : 121,
 		"w" : 32,
@@ -144,7 +144,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/redHorse1.png",
+		"filename" : "gfx/entities/greenHorse1.png",
 		"x" : 299,
 		"y" : 121,
 		"w" : 32,
@@ -152,8 +152,24 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/walter.png",
+		"filename" : "gfx/entities/computer3.png",
 		"x" : 332,
+		"y" : 121,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/redHorse1.png",
+		"x" : 365,
+		"y" : 121,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/walter.png",
+		"x" : 398,
 		"y" : 121,
 		"w" : 38,
 		"h" : 32,
@@ -161,7 +177,7 @@
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 371,
+		"x" : 437,
 		"y" : 121,
 		"w" : 18,
 		"h" : 32,
@@ -169,7 +185,7 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 390,
+		"x" : 456,
 		"y" : 121,
 		"w" : 14,
 		"h" : 32,
@@ -177,23 +193,31 @@
 	},
 	{
 		"filename" : "gfx/entities/chocolate.png",
-		"x" : 405,
+		"x" : 471,
 		"y" : 121,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/computer1.png",
+		"x" : 0,
+		"y" : 170,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/entities/apple.png",
-		"x" : 426,
-		"y" : 121,
+		"x" : 33,
+		"y" : 170,
 		"w" : 24,
 		"h" : 30,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 451,
+		"x" : 492,
 		"y" : 121,
 		"w" : 18,
 		"h" : 26,
@@ -201,15 +225,15 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 470,
-		"y" : 121,
+		"x" : 58,
+		"y" : 170,
 		"w" : 26,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 0,
+		"x" : 85,
 		"y" : 170,
 		"w" : 26,
 		"h" : 26,
@@ -217,15 +241,15 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 497,
-		"y" : 121,
+		"x" : 112,
+		"y" : 170,
 		"w" : 7,
 		"h" : 25,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 27,
+		"x" : 120,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,
@@ -233,7 +257,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 52,
+		"x" : 145,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,
