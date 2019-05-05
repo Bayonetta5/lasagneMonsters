@@ -25,10 +25,10 @@ extern void doInput(void);
 extern void initGameSystem(void);
 extern void initSDL(void);
 extern void initStage(int n, int i);
-extern void prepareScene(void);
-extern void presentScene(void);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);
+extern void prepareScene(void);
+extern void presentScene(void);
 extern void saveGame(void);
 
 App app;

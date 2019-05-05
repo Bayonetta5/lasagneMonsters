@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "json/cJSON.h"
 
 
-typedef struct Node Node;
 
 enum
 {
@@ -32,8 +31,6 @@ enum
 };
 
 struct Node {
-	int x, y;
-	Node *next;
 };
 
 extern void addToQuadtree(Entity *e, Quadtree *root);
@@ -56,9 +53,12 @@ extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 
+	Node *next;
+	int x, y;
 App app;
 Entity *player;
 Entity *self;
 Game game;
 Stage *stage;
 World world;
+typedef struct Node Node;
