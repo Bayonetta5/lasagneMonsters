@@ -152,6 +152,11 @@ typedef struct {
 	float dy;
 } Platform;
 
+typedef struct {
+	int on;
+	char targetName[MAX_NAME_LENGTH];
+} TrafficLight;
+
 struct Particle {
 	float x;
 	float y;

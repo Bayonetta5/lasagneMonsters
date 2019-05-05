@@ -137,6 +137,7 @@ enum
 	SND_KEY,
 	SND_DEATH,
 	SND_DOOR,
+	SND_TRAFFIC_LIGHT,
 	SND_MAX
 };
 
@@ -147,6 +148,7 @@ enum
 	CH_HIT,
 	CH_ITEM,
 	CH_STRUCTURE,
+	CH_SWITCH,
 	CH_MAX
 };
 

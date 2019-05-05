@@ -24,8 +24,24 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/transferCube.png",
+		"filename" : "gfx/entities/trafficLightGo.png",
 		"x" : 212,
+		"y" : 0,
+		"w" : 16,
+		"h" : 56,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/trafficLightStop.png",
+		"x" : 229,
+		"y" : 0,
+		"w" : 16,
+		"h" : 56,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/transferCube.png",
+		"x" : 246,
 		"y" : 0,
 		"w" : 48,
 		"h" : 48,
@@ -33,7 +49,7 @@
 	},
 	{
 		"filename" : "gfx/tiles/5.png",
-		"x" : 261,
+		"x" : 295,
 		"y" : 0,
 		"w" : 48,
 		"h" : 48,
@@ -41,7 +57,7 @@
 	},
 	{
 		"filename" : "gfx/tiles/4.png",
-		"x" : 310,
+		"x" : 344,
 		"y" : 0,
 		"w" : 48,
 		"h" : 48,
@@ -49,7 +65,7 @@
 	},
 	{
 		"filename" : "gfx/tiles/1.png",
-		"x" : 359,
+		"x" : 393,
 		"y" : 0,
 		"w" : 48,
 		"h" : 48,
@@ -57,7 +73,7 @@
 	},
 	{
 		"filename" : "gfx/tiles/2.png",
-		"x" : 408,
+		"x" : 442,
 		"y" : 0,
 		"w" : 48,
 		"h" : 48,
@@ -65,14 +81,6 @@
 	},
 	{
 		"filename" : "gfx/tiles/0.png",
-		"x" : 457,
-		"y" : 0,
-		"w" : 48,
-		"h" : 48,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/tiles/50.png",
 		"x" : 0,
 		"y" : 121,
 		"w" : 48,
@@ -80,7 +88,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/tiles/3.png",
+		"filename" : "gfx/tiles/50.png",
 		"x" : 49,
 		"y" : 121,
 		"w" : 48,
@@ -88,8 +96,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/greenBugEyedMonster2.png",
+		"filename" : "gfx/tiles/3.png",
 		"x" : 98,
+		"y" : 121,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/greenBugEyedMonster2.png",
+		"x" : 147,
 		"y" : 121,
 		"w" : 42,
 		"h" : 42,
@@ -97,7 +113,7 @@
 	},
 	{
 		"filename" : "gfx/entities/greenBugEyedMonster1.png",
-		"x" : 141,
+		"x" : 190,
 		"y" : 121,
 		"w" : 42,
 		"h" : 42,
@@ -105,15 +121,15 @@
 	},
 	{
 		"filename" : "gfx/entities/beer.png",
-		"x" : 184,
-		"y" : 121,
+		"x" : 491,
+		"y" : 0,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/startPoint.png",
-		"x" : 205,
+		"x" : 233,
 		"y" : 121,
 		"w" : 32,
 		"h" : 32,
@@ -121,7 +137,7 @@
 	},
 	{
 		"filename" : "gfx/entities/greenHorse1.png",
-		"x" : 238,
+		"x" : 266,
 		"y" : 121,
 		"w" : 32,
 		"h" : 32,
@@ -129,7 +145,7 @@
 	},
 	{
 		"filename" : "gfx/entities/redHorse1.png",
-		"x" : 271,
+		"x" : 299,
 		"y" : 121,
 		"w" : 32,
 		"h" : 32,
@@ -137,7 +153,7 @@
 	},
 	{
 		"filename" : "gfx/entities/walter.png",
-		"x" : 304,
+		"x" : 332,
 		"y" : 121,
 		"w" : 38,
 		"h" : 32,
@@ -145,7 +161,7 @@
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 343,
+		"x" : 371,
 		"y" : 121,
 		"w" : 18,
 		"h" : 32,
@@ -153,7 +169,7 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 362,
+		"x" : 390,
 		"y" : 121,
 		"w" : 14,
 		"h" : 32,
@@ -161,7 +177,7 @@
 	},
 	{
 		"filename" : "gfx/entities/chocolate.png",
-		"x" : 377,
+		"x" : 405,
 		"y" : 121,
 		"w" : 20,
 		"h" : 32,
@@ -169,7 +185,7 @@
 	},
 	{
 		"filename" : "gfx/entities/apple.png",
-		"x" : 398,
+		"x" : 426,
 		"y" : 121,
 		"w" : 24,
 		"h" : 30,
@@ -177,7 +193,7 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 423,
+		"x" : 451,
 		"y" : 121,
 		"w" : 18,
 		"h" : 26,
@@ -185,7 +201,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 442,
+		"x" : 470,
 		"y" : 121,
 		"w" : 26,
 		"h" : 26,
@@ -193,15 +209,15 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 469,
-		"y" : 121,
+		"x" : 0,
+		"y" : 170,
 		"w" : 26,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 496,
+		"x" : 497,
 		"y" : 121,
 		"w" : 7,
 		"h" : 25,
@@ -209,88 +225,88 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 212,
-		"y" : 49,
+		"x" : 27,
+		"y" : 170,
 		"w" : 24,
 		"h" : 24,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 237,
-		"y" : 49,
+		"x" : 52,
+		"y" : 170,
 		"w" : 24,
 		"h" : 24,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/key.png",
-		"x" : 262,
-		"y" : 49,
+		"x" : 138,
+		"y" : 74,
 		"w" : 32,
 		"h" : 18,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/platform.png",
-		"x" : 295,
-		"y" : 49,
+		"x" : 212,
+		"y" : 57,
 		"w" : 96,
 		"h" : 16,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/horizontalDoor.png",
-		"x" : 392,
-		"y" : 49,
+		"x" : 309,
+		"y" : 57,
 		"w" : 96,
 		"h" : 16,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/slimeBullet.png",
-		"x" : 489,
-		"y" : 49,
+		"x" : 406,
+		"y" : 57,
 		"w" : 22,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 138,
-		"y" : 74,
+		"x" : 429,
+		"y" : 57,
 		"w" : 22,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall3.png",
-		"x" : 161,
-		"y" : 74,
+		"x" : 491,
+		"y" : 33,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall2.png",
-		"x" : 170,
-		"y" : 74,
+		"x" : 500,
+		"y" : 33,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/pusBall1.png",
-		"x" : 179,
-		"y" : 74,
+		"x" : 452,
+		"y" : 57,
 		"w" : 8,
 		"h" : 8,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 188,
-		"y" : 74,
+		"x" : 246,
+		"y" : 49,
 		"w" : 7,
 		"h" : 7,
 		"rotated" : 0
