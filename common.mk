@@ -1,4 +1,4 @@
-VERSION = 0.1
+VERSION = 0.2
 REVISION = 0
 
 OUT = bin
@@ -20,6 +20,6 @@ all: $(PROG) $(MAP_PROG)
 $(OUT)/%.o: %.c %.h $(DEPS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(CXXFLAGS) -c -o $@ $<
-	
+
 clean:
 	$(RM) -rf $(OUT) $(PROG) $(MAP_PROG) $(LOCALE_MO)
