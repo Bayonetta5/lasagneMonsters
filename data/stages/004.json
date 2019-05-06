@@ -41,25 +41,31 @@
 			"targetStage":	5,
 			"targetFlag":	""
 		}, {
-			"name" : "bottomLeft",
 			"type":	"startPoint",
 			"x":	48,
-			"y":	496
+			"y":	496,
+			"name":	"bottomLeft"
 		}, {
-			"name" : "topLeft",
 			"type":	"startPoint",
 			"x":	56,
-			"y":	112
+			"y":	112,
+			"name":	"topLeft"
 		}, {
-			"name" : "bottomRight",
 			"type":	"startPoint",
 			"x":	1232,
-			"y":	496
+			"y":	496,
+			"name":	"bottomRight"
 		}, {
 			"type":	"player",
 			"x":	112,
 			"y":	496,
 			"facing":	"right"
+		}, {
+			"type":	"chest",
+			"x":	1192,
+			"y":	112,
+			"open":	0,
+			"coins":	50
 		}],
 	"map":	{
 		"data":	"eJzt1YEJACAIAMFVGiH3X64RoigEPW4BP0JjxIXZmv7sCV629P7/Ny36s6fWr1//D9X3/Xl77Tdw//Xr79sPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsLMApwgB9Q=",

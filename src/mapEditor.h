@@ -47,6 +47,7 @@ extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
+extern Stage *getStage(int i);
 
 App app;
 Entity *player;

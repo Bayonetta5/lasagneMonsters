@@ -37,7 +37,7 @@ void initSavePoint(Entity *e)
 	e->typeName = "savePoint";
 	e->type = ET_SAVE_POINT;
 	e->data = s;
-	e->flags = EF_WEIGHTLESS+EF_STATIC;
+	e->flags = EF_STATIC;
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;

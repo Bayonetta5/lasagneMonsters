@@ -30,6 +30,7 @@ void initEntityFactory(void)
 	memset(&initFuncHead, 0, sizeof(InitFunc));
 	initFuncTail = &initFuncHead;
 
+	addInitFunc("chest", initChest);
 	addInitFunc("door", initDoor);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);

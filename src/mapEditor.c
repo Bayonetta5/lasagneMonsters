@@ -525,28 +525,17 @@ static void centreOnPlayer(void)
 
 static void tryLoadStage(int n)
 {
-	Stage *s, *last;
+	stage = getStage(n);
 
-	last = &world.stagesHead;
-
-	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	if (stage == NULL)
 	{
-		if (s->id == n)
-		{
-			initStage(n, 0);
-			return;
-		}
+		stage = malloc(sizeof(Stage));
+		memset(stage, 0, sizeof(Stage));
+		world.stagesHead.next = stage;
 
-		last = s;
+		stage->id = n;
+		stage->entityTail = &stage->entityHead;
 	}
-
-	s = malloc(sizeof(Stage));
-	memset(s, 0, sizeof(Stage));
-	last->next = s;
-	last = s;
-
-	s->id = n;
-	s->entityTail = &s->entityHead;
 
 	initStage(n, 0);
 }

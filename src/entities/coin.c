@@ -30,26 +30,26 @@ static AtlasImage *sparkleTexture = NULL;
 void initCoin(Entity *e)
 {
 	Item *i;
-	
+
 	i = malloc(sizeof(Item));
 	memset(i, 0, sizeof(Item));
-	
+
 	i->health = FPS * 5;
-	
+	i->touchDelay = FPS / 4;
+
 	e->typeName = "coin";
 	e->type = ET_ITEM;
 	e->data = i;
 	e->flags = EF_DELETE+EF_FRICTION+EF_TRANSIENT;
 	e->tick = tick;
 	e->draw = draw;
-	e->touch = touch;
-	
+
 	if (coinTexture == NULL)
 	{
 		coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
 		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
-	
+
 	e->atlasImage = coinTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
@@ -58,9 +58,14 @@ void initCoin(Entity *e)
 static void tick(void)
 {
 	Item *i;
-	
+
 	i = (Item*)self->data;
-	
+
+	if (--i->touchDelay <= 0)
+	{
+		self->touch = touch;
+	}
+
 	if (--i->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
@@ -71,20 +76,20 @@ static void draw(void)
 {
 	int x, y;
 	Item *i;
-	
+
 	i = (Item*)self->data;
-	
+
 	x = self->x + (self->w / 2) - world.camera.x;
 	y = self->y + (self->h / 2) - world.camera.y;
-		
+
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 0);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
-	
+
 	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-	
+
 	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
-	
+
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{
 		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
@@ -96,13 +101,13 @@ static void touch(Entity *other)
 	if (self->alive == ALIVE_ALIVE && other == world.player)
 	{
 		self->alive = ALIVE_DEAD;
-		
+
 		playPositionalSound(SND_COIN, CH_ITEM, self->x, self->y, world.player->x, world.player->y);
-		
+
 		addGameText(self->x, self->y, "+1g");
-		
+
 		addCoinParticles(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		game.coins++;
 	}
 }

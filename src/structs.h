@@ -92,6 +92,7 @@ typedef struct {
 	float bobValue;
 	float by;
 	int health;
+	int touchDelay;
 	int value;
 	int dying;
 } Item;
@@ -163,6 +164,12 @@ typedef struct {
 	int frame;
 	int frameTime;
 } SavePoint;
+
+typedef struct {
+	int open;
+	int coins;
+	int delay;
+} Chest;
 
 struct Particle {
 	float x;

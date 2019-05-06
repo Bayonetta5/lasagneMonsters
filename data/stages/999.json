@@ -2,7 +2,7 @@
 	"id":	999,
 	"entities":	[{
 			"type":	"player",
-			"x":	120,
+			"x":	480,
 			"y":	160,
 			"facing":	"right"
 		}, {
@@ -31,25 +31,26 @@
 			"x":	600,
 			"y":	544
 		}, {
-			"type":	"horizontalDoor",
-			"x":	336,
-			"y":	192,
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	336,
-			"sy":	192,
-			"ex":	244,
-			"ey":	192
-		}, {
 			"type":	"savePoint",
-			"x":	536,
+			"x":	88,
 			"y":	160
+		}, {
+			"type":	"trafficLight",
+			"x":	272,
+			"y":	136,
+			"targetName":	"",
+			"on":	0
+		}, {
+			"type":	"chest",
+			"x":	640,
+			"y":	160,
+			"open":	0,
+			"coins":	25
 		}],
 	"map":	{
-		"data":	"eJzt17ENwCAMAMFVGAEK9l8tfaTEkoso2KcrgeIFLlhjJcwynlsyK+fR373/PtfxlNfq/+bMX+nXr1//HDtQu3+HO+MdJ6p0l7n+6N2/z8LpMr+/7m8GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6OUCiJACZA=",
-		"eLen":	164,
-		"cLen":	121,
+		"data":	"eJzt17ENgCAQQNFVHEEK9l/N0kLiBUKicC+v5Ej8EQrKUQac2xhp0f/1V+uf199/z/fq71/N099ez9TfmsjV/5zJ1j9jz1/dLTWwd38NJ+OJFe30L8f6o3P/fhdWN/L6y35mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgFwuaD4CaA=",
+		"eLen":	180,
+		"cLen":	133,
 		"dLen":	32768
 	}
 }

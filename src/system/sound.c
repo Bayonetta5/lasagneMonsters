@@ -156,6 +156,7 @@ static void loadSounds(void)
 	sounds[SND_DOOR] = Mix_LoadWAV("sound/145702__d-w__brick-drag-concrete-01.ogg");
 	sounds[SND_DOOR_DONE] = Mix_LoadWAV("sound/15901__someonesilly__knock.ogg");
 	sounds[SND_COMPUTER] = Mix_LoadWAV("sound/377083__cribbler__turn-on-printer.ogg");
+	sounds[SND_CHEST] = Mix_LoadWAV("sound/chest.ogg");
 
 }
 

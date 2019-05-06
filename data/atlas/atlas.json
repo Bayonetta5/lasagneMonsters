@@ -128,7 +128,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/startPoint.png",
+		"filename" : "gfx/entities/chest1.png",
 		"x" : 233,
 		"y" : 121,
 		"w" : 32,
@@ -136,7 +136,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/computer2.png",
+		"filename" : "gfx/entities/startPoint.png",
 		"x" : 266,
 		"y" : 121,
 		"w" : 32,
@@ -144,7 +144,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/greenHorse1.png",
+		"filename" : "gfx/entities/computer2.png",
 		"x" : 299,
 		"y" : 121,
 		"w" : 32,
@@ -152,7 +152,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/computer3.png",
+		"filename" : "gfx/entities/greenHorse1.png",
 		"x" : 332,
 		"y" : 121,
 		"w" : 32,
@@ -160,7 +160,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/redHorse1.png",
+		"filename" : "gfx/entities/computer3.png",
 		"x" : 365,
 		"y" : 121,
 		"w" : 32,
@@ -168,8 +168,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/walter.png",
+		"filename" : "gfx/entities/redHorse1.png",
 		"x" : 398,
+		"y" : 121,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/walter.png",
+		"x" : 431,
 		"y" : 121,
 		"w" : 38,
 		"h" : 32,
@@ -177,7 +185,7 @@
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 437,
+		"x" : 470,
 		"y" : 121,
 		"w" : 18,
 		"h" : 32,
@@ -185,22 +193,14 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 456,
+		"x" : 489,
 		"y" : 121,
 		"w" : 14,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/chocolate.png",
-		"x" : 471,
-		"y" : 121,
-		"w" : 20,
-		"h" : 32,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/entities/computer1.png",
+		"filename" : "gfx/entities/chest2.png",
 		"x" : 0,
 		"y" : 170,
 		"w" : 32,
@@ -208,8 +208,24 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/apple.png",
+		"filename" : "gfx/entities/chocolate.png",
 		"x" : 33,
+		"y" : 170,
+		"w" : 20,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/computer1.png",
+		"x" : 54,
+		"y" : 170,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/apple.png",
+		"x" : 87,
 		"y" : 170,
 		"w" : 24,
 		"h" : 30,
@@ -217,7 +233,7 @@
 	},
 	{
 		"filename" : "gfx/main/saving.png",
-		"x" : 58,
+		"x" : 112,
 		"y" : 170,
 		"w" : 30,
 		"h" : 30,
@@ -225,15 +241,15 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 492,
-		"y" : 121,
+		"x" : 143,
+		"y" : 170,
 		"w" : 18,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 89,
+		"x" : 162,
 		"y" : 170,
 		"w" : 26,
 		"h" : 26,
@@ -241,7 +257,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 116,
+		"x" : 189,
 		"y" : 170,
 		"w" : 26,
 		"h" : 26,
@@ -249,15 +265,15 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 143,
-		"y" : 170,
+		"x" : 504,
+		"y" : 121,
 		"w" : 7,
 		"h" : 25,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 151,
+		"x" : 216,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,
@@ -265,7 +281,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 176,
+		"x" : 241,
 		"y" : 170,
 		"w" : 24,
 		"h" : 24,
