@@ -105,6 +105,13 @@ static void handleCommandLine(int argc, char *argv[])
 		{
 			n = atoi(argv[i + 1]);
 		}
+
+		if (strcmp(argv[i], "-load") == 0)
+		{
+			loadGame();
+
+			n = game.stageId;
+		}
 	}
 
 	loadMusic("music/theme1.mp3");

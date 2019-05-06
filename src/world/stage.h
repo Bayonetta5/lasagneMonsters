@@ -19,14 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "../json/cJSON.h"
 
 #define SHOW_GAME  0
 #define SHOW_MENU  1
 
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void calculateWidgetFrame(const char *groupName);
-extern const char *getFileLocation(const char *filename);
 extern void clearControl(int type);
 extern void destroyEntities(void);
 extern void destroyParticles(void);
@@ -49,13 +47,10 @@ extern void dropToFloor(void);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Stage *getStage(int n);
 extern Widget *getWidget(const char *name, const char *groupName);
-extern void initEntities(cJSON *root);
-extern void initMap(cJSON *root);
 extern void initQuadtree(Quadtree *root);
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);
-extern char *readFile(const char *filename);
 extern void resetSavePoints(void);
 extern void resumeSound(void);
 extern void saveGame(void);
@@ -64,5 +59,6 @@ extern void updateCameraBounds(void);
 extern void updatePlayer(void);
 
 extern App app;
+extern Game game;
 extern Stage *stage;
 extern World world;

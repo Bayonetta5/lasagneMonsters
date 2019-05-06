@@ -53,6 +53,8 @@ void initStage(int n, int fade)
 
 	stage = getStage(n);
 
+	game.stageId = n;
+
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
 
@@ -75,9 +77,9 @@ void initStage(int n, int fade)
 
 	initQuadtree(&world.quadtree);
 
-	dropToFloor();
-
 	resetSavePoints();
+
+	dropToFloor();
 
 	/* could be caused by dropToFloor */
 	world.transferCube = NULL;
@@ -319,26 +321,6 @@ static void initBackgroundData(void)
 			}
 		}
 	}
-}
-
-void loadStage(char *filename)
-{
-	cJSON *root;
-	char *json;
-
-	json = readFile(getFileLocation(filename));
-
-	root = cJSON_Parse(json);
-
-	stage->id = cJSON_GetObjectItem(root, "id")->valueint;
-
-	initMap(cJSON_GetObjectItem(root, "map"));
-
-	initEntities(root);
-
-	free(json);
-
-	cJSON_Delete(root);
 }
 
 static void resume(void)

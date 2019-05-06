@@ -492,6 +492,8 @@ static void loadEnts(cJSON *root)
 {
 	cJSON *node;
 
+	stage->entityTail = &stage->entityHead;
+
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
 		initEntity(node);

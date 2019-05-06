@@ -24,3 +24,27 @@ void initGame(void)
 {
 	memset(&game, 0, sizeof(Game));
 }
+
+void destroyGame(void)
+{
+	Entity *e;
+	Stage *s;
+
+	while (world.stagesHead.next)
+	{
+		s = world.stagesHead.next;
+
+		while (s->entityHead.next)
+		{
+			e = s->entityHead.next;
+
+			s->entityHead.next = e->next;
+
+			free(e);
+		}
+
+		world.stagesHead.next = s->next;
+
+		free(s);
+	}
+}
