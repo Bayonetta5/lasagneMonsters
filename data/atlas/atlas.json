@@ -40,18 +40,18 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/transferCube.png",
+		"filename" : "gfx/entities/gumballMachine.png",
 		"x" : 246,
 		"y" : 0,
-		"w" : 48,
-		"h" : 48,
+		"w" : 34,
+		"h" : 50,
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/gumballMachine.png",
-		"x" : 295,
+		"filename" : "gfx/entities/transferCube.png",
+		"x" : 281,
 		"y" : 0,
-		"w" : 34,
+		"w" : 48,
 		"h" : 48,
 		"rotated" : 0
 	},
@@ -409,8 +409,8 @@
 	},
 	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 246,
-		"y" : 49,
+		"x" : 447,
+		"y" : 57,
 		"w" : 7,
 		"h" : 7,
 		"rotated" : 0
