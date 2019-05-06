@@ -139,6 +139,7 @@ typedef struct {
 typedef struct {
 	int targetStage;
 	char targetFlag[MAX_NAME_LENGTH];
+	int w, h;
 } TransferCube;
 
 typedef struct {

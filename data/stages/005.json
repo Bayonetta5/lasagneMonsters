@@ -2,8 +2,8 @@
 	"id":	5,
 	"entities":	[{
 			"type":	"player",
-			"x":	40,
-			"y":	304,
+			"x":	144,
+			"y":	352,
 			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
@@ -12,7 +12,7 @@
 		}, {
 			"type":	"gumballMachine",
 			"x":	1184,
-			"y":	192
+			"y":	190
 		}, {
 			"type":	"platform",
 			"x":	848,
@@ -40,66 +40,90 @@
 			"x":	1296,
 			"y":	576,
 			"targetStage":	0,
-			"targetFlag":	""
-		}, {
-			"type":	"transferCube",
-			"x":	1296,
-			"y":	624,
-			"targetStage":	0,
-			"targetFlag":	""
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	576,
-			"targetStage":	0,
-			"targetFlag":	""
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	624,
-			"targetStage":	0,
-			"targetFlag":	""
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	288,
-			"targetStage":	0,
-			"targetFlag":	""
+			"targetFlag":	"",
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"x":	-48,
 			"y":	240,
 			"targetStage":	0,
-			"targetFlag":	""
+			"targetFlag":	"",
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"x":	-48,
-			"y":	192,
+			"y":	576,
 			"targetStage":	0,
-			"targetFlag":	""
+			"targetFlag":	"",
+			"w":	1,
+			"h":	2
 		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	144,
-			"targetStage":	0,
-			"targetFlag":	""
+			"type":	"horizontalDoor",
+			"x":	576,
+			"y":	456,
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	576,
+			"sy":	456,
+			"ex":	484,
+			"ey":	456
 		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	96,
-			"targetStage":	0,
-			"targetFlag":	""
+			"type":	"horizontalDoor",
+			"x":	672,
+			"y":	456,
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	672,
+			"sy":	456,
+			"ex":	580,
+			"ey":	456
 		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	48,
-			"targetStage":	0,
-			"targetFlag":	""
+			"type":	"trafficLight",
+			"x":	88,
+			"y":	88,
+			"targetName":	"",
+			"on":	0
+		}, {
+			"type":	"redHorse",
+			"x":	176,
+			"y":	112
+		}, {
+			"type":	"redHorse",
+			"x":	1192,
+			"y":	400
+		}, {
+			"type":	"redHorse",
+			"x":	528,
+			"y":	400
+		}, {
+			"type":	"greenHorse",
+			"x":	48,
+			"y":	640
+		}, {
+			"type":	"greenHorse",
+			"x":	1112,
+			"y":	640
+		}, {
+			"type":	"startPoint",
+			"x":	16,
+			"y":	304
+		}, {
+			"type":	"startPoint",
+			"x":	16,
+			"y":	640
+		}, {
+			"type":	"startPoint",
+			"x":	1256,
+			"y":	640
 		}],
 	"map":	{
-		"data":	"eJzt1kEKgCAQQNGrdIRcdP+rhQthiEBqoTDzeLvazDc029F+OEvTv3sC/frXuoKK/VGm/v49K/f3v/nXNcjWP9YgGu+fz7Pt/9kNL/v9b96Xu5/a3s63ud1TAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKxzAwJCApY",
-		"eLen":	168,
-		"cLen":	125,
+		"data":	"eJzt1jsKgDAQQMGreAS38P5Xs1FIkcQPgrA7TJnGF2KyscQLaxpvWvT//dVf9m9T+fvn670dyNR/V3smKva3MvWP/vEq/XHcgJX7o/MKnOu9NyFj/2jCyz//XfXl7qe2+fT7ZCoGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyGkHAFkC6g=",
+		"eLen":	184,
+		"cLen":	136,
 		"dLen":	32768
 	}
 }

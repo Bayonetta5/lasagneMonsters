@@ -83,13 +83,9 @@
 			"x":	-48,
 			"y":	192,
 			"targetStage":	1,
-			"targetFlag":	"rightFlag"
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	240,
-			"targetStage":	1,
-			"targetFlag":	"rightFlag"
+			"targetFlag":	"rightFlag",
+			"w" : 1,
+			"h" : 2
 		}, {
 			"type":	"door",
 			"x":	2464,
@@ -133,13 +129,9 @@
 			"x":	3984,
 			"y":	144,
 			"targetStage":	3,
-			"targetFlag":	"topLeft"
-		}, {
-			"type":	"transferCube",
-			"x":	3984,
-			"y":	192,
-			"targetStage":	3,
-			"targetFlag":	"topLeft"
+			"targetFlag":	"topLeft",
+			"w" : 1,
+			"h" : 2
 		}],
 	"map":	{
 		"data":	"eJzt1k1ugzAQBtCr9AhlMfe/WhetkhD8H2yo9PSkLFAM/gaPzfa1/QPf0/Tfe2R2+3/lR2yHUffLf6zAefnrY++Q/70Gq555J6/546F1bBRdna2/AsdKlJK17HTx9zu7IuN1H9+/6+s/Ov8/7rM+Hjm7orhO0s9Zk3925/0mLFcrVYdV+edW4DV5fTaxu7oq/5ZZhbV9rUVPp+0rsDJ/+URr7fHjU/b3aJtZJEavyV/viL6+act/zf53Tt3K52dL/sicFnF5/nS2dNeMzeK5P8Tb9bb+mps/v8JLO0d7LXJ7YySurc+ffjPP/PmqxOMO7SfDlrw+M3/5TZ0xi9oeWzczf65zj+9mpL/rX3x3yP/euflZf/LVc+/8dzYvPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9PgB3TgHrA=",

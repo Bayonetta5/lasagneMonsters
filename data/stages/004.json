@@ -9,37 +9,25 @@
 			"x":	-48,
 			"y":	432,
 			"targetStage":	3,
-			"targetFlag":	"bottomRightLower"
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	480,
-			"targetStage":	3,
-			"targetFlag":	"bottomRightLower"
-		}, {
-			"type":	"transferCube",
-			"x":	-48,
-			"y":	96,
-			"targetStage":	3,
-			"targetFlag":	"bottomRightUpper"
+			"targetFlag":	"bottomRightLower",
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"x":	-48,
 			"y":	48,
 			"targetStage":	3,
-			"targetFlag":	"bottomRightUpper"
-		}, {
-			"type":	"transferCube",
-			"x":	1296,
-			"y":	480,
-			"targetStage":	5,
-			"targetFlag":	""
+			"targetFlag":	"bottomRightUpper",
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"x":	1296,
 			"y":	432,
 			"targetStage":	5,
-			"targetFlag":	""
+			"targetFlag":	"",
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"startPoint",
 			"x":	48,
@@ -60,10 +48,10 @@
 			"x":	112,
 			"y":	496,
 			"facing":	"right",
-			"health" : 3,
-			"maxHealth" : 3,
-			"ammo" : 5,
-			"maxAmmo" : 5
+			"health":	3,
+			"maxHealth":	3,
+			"ammo":	5,
+			"maxAmmo":	5
 		}, {
 			"type":	"chest",
 			"x":	1192,
