@@ -33,12 +33,12 @@ void initHealthItem(Entity *e)
 {
 	Item *i;
 	int n;
-	
+
 	i = malloc(sizeof(Item));
 	memset(i, 0, sizeof(Item));
-	
+
 	i->health = FPS * 5;
-	
+
 	e->typeName = "health";
 	e->type = ET_ITEM;
 	e->data = i;
@@ -46,16 +46,16 @@ void initHealthItem(Entity *e)
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;
-	
+
 	if (appleTexture == NULL)
 	{
 		appleTexture = getAtlasImage("gfx/entities/apple.png", 1);
 		chocolateTexture = getAtlasImage("gfx/entities/chocolate.png", 1);
 		beerTexture = getAtlasImage("gfx/entities/beer.png", 1);
 	}
-	
+
 	n = rand() % 25;
-	
+
 	if (n == 0)
 	{
 		e->atlasImage = beerTexture;
@@ -71,7 +71,7 @@ void initHealthItem(Entity *e)
 		e->atlasImage = appleTexture;
 		i->value = 1;
 	}
-	
+
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 }
@@ -79,9 +79,9 @@ void initHealthItem(Entity *e)
 static void tick(void)
 {
 	Item *i;
-	
+
 	i = (Item*)self->data;
-	
+
 	if (--i->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
@@ -91,12 +91,12 @@ static void tick(void)
 static void draw(void)
 {
 	Item *i;
-	
+
 	i = (Item*)self->data;
-	
+
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{
-		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 	}
 }
 
@@ -104,17 +104,17 @@ static void touch(Entity *other)
 {
 	Item *i;
 	Walter *w;
-	
+
 	if (self->alive == ALIVE_ALIVE && other == world.player)
 	{
 		i = (Item*)self->data;
-		
+
 		w = (Walter*)other->data;
-		
+
 		w->health = MIN(w->health + i->value, w->maxHealth);
-		
+
 		addGameText(self->x, self->y, "+%dHP", i->value);
-		
+
 		self->alive = ALIVE_DEAD;
 	}
 }

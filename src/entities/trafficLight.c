@@ -74,7 +74,7 @@ static void draw(void)
 		self->atlasImage = stopTexture;
 	}
 
-	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 
 	x = self->x + (self->w / 2) - world.camera.x;
 	y = self->y + (self->h / 2) - world.camera.y;

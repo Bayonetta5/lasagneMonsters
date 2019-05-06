@@ -2,8 +2,10 @@
 	"id":	1,
 	"entities":	[{
 			"type":	"player",
+			"name":	"",
 			"x":	88,
 			"y":	304,
+			"facing":	"FACING_RIGHT",
 			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
@@ -11,21 +13,26 @@
 			"maxAmmo":	5
 		}, {
 			"type":	"startPoint",
+			"name":	"rightFlag",
 			"x":	1256,
 			"y":	640,
-			"name":	"rightFlag"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	1296,
 			"y":	576,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	2,
 			"targetFlag":	"topLeft",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	1216,
 			"y":	576,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,

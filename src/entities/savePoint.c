@@ -84,7 +84,7 @@ static void draw(void)
 
 	s = (SavePoint*)self->data;
 
-	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 
 	if (s->active)
 	{

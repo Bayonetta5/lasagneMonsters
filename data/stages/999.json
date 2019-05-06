@@ -2,8 +2,10 @@
 	"id":	999,
 	"entities":	[{
 			"type":	"player",
+			"name":	"",
 			"x":	480,
 			"y":	160,
+			"facing":	"FACING_RIGHT",
 			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
@@ -11,45 +13,60 @@
 			"maxAmmo":	5
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	584,
-			"y":	448
+			"y":	448,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	1296,
 			"y":	528,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	1,
 			"targetFlag":	"topLeft",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"startPoint",
+			"name":	"rightFlag",
 			"x":	1248,
 			"y":	592,
-			"name":	"rightFlag"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"key",
+			"name":	"",
 			"x":	600,
-			"y":	544
+			"y":	544,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"savePoint",
+			"name":	"",
 			"x":	88,
-			"y":	160
+			"y":	160,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"trafficLight",
+			"name":	"",
 			"x":	272,
 			"y":	136,
+			"facing":	"FACING_RIGHT",
 			"targetName":	"",
 			"on":	0
 		}, {
 			"type":	"chest",
+			"name":	"",
 			"x":	952,
 			"y":	160,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	25
 		}, {
 			"type":	"gumballMachine",
+			"name":	"",
 			"x":	600,
-			"y":	144
+			"y":	142,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
 		"data":	"eJzt10EKgCAQQNGrdIRceP+rtQxKGhKhdB5v6QR9chaVrXTYl9HTov/rt9Y/rj/e8+vWr9X//jRPf/s8U39rIlf/fSZb/4hn/upsqYG1+2s4GU/MaKVv2dcf3fvnXZhdz99f9jsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5HIAV8ACbA=",

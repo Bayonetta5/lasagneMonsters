@@ -105,13 +105,10 @@ static void saveEntities(Stage *s, cJSON *root)
 			entityJSON = cJSON_CreateObject();
 
 			cJSON_AddStringToObject(entityJSON, "type", e->typeName);
+			cJSON_AddStringToObject(entityJSON, "name", e->name);
 			cJSON_AddNumberToObject(entityJSON, "x", e->x);
 			cJSON_AddNumberToObject(entityJSON, "y", e->y);
-
-			if (strlen(e->name) > 0)
-			{
-				cJSON_AddStringToObject(entityJSON, "name", e->name);
-			}
+			cJSON_AddStringToObject(entityJSON, "facing", getLookupName("FACING_", e->facing));
 
 			if (e->save)
 			{

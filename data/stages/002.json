@@ -2,94 +2,133 @@
 	"id":	2,
 	"entities":	[{
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	976,
-			"y":	448
+			"y":	448,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	528,
-			"y":	880
+			"y":	880,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1360,
-			"y":	880
+			"y":	880,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	88,
-			"y":	784
+			"y":	784,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1760,
-			"y":	160
+			"y":	160,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2232,
-			"y":	208
+			"y":	208,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2320,
-			"y":	448
+			"y":	448,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2040,
-			"y":	688
+			"y":	688,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2648,
-			"y":	736
+			"y":	736,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	3576,
-			"y":	736
+			"y":	736,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	3856,
-			"y":	208
+			"y":	208,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	3264,
-			"y":	160
+			"y":	160,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	3000,
-			"y":	160
+			"y":	160,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2864,
-			"y":	304
+			"y":	304,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"key",
+			"name":	"",
 			"x":	1664,
-			"y":	112
+			"y":	112,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"key",
+			"name":	"",
 			"x":	1768,
-			"y":	560
+			"y":	560,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
+			"name":	"topLeft",
 			"x":	16,
 			"y":	256,
-			"name":	"topLeft"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"player",
+			"name":	"",
 			"x":	136,
 			"y":	256,
+			"facing":	"FACING_RIGHT",
 			"facing":	"right",
-			"health" : 3,
-			"maxHealth" : 3,
-			"ammo" : 5,
-			"maxAmmo" : 5
+			"health":	3,
+			"maxHealth":	3,
+			"ammo":	5,
+			"maxAmmo":	5
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	-48,
 			"y":	192,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	1,
 			"targetFlag":	"rightFlag",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	2464,
 			"y":	672,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
 			"speed":	4,
@@ -99,8 +138,10 @@
 			"ey":	580
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	3424,
 			"y":	96,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
 			"speed":	1,
@@ -110,8 +151,10 @@
 			"ey":	4
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	2488,
 			"y":	144,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	4,
@@ -120,18 +163,21 @@
 			"ex":	2488,
 			"ey":	52
 		}, {
-			"name" : "topRight",
 			"type":	"startPoint",
+			"name":	"topRight",
 			"x":	3944,
-			"y":	208
+			"y":	208,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	3984,
 			"y":	144,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
 			"targetFlag":	"topLeft",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}],
 	"map":	{
 		"data":	"eJzt1k1ugzAQBtCr9AhlMfe/WhetkhD8H2yo9PSkLFAM/gaPzfa1/QPf0/Tfe2R2+3/lR2yHUffLf6zAefnrY++Q/70Gq555J6/546F1bBRdna2/AsdKlJK17HTx9zu7IuN1H9+/6+s/Ov8/7rM+Hjm7orhO0s9Zk3925/0mLFcrVYdV+edW4DV5fTaxu7oq/5ZZhbV9rUVPp+0rsDJ/+URr7fHjU/b3aJtZJEavyV/viL6+act/zf53Tt3K52dL/sicFnF5/nS2dNeMzeK5P8Tb9bb+mps/v8JLO0d7LXJ7YySurc+ffjPP/PmqxOMO7SfDlrw+M3/5TZ0xi9oeWzczf65zj+9mpL/rX3x3yP/euflZf/LVc+/8dzYvPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9PgB3TgHrA=",

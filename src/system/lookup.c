@@ -29,17 +29,20 @@ void initLookups(void)
 {
 	memset(&head, 0, sizeof(Lookup));
 	tail = &head;
-	
+
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);
 	addLookup("WT_INPUT", WT_INPUT);
-	
+
 	addLookup("STAT_TIME", STAT_TIME);
-	
+
 	addLookup("DR_NOTHING", DR_NOTHING);
 	addLookup("DR_KEY", DR_KEY);
 	addLookup("DR_REMOTE", DR_REMOTE);
-	
+
+	addLookup("FACING_LEFT", FACING_LEFT);
+	addLookup("FACING_RIGHT", FACING_RIGHT);
+
 	addLookup("left", CONTROL_LEFT);
 	addLookup("right", CONTROL_RIGHT);
 	addLookup("up", CONTROL_UP);

@@ -34,35 +34,35 @@ void initBullets(void)
 void initWaterBullet(Entity *owner)
 {
 	Entity *e;
-	
+
 	e = initBullet(owner);
-	
+
 	e->atlasImage = waterBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	
+
 	e->y += (e->h / 2);
 }
 
 void initSlimeBullet(Entity *owner)
 {
 	Entity *e;
-	
+
 	e = initBullet(owner);
-	
+
 	e->atlasImage = slimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	
+
 	e->y += (e->h / 2);
 }
 
 static void tick(void)
 {
 	Bullet *b;
-	
+
 	b = (Bullet*)self->data;
-	
+
 	if (--b->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
@@ -72,7 +72,7 @@ static void tick(void)
 static void touch(Entity *other)
 {
 	Entity *oldSelf;
-	
+
 	if (self->alive == ALIVE_ALIVE)
 	{
 		if (other != NULL)
@@ -80,15 +80,15 @@ static void touch(Entity *other)
 			if (other->damage && other != self->owner)
 			{
 				oldSelf = self;
-				
+
 				self = other;
-				
+
 				other->damage(1);
-				
+
 				self = oldSelf;
-				
+
 				self->alive = ALIVE_DEAD;
-				
+
 			}
 			else if (other->flags & EF_SOLID)
 			{
@@ -99,11 +99,11 @@ static void touch(Entity *other)
 		{
 			self->alive = ALIVE_DEAD;
 		}
-		
+
 		if (self->alive == ALIVE_DEAD)
 		{
 			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
-			
+
 			addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
 		}
 	}
@@ -113,31 +113,31 @@ static Entity *initBullet(Entity *owner)
 {
 	Entity *e;
 	Bullet *b;
-	
+
 	b = malloc(sizeof(Bullet));
 	memset(b, 0, sizeof(Bullet));
-	
+
 	b->health = FPS;
-	
+
 	e = spawnEntity();
-	
+
 	e->data = b;
 	e->type = ET_BULLET;
 	e->typeName = "bullet";
 	e->x = owner->x;
 	e->y = owner->y;
 	e->facing = owner->facing;
-	e->dx = owner->facing ? 12 : -12;
+	e->dx = owner->facing == FACING_RIGHT ? 12 : -12;
 	e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE+EF_TRANSIENT;
 	e->owner = self;
-	
+
 	e->tick = tick;
 	e->touch = touch;
-	
-	if (e->facing)
+
+	if (e->facing == FACING_RIGHT)
 	{
 		e->x += self->w;
 	}
-	
+
 	return e;
 }

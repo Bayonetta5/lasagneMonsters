@@ -92,7 +92,7 @@ static void draw(void)
 
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{
-		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 	}
 }
 

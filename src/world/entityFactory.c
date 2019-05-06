@@ -77,7 +77,7 @@ Entity *spawnEntity(void)
 	return e;
 }
 
-void initEntity(cJSON *root)
+static void initEntity(cJSON *root)
 {
 	char *type;
 	InitFunc *initFunc;
@@ -91,13 +91,10 @@ void initEntity(cJSON *root)
 		{
 			e = spawnEntity();
 
+			STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 			e->x = cJSON_GetObjectItem(root, "x")->valueint;
 			e->y = cJSON_GetObjectItem(root, "y")->valueint;
-
-			if (cJSON_GetObjectItem(root, "name"))
-			{
-				STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-			}
+			e->facing = lookup(cJSON_GetObjectItem(root, "facing")->valuestring);
 
 			initFunc->init(e);
 
@@ -115,6 +112,19 @@ void initEntity(cJSON *root)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Unknown entity type '%s'", type);
 	exit(1);
 }
+
+void loadEntities(cJSON *root)
+{
+	cJSON *node;
+
+	stage->entityTail = &stage->entityHead;
+
+	for (node = root->child ; node != NULL ; node = node->next)
+	{
+		initEntity(node);
+	}
+}
+
 
 /* used by map editor */
 Entity **initAllEnts(int *numEnts)

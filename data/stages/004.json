@@ -2,51 +2,64 @@
 	"id":	4,
 	"entities":	[{
 			"type":	"savePoint",
+			"name":	"",
 			"x":	624,
-			"y":	400
+			"y":	400,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	-48,
 			"y":	432,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
 			"targetFlag":	"bottomRightLower",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	-48,
 			"y":	48,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
 			"targetFlag":	"bottomRightUpper",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	1296,
 			"y":	432,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	5,
 			"targetFlag":	"",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"startPoint",
+			"name":	"bottomLeft",
 			"x":	48,
 			"y":	496,
-			"name":	"bottomLeft"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
+			"name":	"topLeft",
 			"x":	56,
 			"y":	112,
-			"name":	"topLeft"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
+			"name":	"bottomRight",
 			"x":	1232,
 			"y":	496,
-			"name":	"bottomRight"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"player",
+			"name":	"",
 			"x":	112,
 			"y":	496,
+			"facing":	"FACING_RIGHT",
 			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
@@ -54,8 +67,10 @@
 			"maxAmmo":	5
 		}, {
 			"type":	"chest",
+			"name":	"",
 			"x":	1192,
 			"y":	112,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	50
 		}],

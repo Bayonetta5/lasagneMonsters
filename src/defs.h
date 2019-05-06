@@ -125,8 +125,8 @@ enum
 
 enum
 {
-	FACING_LEFT,
-	FACING_RIGHT
+	FACING_RIGHT,
+	FACING_LEFT
 };
 
 enum

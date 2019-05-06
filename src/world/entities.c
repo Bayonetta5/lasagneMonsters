@@ -24,7 +24,6 @@ static void move(Entity *e);
 static int push(Entity *e, float dx, float dy);
 static void moveToWorld(Entity *e, float dx, float dy);
 static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, int background);
-static void loadEnts(cJSON *root);
 static int canPush(Entity *e, Entity *other);
 
 static Entity deadListHead, *deadListTail;
@@ -34,7 +33,7 @@ void initEntities(cJSON *root)
 	memset(&deadListHead, 0, sizeof(Entity));
 	deadListTail = &deadListHead;
 
-	loadEnts(cJSON_GetObjectItem(root, "entities"));
+	loadEntities(cJSON_GetObjectItem(root, "entities"));
 }
 
 void doEntities(void)
@@ -485,17 +484,5 @@ void destroyEntities(void)
 		deadListHead.next = e->next;
 		free(e->data);
 		free(e);
-	}
-}
-
-static void loadEnts(cJSON *root)
-{
-	cJSON *node;
-
-	stage->entityTail = &stage->entityHead;
-
-	for (node = root->child ; node != NULL ; node = node->next)
-	{
-		initEntity(node);
 	}
 }

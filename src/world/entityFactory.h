@@ -36,6 +36,7 @@ extern void initSavePoint(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
 extern void initTransferCube(Entity *e);
+extern long lookup(const char *key);
 
 extern Entity *self;
 extern Stage *stage;

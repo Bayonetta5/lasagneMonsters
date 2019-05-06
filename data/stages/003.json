@@ -2,98 +2,139 @@
 	"id":	3,
 	"entities":	[{
 			"type":	"transferCube",
+			"name":	"",
 			"x":	-48,
 			"y":	2208,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	2,
 			"targetFlag":	"topRight",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"startPoint",
+			"name":	"topLeft",
 			"x":	40,
 			"y":	2272,
-			"name":	"topLeft"
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"player",
+			"name":	"",
 			"x":	96,
 			"y":	2272,
+			"facing":	"FACING_RIGHT",
 			"facing":	"right",
-			"health" : 3,
-			"maxHealth" : 3,
-			"ammo" : 5,
-			"maxAmmo" : 5
+			"health":	3,
+			"maxHealth":	3,
+			"ammo":	5,
+			"maxAmmo":	5
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	680,
-			"y":	2080
+			"y":	2080,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	520,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	872,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1184,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"redHorse",
+			"name":	"",
 			"x":	488,
-			"y":	1600
+			"y":	1600,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	136,
-			"y":	1552
+			"y":	1552,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1176,
-			"y":	1600
+			"y":	1600,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1440,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1808,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1792,
-			"y":	1600
+			"y":	1600,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	2184,
-			"y":	2128
+			"y":	2128,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"redHorse",
+			"name":	"",
 			"x":	1672,
-			"y":	2080
+			"y":	2080,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1320,
-			"y":	3328
+			"y":	3328,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"greenHorse",
+			"name":	"",
 			"x":	1760,
-			"y":	3288
+			"y":	3288,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"redHorse",
+			"name":	"",
 			"x":	2192,
-			"y":	3328
+			"y":	3328,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"key",
+			"name":	"",
 			"x":	1912,
-			"y":	2936
+			"y":	2936,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"key",
+			"name":	"",
 			"x":	1920,
-			"y":	2576
+			"y":	2576,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	1312,
 			"y":	2016,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,
@@ -103,8 +144,10 @@
 			"ey":	1924
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	2296,
 			"y":	1536,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,
@@ -114,12 +157,16 @@
 			"ey":	1444
 		}, {
 			"type":	"redHorse",
+			"name":	"",
 			"x":	120,
-			"y":	1840
+			"y":	1840,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	2496,
 			"y":	3984,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,
@@ -129,8 +176,10 @@
 			"ey":	3892
 		}, {
 			"type":	"platform",
+			"name":	"",
 			"x":	264,
 			"y":	1872,
+			"facing":	"FACING_RIGHT",
 			"sx":	264,
 			"sy":	1872,
 			"ex":	264,
@@ -140,9 +189,10 @@
 			"enabled":	1
 		}, {
 			"type":	"platform",
+			"name":	"hDoor1",
 			"x":	1728,
 			"y":	3320,
-			"name":	"hDoor1",
+			"facing":	"FACING_RIGHT",
 			"sx":	1728,
 			"sy":	3320,
 			"ex":	1728,
@@ -152,8 +202,10 @@
 			"enabled":	0
 		}, {
 			"type":	"platform",
+			"name":	"",
 			"x":	2376,
 			"y":	3312,
+			"facing":	"FACING_RIGHT",
 			"sx":	2376,
 			"sy":	3312,
 			"ex":	2376,
@@ -163,8 +215,10 @@
 			"enabled":	1
 		}, {
 			"type":	"platform",
+			"name":	"",
 			"x":	2376,
 			"y":	2160,
+			"facing":	"FACING_RIGHT",
 			"sx":	2376,
 			"sy":	2160,
 			"ex":	2376,
@@ -174,8 +228,10 @@
 			"enabled":	1
 		}, {
 			"type":	"door",
+			"name":	"",
 			"x":	1616,
 			"y":	2736,
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,
@@ -185,9 +241,10 @@
 			"ey":	2644
 		}, {
 			"type":	"horizontalDoor",
+			"name":	"hDoor1",
 			"x":	1728,
 			"y":	2312,
-			"name":	"hDoor1",
+			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
 			"speed":	1,
@@ -197,49 +254,60 @@
 			"ey":	2312
 		}, {
 			"type":	"trafficLight",
+			"name":	"",
 			"x":	1760,
 			"y":	2056,
+			"facing":	"FACING_RIGHT",
 			"targetName":	"hDoor1",
 			"on":	0
 		}, {
-			"name" : "bottomRightLower",
 			"type":	"startPoint",
+			"name":	"bottomRightLower",
 			"x":	2496,
-			"y":	4240
+			"y":	4240,
+			"facing":	"FACING_RIGHT"
 		}, {
-			"name" : "bottomRightUpper",
 			"type":	"startPoint",
+			"name":	"bottomRightUpper",
 			"x":	2456,
-			"y":	4048
+			"y":	4048,
+			"facing":	"FACING_RIGHT"
 		}, {
-			"name" : "bottomLeft",
 			"type":	"startPoint",
+			"name":	"bottomLeft",
 			"x":	48,
-			"y":	4240
+			"y":	4240,
+			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	-48,
 			"y":	4176,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	0,
 			"targetFlag":	"",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	2544,
 			"y":	3984,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	4,
 			"targetFlag":	"topLeft",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}, {
 			"type":	"transferCube",
+			"name":	"",
 			"x":	2544,
 			"y":	4176,
+			"facing":	"FACING_RIGHT",
 			"targetStage":	4,
 			"targetFlag":	"bottomLeft",
-			"w" : 1,
-			"h" : 2
+			"w":	1,
+			"h":	2
 		}],
 	"map":	{
 		"data":	"eJzt2ltugzAQQNGtdAnJh/e/taiKSAhg4/EMeMa+Oj9VCzHX4p0+/h4AAAAAAAAAAAAAgAE8b9O7NNd/9ezeMY7X/vvHkW9XWpmxfy2ZeX/696cY/XbS59O997fOmmy5GfvT1P3p57rvt39/xjpXc658BulvWUd+3zdrv2Ycr/2ex/G6XX77ZXd0/8rny2j9sju673Wt9LSwnw2v/VLpYEbKyyxXw95bbl2/1J0ts70S+CJ7qjs+LpZZyC/jt192L1O+ztfdCfhCv2V/aZzepfTTT7+sv3692fq3a75/k39uGK+/9rPoH7N/v5fPdPxv7/PH7K9/Ehqzvx79I17/pP25v9BPf+9Si37NOL1L9f26cXqXavu14/Qu1fWv15G9M/b9/l++Xfk33FfuP176W+vH6G+vH6FfUx+/X1cfvV9bH7tfXx+536I+br9NfdR+q/qY/Xb1Efst6+P1H9f33t67+mP9F5N1/3m9/Am4d2l9/9F3O3XzE+/4b+H3bYZFm9c99bre7fd6Le+34h7/d+ldCgAAAAAAAAAAAAAAAABjeQHUjw2",
