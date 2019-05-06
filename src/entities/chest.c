@@ -25,7 +25,7 @@ static void touch(Entity *other);
 static void load(cJSON *root);
 static void save(cJSON *root);
 
-static AtlasImage *textures[] = {NULL, NULL};
+static AtlasImage *textures[2] = {NULL};
 
 void initChest(Entity *e)
 {

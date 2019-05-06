@@ -21,21 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern void initChest(Entity *e);
-extern void initDoor(Entity *e);
-extern void initGreenBugEyedMonster(Entity *e);
-extern void initGreenHorse(Entity *e);
-extern void initGumball(Entity *e);
-extern void initGumballMachine(Entity *e);
-extern void initHorizontalDoor(Entity *e);
-extern void initKey(Entity *e);
-extern void initPlatform(Entity *e);
-extern void initPlayer(Entity *e);
-extern void initRedHorse(Entity *e);
-extern void initSavePoint(Entity *e);
-extern void initStartPoint(Entity *e);
-extern void initTrafficLight(Entity *e);
-extern void initTransferCube(Entity *e);
+#define NUM_GUMBALLS    6
+
+extern void addGameText(int x, int y, char *format, ...);
+extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void playSound(int snd, int ch);
 
 extern Entity *self;
-extern Stage *stage;
+extern World world;

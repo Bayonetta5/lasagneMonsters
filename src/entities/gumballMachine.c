@@ -18,24 +18,41 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
+#include "gumballMachine.h"
 
-extern void initChest(Entity *e);
-extern void initDoor(Entity *e);
-extern void initGreenBugEyedMonster(Entity *e);
-extern void initGreenHorse(Entity *e);
-extern void initGumball(Entity *e);
-extern void initGumballMachine(Entity *e);
-extern void initHorizontalDoor(Entity *e);
-extern void initKey(Entity *e);
-extern void initPlatform(Entity *e);
-extern void initPlayer(Entity *e);
-extern void initRedHorse(Entity *e);
-extern void initSavePoint(Entity *e);
-extern void initStartPoint(Entity *e);
-extern void initTrafficLight(Entity *e);
-extern void initTransferCube(Entity *e);
+static void touch(Entity *other);
 
-extern Entity *self;
-extern Stage *stage;
+void initGumballMachine(Entity *e)
+{
+	e->typeName = "gumballMachine";
+	e->type = ET_STRUCTURE;
+	e->atlasImage = getAtlasImage("gfx/entities/gumballMachine.png", 1);
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+	e->flags = EF_STATIC;
+	e->touch = touch;
+}
+
+static void touch(Entity *other)
+{
+	Walter *w;
+
+	if (other == world.player)
+	{
+		w = (Walter*)other->data;
+
+		if (w->action)
+		{
+			w->action = 0;
+
+			if (game.coins > 10)
+			{
+				playSound(SND_BUY, CH_STRUCTURE);
+
+				game.coins -= 10;
+
+				spawnGumball(self->x, self->y);
+			}
+		}
+	}
+}

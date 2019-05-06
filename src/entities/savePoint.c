@@ -24,7 +24,7 @@ static void tick(void);
 static void draw(void);
 static void touch(Entity *other);
 
-static AtlasImage *computer[3] = {NULL, NULL, NULL};
+static AtlasImage *computer[3] = {NULL};
 static AtlasImage *sparkleTexture = NULL;
 
 void initSavePoint(Entity *e)

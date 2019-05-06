@@ -38,6 +38,7 @@ extern void drawMap(void);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern Stage *getStage(int i);
 extern Entity **initAllEnts(int *numEnts);
 extern void initGameSystem(void);
 extern void initSDL(void);
@@ -47,7 +48,6 @@ extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
-extern Stage *getStage(int i);
 
 App app;
 Entity *player;

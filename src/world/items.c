@@ -20,22 +20,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "items.h"
 
-static void throw(Entity *e);
+static void throwItem(Entity *e);
 
 void throwCoins(int x, int y, int n)
 {
 	Entity *e;
 	int i;
-	
+
 	for (i = 0 ; i < n ; i++)
 	{
 		e = spawnEntity();
 		e->x = x;
 		e->y = y;
-		
+
 		initCoin(e);
-		
-		throw(e);
+
+		throwItem(e);
 	}
 }
 
@@ -46,17 +46,30 @@ void spawnRandomHealthItem(int x, int y)
 	e = spawnEntity();
 	e->x = x;
 	e->y = y;
-	
+
 	initHealthItem(e);
-	
-	throw(e);
+
+	throwItem(e);
 }
 
-static void throw(Entity *e)
+void spawnGumball(int x, int y)
+{
+	Entity *e;
+
+	e = spawnEntity();
+	e->x = x;
+	e->y = y;
+
+	initGumball(e);
+
+	throwItem(e);
+}
+
+void throwItem(Entity *e)
 {
 	e->dx = (rand() % 500) - (rand() % 500);
 	e->dy = -(700 + rand() % 700);
-	
+
 	e->dx /= 100;
 	e->dy /= 100;
 }

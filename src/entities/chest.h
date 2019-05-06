@@ -21,12 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void playSound(int snd, int ch);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void throwCoins(int x, int y, int n);
 
-extern App app;
 extern Entity *self;
 extern World world;

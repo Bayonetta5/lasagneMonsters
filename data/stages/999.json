@@ -5,10 +5,10 @@
 			"x":	480,
 			"y":	160,
 			"facing":	"right",
-			"health" : 3,
-			"maxHealth" : 3,
-			"ammo" : 5,
-			"maxAmmo" : 5
+			"health":	3,
+			"maxHealth":	3,
+			"ammo":	5,
+			"maxAmmo":	5
 		}, {
 			"type":	"greenHorse",
 			"x":	584,
@@ -46,15 +46,19 @@
 			"on":	0
 		}, {
 			"type":	"chest",
-			"x":	640,
+			"x":	952,
 			"y":	160,
 			"open":	0,
 			"coins":	25
+		}, {
+			"type":	"gumballMachine",
+			"x":	600,
+			"y":	144
 		}],
 	"map":	{
-		"data":	"eJzt17ENgCAQQNFVHEEK9l/N0kLiBUKicC+v5Ej8EQrKUQac2xhp0f/1V+uf199/z/fq71/N099ez9TfmsjV/5zJ1j9jz1/dLTWwd38NJ+OJFe30L8f6o3P/fhdWN/L6y35mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgFwuaD4CaA=",
-		"eLen":	180,
-		"cLen":	133,
+		"data":	"eJzt10EKgCAQQNGrdIRceP+rtQxKGhKhdB5v6QR9chaVrXTYl9HTov/rt9Y/rj/e8+vWr9X//jRPf/s8U39rIlf/fSZb/4hn/upsqYG1+2s4GU/MaKVv2dcf3fvnXZhdz99f9jsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5HIAV8ACbA=",
+		"eLen":	184,
+		"cLen":	136,
 		"dLen":	32768
 	}
 }
