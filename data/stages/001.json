@@ -4,7 +4,11 @@
 			"type":	"player",
 			"x":	88,
 			"y":	304,
-			"facing":	"right"
+			"facing":	"right",
+			"health" : 3,
+			"maxHealth" : 3,
+			"ammo" : 5,
+			"maxAmmo" : 5
 		}, {
 			"type":	"startPoint",
 			"x":	1256,

@@ -21,7 +21,11 @@
 			"type":	"player",
 			"x":	96,
 			"y":	2272,
-			"facing":	"right"
+			"facing":	"right",
+			"health" : 3,
+			"maxHealth" : 3,
+			"ammo" : 5,
+			"maxAmmo" : 5
 		}, {
 			"type":	"greenHorse",
 			"x":	680,

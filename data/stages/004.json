@@ -59,7 +59,11 @@
 			"type":	"player",
 			"x":	112,
 			"y":	496,
-			"facing":	"right"
+			"facing":	"right",
+			"health" : 3,
+			"maxHealth" : 3,
+			"ammo" : 5,
+			"maxAmmo" : 5
 		}, {
 			"type":	"chest",
 			"x":	1192,
