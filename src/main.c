@@ -114,7 +114,7 @@ static void handleCommandLine(int argc, char *argv[])
 		}
 	}
 
-	loadMusic("music/theme1.mp3");
+	loadMusic("music/Zander Noriega - Darker Waves.mp3");
 	playMusic(1);
 
 	initStage(n, 1);
