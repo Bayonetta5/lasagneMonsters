@@ -91,6 +91,8 @@ void playPositionalSound(int id, int channel, int srcX, int srcY, int destX, int
 		if (channel == -1)
 		{
 			channel = findFreeChannel();
+
+			printf("%d\n", channel);
 		}
 
 		if (vol >= channelVolumes[channel])
@@ -114,7 +116,7 @@ static int findFreeChannel(void)
 {
 	int i;
 
-	for (i = 0 ; i < CH_MAX ; i++)
+	for (i = CH_UNRESERVED ; i < CH_MAX ; i++)
 	{
 		if (!Mix_Playing(i))
 		{
@@ -122,7 +124,7 @@ static int findFreeChannel(void)
 		}
 	}
 
-	return rand() % CH_MAX;
+	return CH_UNRESERVED + (rand() % (CH_MAX - CH_UNRESERVED));
 }
 
 void pauseSound(void)

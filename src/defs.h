@@ -160,7 +160,8 @@ enum
 	CH_HIT,
 	CH_ITEM,
 	CH_SPLAT,
-	CH_MAX = 64
+	CH_UNRESERVED,
+	CH_MAX = (CH_UNRESERVED + 32)
 };
 
 enum
