@@ -157,14 +157,10 @@ enum
 enum
 {
 	CH_PLAYER,
-	CH_SHOOT,
 	CH_HIT,
 	CH_ITEM,
-	CH_STRUCTURE,
-	CH_SWITCH,
 	CH_SPLAT,
-	CH_FIRE,
-	CH_MAX
+	CH_MAX = 64
 };
 
 enum

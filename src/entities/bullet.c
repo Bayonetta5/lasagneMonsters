@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "bullet.h"
 
 static Entity *initBullet(Entity *owner);
+static void waterBulletDie(void);
+static void slimeBulletDie(void);
 
 static AtlasImage *waterBulletTexture;
 static AtlasImage *slimeBulletTexture;
@@ -42,6 +44,7 @@ void initWaterBullet(Entity *owner)
 	e->atlasImage = waterBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->die = waterBulletDie;
 
 	e->y += (e->h / 2);
 
@@ -57,6 +60,7 @@ void initSlimeBullet(Entity *owner)
 	e->atlasImage = slimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->die = slimeBulletDie;
 
 	e->y += (e->h / 2);
 }
@@ -70,6 +74,7 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 	e->atlasImage = aimedSlimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->die = slimeBulletDie;
 
 	e->y += (e->h / 2);
 
@@ -88,6 +93,7 @@ static void tick(void)
 	if (--b->health <= 0)
 	{
 		self->alive = ALIVE_DEAD;
+		self->die = NULL;
 	}
 }
 
@@ -120,13 +126,6 @@ static void touch(Entity *other)
 		else
 		{
 			self->alive = ALIVE_DEAD;
-		}
-
-		if (self->alive == ALIVE_DEAD)
-		{
-			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
-
-			addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
 		}
 	}
 }
@@ -162,4 +161,18 @@ static Entity *initBullet(Entity *owner)
 	}
 
 	return e;
+}
+
+static void waterBulletDie(void)
+{
+	playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
+
+	addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
+}
+
+static void slimeBulletDie(void)
+{
+	playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
+
+	addSlimeBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
 }

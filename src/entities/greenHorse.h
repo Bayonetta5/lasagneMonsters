@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define RUN_SPEED    6
+#define RUN_SPEED    8
 #define WALK_SPEED   2
 
 extern AtlasImage *getAtlasImage(char *filename, int required);

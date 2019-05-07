@@ -68,7 +68,7 @@ static void tick(void)
 		c->coins--;
 		c->delay = FPS / 10;
 
-		playPositionalSound(SND_CHEST, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
+		playPositionalSound(SND_CHEST, -1, self->x, self->y, world.player->x, world.player->y);
 
 		throwCoins(self->x, self->y, 1);
 	}

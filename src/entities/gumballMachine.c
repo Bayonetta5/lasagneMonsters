@@ -47,7 +47,7 @@ static void touch(Entity *other)
 
 			if (game.coins > 10)
 			{
-				playSound(SND_BUY, CH_STRUCTURE);
+				playSound(SND_BUY, -1);
 
 				game.coins -= 10;
 

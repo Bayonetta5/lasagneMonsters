@@ -93,7 +93,7 @@ static void tick(void)
 			self->y = ty;
 			self->dy = 0;
 
-			playPositionalSound(SND_DOOR_DONE, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
+			playPositionalSound(SND_DOOR_DONE, -1, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }
@@ -122,7 +122,7 @@ static void activate(int active)
 
 	d->open = !d->open;
 
-	playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
+	playPositionalSound(SND_DOOR, -1, self->x, self->y, world.player->x, world.player->y);
 }
 
 static void touch(Entity *other)
@@ -144,7 +144,7 @@ static void touch(Entity *other)
 			d->open = 1;
 			self->flags |= EF_NO_WORLD_CLIP;
 
-			playPositionalSound(SND_DOOR, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
+			playPositionalSound(SND_DOOR, -1, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }

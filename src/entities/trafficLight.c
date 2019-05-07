@@ -124,7 +124,7 @@ static void toggle(void)
 
 	activeEntities(t->targetName, t->on);
 
-	playPositionalSound(SND_TRAFFIC_LIGHT, CH_SWITCH, self->x, self->y, world.player->x, world.player->y);
+	playPositionalSound(SND_TRAFFIC_LIGHT, -1, self->x, self->y, world.player->x, world.player->y);
 }
 
 static void load(cJSON *root)

@@ -25,6 +25,7 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern Entity *spawnEntity(void);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
+extern void addSlimeBurstParticles(int x, int y);
 
 extern Entity *self;
 extern World world;

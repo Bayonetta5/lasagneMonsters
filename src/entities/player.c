@@ -107,7 +107,7 @@ static void tick(void)
 
 				initWaterBullet(self);
 
-				playPositionalSound(SND_SHOOT, CH_SHOOT, self->x, self->y, world.player->x, world.player->y);
+				playPositionalSound(SND_SHOOT, CH_PLAYER, self->x, self->y, world.player->x, world.player->y);
 			}
 		}
 		else

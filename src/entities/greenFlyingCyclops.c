@@ -136,7 +136,7 @@ static void chasePlayer(void)
 
 				m->reload = FPS / 2;
 
-				playPositionalSound(SND_SLIME_SHOOT, CH_FIRE, self->x, self->y, world.player->x, world.player->y);
+				playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
 			}
 		}
 		else if (--m->thinkTime <= 0)

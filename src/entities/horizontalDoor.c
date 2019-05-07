@@ -74,7 +74,7 @@ static void tick(void)
 			self->x = tx;
 			self->dx = 0;
 
-			playPositionalSound(SND_DOOR_DONE, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
+			playPositionalSound(SND_DOOR_DONE, -1, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }
