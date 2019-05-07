@@ -38,6 +38,7 @@ extern void initTrafficLight(Entity *e);
 extern void initGreenFlyingCyclops(Entity *e);
 extern void initTransferCube(Entity *e);
 extern void initPiggyBank(Entity *e);
+extern void initHeart(Entity *e);
 extern long lookup(const char *key);
 
 extern Entity *self;

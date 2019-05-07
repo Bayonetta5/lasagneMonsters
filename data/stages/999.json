@@ -71,6 +71,12 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	10
+		}, {
+			"type":	"heart",
+			"name":	"",
+			"x":	680,
+			"y":	416,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
 		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",

@@ -408,6 +408,22 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/healthUp1.png",
+		"x" : 230,
+		"y" : 203,
+		"w" : 26,
+		"h" : 26,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/healthUp2.png",
+		"x" : 257,
+		"y" : 203,
+		"w" : 26,
+		"h" : 26,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/hud/water.png",
 		"x" : 493,
 		"y" : 170,
@@ -417,7 +433,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 230,
+		"x" : 284,
 		"y" : 203,
 		"w" : 26,
 		"h" : 26,
@@ -425,7 +441,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 257,
+		"x" : 311,
 		"y" : 203,
 		"w" : 26,
 		"h" : 26,
@@ -433,7 +449,7 @@
 	},
 	{
 		"filename" : "gfx/particles/alert.png",
-		"x" : 284,
+		"x" : 338,
 		"y" : 203,
 		"w" : 7,
 		"h" : 25,
@@ -441,7 +457,7 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 292,
+		"x" : 346,
 		"y" : 203,
 		"w" : 24,
 		"h" : 24,
@@ -449,7 +465,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 317,
+		"x" : 371,
 		"y" : 203,
 		"w" : 24,
 		"h" : 24,

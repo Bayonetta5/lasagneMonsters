@@ -91,10 +91,12 @@ struct Entity {
 typedef struct {
 	float bobValue;
 	float by;
+	int thinkTime;
 	int health;
 	int touchDelay;
 	int value;
-	int dying;
+	int frame;
+	int frameTime;
 } Item;
 
 typedef struct {
