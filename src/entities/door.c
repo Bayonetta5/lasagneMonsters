@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "door.h"
 
 static void tick(void);
+static void draw(void);
 static void activate(int active);
 static void touch(Entity *other);
 static void load(cJSON *root);
@@ -40,9 +41,10 @@ void initDoor(Entity *e)
 	d->speed = 1;
 
 	e->typeName = "door";
-	e->type = ET_STRUCTURE;
+	e->type = ET_DOOR;
 	e->data = d;
 	e->tick = tick;
+	e->draw = draw;
 	e->activate = activate;
 	e->touch = touch;
 	e->atlasImage = getAtlasImage("gfx/entities/door.png", 1);
@@ -93,6 +95,22 @@ static void tick(void)
 
 			playPositionalSound(SND_DOOR_DONE, CH_STRUCTURE, self->x, self->y, world.player->x, world.player->y);
 		}
+	}
+}
+
+static void draw(void)
+{
+	Door *d;
+
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
+
+	if (app.dev.editor)
+	{
+		d = (Door*)self->data;
+
+		drawRect(d->ex - world.camera.x, d->ey - world.camera.y, self->w, self->h, 168, 255, 168, 160);
+		drawOutlineRect(d->ex - world.camera.x, d->ey - world.camera.y, self->w, self->h, 255, 255, 255, 160);
+		drawLine(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, d->ex + (self->w / 2) - world.camera.x, d->ey - world.camera.y, 255, 255, 255, 255);
 	}
 }
 

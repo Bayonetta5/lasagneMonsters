@@ -29,6 +29,7 @@ static int numEnts;
 static int entIndex;
 static Entity *entity;
 static Entity *selectedEntity;
+static int usingEndpoint;
 static int mode;
 static Node nodeListHead, *nodeListTail;
 
@@ -123,6 +124,9 @@ static void cycleEnt(int dir)
 static void toggleSelectEntity(void)
 {
 	Entity *e;
+	Door *d;
+	Platform *p;
+	int x, y;
 
 	if (selectedEntity == NULL)
 	{
@@ -130,19 +134,68 @@ static void toggleSelectEntity(void)
 		{
 			if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 			{
+				usingEndpoint = 0;
 				selectedEntity = e;
 				return;
+			}
+
+			if (e->type == ET_DOOR)
+			{
+				d = (Door*)e->data;
+
+				if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, d->ex, d->ey, e->w, e->h))
+				{
+					usingEndpoint = 1;
+					selectedEntity = e;
+					return;
+				}
+			}
+
+			if (e->type == ET_PLATFORM)
+			{
+				p = (Platform*)e->data;
+
+				if (collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, p->ex, p->ey, e->w, e->h))
+				{
+					usingEndpoint = 1;
+					selectedEntity = e;
+					return;
+				}
 			}
 		}
 	}
 	else
 	{
-		removeFromQuadtree(selectedEntity, &world.quadtree);
+		x = ((app.mouse.x / 8) * 8) + world.camera.x;
+		y = ((app.mouse.y / 8) * 8) + world.camera.y;
 
-		selectedEntity->x = ((app.mouse.x / 8) * 8) + world.camera.x;
-		selectedEntity->y = ((app.mouse.y / 8) * 8) + world.camera.y;
+		if (!usingEndpoint)
+		{
+			removeFromQuadtree(selectedEntity, &world.quadtree);
 
-		addToQuadtree(selectedEntity, &world.quadtree);
+			selectedEntity->x = x;
+			selectedEntity->y = y;
+
+			addToQuadtree(selectedEntity, &world.quadtree);
+		}
+		else
+		{
+			if (selectedEntity->type == ET_DOOR)
+			{
+				d = (Door*)selectedEntity->data;
+
+				d->ex = x;
+				d->ey = y;
+			}
+
+			if (selectedEntity->type == ET_PLATFORM)
+			{
+				p = (Platform*)selectedEntity->data;
+
+				p->ex = x;
+				p->ey = y;
+			}
+		}
 
 		selectedEntity = NULL;
 	}
@@ -417,18 +470,59 @@ static void drawCurrentEnt(void)
 static void drawSelectedEnt(void)
 {
 	int x, y;
+	Door *d;
+	Platform *p;
 
 	if (selectedEntity != NULL)
 	{
-		x = (app.mouse.x / 8) * 8;
-		y = (app.mouse.y / 8) * 8;
+		x = ((app.mouse.x / 8) * 8) + world.camera.x;
+		y = ((app.mouse.y / 8) * 8) + world.camera.y;
 
-		removeFromQuadtree(selectedEntity, &world.quadtree);
+		if (!usingEndpoint)
+		{
+			removeFromQuadtree(selectedEntity, &world.quadtree);
 
-		selectedEntity->x = x + world.camera.x;
-		selectedEntity->y = y + world.camera.y;
+			selectedEntity->x = x;
+			selectedEntity->y = y;
 
-		addToQuadtree(selectedEntity, &world.quadtree);
+			addToQuadtree(selectedEntity, &world.quadtree);
+
+			if (selectedEntity->type == ET_DOOR)
+			{
+				d = (Door*)selectedEntity->data;
+
+				d->sx = x;
+				d->sy = y;
+			}
+
+			if (selectedEntity->type == ET_PLATFORM)
+			{
+				p = (Platform*)selectedEntity->data;
+
+				p->sx = x;
+				p->sy = y;
+			}
+		}
+		else
+		{
+			if (selectedEntity->type == ET_DOOR)
+			{
+				d = (Door*)selectedEntity->data;
+
+				d->ex = x;
+				d->ey = y;
+			}
+
+			if (selectedEntity->type == ET_PLATFORM)
+			{
+				p = (Platform*)selectedEntity->data;
+
+				p->ex = x;
+				p->ey = y;
+			}
+
+			drawText(x + (selectedEntity->w / 2) - world.camera.x, y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", x, y);
+		}
 	}
 }
 

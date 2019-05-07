@@ -23,5 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
+extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
+extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
+extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 
+extern App app;
 extern Entity *self;
+extern World world;

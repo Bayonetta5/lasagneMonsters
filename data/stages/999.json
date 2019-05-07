@@ -6,7 +6,6 @@
 			"x":	480,
 			"y":	160,
 			"facing":	"FACING_RIGHT",
-			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
@@ -67,11 +66,50 @@
 			"x":	600,
 			"y":	142,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"platform",
+			"name":	"",
+			"x":	1128,
+			"y":	504,
+			"facing":	"FACING_RIGHT",
+			"sx":	1128,
+			"sy":	504,
+			"ex":	1128,
+			"ey":	288,
+			"pause":	60,
+			"speed":	2,
+			"enabled":	1
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	304,
+			"y":	384,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	304,
+			"sy":	384,
+			"ex":	304,
+			"ey":	292
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"",
+			"x":	1152,
+			"y":	208,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	1152,
+			"sy":	208,
+			"ex":	1060,
+			"ey":	208
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQQNGrdIRceP+rtQxKGhKhdB5v6QR9chaVrXTYl9HTov/rt9Y/rj/e8+vWr9X//jRPf/s8U39rIlf/fSZb/4hn/upsqYG1+2s4GU/MaKVv2dcf3fvnXZhdz99f9jsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5HIAV8ACbA=",
-		"eLen":	184,
-		"cLen":	136,
+		"data":	"eJzt10EKgCAQQNGrdIRaeP+rtQykGhGhRh9vEzJBH3XRsR0d9mn0tOj/+qv1j+uP73m9Mlf//fPTylr97WtZRf3tpyKnlpZ6ZrX+Ee/81dVSAnP3l3Aynshopr3s64/O/ftdyK7n72/1MwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACs5QS9YAJ",
+		"eLen":	188,
+		"cLen":	141,
 		"dLen":	32768
 	}
 }
