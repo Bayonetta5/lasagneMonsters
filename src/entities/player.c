@@ -61,7 +61,6 @@ static void tick(void)
 
 	self->dx = 0;
 
-	w->action = 0;
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	w->reload = MAX(w->reload - 1, 0);
 	w->ammo = MIN(w->ammo + 0.05f, w->maxAmmo);

@@ -39,6 +39,7 @@ void initEntityFactory(void)
 	addInitFunc("gumball", initGumball);
 	addInitFunc("horizontalDoor", initHorizontalDoor);
 	addInitFunc("key", initKey);
+	addInitFunc("piggyBank", initPiggyBank);
 	addInitFunc("player", initPlayer);
 	addInitFunc("platform", initPlatform);
 	addInitFunc("redHorse", initRedHorse);

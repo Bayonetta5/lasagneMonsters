@@ -173,6 +173,14 @@ typedef struct {
 	int delay;
 } Chest;
 
+typedef struct {
+	int frame;
+	int frameTime;
+	int requiredCoins;
+	int pauseTime;
+	char targetName[MAX_NAME_LENGTH];
+} PiggyBank;
+
 struct Particle {
 	float x;
 	float y;

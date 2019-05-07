@@ -808,11 +808,19 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	25
+		}, {
+			"type":	"piggyBank",
+			"name":	"",
+			"x":	1056,
+			"y":	2896,
+			"facing":	"FACING_RIGHT",
+			"requiredCoins":	0,
+			"targetName":	""
 		}],
 	"map":	{
-		"data":	"eJztml2WwiAMRrcyS9AH9r+1eXIKIb8QoHa+cx/0VEtyA7RQff28AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgt7wcy7j9aw/Z1Re9Evg//M/75wP+EfwnyDp9h8cnjjD/Xwro+9mWn98zns6f7W1ms8z8D/Glm/VXiQ0n0z76e2Vc66cqq9Uzp3s/cxazarBgV1ojzjszSfD87x3UViPtro2jEXx+XUh6n/O325ub/Ba3A6+94fHbLlb6vP1eBMfrRxGXB16zOxn+9zPHPq0Ask9ozOt9y/fdX4HpfuiMn/HdXQKvIGX/vzFuD1yVv/st1GeuRHRTB4X/4U/t5/8K0eVd/OdNxf+74Pf05+zv5R6931ln0U/6KfRd/KT8ZKbZkRo/M+1v3+8gOIGpv+/f7smz/dzUOx7Dj174xf1oBujrJ8PeMgjlm/LkxQM+c9+dG+V38+zGwwt9TkciVu3Qx+Xr4cpJ6Y97/Ot5+Szqbvsq0Mfks/H3CV2CVv3w25x+JP+pPx+Mp/3fnH7f3++tZ5Prrc7it0g5/uxey/CM7b8k/dv/Q/T0Omf61kYfSxKdP4z0Wkr8Ur19n7vDX1rl1a5G1QrtSvlrRvOV9QJ4/F11rpW0td/0oe+/011uhrZ15cjzv71nlefx3/oZcEv115HWn3tpIT+qf03h7/KXd8f/x72vQj79xe49/v5Pa7d/G6OOP20v93EbjVhhZ/iOZSv5j5rb/VYHz/kX0186pZ1B7d7Hu9avnf/R3Pi6+lYNvBln+dfTM+b9m5VL3+Yy/lHme/9y81ePk+fO/eT7Jn646+XnXtpXjn7s2rSPl9b9d5XH/XOpZ/zR/Xzv030zr/Oso6/39LbX/ZtL86bOgZ/jTVYue9Yh/vxe+l3+7a7F6LepflLzW+RcxA71a2g4yjnw3XO1fr5Yj1errEc1ar/s+f+u5hzxe9P6MPPm6g783kl2BkX+NfIe/r+/n7ff6566VM+zX7F8AAAAAAAAAAHw3vyH2GLI",
-		"eLen":	1024,
-		"cLen":	767,
+		"data":	"eJztmkmSwyAMRa+SI8QL7n+1XrnMoBHEEPevt+iuJEZ6YjA4+X6+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzL9UL6/XtrWP6d0Tuez8N/j3888N/hn5xc7is07jz2+FNtzOtjW3Zyz9zvvd1fyyLOvxyJu9jnf7O3Bm1m7Spxk6b4X5/41Y1a6biVVer/1Pw/chfTajNjBdDGtXX8p+Lz0TnOq4DfXxpFPf7yuOTy2OWvtzc2//M5T3+yZ3bzlT7Xn6pAH5Y7yMXUrF2D+Vo+62WMf1wFfJnknt75Fuu/vgLP/6l5ZYf/6gpIFdnjb515c7C6xM1/vi59PbKCxDj8D//aftw/EW2e6s9n2u9PvX6mP2V/kr93vdOuqt+lV+xT/Ln8eLjYnFn9yri/dr/3nAC89rp/ey6L9h9/4qPHz319/nUF6t1JhL9lFIwx4k+NgfrKcX9qlJ/i346BGf6WinhW7tTEpOthy4nrjXH/5/XyU9zV9V+eMiadhb1P6ArM8uevpvw98Xv96/G4y/9q/P32dn85i1h/eQ6XVVrhr/dClL/n5M35++4fsr/FIdI/N7KQivj103iLBefPxWv3mSv8pX1u3ppnr1DulJ9WJG/+HBDnT0WXWilbi90/8t4r/eVW6tb2PDke97fs8iz+c781bmdglL8Mv++UW+vpSfn9Ot4af+50/H/82xq046/f3uLfnqRW+5cx2vj99lw/l9GoHUaUf0+mnH+fue7/VGC/f2L9pWvyGVTeXbR7/ez57/2ej4qv5WCbQZp/Hj1y/s/ZueR9PuLPZR7nPzZv5Thx/vR3nm/yr3ed9Lwr24rxj92b5pHi+l+vcr9/LPmsf5u/rZ3610zz/PMo8/3tLZW/ZpL862dB7/Cvdy1y1j3+7Vn4LP/y1KL1mtc/CXnN809sBnK1pBOkH/5uONs/3y17qtXWw5u1XPd1/tpzD368yP3pefJ1gr81kl6Bnl+N/Ia/re/H7df6x+6VI+znnF8AAAAAAAAAAPw2f/76GLw",
+		"eLen":	1036,
+		"cLen":	776,
 		"dLen":	32768
 	}
 }

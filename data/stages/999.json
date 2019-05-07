@@ -3,70 +3,79 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	96,
-			"y":	584,
+			"x":	136,
+			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
 			"maxAmmo":	5
 		}, {
-			"type":	"door",
+			"type":	"piggyBank",
 			"name":	"",
-			"x":	256,
-			"y":	528,
+			"x":	336,
+			"y":	400,
 			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	256,
-			"sy":	528,
-			"ex":	256,
-			"ey":	436
+			"requiredCoins":	25,
+			"targetName":	"door"
 		}, {
 			"type":	"door",
-			"name":	"",
-			"x":	400,
+			"name":	"door",
+			"x":	352,
 			"y":	528,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
 			"speed":	1,
-			"sx":	400,
+			"sx":	352,
 			"sy":	528,
-			"ex":	400,
+			"ex":	352,
 			"ey":	436
 		}, {
-			"type":	"door",
+			"type":	"chest",
 			"name":	"",
-			"x":	544,
-			"y":	528,
+			"x":	72,
+			"y":	592,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	544,
-			"sy":	528,
-			"ex":	544,
-			"ey":	436
+			"coins":	10
 		}, {
-			"type":	"door",
+			"type":	"chest",
 			"name":	"",
-			"x":	688,
-			"y":	528,
+			"x":	120,
+			"y":	592,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	688,
-			"sy":	528,
-			"ex":	688,
-			"ey":	436
+			"coins":	10
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	168,
+			"y":	592,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	10
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	216,
+			"y":	592,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	10
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	264,
+			"y":	592,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	10
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQQNGrdIRceP+rtYgoayEIYsw8HohBgn8haNnKgD2MkRb9q3etX7/+Wf31IWP/jDV/pb92nX/e37H629l3vOoz3//a+mz97/pY/f3zH/v9k/v9BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANBzAFwRAos",
-		"eLen":	168,
-		"cLen":	125,
+		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",
+		"eLen":	156,
+		"cLen":	117,
 		"dLen":	32768
 	}
 }
