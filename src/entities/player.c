@@ -60,11 +60,16 @@ static void tick(void)
 	w = (Walter*)self->data;
 
 	self->dx = 0;
-	w->action = 0;
 
+	w->action = 0;
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	w->reload = MAX(w->reload - 1, 0);
 	w->ammo = MIN(w->ammo + 0.05f, w->maxAmmo);
+
+	if (self->isOnGround)
+	{
+		w->jumps = game.hasDoubleJump ? 2 : 1;
+	}
 
 	if (self->alive == ALIVE_ALIVE)
 	{
@@ -82,8 +87,12 @@ static void tick(void)
 			self->facing = FACING_RIGHT;
 		}
 
-		if (isControl(CONTROL_JUMP) && self->isOnGround)
+		if (isControl(CONTROL_JUMP) && w->jumps > 0)
 		{
+			clearControl(CONTROL_JUMP);
+
+			w->jumps--;
+
 			self->riding = NULL;
 
 			self->dy = -20;

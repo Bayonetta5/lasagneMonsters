@@ -115,6 +115,7 @@ typedef struct {
 	int action;
 	float ammo, maxAmmo;
 	int reload;
+	int jumps;
 } Walter;
 
 typedef struct {
@@ -229,9 +230,10 @@ typedef struct {
 
 typedef struct {
 	unsigned int stageId;
-	unsigned int coins;
-	unsigned int keys;
-	unsigned int autoFire;
+	int coins;
+	int keys;
+	int autoFire;
+	int hasDoubleJump;
 	unsigned int stats[STAT_MAX];
 } Game;
 

@@ -3,24 +3,70 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	80,
-			"y":	592,
+			"x":	96,
+			"y":	584,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
 			"maxAmmo":	5
 		}, {
-			"type":	"greenFlyingCyclops",
+			"type":	"door",
 			"name":	"",
-			"x":	480,
-			"y":	136,
-			"facing":	"FACING_RIGHT"
+			"x":	256,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	256,
+			"sy":	528,
+			"ex":	256,
+			"ey":	436
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	400,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	400,
+			"sy":	528,
+			"ex":	400,
+			"ey":	436
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	544,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	544,
+			"sy":	528,
+			"ex":	544,
+			"ey":	436
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	688,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	688,
+			"sy":	528,
+			"ex":	688,
+			"ey":	436
 		}],
 	"map":	{
-		"data":	"eJzt1yEOwCAMQNGr7AgguP/VJiYWMF1ALGlfniIg+IKE9qtvaGnstOj/+9b69evXr1//af8IPSffda7+bzuj9P9vrq/Wv9bn6o/ff+75p/b8BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABC5AbBBAmo",
-		"eLen":	156,
-		"cLen":	116,
+		"data":	"eJzt10EKgCAQQNGrdIRceP+rtYgoayEIYsw8HohBgn8haNnKgD2MkRb9q3etX7/+Wf31IWP/jDV/pb92nX/e37H629l3vOoz3//a+mz97/pY/f3zH/v9k/v9BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANBzAFwRAos",
+		"eLen":	168,
+		"cLen":	125,
 		"dLen":	32768
 	}
 }
