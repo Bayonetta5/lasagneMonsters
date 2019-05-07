@@ -20,12 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+extern void addSlimeBurstParticles(int x, int y);
 extern void addWaterBurstParticles(int x, int y);
+extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern Entity *spawnEntity(void);
-extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
-extern void addSlimeBurstParticles(int x, int y);
 
 extern Entity *self;
 extern World world;

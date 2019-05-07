@@ -21,14 +21,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern AtlasImage *getAtlasImage(char *filename, int required);
-extern char *getLookupName(char *prefix, long num);
-extern long lookup(char *name);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
 extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
+extern AtlasImage *getAtlasImage(char *filename, int required);
+extern char *getLookupName(char *prefix, long num);
+extern long lookup(char *name);
+extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 
 extern App app;
 extern Entity *self;

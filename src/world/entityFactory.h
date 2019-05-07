@@ -24,21 +24,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void initChest(Entity *e);
 extern void initDoor(Entity *e);
 extern void initGreenBugEyedMonster(Entity *e);
+extern void initGreenFlyingCyclops(Entity *e);
 extern void initGreenHorse(Entity *e);
 extern void initGumball(Entity *e);
 extern void initGumballMachine(Entity *e);
+extern void initHeart(Entity *e);
 extern void initHorizontalDoor(Entity *e);
 extern void initKey(Entity *e);
+extern void initPiggyBank(Entity *e);
 extern void initPlatform(Entity *e);
 extern void initPlayer(Entity *e);
 extern void initRedHorse(Entity *e);
 extern void initSavePoint(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
-extern void initGreenFlyingCyclops(Entity *e);
 extern void initTransferCube(Entity *e);
-extern void initPiggyBank(Entity *e);
-extern void initHeart(Entity *e);
 extern long lookup(const char *key);
 
 extern Entity *self;
