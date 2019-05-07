@@ -99,15 +99,11 @@ static void draw(void)
 
 static void touch(Entity *other)
 {
-	Walter *w;
-
 	if (other == world.player)
 	{
-		w = (Walter*)other->data;
-
-		if (w->action)
+		if (isControl(CONTROL_USE))
 		{
-			w->action = 0;
+			clearControl(CONTROL_USE);
 
 			toggle();
 		}

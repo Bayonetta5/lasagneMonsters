@@ -101,16 +101,13 @@ static void draw(void)
 
 static void touch(Entity *other)
 {
-	Walter *w;
 	PiggyBank *p;
 
 	p = (PiggyBank*)self->data;
 
 	if (other == world.player)
 	{
-		w = (Walter*)other->data;
-
-		if (w->action)
+		if (isControl(CONTROL_USE))
 		{
 			if (p->requiredCoins > 0 && game.coins > 0 && p->pauseTime == 0)
 			{

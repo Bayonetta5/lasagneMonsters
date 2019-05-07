@@ -19,64 +19,27 @@
 			"requiredCoins":	25,
 			"targetName":	"door"
 		}, {
-			"type":	"door",
-			"name":	"door",
-			"x":	352,
-			"y":	528,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	352,
-			"sy":	528,
-			"ex":	352,
-			"ey":	436
-		}, {
-			"type":	"chest",
+			"type":	"trafficLight",
 			"name":	"",
-			"x":	72,
-			"y":	592,
+			"x":	504,
+			"y":	376,
 			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	10
+			"targetName":	"",
+			"on":	0
 		}, {
-			"type":	"chest",
+			"type":	"gumballMachine",
 			"name":	"",
-			"x":	120,
-			"y":	592,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	10
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	168,
-			"y":	592,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	10
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	216,
-			"y":	592,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	10
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	264,
-			"y":	592,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	10
-		}, {
-			"type":	"heart",
-			"name":	"",
-			"x":	680,
-			"y":	416,
+			"x":	584,
+			"y":	384,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	128,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	25
 		}],
 	"map":	{
 		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",

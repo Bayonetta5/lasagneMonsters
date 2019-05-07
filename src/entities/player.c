@@ -122,13 +122,6 @@ static void tick(void)
 		{
 			w->reload = 0;
 		}
-
-		if (isControl(CONTROL_USE))
-		{
-			clearControl(CONTROL_USE);
-
-			w->action = 1;
-		}
 	}
 }
 
