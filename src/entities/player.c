@@ -172,7 +172,6 @@ static void load(cJSON *root)
 
 	w = (Walter*)self->data;
 
-	self->facing = strcmp(cJSON_GetObjectItem(root, "facing")->valuestring, "left") == 0 ? FACING_LEFT : FACING_RIGHT;
 	w->health = cJSON_GetObjectItem(root, "health")->valueint;
 	w->maxHealth = cJSON_GetObjectItem(root, "maxHealth")->valueint;
 	w->ammo = cJSON_GetObjectItem(root, "ammo")->valueint;
@@ -185,7 +184,6 @@ static void save(cJSON *root)
 
 	w = (Walter*)self->data;
 
-	cJSON_AddStringToObject(root, "facing", self->facing == FACING_LEFT ? "left" : "right");
 	cJSON_AddNumberToObject(root, "health", w->health);
 	cJSON_AddNumberToObject(root, "maxHealth", w->maxHealth);
 	cJSON_AddNumberToObject(root, "ammo", w->ammo);

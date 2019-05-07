@@ -54,14 +54,14 @@ void initHealthItem(Entity *e)
 		beerTexture = getAtlasImage("gfx/entities/beer.png", 1);
 	}
 
-	n = rand() % 25;
+	n = rand() % 50;
 
 	if (n == 0)
 	{
 		e->atlasImage = beerTexture;
 		i->value = 5;
 	}
-	else if (n < 10)
+	else if (n < 15)
 	{
 		e->atlasImage = chocolateTexture;
 		i->value = 2;
@@ -114,6 +114,8 @@ static void touch(Entity *other)
 		w->health = MIN(w->health + i->value, w->maxHealth);
 
 		addGameText(self->x, self->y, "+%dHP", i->value);
+
+		playSound(SND_CRUNCH, CH_ITEM);
 
 		self->alive = ALIVE_DEAD;
 	}

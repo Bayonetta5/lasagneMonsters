@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entities.h"
 
 static void move(Entity *e);
+static void clipToMap(Entity *e);
 static int push(Entity *e, float dx, float dy);
 static void moveToWorld(Entity *e, float dx, float dy);
 static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, int background);
@@ -114,11 +115,26 @@ void doEntities(void)
 
 		if (!(e->flags & (EF_NO_WORLD_CLIP|EF_NO_MAP_BOUNDS)))
 		{
-			e->x = MIN(MAX(e->x, world.camera.minX), world.camera.maxX - (e->w + 16));
-			e->y = MIN(MAX(e->y, 0), MAP_HEIGHT * TILE_SIZE);
+			clipToMap(e);
 		}
 
 		addToQuadtree(e, &world.quadtree);
+	}
+}
+
+static void clipToMap(Entity *e)
+{
+	e->x = MIN(MAX(e->x, world.camera.minX), world.camera.maxX - (e->w + 16));
+	e->y = MIN(MAX(e->y, world.camera.minY), world.camera.maxY);
+
+	if ((e->x == world.camera.minX && e->dx < 0) || (e->x == world.camera.maxX - (e->w + 16) && e->dx > 0))
+	{
+		e->dx = 0;
+	}
+
+	if ((e->y == world.camera.minY && e->dy < 0) || (e->y == world.camera.maxY && e->dy > 0))
+	{
+		e->dy = 0;
 	}
 }
 
