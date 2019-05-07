@@ -159,6 +159,7 @@ static void loadSounds(void)
 	sounds[SND_CHEST] = Mix_LoadWAV("sound/chest.ogg");
 	sounds[SND_CRUNCH] = Mix_LoadWAV("sound/393816__thedcheck__crunching-chips.ogg");
 	sounds[SND_BUY] = Mix_LoadWAV("sound/210604__18hiltc__sci-fi-weapon-reloading.ogg");
+	sounds[SND_SLIME_SHOOT] = Mix_LoadWAV("sound/434479__dersuperanton__splatter.ogg");
 
 }
 

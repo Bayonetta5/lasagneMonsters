@@ -150,6 +150,7 @@ enum
 	SND_CHEST,
 	SND_CRUNCH,
 	SND_BUY,
+	SND_SLIME_SHOOT,
 	SND_MAX
 };
 
@@ -162,6 +163,7 @@ enum
 	CH_STRUCTURE,
 	CH_SWITCH,
 	CH_SPLAT,
+	CH_FIRE,
 	CH_MAX
 };
 

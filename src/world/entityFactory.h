@@ -35,6 +35,7 @@ extern void initRedHorse(Entity *e);
 extern void initSavePoint(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
+extern void initGreenFlyingCyclops(Entity *e);
 extern void initTransferCube(Entity *e);
 extern long lookup(const char *key);
 

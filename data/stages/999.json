@@ -3,113 +3,24 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	480,
-			"y":	160,
+			"x":	80,
+			"y":	592,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
 			"maxAmmo":	5
 		}, {
-			"type":	"greenHorse",
+			"type":	"greenFlyingCyclops",
 			"name":	"",
-			"x":	584,
-			"y":	448,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"transferCube",
-			"name":	"",
-			"x":	1296,
-			"y":	528,
-			"facing":	"FACING_RIGHT",
-			"targetStage":	1,
-			"targetFlag":	"topLeft",
-			"w":	1,
-			"h":	2
-		}, {
-			"type":	"startPoint",
-			"name":	"rightFlag",
-			"x":	1248,
-			"y":	592,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"key",
-			"name":	"",
-			"x":	600,
-			"y":	544,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"savePoint",
-			"name":	"",
-			"x":	88,
-			"y":	160,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"trafficLight",
-			"name":	"",
-			"x":	272,
+			"x":	480,
 			"y":	136,
-			"facing":	"FACING_RIGHT",
-			"targetName":	"",
-			"on":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	952,
-			"y":	160,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	25
-		}, {
-			"type":	"gumballMachine",
-			"name":	"",
-			"x":	600,
-			"y":	142,
 			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"platform",
-			"name":	"",
-			"x":	1128,
-			"y":	504,
-			"facing":	"FACING_RIGHT",
-			"sx":	1128,
-			"sy":	504,
-			"ex":	1128,
-			"ey":	288,
-			"pause":	60,
-			"speed":	2,
-			"enabled":	1
-		}, {
-			"type":	"door",
-			"name":	"",
-			"x":	304,
-			"y":	384,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	304,
-			"sy":	384,
-			"ex":	304,
-			"ey":	292
-		}, {
-			"type":	"horizontalDoor",
-			"name":	"",
-			"x":	1152,
-			"y":	208,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	1152,
-			"sy":	208,
-			"ex":	1060,
-			"ey":	208
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQQNGrdIRaeP+rtQykGhGhRh9vEzJBH3XRsR0d9mn0tOj/+qv1j+uP73m9Mlf//fPTylr97WtZRf3tpyKnlpZ6ZrX+Ee/81dVSAnP3l3Aynshopr3s64/O/ftdyK7n72/1MwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACs5QS9YAJ",
-		"eLen":	188,
-		"cLen":	141,
+		"data":	"eJzt1yEOwCAMQNGr7AgguP/VJiYWMF1ALGlfniIg+IKE9qtvaGnstOj/+9b69evXr1//af8IPSffda7+bzuj9P9vrq/Wv9bn6o/ff+75p/b8BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABC5AbBBAmo",
+		"eLen":	156,
+		"cLen":	116,
 		"dLen":	32768
 	}
 }

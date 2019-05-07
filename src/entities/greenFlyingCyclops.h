@@ -20,11 +20,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern void addWaterBurstParticles(int x, int y);
+extern void addSlimeBurstParticles(int x, int y);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern Entity *spawnEntity(void);
+extern void throwCoins(int x, int y, int n);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
+extern void initAimedSlimeBullet(Entity *owner, Entity *target);
+extern void monsterDie(void);
+extern void monsterDraw(void);
+extern void monsterTakeDamage(int amount);
+extern void monsterTick(void);
+extern void monsterTouch(Entity *other);
+extern void lookForPlayer(void);
 
 extern Entity *self;
+extern Stage *stage;
 extern World world;

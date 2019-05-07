@@ -24,11 +24,13 @@ static Entity *initBullet(Entity *owner);
 
 static AtlasImage *waterBulletTexture;
 static AtlasImage *slimeBulletTexture;
+static AtlasImage *aimedSlimeBulletTexture;
 
 void initBullets(void)
 {
 	waterBulletTexture = getAtlasImage("gfx/entities/waterBullet.png", 1);
 	slimeBulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
+	aimedSlimeBulletTexture = getAtlasImage("gfx/entities/aimedSlimeBullet1.png", 1);
 }
 
 void initWaterBullet(Entity *owner)
@@ -42,6 +44,8 @@ void initWaterBullet(Entity *owner)
 	e->h = e->atlasImage->rect.h;
 
 	e->y += (e->h / 2);
+
+	((Bullet*)e->data)->health = FPS;
 }
 
 void initSlimeBullet(Entity *owner)
@@ -55,6 +59,24 @@ void initSlimeBullet(Entity *owner)
 	e->h = e->atlasImage->rect.h;
 
 	e->y += (e->h / 2);
+}
+
+void initAimedSlimeBullet(Entity *owner, Entity *target)
+{
+	Entity *e;
+
+	e = initBullet(owner);
+
+	e->atlasImage = aimedSlimeBulletTexture;
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+
+	e->y += (e->h / 2);
+
+	calcSlope(target->x, target->y, e->x, e->y, &e->dx, &e->dy);
+
+	e->dx *= 8;
+	e->dy *= 8;
 }
 
 static void tick(void)
@@ -117,7 +139,7 @@ static Entity *initBullet(Entity *owner)
 	b = malloc(sizeof(Bullet));
 	memset(b, 0, sizeof(Bullet));
 
-	b->health = FPS;
+	b->health = FPS * 60;
 
 	e = spawnEntity();
 

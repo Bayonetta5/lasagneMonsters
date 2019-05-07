@@ -29,6 +29,7 @@ void monsterTick(void)
 	m = (Monster*)self->data;
 
 	m->hitTimer = MAX(m->hitTimer - 16, 0);
+	m->reload = MAX(m->reload - 1, 0);
 
 	if (m->aiFlags & AIF_HALT_AT_EDGE)
 	{
@@ -112,7 +113,7 @@ void monsterDie(void)
 
 	throwCoins(self->x, self->y, m->coins);
 
-	if (rand() % 15 == 0)
+	if (rand() % 10 == 0)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
