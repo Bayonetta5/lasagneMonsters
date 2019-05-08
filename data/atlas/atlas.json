@@ -16,7 +16,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/particles/light.png",
+		"filename" : "gfx/effects/light.png",
 		"x" : 138,
 		"y" : 0,
 		"w" : 73,
@@ -456,7 +456,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/particles/alert.png",
+		"filename" : "gfx/effects/alert.png",
 		"x" : 505,
 		"y" : 170,
 		"w" : 7,

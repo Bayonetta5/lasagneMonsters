@@ -29,7 +29,7 @@ void initEffects(void)
 	pusBallTexture[1] = getAtlasImage("gfx/entities/pusBall2.png", 1);
 	pusBallTexture[2] = getAtlasImage("gfx/entities/pusBall3.png", 1);
 
-	lightTexture = getAtlasImage("gfx/particles/light.png", 1);
+	lightTexture = getAtlasImage("gfx/effects/light.png", 1);
 }
 
 void drawObjectGlow(int r, int g, int b, int a)

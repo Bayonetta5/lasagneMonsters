@@ -38,7 +38,7 @@ void initTrafficLight(Entity *e)
 	{
 		goTexture = getAtlasImage("gfx/entities/trafficLightGo.png", 1);
 		stopTexture = getAtlasImage("gfx/entities/trafficLightStop.png", 1);
-		lightTexture = getAtlasImage("gfx/particles/light.png", 1);
+		lightTexture = getAtlasImage("gfx/effects/light.png", 1);
 	}
 
 	t = malloc(sizeof(TrafficLight));
