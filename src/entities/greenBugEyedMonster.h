@@ -23,12 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define RUN_SPEED    4
 #define WALK_SPEED   2
 
-extern void addSlimeBurstParticles(int x, int y);
 extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
-extern Entity *spawnEntity(void);
-extern void throwCoins(int x, int y, int n);
-extern void monsterTick(void);
 extern void initSlimeBullet(Entity *owner);
 extern void lookForPlayer(void);
 extern void monsterDie(void);
@@ -36,6 +31,7 @@ extern void monsterDraw(void);
 extern void monsterTakeDamage(int amount);
 extern void monsterTick(void);
 extern void monsterTouch(Entity *other);
+extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 
 extern Entity *self;
 extern Stage *stage;

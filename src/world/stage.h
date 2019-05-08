@@ -47,6 +47,7 @@ extern void dropToFloor(void);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Stage *getStage(int n);
 extern Widget *getWidget(const char *name, const char *groupName);
+extern void initOptions(void (*done)(void));
 extern void initQuadtree(Quadtree *root);
 extern void initWipe(int type);
 extern int isControl(int type);
@@ -57,7 +58,6 @@ extern void saveGame(void);
 extern void showWidgets(const char *groupName, int visible);
 extern void updateCameraBounds(void);
 extern void updatePlayer(void);
-extern void initOptions(void (*done)(void));
 
 extern App app;
 extern Game game;

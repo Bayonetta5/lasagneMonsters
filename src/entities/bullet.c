@@ -46,7 +46,14 @@ void initWaterBullet(Entity *owner)
 	e->h = e->atlasImage->rect.h;
 	e->die = waterBulletDie;
 
+	e->x = owner->x;
+	e->y = owner->y;
 	e->y += (e->h / 2);
+
+	if (e->facing == FACING_RIGHT)
+	{
+		e->x += self->w;
+	}
 
 	((Bullet*)e->data)->health = FPS;
 }
@@ -62,7 +69,15 @@ void initSlimeBullet(Entity *owner)
 	e->h = e->atlasImage->rect.h;
 	e->die = slimeBulletDie;
 
-	e->y += (e->h / 2);
+	e->x = owner->x;
+	e->y = owner->y;
+	e->y += owner->h / 2;
+	e->y -= e->h / 2;
+
+	if (e->facing == FACING_RIGHT)
+	{
+		e->x += self->w;
+	}
 }
 
 void initAimedSlimeBullet(Entity *owner, Entity *target)
@@ -76,7 +91,8 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 	e->h = e->atlasImage->rect.h;
 	e->die = slimeBulletDie;
 
-	e->y += (e->h / 2);
+	e->x = owner->x + (owner->w / 2) - (e->w / 2);
+	e->y = owner->y + (owner->h / 2) - (e->h / 2);
 
 	calcSlope(target->x, target->y, e->x, e->y, &e->dx, &e->dy);
 
@@ -95,6 +111,11 @@ static void tick(void)
 		self->alive = ALIVE_DEAD;
 		self->die = NULL;
 	}
+}
+
+static void damage(int amount)
+{
+	self->alive = ALIVE_DEAD;
 }
 
 static void touch(Entity *other)
@@ -145,20 +166,14 @@ static Entity *initBullet(Entity *owner)
 	e->data = b;
 	e->type = ET_BULLET;
 	e->typeName = "bullet";
-	e->x = owner->x;
-	e->y = owner->y;
 	e->facing = owner->facing;
 	e->dx = owner->facing == FACING_RIGHT ? 12 : -12;
 	e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE+EF_TRANSIENT;
 	e->owner = self;
 
 	e->tick = tick;
+	e->damage = damage;
 	e->touch = touch;
-
-	if (e->facing == FACING_RIGHT)
-	{
-		e->x += self->w;
-	}
 
 	return e;
 }

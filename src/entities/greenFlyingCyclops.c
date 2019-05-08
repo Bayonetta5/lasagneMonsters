@@ -35,6 +35,7 @@ void initGreenFlyingCyclops(Entity *e)
 	memset(m, 0, sizeof(Monster));
 
 	m->health = m->maxHealth = 5;
+	m->coins = 2;
 
 	e->typeName = "greenFlyingCyclops";
 	e->type = ET_MONSTER;
@@ -123,6 +124,46 @@ static void chasePlayer(void)
 		self->dy *= 2;
 
 		m->thinkTime = FPS;
+
+		monsterFaceMoveDir();
+	}
+	else
+	{
+		if (m->shotsToFire > 0)
+		{
+			if (m->reload == 0)
+			{
+				initAimedSlimeBullet(self, world.player);
+
+				monsterFaceTarget(world.player);
+
+				m->shotsToFire--;
+
+				m->reload = FPS / 2;
+
+				playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
+			}
+		}
+		else if (--m->thinkTime <= 0)
+		{
+			self->tick = tick;
+		}
+	}
+
+	monsterTick();
+}
+
+static void hover(void)
+{
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	if (m->thinkTime == 0)
+	{
+		self->dx = self->dy = 0;
+
+		m->thinkTime = FPS;
 	}
 	else
 	{
@@ -143,35 +184,6 @@ static void chasePlayer(void)
 		{
 			self->tick = tick;
 		}
-	}
-
-	if (self->dx < 0)
-	{
-		self->facing = FACING_LEFT;
-	}
-	else if (self->dx > 0)
-	{
-		self->facing = FACING_RIGHT;
-	}
-
-	monsterTick();
-}
-
-static void hover(void)
-{
-	Monster *m;
-
-	m = (Monster*)self->data;
-
-	if (m->thinkTime == 0)
-	{
-		self->dx = self->dy = 0;
-
-		m->thinkTime = FPS;
-	}
-	else if (--m->thinkTime <= 0)
-	{
-		self->tick = tick;
 	}
 
 	monsterTick();
@@ -216,14 +228,7 @@ static void wander(void)
 		self->dx *= 2;
 		self->dy *= 2;
 
-		if (self->dx < 0)
-		{
-			self->facing = FACING_LEFT;
-		}
-		else if (self->dx > 0)
-		{
-			self->facing = FACING_RIGHT;
-		}
+		monsterFaceMoveDir();
 
 		m->thinkTime = FPS;
 	}

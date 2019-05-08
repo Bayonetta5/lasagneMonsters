@@ -23,45 +23,38 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static int hasLOS(int x1, int y1, int x2, int y2);
 void haltAtEdge(void);
 
-void faceMoveDir(void)
-{
-	if (self->dx < 0)
-	{
-		self->facing = FACING_LEFT;
-	}
-	else if (self->dx > 0)
-	{
-		self->facing = FACING_RIGHT;
-	}
-}
-
 void lookForPlayer(void)
 {
 	int x1, y1, x2, y2;
-	
-	if (getDistance(self->x, self->y, world.player->x, world.player->y) <= SCREEN_HEIGHT)
+
+	if (world.player->alive == ALIVE_ALIVE)
 	{
-		if ((self->facing == FACING_LEFT && world.player->x < self->x) || (self->facing == FACING_RIGHT && world.player->x > self->x))
+		if (getDistance(self->x, self->y, world.player->x, world.player->y) <= SCREEN_HEIGHT)
 		{
-			x1 = (self->x + (self->w / 2)) / TILE_SIZE;
-			y1 = (self->y + (self->h / 2)) / TILE_SIZE;
-			x2 = (world.player->x + (world.player->w / 2)) / TILE_SIZE;
-			y2 = (world.player->y + (world.player->h / 2)) / TILE_SIZE;
-			
-			if (hasLOS(x1, y1, x2, y2))
+			if ((self->facing == FACING_LEFT && world.player->x < self->x) || (self->facing == FACING_RIGHT && world.player->x > self->x))
 			{
-				((Monster*)self->data)->alert = 1;
-				
-				return;
+				x1 = (self->x + (self->w / 2)) / TILE_SIZE;
+				y1 = (self->y + (self->h / 2)) / TILE_SIZE;
+				x2 = (world.player->x + (world.player->w / 2)) / TILE_SIZE;
+				y2 = (world.player->y + (world.player->h / 2)) / TILE_SIZE;
+
+				if (hasLOS(x1, y1, x2, y2))
+				{
+					((Monster*)self->data)->alert = 1;
+
+					return;
+				}
 			}
 		}
 	}
+
+	((Monster*)self->data)->alert = 0;
 }
 
 static int hasLOS(int x1, int y1, int x2, int y2)
 {
 	int dx, dy, sx, sy, err, e2;
-	
+
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);
 
@@ -89,7 +82,7 @@ static int hasLOS(int x1, int y1, int x2, int y2)
 		{
 			return 1;
 		}
-		
+
 		if (!isInsideMap(x1, y1) || stage->map[x1][y1] != 0)
 		{
 			return 0;

@@ -137,3 +137,27 @@ void monsterTouch(Entity *other)
 		self = oldSelf;
 	}
 }
+
+void monsterFaceTarget(Entity *e)
+{
+	if (e->x < self->x)
+	{
+		self->facing = FACING_LEFT;
+	}
+	else if (e->x > self->x)
+	{
+		self->facing = FACING_RIGHT;
+	}
+}
+
+void monsterFaceMoveDir(void)
+{
+	if (self->dx < 0)
+	{
+		self->facing = FACING_LEFT;
+	}
+	else if (self->dx > 0)
+	{
+		self->facing = FACING_RIGHT;
+	}
+}

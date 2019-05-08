@@ -22,16 +22,24 @@
 			"x":	2944,
 			"y":	2464,
 			"facing":	"FACING_LEFT",
-			"facing":	"left",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
-			"maxAmmo":	5
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	2112,
+			"y":	2448,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
-		"data":	"eJzt2bENhDAQRcFWrgTovzlyxIFZjCy+R5OR4LcSDpbltwAAAAAAQLN15/jp+uANCfSPPoH+t8rOpfdfTUe/fv36R59Ev379+nvU6NevX/88/dUtVkp/a8V+Sln9R61tZYn9d3y5v7bFztl/P6/I6a91JPVXJzC6ol//3Zak7//7t1mf/pkmcPWH599EUualf+5+AAAAAAAAAAAAAAAAAAAAAACAmg3qtgI",
-		"eLen":	228,
-		"cLen":	171,
+		"data":	"eJzt2UsOgyAUQNGtdAkycP9b66CDGqUKfkJ5nJyBia3RS9REmF4TAAAAAAAUSyv5venCGSLQ3/oK9D9jPhC9f19abUejX79+/fpbX4l+/XfV6NevX/84/Z9v2XH7SyuW3/zx+nOtc9F/I/bX6Ll/O5tVe9SZN8f/uD6L3/f8/7K/5g6I2H9+BFpX3NVfPwKRnv8r90Cvtv1jjUCuP/1c6fna/7Uf+f7jFe4o69+j9wMAAAAAAAAAAAAAAAAAAAAAAJzzBv6zAxc",
+		"eLen":	268,
+		"cLen":	200,
 		"dLen":	32768
 	}
 }

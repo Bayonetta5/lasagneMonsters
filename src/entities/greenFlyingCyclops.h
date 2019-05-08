@@ -26,6 +26,8 @@ extern void initAimedSlimeBullet(Entity *owner, Entity *target);
 extern void lookForPlayer(void);
 extern void monsterDie(void);
 extern void monsterDraw(void);
+extern void monsterFaceMoveDir(void);
+extern void monsterFaceTarget(Entity *e);
 extern void monsterTakeDamage(int amount);
 extern void monsterTick(void);
 extern void monsterTouch(Entity *other);
