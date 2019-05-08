@@ -62,6 +62,7 @@ static void saveGameData(cJSON *root)
 	cJSON_AddNumberToObject(gameJSON, "coins", game.coins);
 	cJSON_AddNumberToObject(gameJSON, "keys", game.keys);
 	cJSON_AddNumberToObject(gameJSON, "autoFire", game.autoFire);
+	cJSON_AddNumberToObject(gameJSON, "hasDoubleJump", game.hasDoubleJump);
 
 	cJSON_AddItemToObject(root, "game", gameJSON);
 }

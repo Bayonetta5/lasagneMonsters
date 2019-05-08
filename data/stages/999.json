@@ -1,9 +1,15 @@
 {
 	"id":	999,
 	"entities":	[{
+			"type":	"heart",
+			"name":	"",
+			"x":	352,
+			"y":	406,
+			"facing":	"FACING_RIGHT"
+		}, {
 			"type":	"player",
 			"name":	"",
-			"x":	136,
+			"x":	160,
 			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
@@ -11,35 +17,11 @@
 			"ammo":	5,
 			"maxAmmo":	5
 		}, {
-			"type":	"piggyBank",
+			"type":	"boots",
 			"name":	"",
-			"x":	336,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"requiredCoins":	25,
-			"targetName":	"door"
-		}, {
-			"type":	"trafficLight",
-			"name":	"",
-			"x":	504,
-			"y":	376,
-			"facing":	"FACING_RIGHT",
-			"targetName":	"",
-			"on":	0
-		}, {
-			"type":	"gumballMachine",
-			"name":	"",
-			"x":	584,
-			"y":	384,
+			"x":	480,
+			"y":	392,
 			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	128,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	25
 		}],
 	"map":	{
 		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",
