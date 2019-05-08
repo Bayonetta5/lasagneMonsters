@@ -185,6 +185,14 @@ typedef struct {
 	char targetName[MAX_NAME_LENGTH];
 } PiggyBank;
 
+typedef struct {
+	float swingX;
+	float swingY;
+	int health;
+	int chainX;
+	int chainY;
+} BBBBB;
+
 struct Particle {
 	float x;
 	float y;

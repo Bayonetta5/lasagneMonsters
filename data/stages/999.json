@@ -3,8 +3,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	1128,
-			"y":	400,
+			"x":	888,
+			"y":	256,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
 			"maxHealth":	3,
@@ -14,28 +14,17 @@
 			"autoFire":	0,
 			"hasDoubleJump":	0
 		}, {
-			"type":	"greenFlyingCyclops",
+			"type":	"bbbbb",
 			"name":	"",
-			"x":	272,
-			"y":	136,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
-			"x":	480,
-			"y":	112,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
-			"x":	208,
-			"y":	264,
-			"facing":	"FACING_RIGHT"
+			"x":	520,
+			"y":	208,
+			"facing":	"FACING_RIGHT",
+			"health":	5
 		}],
 	"map":	{
-		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",
-		"eLen":	156,
-		"cLen":	117,
+		"data":	"eJzt17EJwCAQQNFVMkIssv9qIaQwCOGCRYS7x2sULPyFim1rE/Y0Zlr0r961fv36/+kfb/yK939vrv3+ZXz/j9C98hpl7H+fPfX2zP3f6qv1j/W5+uPzn/v/U/v/BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA5AVCvAmk",
+		"eLen":	172,
+		"cLen":	128,
 		"dLen":	32768
 	}
 }

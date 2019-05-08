@@ -30,6 +30,7 @@ void initEntityFactory(void)
 	memset(&initFuncHead, 0, sizeof(InitFunc));
 	initFuncTail = &initFuncHead;
 
+	addInitFunc("bbbbb", initBBBBB);
 	addInitFunc("battery", initBattery);
 	addInitFunc("boots", initBoots);
 	addInitFunc("chest", initChest);
@@ -96,6 +97,8 @@ static void initEntity(cJSON *root)
 		{
 			e = spawnEntity();
 
+			self = e;
+
 			STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 			e->x = cJSON_GetObjectItem(root, "x")->valueint;
 			e->y = cJSON_GetObjectItem(root, "y")->valueint;
@@ -105,8 +108,6 @@ static void initEntity(cJSON *root)
 
 			if (e->load)
 			{
-				self = e;
-
 				e->load(root);
 			}
 
