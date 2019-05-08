@@ -22,170 +22,210 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void tick(void);
 static void preAttack(void);
-static void damage(int amount);
-static void touch(Entity *other);
-static void die(void);
-static void spit(void);
+static void stand(void);
+static void chasePlayer(void);
+static void fireShots(void);
+static void patrol(void);
 
-static AtlasImage *bulletTexture;
+static AtlasImage *textures[2] = {NULL};
 
 void initGreenBugEyedMonster(Entity *e)
 {
 	Monster *m;
-	
+
 	m = malloc(sizeof(Monster));
 	memset(m, 0, sizeof(Monster));
-	
-	m->health = m->maxHealth = 10;
-	
+
+	m->health = m->maxHealth = 20;
+	m->coins = 5;
+	m->aiFlags = AIF_HALT_AT_EDGE;
+
+	if (textures[0] == NULL)
+	{
+		textures[0] = getAtlasImage("gfx/entities/greenBugEyedMonster1.png", 1);
+		textures[1] = getAtlasImage("gfx/entities/greenBugEyedMonster2.png", 1);
+	}
+
 	e->typeName = "greenBugEyedMonster";
 	e->type = ET_MONSTER;
 	e->data = m;
-	e->atlasImage = getAtlasImage("gfx/entities/greenBugEyedMonster1.png", 1);
+	e->atlasImage = textures[0];
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	e->touch = touch;
 	e->tick = tick;
-	e->damage = damage;
-	e->die = die;
-	
-	bulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
-	
+	e->draw = monsterDraw;
+	e->touch = monsterTouch;
+	e->damage = monsterTakeDamage;
+	e->die = monsterDie;
+
 	stage->numMonsters++;
 }
 
 static void tick(void)
 {
-	if (0)
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	lookForPlayer();
+
+	if (m->alert)
 	{
+		self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
+
 		preAttack();
+
+		m->alert = 0;
 	}
+	else
+	{
+		patrol();
+	}
+
+	monsterTick();
 }
 
 static void preAttack(void)
 {
-	if (0)
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	m->thinkTime = 0;
+
+	m->shotsToFire = 0;
+
+	switch (rand() % 4)
 	{
-		spit();
+		case 1:
+			if (abs(self->y - world.player->y) <= 16)
+			{
+				m->shotsToFire = 1 + rand() % 2;
+			}
+			self->tick = stand;
+			break;
+
+		case 2:
+			self->tick = chasePlayer;
+			break;
+
+		case 3:
+			if (abs(self->y - world.player->y) <= 16)
+			{
+				m->shotsToFire = 1 + rand() % 2;
+			}
+			self->tick = chasePlayer;
+			break;
+
+		default:
+			self->tick = stand;
+			break;
 	}
 }
 
-/* === Slime bullets === */
-
-static void bulletTouch(Entity *other)
+static void chasePlayer(void)
 {
-	Entity *oldSelf;
-	
-	if (self->alive == ALIVE_ALIVE)
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	if (m->thinkTime == 0)
 	{
-		if (other != NULL)
+		self->dx = 0;
+
+		m->thinkTime = FPS;
+	}
+	else
+	{
+		if (self->facing == FACING_LEFT)
 		{
-			if (other->damage && other != self->owner)
-			{
-				oldSelf = self;
-				
-				self = other;
-				
-				other->damage(1);
-				
-				self = oldSelf;
-				
-				self->alive = ALIVE_DEAD;
-				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
-			}
-			else if (other->flags & EF_SOLID)
-			{
-				self->alive = ALIVE_DEAD;
-				
-				playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
-			}
+			self->dx = -RUN_SPEED;
 		}
 		else
 		{
-			self->alive = ALIVE_DEAD;
-			
-			playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
+			self->dx = RUN_SPEED;
 		}
+
+		fireShots();
 	}
+
+	monsterTick();
 }
 
-static void bulletDie(void)
-{
-	addSlimeBurstParticles(self->x, self->y);
-}
-
-static void spit(void)
+static void stand(void)
 {
 	Monster *m;
-	Entity *e;
-	
+
 	m = (Monster*)self->data;
-	
-	m->reload = MAX(m->reload - 1, 0);
-	
-	if (m->reload == 0)
+
+	if (m->thinkTime == 0)
 	{
-		if (abs(self->y - world.player->y) <= TILE_SIZE / 2)
+		self->dx = 0;
+
+		m->thinkTime = FPS;
+	}
+	else
+	{
+		fireShots();
+	}
+
+	monsterTick();
+}
+
+static void fireShots(void)
+{
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	if (m->shotsToFire > 0)
+	{
+		if (m->reload == 0)
 		{
-			e = spawnEntity();
-		
-			e->type = ET_BULLET;
-			e->typeName = "bullet";
-			e->x = self->x;
-			e->y = self->y;
-			e->facing = self->facing;
-			e->dx = self->facing ? 12 : -12;
-			e->flags = EF_WEIGHTLESS+EF_NO_MAP_BOUNDS+EF_DELETE;
-			e->atlasImage = bulletTexture;
-			e->w = e->atlasImage->rect.w;
-			e->h = e->atlasImage->rect.h;
-			e->touch = bulletTouch;
-			e->die = bulletDie;
-			e->owner = self;
-			
-			e->y += (e->h / 2);
-			
-			if (e->facing)
-			{
-				e->x += self->w;
-			}
-			
+			self->atlasImage = textures[1];
+
+			initSlimeBullet(self);
+
+			m->shotsToFire--;
+
 			m->reload = FPS / 2;
-			
-			if (--m->shotsToFire <= 0)
+
+			playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
+		}
+	}
+	else if (--m->thinkTime <= 0)
+	{
+		self->atlasImage = textures[0];
+
+		self->tick = tick;
+	}
+}
+
+static void patrol(void)
+{
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	/* blocked - turn around */
+	if (self->dx == 0)
+	{
+		if (m->thinkTime == 0)
+		{
+			m->thinkTime = FPS;
+		}
+		else if (--m->thinkTime <= 0)
+		{
+			self->facing = !self->facing;
+
+			if (self->facing == FACING_LEFT)
 			{
-				self->tick = tick;
+				self->dx = -WALK_SPEED;
+			}
+			else
+			{
+				self->dx = WALK_SPEED;
 			}
 		}
 	}
-}
-
-static void damage(int amount)
-{
-	Monster *m;
-	
-	m = (Monster*)self->data;
-	
-	m->health -= amount;
-	
-	if (m->health <= 0)
-	{
-		self->alive = ALIVE_DEAD;
-	}
-}
-
-static void touch(Entity *other)
-{
-	if (other == world.player)
-	{
-		world.player->damage(2);
-	}
-}
-
-static void die(void)
-{
-	throwCoins(self->x, self->y, 1 + rand() % 2);
-	
-	stage->numMonsters--;
 }
