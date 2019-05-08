@@ -9,11 +9,11 @@
 	},
 	{
 		"type" : "WT_BUTTON",
-		"name" : "restart",
+		"name" : "load",
 		"groupName" : "stage",
 		"x" : -1,
 		"y" : 275,
-		"text" : "Restart"
+		"text" : "Load"
 	},
 	{
 		"type" : "WT_BUTTON",

@@ -162,6 +162,9 @@ static void loadSounds(void)
 	sounds[SND_SLIME_SHOOT] = Mix_LoadWAV("sound/434479__dersuperanton__splatter.ogg");
 	sounds[SND_SQUEAK] = Mix_LoadWAV("sound/232017__danmitch3ll__squeaky-dog-toy.ogg");
 	sounds[SND_POWERUP] = Mix_LoadWAV("sound/162467__kastenfrosch__gotitem.ogg");
+	sounds[SND_NAV] = Mix_LoadWAV("sound/nav.ogg");
+	sounds[SND_NEGATIVE] = Mix_LoadWAV("sound/negative.ogg");
+	sounds[SND_TIP] = Mix_LoadWAV("sound/tip.ogg");
 }
 
 void destroySounds(void)

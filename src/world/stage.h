@@ -57,6 +57,7 @@ extern void saveGame(void);
 extern void showWidgets(const char *groupName, int visible);
 extern void updateCameraBounds(void);
 extern void updatePlayer(void);
+extern void initOptions(void (*done)(void));
 
 extern App app;
 extern Game game;

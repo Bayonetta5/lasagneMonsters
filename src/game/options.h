@@ -18,21 +18,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
+#include <SDL2/SDL_mixer.h>
 
-extern void calcTextDimensions(const char *text, int size, int *w, int *h);
-extern const char *getFileLocation(const char *filename);
-extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
+#include "../common.h"
+
+#define SHOW_CONTROLS  1
+#define SHOW_NORMAL    0
+
+extern void calculateWidgetFrame(const char *groupName);
+extern void doWidgets(const char *groupName);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern char **getFileList(const char *dir, int *count);
+extern void drawWidgetFrame(void);
+extern void drawWidgets(const char *groupName);
+extern Widget *getWidget(const char *name, const char *groupName);
 extern long lookup(const char *name);
-extern void playSound(int snd, int ch);
-extern char *readFile(const char *filename);
-extern int isControl(int type);
-extern void clearControl(int type);
-extern int isAcceptControl(void);
-extern void clearAcceptControls(void);
+extern void saveConfig(void);
+extern void showWidgets(const char *groupName, int visible);
+extern void updateControlWidget(Widget *w, int c);
 
 extern App app;

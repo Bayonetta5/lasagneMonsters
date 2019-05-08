@@ -31,6 +31,7 @@ static void drawGame(void);
 static void drawMenu(void);
 static void transfer(void);
 static void resume(void);
+static void load(void);
 static void stats(void);
 static void options(void);
 static void quit(void);
@@ -40,6 +41,7 @@ void loadStage(char *filename);
 static int show;
 static AtlasImage *backgroundTile;
 static Widget *resumeWidget;
+static Widget *loadWidget;
 static Widget *statsWidget;
 static Widget *optionsWidget;
 static Widget *quitWidget;
@@ -58,8 +60,13 @@ void initStage(int n, int fade)
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
 
+	loadWidget = getWidget("load", "stage");
+	loadWidget->action = load;
+	loadWidget->disabled = 1;
+
 	statsWidget = getWidget("stats", "stage");
 	statsWidget->action = stats;
+	statsWidget->disabled = 1;
 
 	optionsWidget = getWidget("options", "stage");
 	optionsWidget->action = options;
@@ -323,9 +330,25 @@ static void initBackgroundData(void)
 	}
 }
 
+static void load(void)
+{
+}
+
 static void resume(void)
 {
 	show = SHOW_GAME;
+}
+
+static void returnFrom(void)
+{
+	showWidgets("stage", 1);
+
+	calculateWidgetFrame("stage");
+
+	app.selectedWidget = previousWidget;
+
+	app.delegate.logic = logic;
+	app.delegate.draw = draw;
 }
 
 static void options(void)
@@ -333,6 +356,8 @@ static void options(void)
 	previousWidget = optionsWidget;
 
 	showWidgets("stage", 0);
+
+	initOptions(returnFrom);
 }
 
 static void stats(void)
