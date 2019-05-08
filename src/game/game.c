@@ -25,6 +25,17 @@ void initGame(void)
 	memset(&game, 0, sizeof(Game));
 }
 
+int deductCoins(int i)
+{
+	if (game.coins >= i)
+	{
+		game.coins -= i;
+		return 1;
+	}
+
+	return 0;
+}
+
 void destroyGame(void)
 {
 	Entity *e;

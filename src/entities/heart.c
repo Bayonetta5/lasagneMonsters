@@ -37,7 +37,7 @@ void initHeart(Entity *e)
 	e->typeName = "heart";
 	e->type = ET_ITEM;
 	e->data = h;
-	e->flags = EF_STATIC+EF_DELETE;
+	e->flags = EF_DELETE;
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;
@@ -62,9 +62,9 @@ static void tick(void)
 
 	if (self->isOnGround && --h->thinkTime <= 0)
 	{
-		self->dy = -16;
+		self->dy = -12;
 
-		h->thinkTime = FPS * (1 + (rand() % 4));
+		h->thinkTime = FPS * (1 + rand() % 8);
 	}
 
 	if (--h->frameTime <= 0)

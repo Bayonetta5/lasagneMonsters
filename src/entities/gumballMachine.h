@@ -25,6 +25,7 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int isControl(int type);
 extern void playSound(int snd, int ch);
 extern void spawnGumball(int x, int y);
+extern int deductCoins(int i);
 
 extern Entity *self;
 extern Game game;

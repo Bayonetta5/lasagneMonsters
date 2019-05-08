@@ -41,11 +41,9 @@ static void touch(Entity *other)
 		{
 			clearControl(CONTROL_USE);
 
-			if (game.coins > 10)
+			if (deductCoins(5))
 			{
 				playSound(SND_BUY, -1);
-
-				game.coins -= 10;
 
 				spawnGumball(self->x, self->y);
 			}

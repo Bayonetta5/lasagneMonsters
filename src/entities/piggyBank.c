@@ -109,11 +109,9 @@ static void touch(Entity *other)
 	{
 		if (isControl(CONTROL_USE))
 		{
-			if (p->requiredCoins > 0 && game.coins > 0 && p->pauseTime == 0)
+			if (p->requiredCoins > 0 && p->pauseTime == 0 && deductCoins(1))
 			{
 				playPositionalSound(SND_CHEST, CH_PLAYER, self->x, self->y, world.player->x, world.player->y);
-
-				game.coins--;
 
 				if (--p->requiredCoins == 0)
 				{

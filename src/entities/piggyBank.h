@@ -26,6 +26,7 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int isControl(int type);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern int deductCoins(int i);
 
 extern Entity *self;
 extern Game game;
