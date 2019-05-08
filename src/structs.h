@@ -118,6 +118,8 @@ typedef struct {
 	int reload;
 	int jumps;
 	float refillRate;
+	int autoFire;
+	int hasDoubleJump;
 } Walter;
 
 typedef struct {
@@ -242,8 +244,6 @@ typedef struct {
 	unsigned int stageId;
 	int coins;
 	int keys;
-	int autoFire;
-	int hasDoubleJump;
 	unsigned int stats[STAT_MAX];
 } Game;
 

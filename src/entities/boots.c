@@ -87,9 +87,13 @@ static void draw(void)
 
 static void touch(Entity *other)
 {
+	Walter *w;
+
 	if (self->alive == ALIVE_ALIVE && other != NULL && other->type == ET_PLAYER)
 	{
-		game.hasDoubleJump = 1;
+		w = (Walter*)other->data;
+
+		w->hasDoubleJump = 1;
 
 		self->alive = ALIVE_DEAD;
 

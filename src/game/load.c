@@ -55,8 +55,6 @@ static void loadGameData(cJSON *root)
 	game.stageId = cJSON_GetObjectItem(root, "stageId")->valueint;
 	game.coins = cJSON_GetObjectItem(root, "coins")->valueint;
 	game.keys = cJSON_GetObjectItem(root, "keys")->valueint;
-	game.autoFire = cJSON_GetObjectItem(root, "autoFire")->valueint;
-	game.hasDoubleJump = cJSON_GetObjectItem(root, "hasDoubleJump")->valueint;
 }
 
 static void loadStages(cJSON *root)
