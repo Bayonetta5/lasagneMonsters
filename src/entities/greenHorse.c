@@ -28,14 +28,14 @@ static void charge(void);
 void initGreenHorse(Entity *e)
 {
 	Monster *m;
-	
+
 	m = malloc(sizeof(Monster));
 	memset(m, 0, sizeof(Monster));
-	
+
 	m->health = m->maxHealth = 5;
 	m->coins = 1;
 	m->aiFlags = AIF_HALT_AT_EDGE;
-	
+
 	e->typeName = "greenHorse";
 	e->type = ET_MONSTER;
 	e->data = m;
@@ -47,40 +47,40 @@ void initGreenHorse(Entity *e)
 	e->touch = monsterTouch;
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;
-	
+
 	stage->numMonsters++;
 }
 
 static void tick(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	lookForPlayer();
-	
+
 	if (m->alert)
 	{
 		self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
-		
+
 		preCharge();
-		
+
 		m->alert = 0;
 	}
 	else
 	{
 		patrol();
 	}
-	
+
 	monsterTick();
 }
 
 static void preCharge(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	if (abs(self->y - world.player->y) <= 16)
 	{
 		self->dx = 0;
@@ -96,9 +96,9 @@ static void preCharge(void)
 static void charge(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	if (m->thinkTime > 0)
 	{
 		if (--m->thinkTime <= 0)
@@ -117,16 +117,16 @@ static void charge(void)
 	{
 		self->tick = tick;
 	}
-	
+
 	monsterTick();
 }
 
 static void patrol(void)
 {
 	Monster *m;
-	
+
 	m = (Monster*)self->data;
-	
+
 	/* blocked - turn around */
 	if (self->dx == 0)
 	{
@@ -137,7 +137,7 @@ static void patrol(void)
 		else if (--m->thinkTime <= 0)
 		{
 			self->facing = !self->facing;
-			
+
 			if (self->facing == FACING_LEFT)
 			{
 				self->dx = -WALK_SPEED;

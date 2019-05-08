@@ -48,14 +48,14 @@ static Widget *quitWidget;
 static Widget *previousWidget;
 static int backgroundData[MAP_WIDTH][MAP_HEIGHT];
 
-void initStage(int n, int fade)
+void initStage(int stageId, int fade)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
 
-	stage = getStage(n);
+	stage = getStage(stageId);
 
-	game.stageId = n;
+	game.stageId = stageId;
 
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
