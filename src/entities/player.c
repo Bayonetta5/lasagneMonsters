@@ -36,6 +36,7 @@ void initPlayer(Entity *e)
 
 	w->health = w->maxHealth = 3;
 	w->ammo = w->maxAmmo = 5;
+	w->refillRate = 0.05f;
 
 	e->typeName = "player";
 	e->data = w;
@@ -63,7 +64,7 @@ static void tick(void)
 
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);
 	w->reload = MAX(w->reload - 1, 0);
-	w->ammo = MIN(w->ammo + 0.05f, w->maxAmmo);
+	w->ammo = MIN(w->ammo + w->refillRate, w->maxAmmo);
 
 	if (self->isOnGround)
 	{
@@ -177,6 +178,7 @@ static void load(cJSON *root)
 	w->maxHealth = cJSON_GetObjectItem(root, "maxHealth")->valueint;
 	w->ammo = cJSON_GetObjectItem(root, "ammo")->valueint;
 	w->maxAmmo = cJSON_GetObjectItem(root, "maxAmmo")->valueint;
+	w->refillRate = cJSON_GetObjectItem(root, "refillRate")->valuedouble;
 }
 
 static void save(cJSON *root)
@@ -189,4 +191,5 @@ static void save(cJSON *root)
 	cJSON_AddNumberToObject(root, "maxHealth", w->maxHealth);
 	cJSON_AddNumberToObject(root, "ammo", w->ammo);
 	cJSON_AddNumberToObject(root, "maxAmmo", w->maxAmmo);
+	cJSON_AddNumberToObject(root, "refillRate", w->refillRate);
 }

@@ -117,6 +117,7 @@ typedef struct {
 	float ammo, maxAmmo;
 	int reload;
 	int jumps;
+	float refillRate;
 } Walter;
 
 typedef struct {

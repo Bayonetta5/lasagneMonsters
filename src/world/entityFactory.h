@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
+extern void initBattery(Entity *e);
+extern void initBoots(Entity *e);
 extern void initChest(Entity *e);
 extern void initDoor(Entity *e);
 extern void initGreenBugEyedMonster(Entity *e);
@@ -39,7 +41,6 @@ extern void initSavePoint(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
 extern void initTransferCube(Entity *e);
-extern void initBoots(Entity *e);
 extern long lookup(const char *key);
 
 extern Entity *self;

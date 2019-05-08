@@ -7,21 +7,28 @@
 			"y":	406,
 			"facing":	"FACING_RIGHT"
 		}, {
+			"type":	"boots",
+			"name":	"",
+			"x":	480,
+			"y":	390,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"battery",
+			"name":	"",
+			"x":	592,
+			"y":	400,
+			"facing":	"FACING_RIGHT"
+		}, {
 			"type":	"player",
 			"name":	"",
-			"x":	160,
+			"x":	136,
 			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
-			"maxAmmo":	5
-		}, {
-			"type":	"boots",
-			"name":	"",
-			"x":	480,
-			"y":	392,
-			"facing":	"FACING_RIGHT"
+			"maxAmmo":	5,
+			"refillRate" : 0.05
 		}],
 	"map":	{
 		"data":	"eJzt1zEKwCAMQNGr9Ah18P5Xc+hQW5CAHQrJ400BB/8gmHa0DWcaOy36/761fv369evX/7W/h66T95yrfz3Neun/37O+Wv+7Pld//P5z7z+19z8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAyACwTQJ",

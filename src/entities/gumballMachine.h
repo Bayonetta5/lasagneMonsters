@@ -21,12 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 extern void clearControl(int type);
+extern int deductCoins(int i);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int isControl(int type);
 extern void playSound(int snd, int ch);
 extern void spawnGumball(int x, int y);
-extern int deductCoins(int i);
 
 extern Entity *self;
-extern Game game;
 extern World world;
