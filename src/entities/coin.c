@@ -25,7 +25,6 @@ static void draw(void);
 static void touch(Entity *other);
 
 static AtlasImage *coinTexture = NULL;
-static AtlasImage *sparkleTexture = NULL;
 
 void initCoin(Entity *e)
 {
@@ -47,7 +46,6 @@ void initCoin(Entity *e)
 	if (coinTexture == NULL)
 	{
 		coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
 
 	e->atlasImage = coinTexture;
@@ -74,21 +72,11 @@ static void tick(void)
 
 static void draw(void)
 {
-	int x, y;
 	Item *i;
 
 	i = (Item*)self->data;
 
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 0);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
-
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	drawObjectGlow(255, 255, 0, 64);
 
 	if (i->health > FPS || (i->health < FPS && i->health % 5 == 0))
 	{

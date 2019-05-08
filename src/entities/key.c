@@ -25,7 +25,7 @@ static void draw(void);
 static void touch(Entity *other);
 
 static AtlasImage *keyTexture = NULL;
-static AtlasImage *sparkleTexture = NULL;
+static AtlasImage *lightTexture = NULL;
 
 void initKey(Entity *e)
 {
@@ -48,7 +48,7 @@ void initKey(Entity *e)
 	if (keyTexture == NULL)
 	{
 		keyTexture = getAtlasImage("gfx/entities/key.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
+		lightTexture = getAtlasImage("gfx/effects/light.png", 1);
 	}
 
 	e->atlasImage = keyTexture;
@@ -77,13 +77,13 @@ static void draw(void)
 	x = self->x + (self->w / 2) - world.camera.x;
 	y = k->by + (self->h / 2) - world.camera.y;
 
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 128, 64);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
+	SDL_SetTextureColorMod(lightTexture->texture, 255, 128, 64);
+	SDL_SetTextureAlphaMod(lightTexture->texture, 64);
 
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
+	blitAtlasImage(lightTexture, x, y, 1, SDL_FLIP_NONE);
 
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
+	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, k->by - world.camera.y, 0, SDL_FLIP_NONE);
 }

@@ -24,3 +24,5 @@ extern void initCoin(Entity *e);
 extern void initGumball(Entity *e);
 extern void initHealthItem(Entity *e);
 extern Entity *spawnEntity(void);
+
+extern Entity *self;

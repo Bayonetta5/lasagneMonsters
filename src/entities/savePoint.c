@@ -25,7 +25,6 @@ static void draw(void);
 static void touch(Entity *other);
 
 static AtlasImage *computer[3] = {NULL};
-static AtlasImage *sparkleTexture = NULL;
 
 void initSavePoint(Entity *e)
 {
@@ -47,7 +46,6 @@ void initSavePoint(Entity *e)
 		computer[0] = getAtlasImage("gfx/entities/computer1.png", 1);
 		computer[1] = getAtlasImage("gfx/entities/computer2.png", 1);
 		computer[2] = getAtlasImage("gfx/entities/computer3.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
 
 	e->atlasImage = computer[0];
@@ -79,7 +77,6 @@ static void tick(void)
 
 static void draw(void)
 {
-	int x, y;
 	SavePoint *s;
 
 	s = (SavePoint*)self->data;
@@ -88,16 +85,7 @@ static void draw(void)
 
 	if (s->active)
 	{
-		x = self->x + (self->w / 2) - world.camera.x;
-		y = self->y + (self->h / 2) - world.camera.y;
-
-		SDL_SetTextureColorMod(sparkleTexture->texture, 168, 192, 255);
-		SDL_SetTextureAlphaMod(sparkleTexture->texture, 96);
-
-		blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-
-		SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-		SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+		drawObjectGlow(168, 192, 255, 96);
 	}
 }
 

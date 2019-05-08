@@ -25,7 +25,6 @@ static void draw(void);
 static void touch(Entity *other);
 
 static AtlasImage *heartTextures[2] = {NULL};
-static AtlasImage *sparkleTexture;
 
 void initHeart(Entity *e)
 {
@@ -46,7 +45,6 @@ void initHeart(Entity *e)
 	{
 		heartTextures[0] = getAtlasImage("gfx/entities/healthUp1.png", 1);
 		heartTextures[1] = getAtlasImage("gfx/entities/healthUp2.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
 
 	e->atlasImage = heartTextures[0];
@@ -60,13 +58,6 @@ static void tick(void)
 
 	h = (Item*)self->data;
 
-	if (self->isOnGround && --h->thinkTime <= 0)
-	{
-		self->dy = -12;
-
-		h->thinkTime = FPS * (1 + rand() % 8);
-	}
-
 	if (--h->frameTime <= 0)
 	{
 		if (++h->frame > 1)
@@ -78,22 +69,13 @@ static void tick(void)
 
 		h->frameTime = FPS / 3;
 	}
+
+	itemHop();
 }
 
 static void draw(void)
 {
-	int x, y;
-
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 0, 0);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
-
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	drawObjectGlow(255, 0, 0, 64);
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 }

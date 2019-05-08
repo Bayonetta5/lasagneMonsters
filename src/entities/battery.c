@@ -25,7 +25,6 @@ static void draw(void);
 static void touch(Entity *other);
 
 static AtlasImage *batteryTexture = NULL;
-static AtlasImage *sparkleTexture;
 
 void initBattery(Entity *e)
 {
@@ -45,7 +44,6 @@ void initBattery(Entity *e)
 	if (batteryTexture == NULL)
 	{
 		batteryTexture = getAtlasImage("gfx/entities/battery.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
 
 	e->atlasImage = batteryTexture;
@@ -55,32 +53,12 @@ void initBattery(Entity *e)
 
 static void tick(void)
 {
-	Item *h;
-
-	h = (Item*)self->data;
-
-	if (self->isOnGround && --h->thinkTime <= 0)
-	{
-		self->dy = -12;
-
-		h->thinkTime = FPS * (1 + rand() % 8);
-	}
+	itemHop();
 }
 
 static void draw(void)
 {
-	int x, y;
-
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
-
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
-
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	drawObjectGlow(255, 255, 255, 64);
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 }

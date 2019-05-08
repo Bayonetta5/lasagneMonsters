@@ -73,3 +73,17 @@ void throwItem(Entity *e)
 	e->dx /= 100;
 	e->dy /= 100;
 }
+
+void itemHop(void)
+{
+	Item *h;
+
+	h = (Item*)self->data;
+
+	if (self->isOnGround && --h->thinkTime <= 0)
+	{
+		self->dy = -12;
+
+		h->thinkTime = FPS * (1 + rand() % 8);
+	}
+}

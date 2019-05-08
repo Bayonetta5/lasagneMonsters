@@ -28,7 +28,7 @@ static void save(cJSON *root);
 
 static AtlasImage *goTexture = NULL;
 static AtlasImage *stopTexture = NULL;
-static AtlasImage *sparkleTexture = NULL;
+static AtlasImage *lightTexture = NULL;
 
 void initTrafficLight(Entity *e)
 {
@@ -38,7 +38,7 @@ void initTrafficLight(Entity *e)
 	{
 		goTexture = getAtlasImage("gfx/entities/trafficLightGo.png", 1);
 		stopTexture = getAtlasImage("gfx/entities/trafficLightStop.png", 1);
-		sparkleTexture = getAtlasImage("gfx/particles/light.png", 1);
+		lightTexture = getAtlasImage("gfx/particles/light.png", 1);
 	}
 
 	t = malloc(sizeof(TrafficLight));
@@ -81,20 +81,20 @@ static void draw(void)
 
 	if (t->on)
 	{
-		SDL_SetTextureColorMod(sparkleTexture->texture, 128, 255, 64);
+		SDL_SetTextureColorMod(lightTexture->texture, 128, 255, 64);
 	}
 	else
 	{
-		SDL_SetTextureColorMod(sparkleTexture->texture, 255, 128, 64);
+		SDL_SetTextureColorMod(lightTexture->texture, 255, 128, 64);
 		y -= 16;
 	}
 
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 64);
+	SDL_SetTextureAlphaMod(lightTexture->texture, 64);
 
-	blitAtlasImage(sparkleTexture, x, y, 1, SDL_FLIP_NONE);
+	blitAtlasImage(lightTexture, x, y, 1, SDL_FLIP_NONE);
 
-	SDL_SetTextureColorMod(sparkleTexture->texture, 255, 255, 255);
-	SDL_SetTextureAlphaMod(sparkleTexture->texture, 255);
+	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
+	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
 }
 
 static void touch(Entity *other)
