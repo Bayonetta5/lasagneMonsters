@@ -106,6 +106,13 @@ enum
 
 enum
 {
+	CT_STANDING,
+	CT_HANGING,
+	CT_SWINGING
+};
+
+enum
+{
 	WIPE_FADE,
 	WIPE_IN,
 	WIPE_OUT
@@ -156,6 +163,8 @@ enum
 	SND_NAV,
 	SND_NEGATIVE,
 	SND_TIP,
+	SND_BREAK,
+	SND_FANFARE,
 	SND_MAX
 };
 

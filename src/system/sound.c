@@ -165,6 +165,8 @@ static void loadSounds(void)
 	sounds[SND_NAV] = Mix_LoadWAV("sound/nav.ogg");
 	sounds[SND_NEGATIVE] = Mix_LoadWAV("sound/negative.ogg");
 	sounds[SND_TIP] = Mix_LoadWAV("sound/tip.ogg");
+	sounds[SND_BREAK] = Mix_LoadWAV("sound/371094__mccormick-iain__glass-break-1.ogg");
+	sounds[SND_FANFARE] = Mix_LoadWAV("sound/449069__ricniclas__fanfare.ogg");
 }
 
 void destroySounds(void)

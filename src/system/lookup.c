@@ -40,6 +40,10 @@ void initLookups(void)
 	addLookup("DR_KEY", DR_KEY);
 	addLookup("DR_REMOTE", DR_REMOTE);
 
+	addLookup("CT_STANDING", CT_STANDING);
+	addLookup("CT_HANGING", CT_HANGING);
+	addLookup("CT_SWINGING", CT_SWINGING);
+
 	addLookup("FACING_LEFT", FACING_LEFT);
 	addLookup("FACING_RIGHT", FACING_RIGHT);
 

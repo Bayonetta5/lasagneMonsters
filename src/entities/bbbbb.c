@@ -45,7 +45,7 @@ void initBBBBB(Entity *e)
 	e->typeName = "bbbbb";
 	e->type = ET_STRUCTURE;
 	e->data = b;
-	e->flags = EF_WEIGHTLESS+EF_SOLID;
+	e->flags = EF_SOLID;
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;
@@ -63,7 +63,7 @@ void initBBBBB(Entity *e)
 	e->load = load;
 	e->save = save;
 
-	attachChain();
+	stage->numGirls++;
 }
 
 static void tick(void)
@@ -72,10 +72,12 @@ static void tick(void)
 
 	b = (BBBBB*)self->data;
 
-	if (b->health > 1)
+	b->hitTimer = MAX(b->hitTimer - 16, 0);
+
+	if (b->health > 1 && b->cageType == CT_SWINGING)
 	{
-		b->swingX += 0.025f;
-		b->swingY += 0.05f;
+		b->swingX += 0.05f;
+		b->swingY += 0.1f;
 
 		self->dx = cos(b->swingX) * 2;
 		self->dy = sin(-b->swingY);
@@ -91,16 +93,29 @@ static void draw(void)
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 
-	if (b->health > 0)
+	if (b->health > 1)
 	{
 		x = self->x + (self->atlasImage->rect.w / 2) - (cageTexture->rect.w / 2) - world.camera.x;
 		y = self->y;
 
-		blitAtlasImage(cageTexture, x, y, 0, SDL_FLIP_NONE);
-
-		if (b->health > 1)
+		if (b->hitTimer > 0)
 		{
-			drawLine(self->x + (self->atlasImage->rect.w / 2) - world.camera.x, self->y - world.camera.y, b->chainX - world.camera.x, b->chainY - world.camera.y, 192, 192, 192, 255);
+			SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_ADD);
+			SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255 - b->hitTimer, 255 - b->hitTimer);
+
+			blitAtlasImage(cageTexture, x, y, 0, SDL_FLIP_NONE);
+
+			SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
+			SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_BLEND);
+		}
+		else
+		{
+			blitAtlasImage(cageTexture, x, y, 0, SDL_FLIP_NONE);
+		}
+
+		if (b->cageType != CT_STANDING)
+		{
+			drawLine(self->x + (self->atlasImage->rect.w / 2) - world.camera.x, self->y - 8 - world.camera.y, b->chainX - world.camera.x, b->chainY - world.camera.y, 192, 192, 192, 255);
 		}
 	}
 }
@@ -113,11 +128,19 @@ static void damage(int amount)
 
 	if (b->health > 1)
 	{
-		if (--b->health == 1)
+		b->health = MAX(b->health - amount, 1);
+
+		b->hitTimer = 255;
+
+		if (b->health == 1)
 		{
 			self->flags &= ~EF_WEIGHTLESS;
 			self->dx = self->dy = 0;
 			self->damage = NULL;
+
+			addCageBreakParticles(self->x + (self->w / 2), self->y + (self->h / 2));
+
+			playPositionalSound(SND_BREAK, -1, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
 }
@@ -128,26 +151,44 @@ static void touch(Entity *other)
 
 	b = (BBBBB*)self->data;
 
-	/* hit ground, remove solid */
+	/* hit ground, add static */
 	if (other == NULL)
 	{
-		self->flags &= ~EF_SOLID;
+		self->flags |= EF_STATIC;
 	}
 
 	if (other == world.player && b->health == 1)
 	{
+		self->alive = ALIVE_DEAD;
 		b->health = 0;
+		stage->numGirls--;
+
+		addBBBBBParticles(self->x, self->y);
+
+		playSound(SND_FANFARE, -1);
 	}
 }
 
 static void attachChain(void)
 {
 	BBBBB *b;
+	int x, y, found;
 
 	b = (BBBBB*)self->data;
 
+	x = (self->x + (self->w / 2)) / TILE_SIZE;
+	y = self->y / TILE_SIZE;
+
+	do
+	{
+		found = isInsideMap(x, y) && stage->map[x][y] != 0;
+
+		y--;
+	}
+	while (!found);
+
 	b->chainX = self->x + (self->w / 2);
-	b->chainY = self->y - 100;
+	b->chainY = y + TILE_SIZE;
 }
 
 static void initTextures(void)
@@ -174,6 +215,19 @@ static void load(cJSON *root)
 	b = (BBBBB*)self->data;
 
 	b->health = cJSON_GetObjectItem(root, "health")->valueint;
+	b->cageType = lookup(cJSON_GetObjectItem(root, "cageType")->valuestring);
+
+	switch (b->cageType)
+	{
+		case CT_HANGING:
+		case CT_SWINGING:
+			self->flags |= EF_WEIGHTLESS;
+			attachChain();
+			break;
+
+		default:
+			break;
+	}
 }
 
 static void save(cJSON *root)
@@ -183,4 +237,5 @@ static void save(cJSON *root)
 	b = (BBBBB*)self->data;
 
 	cJSON_AddNumberToObject(root, "health", b->health);
+	cJSON_AddStringToObject(root, "cageType", getLookupName("CT_", b->cageType));
 }

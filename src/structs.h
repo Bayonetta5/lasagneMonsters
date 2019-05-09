@@ -186,11 +186,13 @@ typedef struct {
 } PiggyBank;
 
 typedef struct {
+	int cageType;
 	float swingX;
 	float swingY;
 	int health;
 	int chainX;
 	int chainY;
+	int hitTimer;
 } BBBBB;
 
 struct Particle {
@@ -226,6 +228,7 @@ struct Stage {
 	int id;
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters;
+	int numGirls;
 	Entity entityHead, *entityTail;
 	Stage *next;
 };

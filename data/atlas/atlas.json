@@ -512,6 +512,14 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/hud/girls.png",
+		"x" : 77,
+		"y" : 236,
+		"w" : 24,
+		"h" : 24,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/hud/key.png",
 		"x" : 138,
 		"y" : 74,

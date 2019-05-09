@@ -25,6 +25,7 @@ static void drawHealth(void);
 static void drawAmmo(void);
 static void drawCoins(void);
 static void drawMonsterInfo(void);
+static void drawGirlsInfo(void);
 static void drawKeys(void);
 static void drawGameText(void);
 
@@ -33,6 +34,7 @@ static AtlasImage *heartEmptyTexture;
 static AtlasImage *coinTexture;
 static AtlasImage *waterTexture;
 static AtlasImage *monstersTexture;
+static AtlasImage *girlsTexture;
 static AtlasImage *keyTexture;
 
 void initHud(void)
@@ -42,6 +44,7 @@ void initHud(void)
 	coinTexture = getAtlasImage("gfx/entities/coin.png", 1);
 	waterTexture = getAtlasImage("gfx/hud/water.png", 1);
 	monstersTexture = getAtlasImage("gfx/hud/monsters.png", 1);
+	girlsTexture = getAtlasImage("gfx/hud/girls.png", 1);
 	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
 }
 
@@ -50,18 +53,18 @@ void addGameText(int x, int y, char *format, ...)
 	GameText *g;
 	char buffer[MAX_DESCRIPTION_LENGTH];
 	va_list args;
-	
+
 	memset(&buffer, '\0', sizeof(buffer));
 
 	va_start(args, format);
 	vsprintf(buffer, format, args);
 	va_end(args);
-	
+
 	g = malloc(sizeof(GameText));
 	memset(g, 0, sizeof(GameText));
 	world.gameTextTail->next = g;
 	world.gameTextTail = g;
-	
+
 	g->x = x;
 	g->y = y;
 	STRNCPY(g->text, buffer, MAX_NAME_LENGTH);
@@ -76,25 +79,25 @@ void doHud(void)
 static void doGameText(void)
 {
 	GameText *g, *prev;
-	
+
 	prev = &world.gameTextHead;
-	
+
 	for (g = world.gameTextHead.next ; g != NULL ; g = g->next)
 	{
 		g->y--;
-		
+
 		if (--g->health <= 0)
 		{
 			if (g == world.gameTextTail)
 			{
 				world.gameTextTail = prev;
 			}
-			
+
 			prev->next = g->next;
 			free(g);
 			g = prev;
 		}
-		
+
 		prev = g;
 	}
 }
@@ -102,15 +105,17 @@ static void doGameText(void)
 void drawHud(void)
 {
 	drawHealth();
-	
+
 	drawAmmo();
-	
+
 	drawMonsterInfo();
-	
+
 	drawCoins();
-	
+
 	drawKeys();
-	
+
+	drawGirlsInfo();
+
 	drawGameText();
 }
 
@@ -118,11 +123,11 @@ static void drawHealth(void)
 {
 	int i, x;
 	Walter *w;
-	
+
 	w = (Walter*)world.player->data;
-	
+
 	x = 10;
-	
+
 	for (i = 0 ; i < w->maxHealth ; i++)
 	{
 		if (w->health > i)
@@ -133,7 +138,7 @@ static void drawHealth(void)
 		{
 			blitAtlasImage(heartEmptyTexture, x, 8, 0, SDL_FLIP_NONE);
 		}
-		
+
 		x += 32;
 	}
 }
@@ -142,24 +147,24 @@ static void drawAmmo(void)
 {
 	Walter *w;
 	int i, width, maxWidth, x;
-	
+
 	blitAtlasImage(waterTexture, 10, 48, 0, SDL_FLIP_NONE);
-	
+
 	w = (Walter*)world.player->data;
-	
+
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
-	
+
 	drawRect(42, 54, maxWidth, 16, 0, 64, 128, 192);
 	drawRect(42, 54, width, 16, 0, 200, 255, 255);
 	drawOutlineRect(42, 54, maxWidth, 16, 0, 0, 0, 255);
-	
+
 	x = 42;
-	
+
 	for (i = 0 ; i < w->maxAmmo ; i++)
 	{
 		drawLine(x, 54, x, 70, 0, 0, 0, 255);
-		
+
 		x += 25;
 	}
 }
@@ -167,34 +172,41 @@ static void drawAmmo(void)
 static void drawMonsterInfo(void)
 {
 	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 108, 8, 0, SDL_FLIP_NONE);
-	
-	drawText(SCREEN_WIDTH - 10, 6, 32, TEXT_RIGHT, app.colors.white, "x %03d", stage->numMonsters);
+
+	drawText(SCREEN_WIDTH - 10, 5, 32, TEXT_RIGHT, app.colors.white, "x %03d", stage->numMonsters);
 }
 
 static void drawCoins(void)
 {
-	blitAtlasImage(coinTexture, SCREEN_WIDTH - 109, 53, 0, SDL_FLIP_NONE);
-	
-	drawText(SCREEN_WIDTH - 10, 48, 32, TEXT_RIGHT, app.colors.white, "x %03d", game.coins);
+	blitAtlasImage(coinTexture, SCREEN_WIDTH - 109, 45, 0, SDL_FLIP_NONE);
+
+	drawText(SCREEN_WIDTH - 10, 40, 32, TEXT_RIGHT, app.colors.white, "x %03d", game.coins);
 }
 
 static void drawKeys(void)
 {
-	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 96, 0, SDL_FLIP_NONE);
-	
-	drawText(SCREEN_WIDTH - 10, 90, 32, TEXT_RIGHT, app.colors.white, "x %d", game.keys);
+	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 82, 0, SDL_FLIP_NONE);
+
+	drawText(SCREEN_WIDTH - 10, 75, 32, TEXT_RIGHT, app.colors.white, "x %d", game.keys);
+}
+
+static void drawGirlsInfo(void)
+{
+	blitAtlasImage(girlsTexture, SCREEN_WIDTH - 80, 114, 0, SDL_FLIP_NONE);
+
+	drawText(SCREEN_WIDTH - 10, 110, 32, TEXT_RIGHT, app.colors.white, "x %d", stage->numGirls);
 }
 
 static void drawGameText(void)
 {
 	GameText *g;
 	int x, y;
-	
+
 	for (g = world.gameTextHead.next ; g != NULL ; g = g->next)
 	{
 		x = g->x - world.camera.x;
 		y = g->y - world.camera.y;
-		
+
 		drawText(x, y, 32, TEXT_CENTER, app.colors.white, g->text);
 	}
 }
