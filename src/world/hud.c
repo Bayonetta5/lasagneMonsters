@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "hud.h"
 
+static void drawTopBar(void);
+static void drawBottomBar(void);
 static void doGameText(void);
 static void drawHealth(void);
 static void drawAmmo(void);
@@ -104,19 +106,20 @@ static void doGameText(void)
 
 void drawHud(void)
 {
+	drawTopBar();
+
+	drawBottomBar();
+
+	drawGameText();
+}
+
+static void drawTopBar(void)
+{
+	drawRect(0, 0, SCREEN_WIDTH, 40, 0, 0, 0, 192);
+
 	drawHealth();
 
 	drawAmmo();
-
-	drawMonsterInfo();
-
-	drawCoins();
-
-	drawKeys();
-
-	drawGirlsInfo();
-
-	drawGameText();
 }
 
 static void drawHealth(void)
@@ -146,55 +149,59 @@ static void drawHealth(void)
 static void drawAmmo(void)
 {
 	Walter *w;
-	int i, width, maxWidth, x;
+	int width, maxWidth;
 
-	blitAtlasImage(waterTexture, 10, 48, 0, SDL_FLIP_NONE);
+	blitAtlasImage(waterTexture, 510, 8, 0, SDL_FLIP_NONE);
 
 	w = (Walter*)world.player->data;
 
 	maxWidth = MAX(w->maxAmmo * 25, 0);
 	width = MAX(w->ammo * 25, 0);
 
-	drawRect(42, 54, maxWidth, 16, 0, 64, 128, 192);
-	drawRect(42, 54, width, 16, 0, 200, 255, 255);
-	drawOutlineRect(42, 54, maxWidth, 16, 0, 0, 0, 255);
+	drawRect(542, 14, maxWidth, 16, 0, 64, 128, 192);
+	drawRect(542, 14, width, 16, 0, 200, 255, 255);
+	drawOutlineRect(542, 14, maxWidth, 16, 0, 0, 0, 255);
+}
 
-	x = 42;
+static void drawBottomBar(void)
+{
+	drawRect(0, SCREEN_HEIGHT - 32, SCREEN_WIDTH, 32, 0, 0, 0, 192);
 
-	for (i = 0 ; i < w->maxAmmo ; i++)
-	{
-		drawLine(x, 54, x, 70, 0, 0, 0, 255);
+	drawMonsterInfo();
 
-		x += 25;
-	}
+	drawCoins();
+
+	drawKeys();
+
+	drawGirlsInfo();
 }
 
 static void drawMonsterInfo(void)
 {
-	blitAtlasImage(monstersTexture, SCREEN_WIDTH - 108, 8, 0, SDL_FLIP_NONE);
+	blitAtlasImage(monstersTexture, 10, SCREEN_HEIGHT - 28, 0, SDL_FLIP_NONE);
 
-	drawText(SCREEN_WIDTH - 10, 5, 32, TEXT_RIGHT, app.colors.white, "x %03d", stage->numMonsters);
+	drawText(10 + monstersTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %03d", stage->numMonsters);
 }
 
 static void drawCoins(void)
 {
-	blitAtlasImage(coinTexture, SCREEN_WIDTH - 109, 45, 0, SDL_FLIP_NONE);
+	blitAtlasImage(coinTexture, 200, SCREEN_HEIGHT - 28, 0, SDL_FLIP_NONE);
 
-	drawText(SCREEN_WIDTH - 10, 40, 32, TEXT_RIGHT, app.colors.white, "x %03d", game.coins);
+	drawText(200 + coinTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %03d", game.coins);
 }
 
 static void drawKeys(void)
 {
-	blitAtlasImage(keyTexture, SCREEN_WIDTH - 90, 82, 0, SDL_FLIP_NONE);
+	blitAtlasImage(keyTexture, 400, SCREEN_HEIGHT - 26, 0, SDL_FLIP_NONE);
 
-	drawText(SCREEN_WIDTH - 10, 75, 32, TEXT_RIGHT, app.colors.white, "x %d", game.keys);
+	drawText(400 + keyTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %03d", game.keys);
 }
 
 static void drawGirlsInfo(void)
 {
-	blitAtlasImage(girlsTexture, SCREEN_WIDTH - 80, 114, 0, SDL_FLIP_NONE);
+	blitAtlasImage(girlsTexture, 600, SCREEN_HEIGHT - 28, 0, SDL_FLIP_NONE);
 
-	drawText(SCREEN_WIDTH - 10, 110, 32, TEXT_RIGHT, app.colors.white, "x %d", stage->numGirls);
+	drawText(600 + girlsTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %d", stage->numGirls);
 }
 
 static void drawGameText(void)
