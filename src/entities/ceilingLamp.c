@@ -18,32 +18,45 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "pusBall.h"
+#include "ceilingLamp.h"
 
-static void tick(void);
-static void touch(Entity *other);
+static void draw(void);
 
-void initPusBall(Entity *e)
+static AtlasImage *texture = NULL;
+
+void initCeilingLamp(Entity *e)
 {
-	e->type = ET_DECORATION;
-	e->tick = tick;
-	e->touch = touch;
-	e->flags = EF_TRANSIENT;
-}
+	initLamp(e);
 
-static void tick(void)
-{
-	addPusParticle(self->x, self->y);
-}
+	e->typeName = "ceilingLamp";
 
-static void touch(Entity *other)
-{
-	if (other == NULL)
+	if (texture == NULL)
 	{
-		self->alive = ALIVE_DEAD;
-
-		playPositionalSound(SND_PUS_SPLAT, CH_SPLAT, self->x, self->y, world.player->x, world.player->y);
-
-		addPusBurstParticles(self->x, self->y);
+		texture = getAtlasImage("gfx/entities/ceilingLamp.png", 1);
 	}
+
+	e->flags |= EF_WEIGHTLESS;
+
+	e->draw = draw;
+
+	e->atlasImage = texture;
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+}
+
+static void draw(void)
+{
+	int x, y;
+
+	x = self->x - world.camera.x;
+	y = self->y - world.camera.y;
+
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
+
+	x += (self->w / 2);
+
+	y += 18;
+
+	drawObjectGlowAt(x - 18, y, 255, 255, 192, 64);
+	drawObjectGlowAt(x + 18, y, 255, 255, 192, 64);
 }

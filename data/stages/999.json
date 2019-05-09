@@ -14,81 +14,6 @@
 			"autoFire":	0,
 			"hasDoubleJump":	0
 		}, {
-			"type":	"bbbbb",
-			"name":	"",
-			"x":	160,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"health":	5,
-			"cageType":	"CT_STANDING"
-		}, {
-			"type":	"trafficLight",
-			"name":	"",
-			"x":	256,
-			"y":	376,
-			"facing":	"FACING_RIGHT",
-			"targetName":	"",
-			"on":	0
-		}, {
-			"type":	"savePoint",
-			"name":	"",
-			"x":	320,
-			"y":	400,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"piggyBank",
-			"name":	"",
-			"x":	416,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"requiredCoins":	0,
-			"targetName":	""
-		}, {
-			"type":	"key",
-			"name":	"",
-			"x":	576,
-			"y":	368,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"heart",
-			"name":	"",
-			"x":	616,
-			"y":	408,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"gumball",
-			"name":	"",
-			"x":	680,
-			"y":	408,
-			"facing":	"FACING_RIGHT",
-			"value":	3
-		}, {
-			"type":	"gumballMachine",
-			"name":	"",
-			"x":	760,
-			"y":	384,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	976,
-			"y":	304,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0
-		}, {
-			"type":	"boots",
-			"name":	"",
-			"x":	80,
-			"y":	392,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"battery",
-			"name":	"",
-			"x":	376,
-			"y":	400,
-			"facing":	"FACING_RIGHT"
-		}, {
 			"type":	"door",
 			"name":	"",
 			"x":	352,
@@ -102,18 +27,82 @@
 			"ex":	352,
 			"ey":	436
 		}, {
-			"type":	"platform",
+			"type":	"lamp",
 			"name":	"",
 			"x":	80,
-			"y":	192,
+			"y":	360,
 			"facing":	"FACING_RIGHT",
-			"sx":	80,
-			"sy":	192,
-			"ex":	688,
-			"ey":	192,
-			"pause":	60,
-			"speed":	2,
-			"enabled":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255,
+			"ceiling":	0
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	256,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255,
+			"ceiling":	0
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	528,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255,
+			"ceiling":	0
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	720,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255,
+			"ceiling":	0
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	272,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	0,
+			"g":	0,
+			"b":	0,
+			"a":	0,
+			"ceiling":	1
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	448,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	0,
+			"g":	0,
+			"b":	0,
+			"a":	0,
+			"ceiling":	1
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	688,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	0,
+			"g":	0,
+			"b":	0,
+			"a":	0,
+			"ceiling":	1
 		}],
 	"map":	{
 		"data":	"eJzt10EKgCAQQNGrdIRaeP+rRQkpQRguCmYeb6Mwgn/hwm3ZJqxhzLTo//vW+vXr/6a/nPoTufrrVLlWGfvbdLz+MlQnj1XE/uddr7VH7n9Xn63/Xh+rf/z+Y/9/cv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEZ26sgCeQ=",

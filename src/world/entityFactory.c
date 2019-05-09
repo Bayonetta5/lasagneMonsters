@@ -33,6 +33,7 @@ void initEntityFactory(void)
 	addInitFunc("bbbbb", initBBBBB);
 	addInitFunc("battery", initBattery);
 	addInitFunc("boots", initBoots);
+	addInitFunc("ceilingLamp", initCeilingLamp);
 	addInitFunc("chest", initChest);
 	addInitFunc("door", initDoor);
 	addInitFunc("greenFlyingCyclops", initGreenFlyingCyclops);
@@ -43,6 +44,7 @@ void initEntityFactory(void)
 	addInitFunc("heart", initHeart);
 	addInitFunc("horizontalDoor", initHorizontalDoor);
 	addInitFunc("key", initKey);
+	addInitFunc("lamp", initLamp);
 	addInitFunc("piggyBank", initPiggyBank);
 	addInitFunc("player", initPlayer);
 	addInitFunc("platform", initPlatform);

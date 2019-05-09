@@ -38,13 +38,32 @@ void initGraphics(void)
 	initColor(&app.colors.darkGrey, 128, 128, 128);
 
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
+	app.lightMap = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 256, 144);
+
+	SDL_SetTextureBlendMode(app.lightMap, SDL_BLENDMODE_MOD);
 }
 
 void prepareScene(void)
 {
-	SDL_SetRenderTarget(app.renderer, app.backBuffer);
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(app.renderer, 48, 48, 48, 255);
+	SDL_SetRenderTarget(app.renderer, app.lightMap);
 	SDL_RenderClear(app.renderer);
+
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
+	SDL_RenderClear(app.renderer);
+}
+
+void drawLightMap(void)
+{
+	SDL_Rect dest;
+
+	dest.x = 0;
+	dest.y = 0;
+	dest.w = SCREEN_WIDTH;
+	dest.h = SCREEN_HEIGHT;
+
+	SDL_RenderCopy(app.renderer, app.lightMap, NULL, &dest);
 }
 
 void presentScene(void)

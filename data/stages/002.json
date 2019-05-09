@@ -108,11 +108,13 @@
 			"x":	136,
 			"y":	256,
 			"facing":	"FACING_RIGHT",
-			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
-			"maxAmmo":	5
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -178,6 +180,60 @@
 			"targetFlag":	"topLeft",
 			"w":	1,
 			"h":	2
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	224,
+			"y":	216,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	920,
+			"y":	408,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	896,
+			"y":	600,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	400,
+			"y":	840,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1968,
+			"y":	648,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2592,
+			"y":	168,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2768,
+			"y":	696,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3648,
+			"y":	168,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3368,
+			"y":	504,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
 		"data":	"eJzt1k1ugzAQBtCr9AhlMfe/WhetkhD8H2yo9PSkLFAM/gaPzfa1/QPf0/Tfe2R2+3/lR2yHUffLf6zAefnrY++Q/70Gq555J6/546F1bBRdna2/AsdKlJK17HTx9zu7IuN1H9+/6+s/Ov8/7rM+Hjm7orhO0s9Zk3925/0mLFcrVYdV+edW4DV5fTaxu7oq/5ZZhbV9rUVPp+0rsDJ/+URr7fHjU/b3aJtZJEavyV/viL6+act/zf53Tt3K52dL/sicFnF5/nS2dNeMzeK5P8Tb9bb+mps/v8JLO0d7LXJ7YySurc+ffjPP/PmqxOMO7SfDlrw+M3/5TZ0xi9oeWzczf65zj+9mpL/rX3x3yP/euflZf/LVc+/8dzYvPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9PgB3TgHrA=",

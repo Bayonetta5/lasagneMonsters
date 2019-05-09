@@ -6,11 +6,13 @@
 			"x":	88,
 			"y":	304,
 			"facing":	"FACING_RIGHT",
-			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
-			"maxAmmo":	5
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
 		}, {
 			"type":	"startPoint",
 			"name":	"rightFlag",
@@ -40,6 +42,18 @@
 			"sy":	576,
 			"ex":	1216,
 			"ey":	484
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	136,
+			"y":	256,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	840,
+			"y":	600,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
 		"data":	"eJzt18ENgCAQRcFWLEEO9N+aiV6JLMZIXCbTwL5/IKFs5YE9jfEW/fpnX61fv/53+utp3f5LfIOc/fEN8vbHNsjd398gf//Ye/Bvd7+cFTbo/fRq0+yrAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL5zALlHAi0",

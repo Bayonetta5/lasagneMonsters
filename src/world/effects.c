@@ -32,13 +32,8 @@ void initEffects(void)
 	lightTexture = getAtlasImage("gfx/effects/light.png", 1);
 }
 
-void drawObjectGlow(int r, int g, int b, int a)
+void drawObjectGlowAt(int x, int y, int r, int g, int b, int a)
 {
-	int x, y;
-
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
-
 	SDL_SetTextureColorMod(lightTexture->texture, r, g, b);
 	SDL_SetTextureAlphaMod(lightTexture->texture, a);
 
@@ -46,6 +41,16 @@ void drawObjectGlow(int r, int g, int b, int a)
 
 	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
+}
+
+void drawObjectGlow(int r, int g, int b, int a)
+{
+	int x, y;
+
+	x = self->x + (self->w / 2) - world.camera.x;
+	y = self->y + (self->h / 2) - world.camera.y;
+
+	drawObjectGlowAt(x, y, r, g, b, a);
 }
 
 void throwPusBalls(int x, int y, int n)
@@ -69,4 +74,18 @@ void throwPusBalls(int x, int y, int n)
 
 		e->atlasImage = pusBallTexture[rand() % 3];
 	}
+}
+
+void drawLight(int x, int y, int r, int g, int b)
+{
+	x /= 5;
+	y /= 5;
+
+	SDL_SetTextureBlendMode(lightTexture->texture, SDL_BLENDMODE_ADD);
+	SDL_SetTextureColorMod(lightTexture->texture, r, g, b);
+
+	blitAtlasImage(lightTexture, x, y, 1, SDL_FLIP_NONE);
+
+	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
+	SDL_SetTextureBlendMode(lightTexture->texture, SDL_BLENDMODE_BLEND);
 }

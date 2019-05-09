@@ -195,6 +195,10 @@ typedef struct {
 	int hitTimer;
 } BBBBB;
 
+typedef struct {
+	int r, g, b, a;
+} Lamp;
+
 struct Particle {
 	float x;
 	float y;
@@ -287,6 +291,7 @@ typedef struct {
 	SDL_Renderer *renderer;
 	SDL_Window *window;
 	SDL_Texture *backBuffer;
+	SDL_Texture *lightMap;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	int joypadButton[SDL_CONTROLLER_BUTTON_MAX];
 	int joypadAxis[JOYPAD_AXIS_MAX];

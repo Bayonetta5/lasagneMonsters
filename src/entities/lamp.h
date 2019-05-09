@@ -19,14 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
+extern void addCoinParticles(int x, int y);
+extern void addGameText(int x, int y, char *format, ...);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern void drawObjectGlow(int r, int g, int b, int a);
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern void drawObjectGlowAt(int x, int y, int r, int g, int b, int a);
 
-extern App app;
+extern Entity *self;
 extern Game game;
-extern Stage *stage;
 extern World world;
