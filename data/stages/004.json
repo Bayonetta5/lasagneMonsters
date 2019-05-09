@@ -33,7 +33,7 @@
 			"y":	432,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	5,
-			"targetFlag":	"",
+			"targetFlag":	"topLeft",
 			"w":	1,
 			"h":	2
 		}, {

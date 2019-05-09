@@ -6,13 +6,13 @@
 			"x":	-48,
 			"y":	2976,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	4,
+			"targetStage":	5,
 			"targetFlag":	"bottomRight",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"topLeft",
 			"x":	16,
 			"y":	3040,
 			"facing":	"FACING_RIGHT"

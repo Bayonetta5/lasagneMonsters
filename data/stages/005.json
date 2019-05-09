@@ -49,8 +49,8 @@
 			"x":	1296,
 			"y":	576,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	7,
+			"targetFlag":	"topLeft",
 			"w":	1,
 			"h":	2
 		}, {
@@ -69,8 +69,8 @@
 			"x":	-48,
 			"y":	576,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	6,
+			"targetFlag":	"bottomRight",
 			"w":	1,
 			"h":	2
 		}, {
@@ -139,19 +139,19 @@
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"topLeft",
 			"x":	16,
 			"y":	304,
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"bottomLeft",
 			"x":	16,
 			"y":	640,
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"bottomRight",
 			"x":	1256,
 			"y":	640,
 			"facing":	"FACING_RIGHT"
