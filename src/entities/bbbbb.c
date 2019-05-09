@@ -79,8 +79,8 @@ static void tick(void)
 		b->swingX += 0.05f;
 		b->swingY += 0.1f;
 
-		self->dx = cos(b->swingX) * 2;
-		self->dy = sin(-b->swingY);
+		self->dx = cos(b->swingX) * 0.5;
+		self->dy = sin(-b->swingY) * 0.25;
 	}
 }
 
@@ -181,14 +181,14 @@ static void attachChain(void)
 
 	do
 	{
-		found = isInsideMap(x, y) && stage->map[x][y] != 0;
-
 		y--;
+
+		found = !isInsideMap(x, y) || stage->map[x][y] != 0;
 	}
 	while (!found);
 
 	b->chainX = self->x + (self->w / 2);
-	b->chainY = y + TILE_SIZE;
+	b->chainY = (y * TILE_SIZE) + TILE_SIZE;
 }
 
 static void initTextures(void)

@@ -16,16 +16,32 @@
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
-			"x":	520,
-			"y":	208,
+			"x":	280,
+			"y":	304,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType" : "CT_SWINGING"
+			"cageType":	"CT_HANGING"
+		}, {
+			"type":	"bbbbb",
+			"name":	"",
+			"x":	160,
+			"y":	312,
+			"facing":	"FACING_RIGHT",
+			"health":	5,
+			"cageType":	"CT_STANDING"
+		}, {
+			"type":	"bbbbb",
+			"name":	"",
+			"x":	424,
+			"y":	304,
+			"facing":	"FACING_RIGHT",
+			"health":	5,
+			"cageType":	"CT_SWINGING"
 		}],
 	"map":	{
-		"data":	"eJzt17EJwCAQQNFVMkIssv9qIaQwCOGCRYS7x2sULPyFim1rE/Y0Zlr0r961fv36/+kfb/yK939vrv3+ZXz/j9C98hpl7H+fPfX2zP3f6qv1j/W5+uPzn/v/U/v/BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA5AVCvAmk",
-		"eLen":	172,
-		"cLen":	128,
+		"data":	"eJzt10sKgCAUQNGttIQauP+tRQX9ILSIPs/DmRg8oTsQsWu6C9owrrTof/uv9d/Xf/6Mx+p/Zs9X5VvSaL2jrv5pKs2rGvuX6Xj9KWuaHFYR+4+/1lLh3fA3ZS3b+tr69/Wx+vPnP/b7p+73HwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBOD7qGAoU",
+		"eLen":	192,
+		"cLen":	143,
 		"dLen":	32768
 	}
 }
