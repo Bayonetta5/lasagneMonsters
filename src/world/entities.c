@@ -492,7 +492,26 @@ void resetSavePoints(void)
 
 void destroyEntities(void)
 {
-	Entity *e;
+	Entity *e, *prev;
+
+	prev = &stage->entityHead;
+
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->flags & EF_TRANSIENT)
+		{
+			if (e == stage->entityTail)
+			{
+				stage->entityTail = prev;
+			}
+
+			prev->next = e->next;
+			free(e);
+			e = prev;
+		}
+
+		prev = e;
+	}
 
 	while (deadListHead.next)
 	{
@@ -501,4 +520,6 @@ void destroyEntities(void)
 		free(e->data);
 		free(e);
 	}
+
+	deadListTail = &deadListHead;
 }

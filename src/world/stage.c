@@ -35,7 +35,7 @@ static void load(void);
 static void stats(void);
 static void options(void);
 static void quit(void);
-void destroyStage(void);
+static void destroyStage(void);
 void loadStage(char *filename);
 
 static int show;
@@ -255,7 +255,7 @@ static void drawBackground(void)
 	}
 }
 
-void destroyStage(void)
+static void destroyStage(void)
 {
 	destroyQuadtree();
 
