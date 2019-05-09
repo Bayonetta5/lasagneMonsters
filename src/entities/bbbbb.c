@@ -96,7 +96,7 @@ static void draw(void)
 	if (b->health > 1)
 	{
 		x = self->x + (self->atlasImage->rect.w / 2) - (cageTexture->rect.w / 2) - world.camera.x;
-		y = self->y;
+		y = (self->y - world.camera.y) - self->h / 2;
 
 		if (b->hitTimer > 0)
 		{
