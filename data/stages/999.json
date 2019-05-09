@@ -16,32 +16,109 @@
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
-			"x":	280,
-			"y":	304,
-			"facing":	"FACING_RIGHT",
-			"health":	5,
-			"cageType":	"CT_HANGING"
-		}, {
-			"type":	"bbbbb",
-			"name":	"",
 			"x":	160,
-			"y":	312,
+			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"cageType":	"CT_STANDING"
 		}, {
-			"type":	"bbbbb",
+			"type":	"trafficLight",
 			"name":	"",
-			"x":	424,
+			"x":	256,
+			"y":	376,
+			"facing":	"FACING_RIGHT",
+			"targetName":	"",
+			"on":	0
+		}, {
+			"type":	"savePoint",
+			"name":	"",
+			"x":	320,
+			"y":	400,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"piggyBank",
+			"name":	"",
+			"x":	416,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"requiredCoins":	0,
+			"targetName":	""
+		}, {
+			"type":	"key",
+			"name":	"",
+			"x":	576,
+			"y":	368,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"heart",
+			"name":	"",
+			"x":	616,
+			"y":	408,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"gumball",
+			"name":	"",
+			"x":	680,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"value":	3
+		}, {
+			"type":	"gumballMachine",
+			"name":	"",
+			"x":	760,
+			"y":	384,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	976,
 			"y":	304,
 			"facing":	"FACING_RIGHT",
-			"health":	5,
-			"cageType":	"CT_SWINGING"
+			"open":	0,
+			"coins":	0
+		}, {
+			"type":	"boots",
+			"name":	"",
+			"x":	80,
+			"y":	392,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"battery",
+			"name":	"",
+			"x":	376,
+			"y":	400,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	352,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	352,
+			"sy":	528,
+			"ex":	352,
+			"ey":	436
+		}, {
+			"type":	"platform",
+			"name":	"",
+			"x":	80,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"sx":	80,
+			"sy":	192,
+			"ex":	688,
+			"ey":	192,
+			"pause":	60,
+			"speed":	2,
+			"enabled":	1
 		}],
 	"map":	{
-		"data":	"eJzt10sKgCAUQNGttIQauP+tRQX9ILSIPs/DmRg8oTsQsWu6C9owrrTof/uv9d/Xf/6Mx+p/Zs9X5VvSaL2jrv5pKs2rGvuX6Xj9KWuaHFYR+4+/1lLh3fA3ZS3b+tr69/Wx+vPnP/b7p+73HwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBOD7qGAoU",
-		"eLen":	192,
-		"cLen":	143,
+		"data":	"eJzt10EKgCAQQNGrdIRaeP+rRQkpQRguCmYeb6Mwgn/hwm3ZJqxhzLTo//vW+vXr/6a/nPoTufrrVLlWGfvbdLz+MlQnj1XE/uddr7VH7n9Xn63/Xh+rf/z+Y/9/cv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEZ26sgCeQ=",
+		"eLen":	176,
+		"cLen":	130,
 		"dLen":	32768
 	}
 }
