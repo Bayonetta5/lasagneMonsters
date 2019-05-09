@@ -25,4 +25,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void *resize(void *array, int oldSize, int newSize);
 
+extern App app;
 extern World world;
