@@ -33,7 +33,7 @@ void initCoin(Entity *e)
 	i = malloc(sizeof(Item));
 	memset(i, 0, sizeof(Item));
 
-	i->health = FPS * 5;
+	i->health = FPS * 10;
 	i->touchDelay = FPS / 4;
 
 	e->typeName = "coin";
