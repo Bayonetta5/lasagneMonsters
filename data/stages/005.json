@@ -6,11 +6,13 @@
 			"x":	144,
 			"y":	352,
 			"facing":	"FACING_RIGHT",
-			"facing":	"right",
-			"health":	3,
-			"maxHealth":	3,
+			"health":	5,
+			"maxHealth":	5,
 			"ammo":	5,
-			"maxAmmo":	5
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
 		}, {
 			"type":	"gumballMachine",
 			"name":	"",
@@ -155,6 +157,96 @@
 			"x":	1256,
 			"y":	640,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	344,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	104,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	560,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1128,
+			"y":	288,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1096,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	624,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	256,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	240,
+			"y":	576,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1000,
+			"y":	576,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
 		"data":	"eJzt1jsKgDAQQMGreAS38P5Xs1FIkcQPgrA7TJnGF2KyscQLaxpvWvT//dVf9m9T+fvn670dyNR/V3smKva3MvWP/vEq/XHcgJX7o/MKnOu9NyFj/2jCyz//XfXl7qe2+fT7ZCoGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyGkHAFkC6g=",

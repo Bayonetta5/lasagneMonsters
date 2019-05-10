@@ -22,8 +22,8 @@
 			"x":	72,
 			"y":	3040,
 			"facing":	"FACING_RIGHT",
-			"health":	3,
-			"maxHealth":	3,
+			"health":	5,
+			"maxHealth":	5,
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
@@ -36,7 +36,7 @@
 			"y":	4128,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1504,
 			"sy":	4128,
@@ -49,7 +49,7 @@
 			"y":	3984,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	928,
 			"sy":	3984,
@@ -84,7 +84,7 @@
 			"y":	4560,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	3472,
 			"sy":	4560,
@@ -113,7 +113,7 @@
 			"coins":	25
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"chestDoor",
 			"x":	2992,
 			"y":	3840,
 			"facing":	"FACING_RIGHT",
@@ -130,7 +130,7 @@
 			"x":	3168,
 			"y":	4168,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"chestDoor",
 			"on":	0
 		}, {
 			"type":	"platform",
@@ -144,7 +144,7 @@
 			"ey":	4136,
 			"pause":	60,
 			"speed":	2,
-			"enabled":	0
+			"enabled":	1
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -235,16 +235,16 @@
 			"x":	3568,
 			"y":	4600,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"lockedDoor1",
 			"on":	0
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"lockedDoor1",
 			"x":	3664,
 			"y":	5184,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	3664,
 			"sy":	5184,
@@ -291,12 +291,12 @@
 			"enabled":	1
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"cageDoor",
 			"x":	4752,
 			"y":	2752,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	4752,
 			"sy":	2752,
@@ -308,7 +308,7 @@
 			"x":	4888,
 			"y":	3112,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"cageDoor",
 			"on":	0
 		}, {
 			"type":	"door",
@@ -317,7 +317,7 @@
 			"y":	2592,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1840,
 			"sy":	2592,
@@ -366,7 +366,7 @@
 			"coins":	25
 		}, {
 			"type":	"platform",
-			"name":	"",
+			"name":	"platform1",
 			"x":	4824,
 			"y":	5056,
 			"facing":	"FACING_RIGHT",
@@ -376,14 +376,14 @@
 			"ey":	3984,
 			"pause":	60,
 			"speed":	2,
-			"enabled":	1
+			"enabled":	0
 		}, {
 			"type":	"trafficLight",
 			"name":	"",
 			"x":	4984,
 			"y":	5032,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"platform1",
 			"on":	0
 		}, {
 			"type":	"door",
@@ -392,7 +392,7 @@
 			"y":	3648,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	4768,
 			"sy":	3648,
@@ -827,11 +827,911 @@
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"cageType":	"CT_STANDING"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	312,
+			"y":	3000,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1104,
+			"y":	2616,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	968,
+			"y":	3288,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	960,
+			"y":	3768,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1688,
+			"y":	3816,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1704,
+			"y":	4824,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	520,
+			"y":	4824,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1616,
+			"y":	4440,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	432,
+			"y":	4296,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1304,
+			"y":	4152,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2552,
+			"y":	4680,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2840,
+			"y":	4584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3232,
+			"y":	4584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1600,
+			"y":	5352,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2320,
+			"y":	4824,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3056,
+			"y":	5352,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3552,
+			"y":	5208,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4696,
+			"y":	5112,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3904,
+			"y":	4776,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4432,
+			"y":	4728,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4760,
+			"y":	3912,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4112,
+			"y":	3528,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4888,
+			"y":	2664,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4208,
+			"y":	2664,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3576,
+			"y":	3528,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3360,
+			"y":	3528,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2272,
+			"y":	3528,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3840,
+			"y":	4296,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2504,
+			"y":	4056,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2320,
+			"y":	4296,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2512,
+			"y":	3816,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2392,
+			"y":	3096,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3568,
+			"y":	3144,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3264,
+			"y":	2856,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3000,
+			"y":	2856,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3536,
+			"y":	2616,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	808,
+			"y":	2808,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	424,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	808,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1480,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1736,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2168,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2792,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2424,
+			"y":	2736,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1992,
+			"y":	2736,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1560,
+			"y":	2736,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1144,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1672,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2824,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3432,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2776,
+			"y":	3168,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1928,
+			"y":	3168,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1256,
+			"y":	3168,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	432,
+			"y":	3408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1344,
+			"y":	3744,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1328,
+			"y":	4752,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	848,
+			"y":	4752,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1592,
+			"y":	4992,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	512,
+			"y":	3936,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	752,
+			"y":	3936,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1616,
+			"y":	3936,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1216,
+			"y":	3936,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	848,
+			"y":	4128,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1304,
+			"y":	4272,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2040,
+			"y":	5328,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2608,
+			"y":	5088,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2856,
+			"y":	5280,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3232,
+			"y":	5280,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3008,
+			"y":	4416,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3568,
+			"y":	4416,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4424,
+			"y":	4416,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2048,
+			"y":	4760,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4240,
+			"y":	4896,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4672,
+			"y":	4896,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4656,
+			"y":	3648,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4408,
+			"y":	3648,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4840,
+			"y":	3216,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4072,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4424,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4792,
+			"y":	2496,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4400,
+			"y":	2784,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3960,
+			"y":	3216,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1272,
+			"y":	3408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1752,
+			"y":	3408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2672,
+			"y":	3408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4576,
+			"y":	4224,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4272,
+			"y":	4032,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2816,
+			"y":	3984,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3136,
+			"y":	4272,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2160,
+			"y":	3984,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJztmkmSwyAMRa+SI8QL7n+1XrnMoBHEEPevt+iuJEZ6YjA4+X6+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzL9UL6/XtrWP6d0Tuez8N/j3888N/hn5xc7is07jz2+FNtzOtjW3Zyz9zvvd1fyyLOvxyJu9jnf7O3Bm1m7Spxk6b4X5/41Y1a6biVVer/1Pw/chfTajNjBdDGtXX8p+Lz0TnOq4DfXxpFPf7yuOTy2OWvtzc2//M5T3+yZ3bzlT7Xn6pAH5Y7yMXUrF2D+Vo+62WMf1wFfJnknt75Fuu/vgLP/6l5ZYf/6gpIFdnjb515c7C6xM1/vi59PbKCxDj8D//aftw/EW2e6s9n2u9PvX6mP2V/kr93vdOuqt+lV+xT/Ln8eLjYnFn9yri/dr/3nAC89rp/ey6L9h9/4qPHz319/nUF6t1JhL9lFIwx4k+NgfrKcX9qlJ/i346BGf6WinhW7tTEpOthy4nrjXH/5/XyU9zV9V+eMiadhb1P6ArM8uevpvw98Xv96/G4y/9q/P32dn85i1h/eQ6XVVrhr/dClL/n5M35++4fsr/FIdI/N7KQivj103iLBefPxWv3mSv8pX1u3ppnr1DulJ9WJG/+HBDnT0WXWilbi90/8t4r/eVW6tb2PDke97fs8iz+c781bmdglL8Mv++UW+vpSfn9Ot4af+50/H/82xq046/f3uLfnqRW+5cx2vj99lw/l9GoHUaUf0+mnH+fue7/VGC/f2L9pWvyGVTeXbR7/ez57/2ej4qv5WCbQZp/Hj1y/s/ZueR9PuLPZR7nPzZv5Thx/vR3nm/yr3ed9Lwr24rxj92b5pHi+l+vcr9/LPmsf5u/rZ3610zz/PMo8/3tLZW/ZpL862dB7/Cvdy1y1j3+7Vn4LP/y1KL1mtc/CXnN809sBnK1pBOkH/5uONs/3y17qtXWw5u1XPd1/tpzD368yP3pefJ1gr81kl6Bnl+N/Ia/re/H7df6x+6VI+znnF8AAAAAAAAAAPw2f/76GLw",
-		"eLen":	1036,
-		"cLen":	776,
+		"data":	"eJztmkmSIyEMRa9SR6hccP+r9cqRgAYkIYZ2/XiLqrCdoCeGFGn//vwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcC3PFxL3j+aw/btidDyfh/8Z/3zgf8K/OHncV4z4xHHGn2tj3RjbotNH5vPet/uPosjzb2fiKc75fzibAxoZ3SU+lCX+z0/+7sbtdNLOqo1/If/P3MVGuVmxA4zmtXX+l+bz2THe5K/Nooi/Pi/j7a7xH7c3t/7rNU8/GV3dcqbv9ecyEMNyB3mEnNE9WM7lu1/m+OdlwBdJ7eldc7n++zPw/l/IKyf8d2dAy8gZf+vKW4PVJW/9y3mJjcgOiuDwN/x7+3n/wrR5q78cadyfe/1Of87+Jv9Yvai/T+udW/2l+GSkviWz/pV5/9H93nMK8NqP/em5LNt//onPuP/a1+ffZ6CvTjL8LbNgjhl/bg70V877c7P8Fn86B1b4WzLi2bkL6ZPPhy0maTTm/d/X209JV/d/Zdo++SjsY8JnYJW/fDXn7+k/6t/Px1P+D/H329v99Shy/fU13GZph/94FLL8PSdvyd93/9D9LQ6Z/rWRhdL03z+Nt1hI/lJ/tM7c4a/VuXVrnlqhrZTfVjRv+RyQ58/1rrXStpZbP8reO/31VvrWzjw5nve3VHkW/7XfGtMVmOWvI9edemuRkdTf7/vb4y+djv+OP80BnX9xe4s/PUnt9m/7oP3H7aVxbnvjKows/0ikkn/MfOz/ZuC8fxH9tWvqFdTeXUb3+tXr3/s9H9f/yL7uydvCU7XD/T5qfv2vqVzqMbftIL7I8/zn1q3krkUZ8ee/87zTn3cc+fdVJ7/u2rZy/HNr07qnvPEfZznun0u96r/N39ZO/2umdf51L+v97S21v2bS/PtnQd/h31ctetQRf3oWvsu/PbWMRs3rX5S41vkXMQI9W9oJ0o98N1ztX1fLnmzRfHij1vO+z3/03EOeL/p4ep583eBv7WmcgcivRv4Pf9vYz9vv9c+tlTPsb6t/9wN/+AMAAAAAAAAo/wDGRho",
+		"eLen":	1048,
+		"cLen":	786,
 		"dLen":	32768
 	}
 }

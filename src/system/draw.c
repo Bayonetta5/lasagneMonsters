@@ -45,7 +45,7 @@ void initGraphics(void)
 
 void prepareScene(void)
 {
-	SDL_SetRenderDrawColor(app.renderer, 48, 48, 48, 255);
+	SDL_SetRenderDrawColor(app.renderer, 16, 16, 16, 255);
 	SDL_SetRenderTarget(app.renderer, app.lightMap);
 	SDL_RenderClear(app.renderer);
 

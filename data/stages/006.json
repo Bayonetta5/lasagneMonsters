@@ -22,8 +22,8 @@
 			"x":	2944,
 			"y":	2464,
 			"facing":	"FACING_LEFT",
-			"health":	3,
-			"maxHealth":	3,
+			"health":	5,
+			"maxHealth":	5,
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
@@ -33,8 +33,78 @@
 			"type":	"greenBugEyedMonster",
 			"name":	"",
 			"x":	2112,
-			"y":	2448,
+			"y":	2454,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2736,
+			"y":	2424,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2328,
+			"y":	2424,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2720,
+			"y":	2088,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2048,
+			"y":	2112,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2512,
+			"y":	2064,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2848,
+			"y":	1176,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1560,
+			"y":	2088,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
 		"data":	"eJzt2UsOgyAUQNGtdAkycP9b66CDGqUKfkJ5nJyBia3RS9REmF4TAAAAAAAUSyv5venCGSLQ3/oK9D9jPhC9f19abUejX79+/fpbX4l+/XfV6NevX/84/Z9v2XH7SyuW3/zx+nOtc9F/I/bX6Ll/O5tVe9SZN8f/uD6L3/f8/7K/5g6I2H9+BFpX3NVfPwKRnv8r90Cvtv1jjUCuP/1c6fna/7Uf+f7jFe4o69+j9wMAAAAAAAAAAAAAAAAAAAAAAJzzBv6zAxc",

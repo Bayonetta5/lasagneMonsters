@@ -75,7 +75,7 @@ static void draw(void)
 
 static void drawLight(void)
 {
-	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, 75, 255, 255, 192, 255);
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, 75, 255, 255, 168, 255);
 }
 
 static void load(cJSON *root)

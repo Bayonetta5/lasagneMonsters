@@ -142,7 +142,7 @@ static void draw(void)
 
 static void drawLight(void)
 {
-	drawLightEffect(self->x + (self-> w / 2) - world.camera.x, self->y + (self-> h / 2) - world.camera.y, 50, 255, 255, 255, 255);
+	drawLightEffect(self->x + (self-> w / 2) - world.camera.x, self->y + (self-> h / 2) - world.camera.y, 160, 255, 255, 255, 128);
 }
 
 static void damage(int amount)

@@ -6,8 +6,8 @@
 			"x":	88,
 			"y":	304,
 			"facing":	"FACING_RIGHT",
-			"health":	3,
-			"maxHealth":	3,
+			"health":	5,
+			"maxHealth":	5,
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
@@ -46,19 +46,77 @@
 			"type":	"lamp",
 			"name":	"",
 			"x":	136,
-			"y":	256,
-			"facing":	"FACING_RIGHT"
+			"y":	264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
 			"type":	"lamp",
 			"name":	"",
 			"x":	840,
 			"y":	600,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	432,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1120,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	808,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	528,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	136,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt18ENgCAQRcFWLEEO9N+aiV6JLMZIXCbTwL5/IKFs5YE9jfEW/fpnX61fv/53+utp3f5LfIOc/fEN8vbHNsjd398gf//Ye/Bvd7+cFTbo/fRq0+yrAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL5zALlHAi0",
-		"eLen":	164,
-		"cLen":	122,
+		"data":	"eJzt18ENgCAQRcFWLEEO9N+aiV6JLMZIXCbTAO8fSLZs5YE9jfEW/fpnv1q/fv3v9NfTuv2X+AY5++Mb5O2PbZC7v79B/v6x/+Df7q6cFTboXXq1afarv+vPf/+u3Q8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARB3AzAmM",
+		"eLen":	172,
+		"cLen":	128,
 		"dLen":	32768
 	}
 }
