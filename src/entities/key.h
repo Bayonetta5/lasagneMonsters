@@ -25,6 +25,7 @@ extern void addPowerupParticles(int x, int y);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
 
 extern Entity *self;
 extern Game game;

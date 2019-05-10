@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void tick(void);
 static void draw(void);
+static void drawLight(void);
 static void touch(Entity *other);
 
 static AtlasImage *keyTexture = NULL;
@@ -43,6 +44,7 @@ void initKey(Entity *e)
 	e->flags = EF_WEIGHTLESS+EF_NO_ENT_CLIP+EF_DELETE;
 	e->tick = tick;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->touch = touch;
 
 	if (keyTexture == NULL)
@@ -83,6 +85,11 @@ static void draw(void)
 	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
+}
+
+static void drawLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 32, 255, 128, 32, 255);
 }
 
 static void touch(Entity *other)

@@ -14,76 +14,6 @@
 			"autoFire":	0,
 			"hasDoubleJump":	0
 		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	80,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	688,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	0,
-			"g":	0,
-			"b":	0,
-			"a":	0
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	104,
-			"y":	48,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	400,
-			"y":	48,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	704,
-			"y":	48,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	456,
-			"y":	480,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	216,
-			"y":	480,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
 			"type":	"savePoint",
 			"name":	"",
 			"x":	176,
@@ -92,15 +22,29 @@
 		}, {
 			"type":	"key",
 			"name":	"",
-			"x":	240,
+			"x":	96,
 			"y":	360,
 			"facing":	"FACING_RIGHT"
 		}, {
-			"type":	"key",
+			"type":	"lamp",
 			"name":	"",
-			"x":	448,
-			"y":	360,
-			"facing":	"FACING_RIGHT"
+			"x":	840,
+			"y":	216,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	720,
+			"y":	552,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
 		"data":	"eJzt10EKgCAQQNGrdIRaeP+rRQkpQRguCmYeb6Mwgn/hwm3ZJqxhzLTo//vW+vXr/6a/nPoTufrrVLlWGfvbdLz+MlQnj1XE/uddr7VH7n9Xn63/Xh+rf/z+Y/9/cv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEZ26sgCeQ=",
