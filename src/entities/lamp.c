@@ -39,7 +39,7 @@ void initLamp(Entity *e)
 	e->typeName = "lamp";
 	e->data = l;
 	e->type = ET_LIGHT;
-	e->flags = EF_STATIC;
+	e->flags = EF_STATIC+EF_NO_COLS;
 
 	if (texture == NULL)
 	{

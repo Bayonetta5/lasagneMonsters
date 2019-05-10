@@ -280,7 +280,7 @@ static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, i
 
 	for (i = 0, other = candidates[0] ; i < MAX_QT_CANDIDATES && other != NULL ; other = candidates[++i])
 	{
-		if (other->background == background && collision(e->x, e->y, e->w, e->h, other->x, other->y, other->w, other->h))
+		if (other->background == background && (!(other->flags & EF_NO_COLS)) && collision(e->x, e->y, e->w, e->h, other->x, other->y, other->w, other->h))
 		{
 			if (!(e->flags & EF_NO_ENT_CLIP) && !(other->flags & EF_NO_ENT_CLIP))
 			{
