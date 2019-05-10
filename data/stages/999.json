@@ -90,10 +90,16 @@
 			"y":	592,
 			"facing":	"FACING_RIGHT"
 		}, {
-			"type":	"greenFlyingCyclops",
+			"type":	"key",
 			"name":	"",
-			"x":	184,
-			"y":	160,
+			"x":	240,
+			"y":	360,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"key",
+			"name":	"",
+			"x":	448,
+			"y":	360,
 			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{

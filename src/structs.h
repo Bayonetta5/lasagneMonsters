@@ -91,7 +91,6 @@ struct Entity {
 
 typedef struct {
 	float bobValue;
-	float by;
 	int thinkTime;
 	int health;
 	int touchDelay;
