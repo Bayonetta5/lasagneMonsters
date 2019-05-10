@@ -259,6 +259,8 @@ typedef struct {
 	unsigned int stageId;
 	int coins;
 	int keys;
+	int totalMonsters;
+	int totalGirls;
 	unsigned int stats[STAT_MAX];
 } Game;
 

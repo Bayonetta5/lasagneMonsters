@@ -34,7 +34,8 @@
 			"name":	"",
 			"x":	2112,
 			"y":	2454,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"lamp",
 			"name":	"",

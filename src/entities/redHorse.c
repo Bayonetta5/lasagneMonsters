@@ -23,15 +23,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void initRedHorse(Entity *e)
 {
 	Monster *m;
-	
+
 	initGreenHorse(e);
-	
+
 	m = (Monster*)e->data;
-	
+
 	m->health = m->maxHealth = 12;
 	m->coins = 3;
-	
+
 	e->typeName = "redHorse";
-	
+
 	e->atlasImage = getAtlasImage("gfx/entities/redHorse1.png", 1);
+
+	e->save = monsterSave;
 }

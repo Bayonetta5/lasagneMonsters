@@ -29,6 +29,7 @@ extern void monsterDraw(void);
 extern void monsterDrawLight(void);
 extern void monsterFaceMoveDir(void);
 extern void monsterFaceTarget(Entity *e);
+extern void monsterSave(cJSON *root);
 extern void monsterTakeDamage(int amount);
 extern void monsterTick(void);
 extern void monsterTouch(Entity *other);

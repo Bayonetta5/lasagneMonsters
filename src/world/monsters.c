@@ -131,7 +131,6 @@ void monsterDie(void)
 	stage->numMonsters--;
 }
 
-
 void monsterTouch(Entity *other)
 {
 	Entity *oldSelf;
@@ -146,6 +145,11 @@ void monsterTouch(Entity *other)
 
 		self = oldSelf;
 	}
+}
+
+void monsterSave(cJSON *root)
+{
+	cJSON_AddNumberToObject(root, "isMonster", 1);
 }
 
 void monsterFaceTarget(Entity *e)

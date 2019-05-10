@@ -19,6 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
+
+extern const char *getFileLocation(const char *filename);
+extern char **getFileList(const char *dir, int *count);
+extern char *readFile(const char *filename);
 
 extern Game game;
 extern World world;

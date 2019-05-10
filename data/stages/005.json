@@ -114,31 +114,36 @@
 			"name":	"",
 			"x":	176,
 			"y":	112,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	1192,
 			"y":	400,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	528,
 			"y":	400,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	48,
 			"y":	640,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1112,
 			"y":	640,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"startPoint",
 			"name":	"topLeft",
@@ -249,9 +254,9 @@
 			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt1jsKgDAQQMGreAS38P5Xs1FIkcQPgrA7TJnGF2KyscQLaxpvWvT//dVf9m9T+fvn670dyNR/V3smKva3MvWP/vEq/XHcgJX7o/MKnOu9NyFj/2jCyz//XfXl7qe2+fT7ZCoGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyGkHAFkC6g=",
-		"eLen":	184,
-		"cLen":	136,
+		"data":	"eJzt17ENgCAQQNFVHEEK91/NRhMKQCUmxruXV9L4jcBZljJhDWOmRf/XT/1m/zYUv3+83noDkfrvqr+JjP21SP29PZ6lvxwnYOb+0rgFzvXWnRCxvzfhxZ//rvpi95PbePp9MhX/08zfr/0PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuezpQAM",
+		"eLen":	188,
+		"cLen":	141,
 		"dLen":	32768
 	}
 }

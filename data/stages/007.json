@@ -422,367 +422,428 @@
 			"name":	"",
 			"x":	536,
 			"y":	3040,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1432,
 			"y":	3328,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	656,
 			"y":	3808,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1152,
 			"y":	4864,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2576,
 			"y":	4720,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2880,
 			"y":	4624,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	3224,
 			"y":	5392,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	4488,
 			"y":	4672,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	4616,
 			"y":	4144,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	3888,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	4552,
 			"y":	3136,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	4480,
 			"y":	2704,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	3440,
 			"y":	2656,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2864,
 			"y":	2896,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2136,
 			"y":	2656,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1272,
 			"y":	2656,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	1736,
 			"y":	3088,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2768,
 			"y":	3088,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2640,
 			"y":	3328,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3456,
 			"y":	3328,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3352,
 			"y":	3136,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4368,
 			"y":	2992,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4848,
 			"y":	3328,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4544,
 			"y":	3952,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4576,
 			"y":	4336,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4208,
 			"y":	4192,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3336,
 			"y":	4336,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2456,
 			"y":	4096,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2096,
 			"y":	3856,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2248,
 			"y":	4336,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	1648,
 			"y":	5392,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3584,
 			"y":	5248,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4136,
 			"y":	4816,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	4360,
 			"y":	5248,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3240,
 			"y":	4624,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	1240,
 			"y":	3664,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	1624,
 			"y":	3664,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2304,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	2736,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"redHorse",
 			"name":	"",
 			"x":	3696,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	3272,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2888,
 			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1928,
 			"y":	3328,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	616,
 			"y":	2656,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1392,
 			"y":	4192,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	1016,
 			"y":	4048,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	768,
 			"y":	4336,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	880,
 			"y":	4672,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	2408,
 			"y":	5392,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	1272,
 			"y":	2816,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	2296,
 			"y":	2800,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	2752,
 			"y":	4152,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	1272,
 			"y":	3992,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	2640,
 			"y":	4488,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	3232,
 			"y":	4472,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	4408,
 			"y":	4952,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	3912,
 			"y":	4544,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	4064,
 			"y":	3296,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	4712,
 			"y":	2536,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	2000,
 			"y":	2536,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
 			"x":	2560,
 			"y":	2528,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}, {
 			"type":	"key",
 			"name":	"",

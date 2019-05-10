@@ -58,6 +58,7 @@ void initGreenBugEyedMonster(Entity *e)
 	e->touch = monsterTouch;
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;
+	e->save = monsterSave;
 
 	stage->numMonsters++;
 }
