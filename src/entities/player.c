@@ -35,7 +35,7 @@ void initPlayer(Entity *e)
 	w = malloc(sizeof(Walter));
 	memset(w, 0, sizeof(Walter));
 
-	w->health = w->maxHealth = 3;
+	w->health = w->maxHealth = 5;
 	w->ammo = w->maxAmmo = 5;
 	w->refillRate = 0.05f;
 
