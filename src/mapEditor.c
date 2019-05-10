@@ -391,20 +391,27 @@ static void logic(void)
 		mode = MODE_PICK;
 	}
 
+	if (app.keyboard[SDL_SCANCODE_F1])
+	{
+		app.keyboard[SDL_SCANCODE_F1] = 0;
+
+		app.dev.disableLights = !app.dev.disableLights;
+	}
+
 	if (mode == MODE_TILE)
 	{
-		if (app.keyboard[SDL_SCANCODE_F1])
-		{
-			floodFill(tile);
-
-			app.keyboard[SDL_SCANCODE_F1] = 0;
-		}
-
 		if (app.keyboard[SDL_SCANCODE_F2])
 		{
-			floodFill(0);
-
 			app.keyboard[SDL_SCANCODE_F2] = 0;
+
+			floodFill(tile);
+		}
+
+		if (app.keyboard[SDL_SCANCODE_F3])
+		{
+			app.keyboard[SDL_SCANCODE_F3] = 0;
+
+			floodFill(0);
 		}
 	}
 
@@ -463,6 +470,9 @@ static void drawCurrentEnt(void)
 
 	x = (app.mouse.x / 8) * 8;
 	y = (app.mouse.y / 8) * 8;
+
+	entity->x = x + world.camera.x;
+	entity->y = y + world.camera.y;
 
 	blitAtlasImage(entity->atlasImage, x, y, 0, SDL_FLIP_NONE);
 }
@@ -529,7 +539,8 @@ static void drawSelectedEnt(void)
 static void drawInfo(void)
 {
 	Entity *e;
-	int x, y;
+	Door *d;
+	int x, y, numEnts, keys, keyDoors, trafficLights, remoteDoors;
 
 	x = ((app.mouse.x + world.camera.x) / TILE_SIZE) * TILE_SIZE;
 	y = ((app.mouse.y + world.camera.y) / TILE_SIZE) * TILE_SIZE;
@@ -538,10 +549,31 @@ static void drawInfo(void)
 
 	drawText(10, 0, 32, TEXT_LEFT, app.colors.white, "Stage: %d", stage->id);
 
-	drawText(310, 0, 32, TEXT_LEFT, app.colors.white, "Pos: %d,%d", x, y);
+	drawText(210, 0, 32, TEXT_LEFT, app.colors.white, "Pos: %d,%d", x, y);
+
+	numEnts = keys = keyDoors = trafficLights = remoteDoors = 0;
 
 	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
+		numEnts++;
+
+		keys += (strcmp(e->typeName, "key") == 0) ? 1 : 0;
+		trafficLights += (strcmp(e->typeName, "trafficLight") == 0) ? 1 : 0;
+
+		if (strcmp(e->typeName, "door") == 0)
+		{
+			d = (Door*)e->data;
+
+			if (d->requires == DR_KEY)
+			{
+				keyDoors++;
+			}
+			else if (d->requires == DR_REMOTE)
+			{
+				remoteDoors++;
+			}
+		}
+
 		if (mode == MODE_PICK && collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 		{
 			drawText(e->x + (e->w / 2) - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", (int)e->x, (int)e->y);
@@ -551,6 +583,28 @@ static void drawInfo(void)
 			drawText(e->x + (e->w / 2) - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, e->name);
 		}
 	}
+
+	drawText(410, 0, 32, TEXT_LEFT, app.colors.white, "Ents: %d", numEnts);
+
+	drawText(610, 0, 32, TEXT_LEFT, app.colors.white, "Key: %d (%d)", keys, keyDoors);
+
+	drawText(810, 0, 32, TEXT_LEFT, app.colors.white, "Remote: %d (%d)", trafficLights, remoteDoors);
+}
+
+static void drawLights(void)
+{
+	SDL_SetRenderTarget(app.renderer, app.lightMap);
+
+	drawEntityLights();
+
+	if (entity->drawLight)
+	{
+		self = entity;
+
+		self->drawLight();
+	}
+
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void draw(void)
@@ -559,6 +613,21 @@ static void draw(void)
 
 	drawEntities(0);
 	drawEntities(1);
+
+	for (self = stage->entityHead.next ; self != NULL ; self = self->next)
+	{
+		if (self->type == ET_PLATFORM || self->type == ET_DOOR)
+		{
+			self->draw();
+		}
+	}
+
+	if (!app.dev.disableLights)
+	{
+		drawLights();
+
+		drawLightMap();
+	}
 
 	switch (mode)
 	{
@@ -655,6 +724,7 @@ int main(int argc, char *argv[])
 	memset(&app, 0, sizeof(App));
 	app.texturesTail = &app.texturesHead;
 	app.dev.editor = 1;
+	app.dev.disableLights = 1;
 
 	tile = 1;
 	cameraTimer = 0;

@@ -51,11 +51,6 @@ void initQuadtree(Quadtree *root)
 
 		cIndex = 0;
 		cCapacity = QT_INITIAL_CAPACITY;
-
-		if (app.dev.editor)
-		{
-			return;
-		}
 	}
 
 	w = root->w / 2;
