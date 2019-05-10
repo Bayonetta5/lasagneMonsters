@@ -58,12 +58,15 @@ void drawLightMap(void)
 {
 	SDL_Rect dest;
 
-	dest.x = 0;
-	dest.y = 0;
-	dest.w = SCREEN_WIDTH;
-	dest.h = SCREEN_HEIGHT;
+	if (!app.dev.disableLights)
+	{
+		dest.x = 0;
+		dest.y = 0;
+		dest.w = SCREEN_WIDTH;
+		dest.h = SCREEN_HEIGHT;
 
-	SDL_RenderCopy(app.renderer, app.lightMap, NULL, &dest);
+		SDL_RenderCopy(app.renderer, app.lightMap, NULL, &dest);
+	}
 }
 
 void presentScene(void)

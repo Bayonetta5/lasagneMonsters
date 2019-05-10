@@ -353,5 +353,6 @@ typedef struct {
 		int collisions;
 		int drawing;
 		int editor;
+		int disableLights;
 	} dev;
 } App;

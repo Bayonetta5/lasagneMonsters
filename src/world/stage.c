@@ -172,7 +172,7 @@ static void doControls(void)
 	{
 		app.keyboard[SDL_SCANCODE_F1] = 0;
 
-		saveGame();
+		app.dev.disableLights = !app.dev.disableLights;
 	}
 }
 
