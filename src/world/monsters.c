@@ -85,6 +85,11 @@ void monsterDraw(void)
 	}
 }
 
+void monsterDrawLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, MAX(self->w, self->h) / 2, 192, 192, 192, 255);
+}
+
 void monsterTakeDamage(int amount)
 {
 	Monster *m;

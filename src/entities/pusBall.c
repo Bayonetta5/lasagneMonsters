@@ -29,6 +29,8 @@ void initPusBall(Entity *e)
 	e->tick = tick;
 	e->touch = touch;
 	e->flags = EF_TRANSIENT;
+
+	e->drawLight = NULL;
 }
 
 static void tick(void)

@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "lamp.h"
 
 static void draw(void);
+static void drawLight(void);
 static void load(cJSON *root);
 static void save(cJSON *root);
 
@@ -46,6 +47,7 @@ void initLamp(Entity *e)
 	}
 
 	e->draw = draw;
+	e->drawLight = drawLight;
 
 	e->atlasImage = texture;
 	e->w = e->atlasImage->rect.w;
@@ -69,6 +71,11 @@ static void draw(void)
 	y += 8;
 
 	drawObjectGlowAt(x, y, 255, 255, 192, 96);
+}
+
+static void drawLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, 75, 255, 255, 192, 255);
 }
 
 static void load(cJSON *root)

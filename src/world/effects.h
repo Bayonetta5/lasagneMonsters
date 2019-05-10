@@ -25,5 +25,6 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void initPusBall(Entity *e);
 extern Entity *spawnEntity(void);
 
+extern App app;
 extern Entity *self;
 extern World world;

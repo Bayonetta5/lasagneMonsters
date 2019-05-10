@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static Entity *initBullet(Entity *owner);
 static void waterBulletDie(void);
 static void slimeBulletDie(void);
+static void drawSlimeBulletLight(void);
 
 static AtlasImage *waterBulletTexture;
 static AtlasImage *slimeBulletTexture;
@@ -67,6 +68,7 @@ void initSlimeBullet(Entity *owner)
 	e->atlasImage = slimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->drawLight = drawSlimeBulletLight;
 	e->die = slimeBulletDie;
 
 	e->x = owner->x;
@@ -89,6 +91,7 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 	e->atlasImage = aimedSlimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->drawLight = drawSlimeBulletLight;
 	e->die = slimeBulletDie;
 
 	e->x = owner->x + (owner->w / 2) - (e->w / 2);
@@ -111,6 +114,11 @@ static void tick(void)
 		self->alive = ALIVE_DEAD;
 		self->die = NULL;
 	}
+}
+
+static void drawSlimeBulletLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 16, 128, 255, 128, 255);
 }
 
 static void damage(int amount)

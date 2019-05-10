@@ -444,14 +444,23 @@ void drawEntities(int background)
 		{
 			app.dev.drawing++;
 
-			if (self->draw)
-			{
-				self->draw();
-			}
-			else
-			{
-				blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-			}
+			self->draw();
+		}
+	}
+}
+
+void drawEntityLights(void)
+{
+	Entity *candidates[MAX_QT_CANDIDATES];
+	int i;
+
+	getAllEntsWithin(world.camera.x, world.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, candidates, NULL);
+
+	for (i = 0, self = candidates[0] ; i < MAX_QT_CANDIDATES && self != NULL ; self = candidates[++i])
+	{
+		if (self->drawLight)
+		{
+			self->drawLight();
 		}
 	}
 }

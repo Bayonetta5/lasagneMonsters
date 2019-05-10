@@ -76,6 +76,7 @@ struct Entity {
 	void (*init)(void);
 	void (*tick)(void);
 	void (*draw)(void);
+	void (*drawLight)(void);
 	void (*touch)(Entity *other);
 	void (*damage)(int damage);
 	void (*activate)(int active);

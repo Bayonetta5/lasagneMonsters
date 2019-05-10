@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void tick(void);
 static void draw(void);
+static void drawLight(void);
 static void activate(int active);
 static void touch(Entity *other);
 static void load(cJSON *root);
@@ -45,6 +46,7 @@ void initDoor(Entity *e)
 	e->data = d;
 	e->tick = tick;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->activate = activate;
 	e->touch = touch;
 	e->atlasImage = getAtlasImage("gfx/entities/door.png", 1);
@@ -112,6 +114,11 @@ static void draw(void)
 		drawOutlineRect(d->ex - world.camera.x, d->ey - world.camera.y, self->w, self->h, 255, 255, 255, 160);
 		drawLine(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, d->ex + (self->w / 2) - world.camera.x, d->ey - world.camera.y, 255, 255, 255, 255);
 	}
+}
+
+static void drawLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 50, 128, 128, 128, 255);
 }
 
 static void activate(int active)

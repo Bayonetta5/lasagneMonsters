@@ -47,6 +47,7 @@ void initGreenFlyingCyclops(Entity *e)
 
 	e->tick = tick;
 	e->draw = monsterDraw;
+	e->drawLight = monsterDrawLight;
 	e->touch = monsterTouch;
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void tick(void);
 static void draw(void);
+static void drawLight(void);
 static void damage(int amount);
 static void die(void);
 static void load(cJSON *root);
@@ -45,6 +46,7 @@ void initPlayer(Entity *e)
 	e->flags = EF_PUSH+EF_PUSHABLE+EF_SLOW_PUSH+EF_NO_MAP_BOUNDS;
 	e->tick = tick;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->damage = damage;
 	e->die = die;
 	e->load = load;
@@ -136,6 +138,11 @@ static void draw(void)
 	{
 		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
+}
+
+static void drawLight(void)
+{
+	drawLightEffect(self->x + (self-> w / 2) - world.camera.x, self->y + (self-> h / 2) - world.camera.y, 50, 255, 255, 255, 255);
 }
 
 static void damage(int amount)

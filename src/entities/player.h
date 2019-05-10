@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void addDeathParticles(int x, int y);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void clearControl(int type);
+extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void initWaterBullet(Entity *owner);
 extern int isControl(int type);

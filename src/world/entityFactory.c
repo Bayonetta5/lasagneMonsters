@@ -23,7 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void addInitFunc(const char *id, void (*init)(Entity *e));
 
 static InitFunc initFuncHead, *initFuncTail;
-static unsigned long entityId;
 
 void initEntityFactory(void)
 {
@@ -53,8 +52,6 @@ void initEntityFactory(void)
 	addInitFunc("startPoint", initStartPoint);
 	addInitFunc("trafficLight", initTrafficLight);
 	addInitFunc("transferCube", initTransferCube);
-
-	entityId = 0;
 }
 
 static void addInitFunc(const char *id, void (*init)(Entity *e))
@@ -79,13 +76,12 @@ Entity *spawnEntity(void)
 	stage->entityTail->next = e;
 	stage->entityTail = e;
 
-	e->id = ++entityId;
-	e->facing = FACING_RIGHT;
+	initEntity(e);
 
 	return e;
 }
 
-static void initEntity(cJSON *root)
+static void initEntityFromJSON(cJSON *root)
 {
 	char *type;
 	InitFunc *initFunc;
@@ -129,7 +125,7 @@ void loadEntities(cJSON *root)
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		initEntity(node);
+		initEntityFromJSON(node);
 	}
 }
 

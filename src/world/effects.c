@@ -76,16 +76,26 @@ void throwPusBalls(int x, int y, int n)
 	}
 }
 
-void drawLight(int x, int y, int r, int g, int b)
+void drawLightEffect(int x, int y, int size, int r, int g, int b, int a)
 {
+	SDL_Rect dest;
+
 	x /= 5;
 	y /= 5;
 
+	dest.w = size;
+	dest.h = size;
+
+	dest.x = x - (dest.w / 2);
+	dest.y = y - (dest.h / 2);
+
 	SDL_SetTextureBlendMode(lightTexture->texture, SDL_BLENDMODE_ADD);
 	SDL_SetTextureColorMod(lightTexture->texture, r, g, b);
+	SDL_SetTextureAlphaMod(lightTexture->texture, a);
 
-	blitAtlasImage(lightTexture, x, y, 1, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(app.renderer, lightTexture->texture, &lightTexture->rect, &dest, 0, NULL, SDL_FLIP_NONE);
 
 	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
+	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
 	SDL_SetTextureBlendMode(lightTexture->texture, SDL_BLENDMODE_BLEND);
 }

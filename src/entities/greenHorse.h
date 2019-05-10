@@ -27,6 +27,7 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void lookForPlayer(void);
 extern void monsterDie(void);
 extern void monsterDraw(void);
+extern void monsterDrawLight(void);
 extern void monsterTakeDamage(int amount);
 extern void monsterTick(void);
 extern void monsterTouch(Entity *other);

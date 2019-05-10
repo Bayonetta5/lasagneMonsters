@@ -262,27 +262,9 @@ static void drawBackground(void)
 
 static void drawLights(void)
 {
-	Entity *e;;
-
 	SDL_SetRenderTarget(app.renderer, app.lightMap);
 
-	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
-	{
-		switch (e->type)
-		{
-			case ET_LIGHT:
-				drawLight(e->x - world.camera.x, e->y - world.camera.y, 255, 255, 192);
-				break;
-
-			case ET_PLAYER:
-				drawLight(e->x - world.camera.x, e->y - world.camera.y, 96, 96, 96);
-				break;
-
-			default:
-				drawLight(e->x - world.camera.x, e->y - world.camera.y, 64, 64, 64);
-				break;
-		}
-	}
+	drawEntityLights();
 
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }

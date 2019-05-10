@@ -18,14 +18,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
+#include "entity.h"
 
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
-extern void drawObjectGlow(int r, int g, int b, int a);
-extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void playSound(int snd, int ch);
+static void draw(void);
+static void drawLight(void);
 
-extern App app;
-extern Entity *self;
-extern World world;
+static unsigned long entityId = 0;
+
+void initEntity(Entity *e)
+{
+	e->id = ++entityId;
+	e->facing = FACING_RIGHT;
+	e->draw = draw;
+	e->drawLight = drawLight;
+}
+
+static void draw(void)
+{
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+}
+
+static void drawLight(void)
+{
+	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, MAX(self->w, self->h), 128, 128, 128, 255);
+}

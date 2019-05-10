@@ -54,6 +54,7 @@ void initGreenBugEyedMonster(Entity *e)
 	e->h = e->atlasImage->rect.h;
 	e->tick = tick;
 	e->draw = monsterDraw;
+	e->drawLight = monsterDrawLight;
 	e->touch = monsterTouch;
 	e->damage = monsterTakeDamage;
 	e->die = monsterDie;

@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ceilingLamp.h"
 
 static void draw(void);
+static void drawLight(void);
 
 static AtlasImage *texture = NULL;
 
@@ -38,6 +39,7 @@ void initCeilingLamp(Entity *e)
 	e->flags |= EF_WEIGHTLESS;
 
 	e->draw = draw;
+	e->drawLight = drawLight;
 
 	e->atlasImage = texture;
 	e->w = e->atlasImage->rect.w;
@@ -59,4 +61,15 @@ static void draw(void)
 
 	drawObjectGlowAt(x - 18, y, 255, 255, 192, 64);
 	drawObjectGlowAt(x + 18, y, 255, 255, 192, 64);
+}
+
+static void drawLight(void)
+{
+	int x, y;
+
+	x = self->x + (self->w / 2) - world.camera.x;
+	y = self->y - world.camera.y;
+
+	drawLightEffect(x - 8, y, 75, 255, 255, 192, 255);
+	drawLightEffect(x + 8, y, 75, 255, 255, 192, 255);
 }

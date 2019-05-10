@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "trafficLight.h"
 
 static void draw(void);
+static void drawLight(void);
 static void toggle(void);
 static void touch(Entity *other);
 static void load(cJSON *root);
@@ -51,6 +52,7 @@ void initTrafficLight(Entity *e)
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->touch = touch;
 	e->flags = EF_NO_ENT_CLIP+EF_STATIC;
 
@@ -95,6 +97,26 @@ static void draw(void)
 
 	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
+}
+
+static void drawLight(void)
+{
+	TrafficLight *t;
+	int x, y;
+
+	t = (TrafficLight*)self->data;
+
+	x = self->x + (self->w / 2) - world.camera.x;
+	y = self->y + (self->h / 2) - world.camera.y;
+
+	if (t->on)
+	{
+		drawLightEffect(x, y, 16, 0, 255, 0, 255);
+	}
+	else
+	{
+		drawLightEffect(x, y - 16, 16, 255, 0, 0, 255);
+	}
 }
 
 static void touch(Entity *other)

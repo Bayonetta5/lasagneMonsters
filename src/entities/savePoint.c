@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void tick(void);
 static void draw(void);
+static void drawLight(void);
 static void touch(Entity *other);
 
 static AtlasImage *computer[3] = {NULL};
@@ -39,6 +40,7 @@ void initSavePoint(Entity *e)
 	e->flags = EF_STATIC;
 	e->tick = tick;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->touch = touch;
 
 	if (computer[0] == NULL)
@@ -86,6 +88,22 @@ static void draw(void)
 	if (s->active)
 	{
 		drawObjectGlow(168, 192, 255, 96);
+	}
+}
+
+static void drawLight(void)
+{
+	SavePoint *s;
+
+	s = (SavePoint*)self->data;
+
+	if (s->active)
+	{
+		drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 64, 255, 255, 255, 255);
+	}
+	else
+	{
+		drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 16, 32, 32, 32, 255);
 	}
 }
 

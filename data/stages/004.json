@@ -60,11 +60,13 @@
 			"x":	112,
 			"y":	496,
 			"facing":	"FACING_RIGHT",
-			"facing":	"right",
 			"health":	3,
 			"maxHealth":	3,
 			"ammo":	5,
-			"maxAmmo":	5
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -73,6 +75,56 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	50
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	328,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	952,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	632,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1120,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	160,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
 		"data":	"eJzt1YEJACAIAMFVGiH3X64RoigEPW4BP0JjxIXZmv7sCV629P7/Ny36s6fWr1//D9X3/Xl77Tdw//Xr79sPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsLMApwgB9Q=",
