@@ -121,9 +121,9 @@ void monsterDie(void)
 
 	throwCoins(self->x, self->y, m->coins);
 
-	playerHealth = ((1.0 * w->health) / w->maxHealth) * 25;
+	playerHealth = ((1.0 * w->health) / w->maxHealth) * 10;
 
-	if (rand() % playerHealth == 0)
+	if (rand() % 10 > playerHealth - 1)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
