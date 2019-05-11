@@ -28,6 +28,9 @@ extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int isControl(int type);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern void drawEntityLinkLines(Entity *e, char *targetName);
 
+extern App app;
 extern Entity *self;
 extern World world;

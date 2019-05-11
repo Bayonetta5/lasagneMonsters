@@ -97,6 +97,13 @@ static void draw(void)
 
 	SDL_SetTextureColorMod(lightTexture->texture, 255, 255, 255);
 	SDL_SetTextureAlphaMod(lightTexture->texture, 255);
+
+	if (app.dev.editor)
+	{
+		drawText(x, self->y - world.camera.y - 32, 32, TEXT_CENTER, app.colors.white, t->targetName);
+
+		drawEntityLinkLines(self, t->targetName);
+	}
 }
 
 static void drawLight(void)

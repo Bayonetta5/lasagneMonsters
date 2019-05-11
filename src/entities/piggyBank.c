@@ -97,6 +97,11 @@ static void draw(void)
 	blitAtlasImage(arrowTextures[p->frame], x - 40, (self->y - world.camera.y) - 36, 0, SDL_FLIP_NONE);
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
+
+	if (app.dev.editor)
+	{
+		drawEntityLinkLines(self, p->targetName);
+	}
 }
 
 static void touch(Entity *other)

@@ -540,7 +540,7 @@ static void drawInfo(void)
 {
 	Entity *e;
 	Door *d;
-	int x, y, numEnts, keys, keyDoors, trafficLights, remoteDoors;
+	int x, y, numEnts, keys, keyDoors, remotes, remoteDoors;
 
 	x = ((app.mouse.x + world.camera.x) / TILE_SIZE) * TILE_SIZE;
 	y = ((app.mouse.y + world.camera.y) / TILE_SIZE) * TILE_SIZE;
@@ -551,14 +551,15 @@ static void drawInfo(void)
 
 	drawText(210, 0, 32, TEXT_LEFT, app.colors.white, "Pos: %d,%d", x, y);
 
-	numEnts = keys = keyDoors = trafficLights = remoteDoors = 0;
+	numEnts = keys = keyDoors = remotes = remoteDoors = 0;
 
 	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
 		numEnts++;
 
 		keys += (strcmp(e->typeName, "key") == 0) ? 1 : 0;
-		trafficLights += (strcmp(e->typeName, "trafficLight") == 0) ? 1 : 0;
+		remotes += (strcmp(e->typeName, "trafficLight") == 0) ? 1 : 0;
+		remotes += (strcmp(e->typeName, "piggyBank") == 0) ? 1 : 0;
 
 		if (strcmp(e->typeName, "door") == 0)
 		{
@@ -588,7 +589,7 @@ static void drawInfo(void)
 
 	drawText(610, 0, 32, TEXT_LEFT, app.colors.white, "Key: %d (%d)", keys, keyDoors);
 
-	drawText(810, 0, 32, TEXT_LEFT, app.colors.white, "Remote: %d (%d)", trafficLights, remoteDoors);
+	drawText(810, 0, 32, TEXT_LEFT, app.colors.white, "Remote: %d (%d)", remotes, remoteDoors);
 }
 
 static void drawLights(void)

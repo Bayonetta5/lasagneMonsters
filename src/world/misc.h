@@ -19,16 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "../json/cJSON.h"
 
-extern void activeEntities(char *targetName, int activate);
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern int deductCoins(int i);
-extern AtlasImage *getAtlasImage(char *filename, int required);
-extern int isControl(int type);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
-extern void drawEntityLinkLines(Entity *e, char *targetName);
+extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
 
-extern App app;
 extern Entity *self;
+extern Stage *stage;
 extern World world;
