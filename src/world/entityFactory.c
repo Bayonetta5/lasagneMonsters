@@ -52,6 +52,7 @@ void initEntityFactory(void)
 	addInitFunc("startPoint", initStartPoint);
 	addInitFunc("trafficLight", initTrafficLight);
 	addInitFunc("transferCube", initTransferCube);
+	addInitFunc("waterBottle", initWaterBottle);
 }
 
 static void addInitFunc(const char *id, void (*init)(Entity *e))

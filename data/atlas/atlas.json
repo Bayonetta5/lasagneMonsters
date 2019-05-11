@@ -152,6 +152,14 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/waterBottle.png",
+		"x" : 495,
+		"y" : 0,
+		"w" : 16,
+		"h" : 41,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/entities/greenFlyingCyclops1.png",
 		"x" : 366,
 		"y" : 121,
@@ -297,15 +305,15 @@
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 495,
-		"y" : 0,
+		"x" : 418,
+		"y" : 170,
 		"w" : 14,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/digit4.png",
-		"x" : 418,
+		"x" : 433,
 		"y" : 170,
 		"w" : 20,
 		"h" : 32,
@@ -313,7 +321,7 @@
 	},
 	{
 		"filename" : "gfx/entities/chest2.png",
-		"x" : 439,
+		"x" : 454,
 		"y" : 170,
 		"w" : 32,
 		"h" : 32,
@@ -321,7 +329,7 @@
 	},
 	{
 		"filename" : "gfx/entities/chocolate.png",
-		"x" : 472,
+		"x" : 487,
 		"y" : 170,
 		"w" : 20,
 		"h" : 32,
@@ -473,22 +481,14 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 493,
-		"y" : 170,
+		"x" : 468,
+		"y" : 203,
 		"w" : 18,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 468,
-		"y" : 203,
-		"w" : 26,
-		"h" : 26,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/hud/heartFull.png",
 		"x" : 0,
 		"y" : 236,
 		"w" : 26,
@@ -496,8 +496,16 @@
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/hud/heartFull.png",
+		"x" : 27,
+		"y" : 236,
+		"w" : 26,
+		"h" : 26,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/effects/alert.png",
-		"x" : 495,
+		"x" : 487,
 		"y" : 203,
 		"w" : 7,
 		"h" : 25,
@@ -505,7 +513,7 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 27,
+		"x" : 54,
 		"y" : 236,
 		"w" : 24,
 		"h" : 24,
@@ -513,7 +521,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 52,
+		"x" : 79,
 		"y" : 236,
 		"w" : 24,
 		"h" : 24,
@@ -521,7 +529,7 @@
 	},
 	{
 		"filename" : "gfx/hud/girls.png",
-		"x" : 77,
+		"x" : 104,
 		"y" : 236,
 		"w" : 24,
 		"h" : 24,
@@ -577,15 +585,15 @@
 	},
 	{
 		"filename" : "gfx/entities/aimedSlimeBullet1.png",
-		"x" : 495,
-		"y" : 33,
+		"x" : 280,
+		"y" : 57,
 		"w" : 14,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/cageChainLink.png",
-		"x" : 280,
+		"x" : 295,
 		"y" : 57,
 		"w" : 10,
 		"h" : 10,
@@ -593,7 +601,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall3.png",
-		"x" : 291,
+		"x" : 306,
 		"y" : 57,
 		"w" : 8,
 		"h" : 8,
@@ -601,7 +609,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall2.png",
-		"x" : 300,
+		"x" : 315,
 		"y" : 57,
 		"w" : 8,
 		"h" : 8,
@@ -609,7 +617,7 @@
 	},
 	{
 		"filename" : "gfx/entities/pusBall1.png",
-		"x" : 309,
+		"x" : 324,
 		"y" : 57,
 		"w" : 8,
 		"h" : 8,
@@ -617,7 +625,7 @@
 	},
 	{
 		"filename" : "gfx/particles/basic.png",
-		"x" : 318,
+		"x" : 333,
 		"y" : 57,
 		"w" : 7,
 		"h" : 7,

@@ -36,6 +36,7 @@ extern void initGumballMachine(Entity *e);
 extern void initHeart(Entity *e);
 extern void initHorizontalDoor(Entity *e);
 extern void initKey(Entity *e);
+extern void initWaterBottle(Entity *e);
 extern void initLamp(Entity *e);
 extern void initPiggyBank(Entity *e);
 extern void initPlatform(Entity *e);
