@@ -302,8 +302,8 @@
 			"x":	-48,
 			"y":	4176,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	8,
+			"targetFlag":	"rightFlag",
 			"w":	1,
 			"h":	2
 		}, {
