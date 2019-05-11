@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void initTextures(void);
 static void tick(void);
 static void draw(void);
+static void drawLight(void);
 static void touch(Entity *other);
 static void load(cJSON *root);
 static void save(cJSON *root);
@@ -51,6 +52,7 @@ void initPiggyBank(Entity *e)
 	e->h = e->atlasImage->rect.h;
 	e->tick = tick;
 	e->draw = draw;
+	e->drawLight = drawLight;
 	e->touch = touch;
 	e->flags = EF_NO_ENT_CLIP+EF_STATIC;
 
@@ -102,6 +104,18 @@ static void draw(void)
 	{
 		drawEntityLinkLines(self, p->targetName);
 	}
+}
+
+static void drawLight(void)
+{
+	int x, y;
+
+	x = self->x + self->w - world.camera.x;
+	y = self->y - world.camera.y - 48;
+
+	drawLightEffect(x, y, 32, 255, 255, 128, 192);
+	drawLightEffect(x + 24, y, 32, 255, 255, 128, 192);
+	drawLightEffect(x + 48, y, 32, 255, 255, 128, 192);
 }
 
 static void touch(Entity *other)

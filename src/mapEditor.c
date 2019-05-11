@@ -558,10 +558,9 @@ static void drawInfo(void)
 		numEnts++;
 
 		keys += (strcmp(e->typeName, "key") == 0) ? 1 : 0;
-		remotes += (strcmp(e->typeName, "trafficLight") == 0) ? 1 : 0;
-		remotes += (strcmp(e->typeName, "piggyBank") == 0) ? 1 : 0;
+		remotes += (strcmp(e->typeName, "trafficLight") == 0 || strcmp(e->typeName, "piggyBank") == 0) ? 1 : 0;
 
-		if (strcmp(e->typeName, "door") == 0)
+		if (strcmp(e->typeName, "door") == 0 || strcmp(e->typeName, "horizontalDoor") == 0)
 		{
 			d = (Door*)e->data;
 
