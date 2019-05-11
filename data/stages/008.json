@@ -893,10 +893,10 @@
 			"type":	"platform",
 			"name":	"",
 			"x":	968,
-			"y":	2600,
+			"y":	2592,
 			"facing":	"FACING_RIGHT",
 			"sx":	968,
-			"sy":	2600,
+			"sy":	2592,
 			"ex":	968,
 			"ey":	2792,
 			"pause":	60,
@@ -967,6 +967,115 @@
 			"sy":	3504,
 			"ex":	1024,
 			"ey":	3412
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2344,
+			"y":	3024,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2224,
+			"y":	3336,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1688,
+			"y":	3192,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1168,
+			"y":	3768,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1312,
+			"y":	3648,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1120,
+			"y":	4224,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3912,
+			"y":	3504,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3552,
+			"y":	3504,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1216,
+			"y":	2688,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"battery",
+			"name":	"",
+			"x":	1912,
+			"y":	3088,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	1472,
+			"y":	2504,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"waterBottle",
+			"name":	"",
+			"x":	1672,
+			"y":	2600,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
 		"data":	"eJztmUG2gyAMAK/SI5QF97/aX/haEZIQqx+Cb94s2iogExEMfb/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsCgpGOP9fcfq47/31qqJfwR/X9nyVz7B5r99j+Cflb74Y+Wpq3OMzXh/qz/1nbv/+p/xEGn+k8uVvTsz3j1Pw2r+z17/7mp5Df/eCH26v/x959cIPMX/EwU/z/Nv5+l7HVL1Gcs/N1ZyyZX99feb1v5+f7vdEf7a1XPjtEVKWh+e559POJ0pW9ec+f6vr/HlrOe3T8Ja4K05w3/rca9f9lqnrw+9CMzPf2q/npHUX6uEFYFo+c/5DMdTeo9pL/uL49+rdXTrRUlaJax4ruPfOsme3giM97+a55VGdqmrV/kff8885Wtltss1f3snYK+h7WLVLf+2Hzbe31cqV7/153bd/NcfAcvetyau5l9GQH9nK5+EK3lwRP+jo+R/zBVX8W/ffG30MZuW9JevbefF8ruN5O+Z5+fmv9f966PHWlK7Ef//vd9fWs3T95x+dqz/pye1fy7O1KNW8q/3f5IYAdswzv23e+W7/+nV/s8f1d+ae+rdT23998z/6dBOOa7mz3/9d3F5V8ia/2vXsrQd6VH+/pxD2xM7W2uWq+x/1d5uQaolzbfz/L2ZqWZvt6DXkOuN94/F7PEAAAAAAAAAAAAAAAAAAAAAAACx+APWPAz",
