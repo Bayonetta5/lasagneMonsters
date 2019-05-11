@@ -94,8 +94,8 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 	e->drawLight = drawSlimeBulletLight;
 	e->die = slimeBulletDie;
 
-	e->x = owner->x + (owner->w / 2) - (e->w / 2);
-	e->y = owner->y + (owner->h / 2) - (e->h / 2);
+	e->x = owner->cx - (e->w / 2);
+	e->y = owner->cy - (e->h / 2);
 
 	calcSlope(target->x, target->y, e->x, e->y, &e->dx, &e->dy);
 
@@ -118,7 +118,7 @@ static void tick(void)
 
 static void drawSlimeBulletLight(void)
 {
-	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 16, 128, 255, 128, 255);
+	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 16, 128, 255, 128, 255);
 }
 
 static void damage(int amount)
@@ -190,12 +190,12 @@ static void waterBulletDie(void)
 {
 	playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 
-	addWaterBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
+	addWaterBurstParticles(self->cx, self->cy);
 }
 
 static void slimeBulletDie(void)
 {
 	playPositionalSound(SND_WATER_HIT, CH_HIT, self->x, self->y, world.player->x, world.player->y);
 
-	addSlimeBurstParticles(self->x + (self->w / 2), self->y + (self->h / 2));
+	addSlimeBurstParticles(self->cx, self->cy);
 }

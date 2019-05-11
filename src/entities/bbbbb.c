@@ -138,7 +138,7 @@ static void damage(int amount)
 			self->dx = self->dy = 0;
 			self->damage = NULL;
 
-			addCageBreakParticles(self->x + (self->w / 2), self->y + (self->h / 2));
+			addCageBreakParticles(self->cx, self->cy);
 
 			playPositionalSound(SND_BREAK, -1, self->x, self->y, world.player->x, world.player->y);
 		}

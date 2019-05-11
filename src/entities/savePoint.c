@@ -99,11 +99,11 @@ static void drawLight(void)
 
 	if (s->active)
 	{
-		drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 64, 255, 255, 255, 255);
+		drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 64, 255, 255, 255, 255);
 	}
 	else
 	{
-		drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 16, 32, 32, 32, 255);
+		drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 16, 32, 32, 32, 255);
 	}
 }
 

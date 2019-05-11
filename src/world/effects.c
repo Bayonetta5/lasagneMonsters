@@ -47,8 +47,8 @@ void drawObjectGlow(int r, int g, int b, int a)
 {
 	int x, y;
 
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
+	x = self->cx - world.camera.x;
+	y = self->cy - world.camera.y;
 
 	drawObjectGlowAt(x, y, r, g, b, a);
 }

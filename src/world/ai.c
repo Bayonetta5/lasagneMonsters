@@ -56,10 +56,10 @@ static int traceMap(void)
 {
 	int x1, y1, x2, y2, dx, dy, sx, sy, err, e2;
 
-	x1 = (self->x + (self->w / 2)) / TILE_SIZE;
-	y1 = (self->y + (self->h / 2)) / TILE_SIZE;
-	x2 = (world.player->x + (world.player->w / 2)) / TILE_SIZE;
-	y2 = (world.player->y + (world.player->h / 2)) / TILE_SIZE;
+	x1 = self->cx / TILE_SIZE;
+	y1 = self->cy / TILE_SIZE;
+	x2 = world.player->cx / TILE_SIZE;
+	y2 = world.player->cy / TILE_SIZE;
 
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);

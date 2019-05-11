@@ -73,8 +73,8 @@ static void draw(void)
 {
 	int x, y;
 
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
+	x = self->cx - world.camera.x;
+	y = self->cy - world.camera.y;
 
 	SDL_SetTextureColorMod(lightTexture->texture, 255, 128, 64);
 	SDL_SetTextureAlphaMod(lightTexture->texture, 64);
@@ -89,7 +89,7 @@ static void draw(void)
 
 static void drawLight(void)
 {
-	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 32, 255, 128, 32, 255);
+	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 32, 255, 128, 32, 255);
 }
 
 static void touch(Entity *other)
@@ -102,7 +102,7 @@ static void touch(Entity *other)
 
 		playPositionalSound(SND_KEY, CH_ITEM, self->x, self->y, world.player->x, world.player->y);
 
-		addPowerupParticles(self->x + self->w / 2, self->y + self->h / 2);
+		addPowerupParticles(self->cx, self->cy);
 
 		addGameText(self->x, self->y, "+Key");
 	}

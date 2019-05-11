@@ -40,5 +40,5 @@ static void draw(void)
 
 static void drawLight(void)
 {
-	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, MAX(self->w, self->h), 128, 128, 128, 255);
+	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, MAX(self->w, self->h), 128, 128, 128, 255);
 }

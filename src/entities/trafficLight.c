@@ -78,8 +78,8 @@ static void draw(void)
 
 	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, SDL_FLIP_NONE);
 
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
+	x = self->cx - world.camera.x;
+	y = self->cy - world.camera.y;
 
 	if (t->on)
 	{
@@ -113,8 +113,8 @@ static void drawLight(void)
 
 	t = (TrafficLight*)self->data;
 
-	x = self->x + (self->w / 2) - world.camera.x;
-	y = self->y + (self->h / 2) - world.camera.y;
+	x = self->cx - world.camera.x;
+	y = self->cy - world.camera.y;
 
 	if (t->on)
 	{

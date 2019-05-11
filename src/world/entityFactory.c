@@ -110,6 +110,9 @@ static void initEntityFromJSON(cJSON *root)
 				e->load(root);
 			}
 
+			e->cx = e->x + (e->w / 2);
+			e->cy = e->y + (e->h / 2);
+
 			return;
 		}
 	}

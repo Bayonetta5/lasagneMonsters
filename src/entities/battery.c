@@ -75,7 +75,7 @@ static void touch(Entity *other)
 
 		self->alive = ALIVE_DEAD;
 
-		addPowerupParticles(self->x + self->w / 2, self->y + self->h / 2);
+		addPowerupParticles(self->cx, self->cy);
 
 		addGameText(self->x, self->y, "Refill Rate Up!");
 

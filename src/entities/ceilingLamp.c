@@ -67,7 +67,7 @@ static void drawLight(void)
 {
 	int x, y;
 
-	x = self->x + (self->w / 2) - world.camera.x;
+	x = self->cx - world.camera.x;
 	y = self->y - world.camera.y;
 
 	drawLightEffect(x - 8, y, 75, 255, 255, 168, 128);

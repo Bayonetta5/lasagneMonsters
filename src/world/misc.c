@@ -25,15 +25,15 @@ void drawEntityLinkLines(Entity *e, char *targetName)
 	Entity *other;
 	int sx, sy, ex, ey;
 
-	sx = e->x + (e->w / 2) - world.camera.x;
-	sy = e->y + (e->h / 2) - world.camera.y;
+	sx = e->cx - world.camera.x;
+	sy = e->cy - world.camera.y;
 
 	for (other = stage->entityHead.next ; other != NULL ; other = other->next)
 	{
 		if (strcmp(other->name, targetName) == 0)
 		{
-			ex = other->x + (other->w / 2) - world.camera.x;
-			ey = other->y + (other->h / 2) - world.camera.y;
+			ex = other->cx - world.camera.x;
+			ey = other->cy - world.camera.y;
 
 			drawLine(sx, sy, ex, ey, 192, 192, 255, 255);
 		}

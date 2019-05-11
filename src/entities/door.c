@@ -112,13 +112,13 @@ static void draw(void)
 
 		drawRect(d->ex - world.camera.x, d->ey - world.camera.y, self->w, self->h, 168, 255, 168, 160);
 		drawOutlineRect(d->ex - world.camera.x, d->ey - world.camera.y, self->w, self->h, 255, 255, 255, 160);
-		drawLine(self->x + (self->w / 2) - world.camera.x, self->y - world.camera.y, d->ex + (self->w / 2) - world.camera.x, d->ey - world.camera.y, 255, 255, 255, 255);
+		drawLine(self->cx - world.camera.x, self->y - world.camera.y, d->ex + (self->w / 2) - world.camera.x, d->ey - world.camera.y, 255, 255, 255, 255);
 	}
 }
 
 static void drawLight(void)
 {
-	drawLightEffect(self->x + (self->w / 2) - world.camera.x, self->y + (self->h / 2) - world.camera.y, 50, 128, 128, 128, 255);
+	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 50, 128, 128, 128, 255);
 }
 
 static void activate(int active)

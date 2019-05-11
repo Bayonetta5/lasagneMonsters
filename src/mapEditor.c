@@ -576,11 +576,11 @@ static void drawInfo(void)
 
 		if (mode == MODE_PICK && collision(app.mouse.x + world.camera.x, app.mouse.y + world.camera.y, 1, 1, e->x, e->y, e->w, e->h))
 		{
-			drawText(e->x + (e->w / 2) - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", (int)e->x, (int)e->y);
+			drawText(e->cx - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "%d,%d", (int)e->x, (int)e->y);
 		}
 		else if (strlen(e->name) > 0)
 		{
-			drawText(e->x + (e->w / 2) - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, e->name);
+			drawText(e->cx - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, e->name);
 		}
 	}
 

@@ -267,7 +267,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	3648,
+			"x":	3664,
 			"y":	168,
 			"facing":	"FACING_RIGHT",
 			"r":	255,

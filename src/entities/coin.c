@@ -94,7 +94,7 @@ static void touch(Entity *other)
 
 		addGameText(self->x, self->y, "+1g");
 
-		addCoinParticles(self->x + self->w / 2, self->y + self->h / 2);
+		addCoinParticles(self->cx, self->cy);
 
 		game.coins++;
 	}

@@ -64,7 +64,7 @@ static void draw(void)
 
 static void touch(Entity *other)
 {
-	if (other == world.player && abs((self->x + (self->w / 2)) - (other->x + (other->w / 2))) <= other->w / 2)
+	if (other == world.player && abs(self->cx - other->cx) <= other->w / 2)
 	{
 		world.transferCube = (TransferCube*)self->data;
 	}
