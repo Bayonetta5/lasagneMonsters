@@ -84,7 +84,7 @@ void presentScene(void)
 		}
 
 		SDL_SetTextureAlphaMod(app.save.atlasImage->texture, 255 * ((1.0 + sin(app.save.pulse)) / 2));
-		blitAtlasImage(app.save.atlasImage, 15, SCREEN_HEIGHT - (15 + app.save.atlasImage->rect.h), 0, SDL_FLIP_NONE);
+		blitAtlasImage(app.save.atlasImage, SCREEN_WIDTH - (15 + app.save.atlasImage->rect.w), SCREEN_HEIGHT - (15 + app.save.atlasImage->rect.h), 0, SDL_FLIP_NONE);
 		SDL_SetTextureAlphaMod(app.save.atlasImage->texture, 255);
 	}
 
