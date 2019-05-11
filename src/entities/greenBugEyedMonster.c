@@ -36,8 +36,8 @@ void initGreenBugEyedMonster(Entity *e)
 	m = malloc(sizeof(Monster));
 	memset(m, 0, sizeof(Monster));
 
-	m->health = m->maxHealth = 20;
-	m->coins = 5;
+	m->health = m->maxHealth = 12;
+	m->coins = 10;
 	m->aiFlags = AIF_HALT_AT_EDGE;
 
 	if (textures[0] == NULL)
@@ -102,7 +102,7 @@ static void preAttack(void)
 		case 1:
 			if (abs(self->y - world.player->y) <= 16)
 			{
-				m->shotsToFire = 1 + rand() % 2;
+				m->shotsToFire = 3 + rand() % 3;
 			}
 			self->tick = stand;
 			break;
@@ -114,7 +114,7 @@ static void preAttack(void)
 		case 3:
 			if (abs(self->y - world.player->y) <= 16)
 			{
-				m->shotsToFire = 1 + rand() % 2;
+				m->shotsToFire = 3 + rand() % 3;
 			}
 			self->tick = chasePlayer;
 			break;
@@ -190,7 +190,7 @@ static void fireShots(void)
 
 			m->shotsToFire--;
 
-			m->reload = FPS / 2;
+			m->reload = FPS / 4;
 
 			playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
 		}
