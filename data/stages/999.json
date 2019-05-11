@@ -14,18 +14,6 @@
 			"autoFire":	0,
 			"hasDoubleJump":	0
 		}, {
-			"type":	"savePoint",
-			"name":	"",
-			"x":	176,
-			"y":	592,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"key",
-			"name":	"",
-			"x":	96,
-			"y":	360,
-			"facing":	"FACING_RIGHT"
-		}, {
 			"type":	"lamp",
 			"name":	"",
 			"x":	840,
@@ -45,11 +33,111 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	120,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	344,
+			"y":	112,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	472,
+			"y":	256,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	552,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	552,
+			"sy":	192,
+			"ex":	552,
+			"ey":	100
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	528,
+			"y":	48,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	528,
+			"sy":	48,
+			"ex":	528,
+			"ey":	-44
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	464,
+			"y":	336,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	464,
+			"sy":	336,
+			"ex":	464,
+			"ey":	244
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	1024,
+			"y":	144,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	1024,
+			"sy":	144,
+			"ex":	1024,
+			"ey":	52
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	1128,
+			"y":	152,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	352,
+			"y":	528,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"speed":	1,
+			"sx":	352,
+			"sy":	528,
+			"ex":	352,
+			"ey":	436
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	144,
+			"y":	576,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQQNGrdIRaeP+rRQkpQRguCmYeb6Mwgn/hwm3ZJqxhzLTo//vW+vXr/6a/nPoTufrrVLlWGfvbdLz+MlQnj1XE/uddr7VH7n9Xn63/Xh+rf/z+Y/9/cv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEZ26sgCeQ=",
-		"eLen":	176,
-		"cLen":	130,
+		"data":	"eJzt1zsKgDAQQMGreAS3yP2vpgh+QaIWopthKiEpnqyRRBcP9Glcb4kHe75P//0Jz9X/zp6vMv+1+S+TtbrF8z/GNxBLfXv988qM//9Sta7M2H/+tFVOToe/u9ayr2+t/1ifq7/+/ee+/7R9/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoGQCOIAK",
+		"eLen":	192,
+		"cLen":	144,
 		"dLen":	32768
 	}
 }

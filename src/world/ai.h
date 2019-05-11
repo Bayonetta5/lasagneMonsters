@@ -22,6 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern int isInsideMap(int x, int y);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity **candidates, Entity *ignore);
+extern int lineRectCollision(int x1, int y1, int x2, int y2, int rx, int ry, int rw, int rh);
 
 extern Entity *self;
 extern Stage *stage;

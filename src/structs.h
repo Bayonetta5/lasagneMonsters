@@ -68,6 +68,8 @@ struct Entity {
 	int facing;
 	float dx;
 	float dy;
+	int cx;
+	int cy;
 	int alive;
 	int isOnGround;
 	int background;

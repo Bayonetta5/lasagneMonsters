@@ -63,6 +63,9 @@ void doEntities(void)
 			move(e);
 		}
 
+		e->cx = e->x + (e->w / 2);
+		e->cy = e->y + (e->h / 2);
+
 		if (e->alive != ALIVE_DEAD)
 		{
 			addToQuadtree(e, &world.quadtree);

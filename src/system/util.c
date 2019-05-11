@@ -27,6 +27,35 @@ int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
 	return (MAX(x1, x2) < MIN(x1 + w1, x2 + w2)) && (MAX(y1, y2) < MIN(y1 + h1, y2 + h2));
 }
 
+int lineLineCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
+{
+	float denominator, numerator1, numerator2, r, s;
+
+	denominator = ((x2 - x1) * (y4 - y3)) - ((y2 - y1) * (x4 - x3));
+	numerator1 = ((y1 - y3) * (x4 - x3)) - ((x1 - x3) * (y4 - y3));
+	numerator2 = ((y1 - y3) * (x2 - x1)) - ((x1 - x3) * (y2 - y1));
+
+	if (denominator == 0)
+	{
+		return numerator1 == 0 && numerator2 == 0;
+	}
+
+	r = numerator1 / denominator;
+	s = numerator2 / denominator;
+
+	return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
+}
+
+int lineRectCollision(int x1, int y1, int x2, int y2, int rx, int ry, int rw, int rh)
+{
+	return
+		lineLineCollision(x1, y1, x2, y2, rx, ry, rx + rw, ry) || // top
+		lineLineCollision(x1, y1, x2, y2, rx, ry + rh, rx + rw, ry + rh) || // bottom
+		lineLineCollision(x1, y1, x2, y2, rx, ry, rx, ry + rh) || // left
+		lineLineCollision(x1, y1, x2, y2, rx + rw, ry, rx + rw, ry + rh) // right
+	;
+}
+
 void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy)
 {
 	int steps = MAX(abs(x1 - x2), abs(y1 - y2));
