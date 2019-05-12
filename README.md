@@ -1,5 +1,5 @@
 # Attack of the Obnoxious, Hangry, Puss-filled Multi-Dimensional Mutant Lasagne Monsters (starring Walter Chambers!)
-**Lasagne Monsters** is a 2D platform game.
+**Lasagne Monsters** is a 2D platform game. The objective is to eliminate all the monsters on each stage, as well as rescue the girls that they are keeping prisoner. The game uses a Metroidvania style of play, meaning that players can free roam and explore.
 
 ![Alt text](dev/screenshots/v0.3-03.png?raw=true "v0.3 screenshot")
 
