@@ -24,7 +24,7 @@ static void tick(void);
 static void draw(void);
 static void touch(Entity *other);
 static void attachChain(void);
-static void damage(int amount);
+static void damage(int amount, int damageType);
 static void load(cJSON *root);
 static void save(cJSON *root);
 static void initTextures(void);
@@ -120,13 +120,13 @@ static void draw(void)
 	}
 }
 
-static void damage(int amount)
+static void damage(int amount, int damageType)
 {
 	BBBBB *b;
 
 	b = (BBBBB*)self->data;
 
-	if (b->health > 1)
+	if (b->health > 1 && damageType == DT_WATER)
 	{
 		b->health = MAX(b->health - amount, 1);
 

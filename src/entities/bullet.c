@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "bullet.h"
 
-static Entity *initBullet(Entity *owner);
+static Entity *initBullet(Entity *owner, int damage, int damageType);
 static void waterBulletDie(void);
 static void slimeBulletDie(void);
 static void drawSlimeBulletLight(void);
@@ -40,7 +40,7 @@ void initWaterBullet(Entity *owner)
 {
 	Entity *e;
 
-	e = initBullet(owner);
+	e = initBullet(owner, 1, DT_WATER);
 
 	e->atlasImage = waterBulletTexture;
 	e->w = e->atlasImage->rect.w;
@@ -63,7 +63,7 @@ void initSlimeBullet(Entity *owner)
 {
 	Entity *e;
 
-	e = initBullet(owner);
+	e = initBullet(owner, 1, DT_SLIME);
 
 	e->atlasImage = slimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
@@ -86,7 +86,7 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 {
 	Entity *e;
 
-	e = initBullet(owner);
+	e = initBullet(owner, 1, DT_SLIME);
 
 	e->atlasImage = aimedSlimeBulletTexture;
 	e->w = e->atlasImage->rect.w;
@@ -121,7 +121,7 @@ static void drawSlimeBulletLight(void)
 	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, 16, 128, 255, 128, 255);
 }
 
-static void damage(int amount)
+static void damage(int amount, int damageType)
 {
 	self->alive = ALIVE_DEAD;
 }
@@ -129,6 +129,7 @@ static void damage(int amount)
 static void touch(Entity *other)
 {
 	Entity *oldSelf;
+	Bullet *b;
 
 	if (self->alive == ALIVE_ALIVE)
 	{
@@ -136,11 +137,13 @@ static void touch(Entity *other)
 		{
 			if (other->damage && other != self->owner)
 			{
+				b = (Bullet*)self->data;
+
 				oldSelf = self;
 
 				self = other;
 
-				other->damage(1);
+				other->damage(b->damage, b->damageType);
 
 				self = oldSelf;
 
@@ -159,7 +162,7 @@ static void touch(Entity *other)
 	}
 }
 
-static Entity *initBullet(Entity *owner)
+static Entity *initBullet(Entity *owner, int amount, int damageType)
 {
 	Entity *e;
 	Bullet *b;
@@ -168,6 +171,8 @@ static Entity *initBullet(Entity *owner)
 	memset(b, 0, sizeof(Bullet));
 
 	b->health = FPS * 60;
+	b->damage = amount;
+	b->damageType = damageType;
 
 	e = spawnEntity();
 

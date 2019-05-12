@@ -80,7 +80,7 @@ struct Entity {
 	void (*draw)(void);
 	void (*drawLight)(void);
 	void (*touch)(Entity *other);
-	void (*damage)(int damage);
+	void (*damage)(int damage, int damageType);
 	void (*activate)(int active);
 	void (*die)(void);
 	void (*load)(cJSON *root);
@@ -126,6 +126,8 @@ typedef struct {
 
 typedef struct {
 	int health;
+	int damage;
+	int damageType;
 } Bullet;
 
 typedef struct {

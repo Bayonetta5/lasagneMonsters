@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void tick(void);
 static void draw(void);
 static void drawLight(void);
-static void damage(int amount);
+static void damage(int amount, int damageType);
 static void die(void);
 static void load(cJSON *root);
 static void save(cJSON *root);
@@ -145,13 +145,13 @@ static void drawLight(void)
 	drawLightEffect(self->x + (self-> w / 2) - world.camera.x, self->y + (self-> h / 2) - world.camera.y, 160, 255, 255, 255, 128);
 }
 
-static void damage(int amount)
+static void damage(int amount, int damageType)
 {
 	Walter *w;
 
 	w = (Walter*)self->data;
 
-	if (w->immuneTimer == 0)
+	if (damageType == DT_SLIME && w->immuneTimer == 0)
 	{
 		w->health -= amount;
 

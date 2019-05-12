@@ -148,6 +148,12 @@ enum
 
 enum
 {
+	DT_WATER,
+	DT_SLIME
+};
+
+enum
+{
 	SND_JUMP,
 	SND_SHOOT,
 	SND_INJURED,

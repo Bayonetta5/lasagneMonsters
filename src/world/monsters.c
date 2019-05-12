@@ -90,19 +90,22 @@ void monsterDrawLight(void)
 	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, MAX(self->w, self->h) / 2, 192, 192, 192, 255);
 }
 
-void monsterTakeDamage(int amount)
+void monsterTakeDamage(int amount, int damageType)
 {
 	Monster *m;
 
-	m = (Monster*)self->data;
-
-	m->health -= amount;
-	m->hitTimer = 255;
-	m->alert = 1;
-
-	if (m->health <= 0)
+	if (damageType == DT_WATER)
 	{
-		self->alive = ALIVE_DEAD;
+		m = (Monster*)self->data;
+
+		m->health -= amount;
+		m->hitTimer = 255;
+		m->alert = 1;
+
+		if (m->health <= 0)
+		{
+			self->alive = ALIVE_DEAD;
+		}
 	}
 }
 
@@ -141,7 +144,7 @@ void monsterTouch(Entity *other)
 
 		self = other;
 
-		world.player->damage(1);
+		world.player->damage(1, DT_SLIME);
 
 		self = oldSelf;
 	}

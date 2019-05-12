@@ -30,7 +30,7 @@ extern void monsterDie(void);
 extern void monsterDraw(void);
 extern void monsterDrawLight(void);
 extern void monsterSave(cJSON *root);
-extern void monsterTakeDamage(int amount);
+extern void monsterTakeDamage(int amount, int damageType);
 extern void monsterTick(void);
 extern void monsterTouch(Entity *other);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
