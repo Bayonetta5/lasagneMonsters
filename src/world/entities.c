@@ -193,7 +193,7 @@ static int push(Entity *e, float dx, float dy)
 
 static void moveToWorld(Entity *e, float dx, float dy)
 {
-	int mx, my, hit, adj;
+	int mx, my, hit, n, adj;
 
 	hit = 0;
 
@@ -206,14 +206,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 		hit = 0;
 
-		if (isSolidMap(mx, my))
+		if (isSolidMap(mx, my, &n))
 		{
 			hit = 1;
 		}
 
 		my = (e->y + e->h - 1) / TILE_SIZE;
 
-		if (isSolidMap(mx, my))
+		if (isSolidMap(mx, my, &n))
 		{
 			hit = 1;
 		}
@@ -237,14 +237,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 		hit = 0;
 
-		if (isSolidMap(mx, my))
+		if (isSolidMap(mx, my, &n))
 		{
 			hit = 1;
 		}
 
 		mx = (e->x + e->w - 1) / TILE_SIZE;
 
-		if (isSolidMap(mx, my))
+		if (isSolidMap(mx, my, &n))
 		{
 			hit = 1;
 		}
@@ -269,9 +269,20 @@ static void moveToWorld(Entity *e, float dx, float dy)
 		}
 	}
 
-	if (hit && e->touch)
+	if (hit)
 	{
-		e->touch(NULL);
+		if (e->damage)
+		{
+			if (n >= TILE_SLIME && n < TILE_FOREGROUND)
+			{
+				e->damage(1, DT_SLIME);
+			}
+		}
+
+		if (e->touch)
+		{
+			e->touch(NULL);
+		}
 	}
 }
 

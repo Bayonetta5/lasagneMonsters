@@ -40,12 +40,16 @@ int isInsideMap(int x, int y)
 	return x >= 0 && y >= 0 && x < MAP_WIDTH && y < MAP_HEIGHT;
 }
 
-int isSolidMap(int x, int y)
+int isSolidMap(int x, int y, int *tile)
 {
 	if (isInsideMap(x, y))
 	{
+		*tile = stage->map[x][y];
+
 		return stage->map[x][y] >= TILE_WALL && stage->map[x][y] < TILE_FOREGROUND;
 	}
+
+	*tile = -1;
 
 	return 1;
 }

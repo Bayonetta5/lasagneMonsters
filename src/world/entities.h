@@ -27,7 +27,7 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity **candidates
 extern int isInsideMap(int x, int y);
 extern void loadEntities(cJSON *root);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
-extern int isSolidMap(int x, int y);
+extern int isSolidMap(int x, int y, int *tile);
 
 extern App app;
 extern Entity *self;
