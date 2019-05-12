@@ -25,6 +25,7 @@ extern void doInput(void);
 extern void initGameSystem(void);
 extern void initSDL(void);
 extern void initStage(int n, int i);
+extern void initTest(void);
 extern void loadGame(void);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);

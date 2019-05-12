@@ -112,6 +112,12 @@ static void handleCommandLine(int argc, char *argv[])
 
 			n = game.stageId;
 		}
+
+		if (strcmp(argv[i], "-test") == 0)
+		{
+			initTest();
+			return;
+		}
 	}
 
 	loadMusic("music/Zander Noriega - Darker Waves.mp3");
