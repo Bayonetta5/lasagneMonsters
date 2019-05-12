@@ -181,6 +181,9 @@ Entity *spawnEditorEntity(const char *type, int x, int y)
 
 			initFunc->init(e);
 
+			e->cx = e->x + (e->w / 2);
+			e->cy = e->y + (e->h / 2);
+
 			e->flags &= ~EF_INVISIBLE;
 
 			return e;

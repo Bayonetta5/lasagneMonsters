@@ -474,6 +474,9 @@ static void drawCurrentEnt(void)
 	entity->x = x + world.camera.x;
 	entity->y = y + world.camera.y;
 
+	entity->cx = entity->x + (entity->w / 2);
+	entity->cy = entity->y + (entity->h / 2);
+
 	blitAtlasImage(entity->atlasImage, x, y, 0, SDL_FLIP_NONE);
 }
 
@@ -494,6 +497,9 @@ static void drawSelectedEnt(void)
 
 			selectedEntity->x = x;
 			selectedEntity->y = y;
+
+			selectedEntity->cx = selectedEntity->x + (selectedEntity->w / 2);
+			selectedEntity->cy = selectedEntity->y + (selectedEntity->h / 2);
 
 			addToQuadtree(selectedEntity, &world.quadtree);
 
