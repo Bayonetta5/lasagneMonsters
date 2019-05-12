@@ -434,7 +434,7 @@
 			"y":	304,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	10
+			"coins":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -442,7 +442,7 @@
 			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	10
+			"coins":	0
 		}, {
 			"type":	"lamp",
 			"name":	"",

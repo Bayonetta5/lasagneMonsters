@@ -71,6 +71,15 @@ static void tick(void)
 		playPositionalSound(SND_CHEST, -1, self->x, self->y, world.player->x, world.player->y);
 
 		throwCoins(self->x, self->y, 1);
+
+		c->nextRefill = game.stats[STAT_TIME] + REFILL_TIME;
+	}
+
+	if (c->open && c->nextRefill <= game.stats[STAT_TIME])
+	{
+		c->open = 0;
+		c->coins = 3 + rand() % 8;
+		c->delay = 0;
 	}
 }
 
@@ -95,8 +104,9 @@ static void load(cJSON *root)
 
 	c = (Chest*)self->data;
 
-	c->open = cJSON_GetObjectItem(root, "open")->valueint;
-	c->coins = cJSON_GetObjectItem(root, "coins")->valueint;
+	c->open = cJSON_GetValueInt(root, "open", 0);
+	c->coins = cJSON_GetValueInt(root, "coins", 0);
+	c->nextRefill = cJSON_GetValueInt(root, "nextRefill", 0);
 
 	self->atlasImage = textures[c->open];
 }
@@ -109,4 +119,5 @@ static void save(cJSON *root)
 
 	cJSON_AddNumberToObject(root, "open", c->open);
 	cJSON_AddNumberToObject(root, "coins", c->coins);
+	cJSON_AddNumberToObject(root, "nextRefill", c->nextRefill);
 }

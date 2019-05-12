@@ -74,7 +74,7 @@
 			"y":	112,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	50
+			"coins":	0
 		}, {
 			"type":	"lamp",
 			"name":	"",

@@ -62,7 +62,7 @@
 			"y":	4048,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -70,7 +70,7 @@
 			"y":	4000,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"gumballMachine",
 			"name":	"",
@@ -110,7 +110,7 @@
 			"y":	3808,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"horizontalDoor",
 			"name":	"chestDoor",
@@ -342,7 +342,7 @@
 			"y":	5152,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -350,7 +350,7 @@
 			"y":	5152,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"platform",
 			"name":	"platform1",
@@ -844,7 +844,7 @@
 			"y":	3712,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -852,7 +852,7 @@
 			"y":	2656,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	25
+			"coins":	0
 		}, {
 			"type":	"piggyBank",
 			"name":	"",

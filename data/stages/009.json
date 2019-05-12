@@ -124,7 +124,7 @@
 			"y":	160,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	10
+			"coins":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -132,7 +132,7 @@
 			"y":	160,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	10
+			"coins":	0
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",

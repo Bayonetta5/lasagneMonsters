@@ -4,7 +4,7 @@
 			"type":	"player",
 			"name":	"",
 			"x":	888,
-			"y":	256,
+			"y":	496,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -14,10 +14,46 @@
 			"autoFire":	0,
 			"hasDoubleJump":	0
 		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	96,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	288,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	536,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	736,
+			"y":	400,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0
+		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	840,
-			"y":	216,
+			"x":	192,
+			"y":	360,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -26,7 +62,47 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	720,
+			"x":	432,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	640,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	824,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	824,
+			"y":	360,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	192,
 			"y":	552,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -34,110 +110,80 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"redHorse",
+			"type":	"lamp",
 			"name":	"",
-			"x":	120,
-			"y":	400,
+			"x":	432,
+			"y":	552,
 			"facing":	"FACING_RIGHT",
-			"isMonster":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"redHorse",
+			"type":	"lamp",
 			"name":	"",
-			"x":	344,
-			"y":	112,
+			"x":	640,
+			"y":	552,
 			"facing":	"FACING_RIGHT",
-			"isMonster":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"redHorse",
+			"type":	"lamp",
 			"name":	"",
-			"x":	472,
-			"y":	256,
+			"x":	1048,
+			"y":	360,
 			"facing":	"FACING_RIGHT",
-			"isMonster":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"door",
+			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	552,
-			"y":	192,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	552,
-			"sy":	192,
-			"ex":	552,
-			"ey":	100
-		}, {
-			"type":	"door",
-			"name":	"",
-			"x":	528,
+			"x":	1144,
 			"y":	48,
 			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	528,
-			"sy":	48,
-			"ex":	528,
-			"ey":	-44
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"door",
+			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	464,
-			"y":	336,
+			"x":	808,
+			"y":	48,
 			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	464,
-			"sy":	336,
-			"ex":	464,
-			"ey":	244
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"door",
+			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	1024,
-			"y":	144,
+			"x":	488,
+			"y":	48,
 			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	1024,
-			"sy":	144,
-			"ex":	1024,
-			"ey":	52
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"greenFlyingCyclops",
+			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	1128,
-			"y":	152,
+			"x":	128,
+			"y":	48,
 			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"door",
-			"name":	"",
-			"x":	352,
-			"y":	528,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
-			"sx":	352,
-			"sy":	528,
-			"ex":	352,
-			"ey":	436
-		}, {
-			"type":	"greenBugEyedMonster",
-			"name":	"",
-			"x":	144,
-			"y":	576,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt1zsKgDAQQMGreAS3yP2vpgh+QaIWopthKiEpnqyRRBcP9Glcb4kHe75P//0Jz9X/zp6vMv+1+S+TtbrF8z/GNxBLfXv988qM//9Sta7M2H/+tFVOToe/u9ayr2+t/1ifq7/+/ee+/7R9/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoGQCOIAK",
-		"eLen":	192,
-		"cLen":	144,
+		"data":	"eJzt16ENwDAMRcFVOkIDvP9qRQUtsRQSyf90C+SByPa61oZ7jJ0W/adfrV+//jP9Fd1f0fOvBs7/ar3tFbz/VPT+961P6//Xz+rv///s+yf7/gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoPCVkAm8",
+		"eLen":	156,
+		"cLen":	116,
 		"dLen":	32768
 	}
 }

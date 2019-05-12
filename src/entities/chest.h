@@ -21,9 +21,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
+#define REFILL_TIME  (60 * 5)
+
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void throwCoins(int x, int y, int n);
 
 extern Entity *self;
+extern Game game;
 extern World world;
