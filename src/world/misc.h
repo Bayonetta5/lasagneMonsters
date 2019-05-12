@@ -22,6 +22,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
 
-extern Entity *self;
 extern Stage *stage;
 extern World world;

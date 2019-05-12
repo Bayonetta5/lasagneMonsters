@@ -36,7 +36,6 @@ extern void initGumballMachine(Entity *e);
 extern void initHeart(Entity *e);
 extern void initHorizontalDoor(Entity *e);
 extern void initKey(Entity *e);
-extern void initWaterBottle(Entity *e);
 extern void initLamp(Entity *e);
 extern void initPiggyBank(Entity *e);
 extern void initPlatform(Entity *e);
@@ -46,6 +45,7 @@ extern void initSavePoint(Entity *e);
 extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
 extern void initTransferCube(Entity *e);
+extern void initWaterBottle(Entity *e);
 extern long lookup(const char *key);
 
 extern Entity *self;

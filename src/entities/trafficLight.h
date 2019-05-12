@@ -24,12 +24,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void activeEntities(char *targetName, int activate);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void clearControl(int type);
+extern void drawEntityLinkLines(Entity *e, char *targetName);
 extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
+extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int isControl(int type);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
-extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern void drawEntityLinkLines(Entity *e, char *targetName);
 
 extern App app;
 extern Entity *self;

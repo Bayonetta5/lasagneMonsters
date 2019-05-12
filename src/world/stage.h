@@ -40,6 +40,7 @@ extern void drawEntityLights(void);
 extern void drawHud(void);
 extern void drawLightMap(void);
 extern void drawMap(int background);
+extern void drawMapLights(void);
 extern void drawParticles(void);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawWidgetFrame(void);
@@ -59,7 +60,6 @@ extern void resumeSound(void);
 extern void showWidgets(const char *groupName, int visible);
 extern void updateCameraBounds(void);
 extern void updatePlayer(void);
-extern void drawMapLights(void);
 
 extern App app;
 extern Game game;

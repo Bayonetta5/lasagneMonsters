@@ -24,10 +24,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity **candidates, Entity *ignore);
-extern int isInsideMap(int x, int y);
+extern int isSolidMap(int x, int y, int *tile);
 extern void loadEntities(cJSON *root);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
-extern int isSolidMap(int x, int y, int *tile);
 
 extern App app;
 extern Entity *self;
