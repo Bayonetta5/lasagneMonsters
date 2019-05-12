@@ -202,9 +202,11 @@ static void drawGame()
 
 	drawEntities(1);
 
-	drawMap();
+	drawMap(1);
 
 	drawEntities(0);
+
+	drawMap(0);
 
 	drawParticles();
 
@@ -265,6 +267,8 @@ static void drawLights(void)
 	SDL_SetRenderTarget(app.renderer, app.lightMap);
 
 	drawEntityLights();
+
+	drawMapLights();
 
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }

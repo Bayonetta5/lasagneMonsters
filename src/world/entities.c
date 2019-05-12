@@ -206,14 +206,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 		hit = 0;
 
-		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
+		if (isSolidMap(mx, my))
 		{
 			hit = 1;
 		}
 
 		my = (e->y + e->h - 1) / TILE_SIZE;
 
-		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
+		if (isSolidMap(mx, my))
 		{
 			hit = 1;
 		}
@@ -237,14 +237,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 		hit = 0;
 
-		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
+		if (isSolidMap(mx, my))
 		{
 			hit = 1;
 		}
 
 		mx = (e->x + e->w - 1) / TILE_SIZE;
 
-		if (!isInsideMap(mx, my) || stage->map[mx][my] != 0)
+		if (isSolidMap(mx, my))
 		{
 			hit = 1;
 		}

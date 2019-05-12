@@ -34,7 +34,23 @@ void initMap(cJSON *root)
 	loadMap(root);
 }
 
-void drawMap(void)
+
+int isInsideMap(int x, int y)
+{
+	return x >= 0 && y >= 0 && x < MAP_WIDTH && y < MAP_HEIGHT;
+}
+
+int isSolidMap(int x, int y)
+{
+	if (isInsideMap(x, y))
+	{
+		return stage->map[x][y] >= TILE_WALL && stage->map[x][y] < TILE_FOREGROUND;
+	}
+
+	return 1;
+}
+
+void drawMap(int background)
 {
 	int x, y, n, x1, x2, y1, y2, mx, my;
 
@@ -55,9 +71,45 @@ void drawMap(void)
 			{
 				n = stage->map[mx][my];
 
-				if (n > 0)
+				if (n != 0 && ((n < TILE_FOREGROUND && background) || (n >= TILE_FOREGROUND && !background)))
 				{
 					blitAtlasImage(world.tiles[n], x, y, 0, SDL_FLIP_NONE);
+				}
+			}
+
+			mx++;
+		}
+
+		mx = world.camera.x / TILE_SIZE;
+
+		my++;
+	}
+}
+
+void drawMapLights(void)
+{
+	int x, y, n, x1, x2, y1, y2, mx, my;
+
+	x1 = (world.camera.x % TILE_SIZE) * -1;
+	x2 = x1 + MAP_RENDER_WIDTH * TILE_SIZE + (x1 == 0 ? 0 : TILE_SIZE);
+
+	y1 = (world.camera.y % TILE_SIZE) * -1;
+	y2 = y1 + MAP_RENDER_HEIGHT * TILE_SIZE + (y1 == 0 ? 0 : TILE_SIZE);
+
+	mx = world.camera.x / TILE_SIZE;
+	my = world.camera.y / TILE_SIZE;
+
+	for (y = y1 ; y < y2 ; y += TILE_SIZE)
+	{
+		for (x = x1 ; x < x2 ; x += TILE_SIZE)
+		{
+			if (isInsideMap(mx, my))
+			{
+				n = stage->map[mx][my];
+
+				if (n >= TILE_SLIME && n < TILE_FOREGROUND)
+				{
+					drawLightEffect(x + (TILE_SIZE / 2), y + (TILE_SIZE / 2), 64, 16, 255, 16, 255);
 				}
 			}
 
@@ -136,9 +188,4 @@ static void randomizeTiles(void)
 			}
 		}
 	}
-}
-
-int isInsideMap(int x, int y)
-{
-	return x >= 0 && y >= 0 && x < MAP_WIDTH && y < MAP_HEIGHT;
 }

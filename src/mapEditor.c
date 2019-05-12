@@ -603,6 +603,8 @@ static void drawLights(void)
 
 	drawEntityLights();
 
+	drawMapLights();
+
 	if (entity->drawLight)
 	{
 		self = entity;
@@ -615,10 +617,11 @@ static void drawLights(void)
 
 static void draw(void)
 {
-	drawMap();
+	drawEntities(1);
+	drawMap(1);
 
 	drawEntities(0);
-	drawEntities(1);
+	drawMap(0);
 
 	for (self = stage->entityHead.next ; self != NULL ; self = self->next)
 	{

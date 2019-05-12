@@ -3,8 +3,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	888,
-			"y":	496,
+			"x":	1040,
+			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -13,132 +13,6 @@
 			"refillRate":	0.050000,
 			"autoFire":	0,
 			"hasDoubleJump":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	96,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	288,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	536,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	736,
-			"y":	400,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	192,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	432,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	640,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	824,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	824,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	192,
-			"y":	552,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	432,
-			"y":	552,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	640,
-			"y":	552,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	1048,
-			"y":	360,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -181,9 +55,9 @@
 			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt16ENwDAMRcFVOkIDvP9qRQUtsRQSyf90C+SByPa61oZ7jJ0W/adfrV+//jP9Fd1f0fOvBs7/ar3tFbz/VPT+961P6//Xz+rv///s+yf7/gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoPCVkAm8",
-		"eLen":	156,
-		"cLen":	116,
-		"dLen":	32768
+		"data":	"eJzt11EKgCAQQMGreIRV8P5XC4LCv8AwQ4dBEkHo7Z855Q6xjJ4W/bP/Wr9+/fr163/bX09xf69du2/P6mL939z5q5xKqcPXYhOLGL5MbO+J7f0qBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhyAC8eHzw",
+		"eLen":	160,
+		"cLen":	119,
+		"dLen":	32918
 	}
 }
