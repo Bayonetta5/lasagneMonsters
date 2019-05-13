@@ -20,17 +20,49 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "startPoint.h"
 
+static void load(cJSON *root);
+static void save(cJSON *root);
+
 void initStartPoint(Entity *e)
 {
+	StartPoint *s;
+
+	s = malloc(sizeof(StartPoint));
+	memset(s, 0, sizeof(StartPoint));
+
 	e->typeName = "startPoint";
 	e->type = ET_START_POINT;
+	e->data = s;
 	e->atlasImage = getAtlasImage("gfx/entities/startPoint.png", 1);
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->flags = EF_WEIGHTLESS+EF_NO_WORLD_CLIP+EF_STATIC+EF_INVISIBLE;
-	
+
+	e->load = load;
+	e->save = save;
+
 	if (app.dev.debug)
 	{
 		e->flags &= ~EF_INVISIBLE;
 	}
+}
+
+static void load(cJSON *root)
+{
+	StartPoint *s;
+
+	s = (StartPoint*)self->data;
+
+	s->dx = cJSON_GetValueInt(root, "dx", 0);
+	s->dy = cJSON_GetValueInt(root, "dy", 0);
+}
+
+static void save(cJSON *root)
+{
+	StartPoint *s;
+
+	s = (StartPoint*)self->data;
+
+	cJSON_AddNumberToObject(root, "dx", s->dx);
+	cJSON_AddNumberToObject(root, "dy", s->dy);
 }

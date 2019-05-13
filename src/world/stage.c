@@ -317,6 +317,7 @@ static void transfer(void)
 	TransferCube transferCube;
 	Walter walter;
 	Entity *e;
+	StartPoint *s;
 	int facing;
 
 	memcpy(&walter, world.player->data, sizeof(Walter));
@@ -330,10 +331,14 @@ static void transfer(void)
 
 	e = findStartPoint(transferCube.targetFlag);
 
+	s = (StartPoint*)e->data;
+
 	memcpy(world.player->data, &walter, sizeof(Walter));
 
 	world.player->x = e->x;
 	world.player->y = e->y;
+	world.player->dx = s->dx;
+	world.player->dy = s->dy;
 	world.player->facing = facing;
 }
 

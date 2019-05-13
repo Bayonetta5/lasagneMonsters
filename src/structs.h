@@ -204,6 +204,11 @@ typedef struct {
 	int r, g, b, a;
 } Lamp;
 
+typedef struct {
+	int dx;
+	int dy;
+} StartPoint;
+
 struct Particle {
 	float x;
 	float y;

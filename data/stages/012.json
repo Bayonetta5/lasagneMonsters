@@ -3,9 +3,11 @@
 	"entities":	[{
 			"type":	"startPoint",
 			"name":	"bottom",
-			"x":	2376,
-			"y":	2368,
-			"facing":	"FACING_RIGHT"
+			"x":	2296,
+			"y":	2400,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	-20
 		}, {
 			"type":	"savePoint",
 			"name":	"",
@@ -41,8 +43,8 @@
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	1816,
-			"y":	1776,
+			"x":	1864,
+			"y":	1832,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -51,8 +53,8 @@
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	2056,
-			"y":	1776,
+			"x":	2152,
+			"y":	1832,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -61,8 +63,8 @@
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	2344,
-			"y":	1776,
+			"x":	2448,
+			"y":	1832,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -71,8 +73,8 @@
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	2632,
-			"y":	1776,
+			"x":	2776,
+			"y":	1832,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -136,10 +138,12 @@
 			"name":	"right",
 			"x":	2984,
 			"y":	2080,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}],
 	"map":	{
-		"data":	"eJzt18ENgCAQRcFWLAH7b84GEIwxSPZP5goJ78RuOxoAAAAAAAAAABDufOXvV3/Zv+bOrvTr168/lf7nJ5P//+z5J2X+69fVnn9nTdXn/3FT/f3nri9l/8vuBwAAAAAAAAAAAAAAAAAAAAAAAOYuyNkByg=",
+		"data":	"eJzt18ENgCAQRcFWLAH7b84GEIwxSPZP5goJ77RLOxoAAAAAAAAAABDufOXvV+v/rn/NnV3p168/l/7nJ5PnX/b8T9l/+nW1979ZU/X9d9xUf/+/60v5/2T3AwAAAAAAAAAAAAAAAAAAAAAAAHMXos4B4w=",
 		"eLen":	156,
 		"cLen":	115,
 		"dLen":	32768
