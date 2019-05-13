@@ -43,7 +43,7 @@ void initGreenFlyingCyclops(Entity *e)
 	e->atlasImage = getAtlasImage("gfx/entities/greenFlyingCyclops1.png", 1);
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
-	e->flags = EF_WEIGHTLESS;
+	e->flags = EF_PUSHABLE+EF_WEIGHTLESS;
 
 	e->tick = tick;
 	e->draw = monsterDraw;

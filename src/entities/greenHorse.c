@@ -42,6 +42,7 @@ void initGreenHorse(Entity *e)
 	e->atlasImage = getAtlasImage("gfx/entities/greenHorse1.png", 1);
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+	e->flags = EF_PUSHABLE;
 	e->tick = tick;
 	e->draw = monsterDraw;
 	e->drawLight = monsterDrawLight;
