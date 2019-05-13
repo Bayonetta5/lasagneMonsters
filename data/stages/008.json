@@ -25,7 +25,7 @@
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"right",
 			"x":	4096,
 			"y":	3568,
 			"facing":	"FACING_RIGHT"

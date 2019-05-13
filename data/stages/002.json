@@ -136,7 +136,7 @@
 			"y":	192,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	1,
-			"targetFlag":	"rightFlag",
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
 		}, {

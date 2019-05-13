@@ -303,7 +303,7 @@
 			"y":	4176,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	8,
-			"targetFlag":	"rightFlag",
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
 		}, {
