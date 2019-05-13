@@ -275,7 +275,7 @@ static void moveToWorld(Entity *e, float dx, float dy)
 		{
 			if (n >= TILE_SLIME && n < TILE_FOREGROUND)
 			{
-				e->damage(1, DT_SLIME);
+				e->damage(3, DT_SLIME);
 			}
 		}
 
