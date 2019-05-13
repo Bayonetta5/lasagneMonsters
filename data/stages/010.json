@@ -32,13 +32,13 @@
 		}, {
 			"type":	"transferCube",
 			"name":	"",
-			"x":	1776,
-			"y":	3456,
+			"x":	1720,
+			"y":	3408,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	0,
 			"targetFlag":	"",
-			"w":	4,
-			"h":	1
+			"w":	6,
+			"h":	2
 		}, {
 			"type":	"startPoint",
 			"name":	"",
@@ -57,7 +57,7 @@
 			"x":	624,
 			"y":	5368,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"door1",
 			"on":	0
 		}, {
 			"type":	"greenBugEyedMonster",
@@ -68,12 +68,12 @@
 			"isMonster":	1
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"door1",
 			"x":	688,
 			"y":	5568,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	688,
 			"sy":	5568,
@@ -106,7 +106,7 @@
 			"y":	5568,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1832,
 			"sy":	5568,
@@ -150,8 +150,8 @@
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
-			"x":	4960,
-			"y":	5680,
+			"x":	608,
+			"y":	5632,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
@@ -210,12 +210,12 @@
 			"enabled":	1
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"dropDoor",
 			"x":	4752,
 			"y":	4656,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	4752,
 			"sy":	4656,
@@ -227,16 +227,16 @@
 			"x":	4792,
 			"y":	5272,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"upDoors",
 			"on":	0
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"upDoors",
 			"x":	1536,
 			"y":	5536,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	1536,
 			"sy":	5536,
@@ -244,12 +244,12 @@
 			"ey":	5536
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"upDoors",
 			"x":	1632,
 			"y":	5536,
 			"facing":	"FACING_LEFT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	1632,
 			"sy":	5536,
@@ -257,17 +257,17 @@
 			"ey":	5536
 		}, {
 			"type":	"platform",
-			"name":	"",
+			"name":	"upDoors",
 			"x":	1560,
-			"y":	5136,
+			"y":	4464,
 			"facing":	"FACING_RIGHT",
 			"sx":	1560,
-			"sy":	5136,
+			"sy":	4464,
 			"ex":	1560,
 			"ey":	5632,
-			"pause":	60,
-			"speed":	2,
-			"enabled":	1
+			"pause":	30,
+			"speed":	4,
+			"enabled":	0
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -275,7 +275,7 @@
 			"y":	5040,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1768,
 			"sy":	5040,
@@ -285,10 +285,10 @@
 			"type":	"platform",
 			"name":	"",
 			"x":	4344,
-			"y":	4944,
+			"y":	5056,
 			"facing":	"FACING_RIGHT",
 			"sx":	4344,
-			"sy":	4944,
+			"sy":	5056,
 			"ex":	4344,
 			"ey":	5280,
 			"pause":	60,
@@ -301,7 +301,7 @@
 			"y":	5040,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1432,
 			"sy":	5040,
@@ -309,7 +309,7 @@
 			"ey":	4948
 		}, {
 			"type":	"platform",
-			"name":	"",
+			"name":	"heartPlatform",
 			"x":	704,
 			"y":	4608,
 			"facing":	"FACING_RIGHT",
@@ -319,15 +319,15 @@
 			"ey":	4760,
 			"pause":	60,
 			"speed":	2,
-			"enabled":	1
+			"enabled":	0
 		}, {
 			"type":	"piggyBank",
 			"name":	"",
 			"x":	1192,
 			"y":	4768,
 			"facing":	"FACING_RIGHT",
-			"requiredCoins":	0,
-			"targetName":	""
+			"requiredCoins":	75,
+			"targetName":	"heartPlatform"
 		}, {
 			"type":	"heart",
 			"name":	"",
@@ -371,7 +371,7 @@
 		}, {
 			"type":	"greenBugEyedMonster",
 			"name":	"",
-			"x":	4552,
+			"x":	4656,
 			"y":	4614,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
@@ -417,7 +417,7 @@
 			"y":	4176,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	4720,
 			"sy":	4176,
@@ -430,7 +430,7 @@
 			"y":	3744,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	4864,
 			"sy":	3744,
@@ -438,12 +438,12 @@
 			"ey":	3652
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"batteryDoor",
 			"x":	3328,
 			"y":	3744,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"speed":	1,
 			"sx":	3328,
 			"sy":	3744,
@@ -506,7 +506,7 @@
 			"y":	4128,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"speed":	1,
 			"sx":	1936,
 			"sy":	4128,
@@ -567,8 +567,8 @@
 			"x":	3464,
 			"y":	3808,
 			"facing":	"FACING_RIGHT",
-			"requiredCoins":	0,
-			"targetName":	""
+			"requiredCoins":	75,
+			"targetName":	"batteryDoor"
 		}, {
 			"type":	"battery",
 			"name":	"",
@@ -841,7 +841,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	3640,
+			"x":	3664,
 			"y":	5640,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -872,7 +872,7 @@
 			"type":	"lamp",
 			"name":	"",
 			"x":	4696,
-			"y":	4592,
+			"y":	4584,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -1867,11 +1867,33 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"trafficLight",
+			"name":	"",
+			"x":	4552,
+			"y":	4600,
+			"facing":	"FACING_RIGHT",
+			"targetName":	"dropDoor",
+			"on":	0
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	5104,
+			"y":	3672,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	3880,
+			"y":	3992,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJztmVFuwyAMQK+yIzSVuP/V9jF1ISkG29gkW5+eMilbAD8bCNEeXw8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIClbGHE9xgXU57/ub9iiGLr3I1iaz/b6z/DX2P/f/119ufnyi8jfyk62cPjP35Gh2Tvr7+N1pxY5y/ba/3jWeffs9+qGV9u6F9c7OZlYN+rv280Lb766/ahMtWf1Ksma9H19/lLGRj3V9cn0z7bv52BqPrfy1+K/D0DdevRKpyxz1n/P63O+7QlA1vV1/v+r/MfR93qY+Sm8bcj7QNF4RM186U2a89/kn32W37O7X29RhC/l+X7j04xftpnGZm4KsTkaBWac4ENjb+2KvGe/VWzyn+fo6vss9bZjP8rB1b6FV1T5Tl/XxWPI1xhMo78nv6+0a7z789iq78329f5S+08/r6x9iiPFTjuQu+70t38vfbjb/LW/d38/fbr/O1vMa3/jP3rlJbvb4nI4m/rW7eSo/yPI2X4W+3rtiXd/zhSvL9kqT0fnvf60hgzwt+TAenOVmMNUuS9uKz+676CrPar/F85yM5ClL/U+4x/nYWM7z/fN+Bqf1tcmngz5lC2/7hdu5d8+zh/799k/zjH3pq7q3+ke29v2g5P1nv2lf5x9vNfy7bz7zGHZRBB219nNn6fzGHxl2J8zbRo/9G7LyIDs/5FEY/PX/Pmn8/AnP953sedBbXnHuk/ytqf5zzcA8upr2VuR7ceRzyf+iuqB32m6rfgTI5izsrPx0N9ZfXQX1m2anivvY71bz8jx9YRvFd7tM/JcQQRufrLeHZMAIDP4BsWSkt",
-		"eLen":	836,
-		"cLen":	627,
+		"data":	"eJztmVtu4zAMAK/SI8QBdP+r7UeR9SOi+BCpeDeDgQu4tSQOKcky+vh5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALGVLI7/HvJjq/K/9NUcU2+BOi63/7Kj/Cn+L/f/rb7O/Ptf+ovlL0ckeEX/9GRuSfbz+PnpzYp2/bG/1z2ed/8h+O8z4dkP/FmI3b4r9qP6x0azE6m/bh9pUf1Kvlqxl1z/mL2VA7+9Yn0r7av9+BrLqfy9/KfL3DBxba6twxr5m/f+2uu7Tngxsh77e93+bvx51rw/NzeLvR9oHmsEna+ZLbdae/yT76rf8nNv7es0gfy+r99dOMXH6ZxmZvCrk5GgVlnOBD4u/tSr5nuNVs8p/n6Or7KvW2Yz/KwdexhVdU+U5/1gVzyN8wkSP/J7+sdE+5z+exV7/aLY/5y+1i/jHxtqjPFfgvAu970p384/a69/kvfu7+cft1/n732JW/xn71ymt3t8Tkcff17dtJWf5n0eq8PfaH9u2cv/zSPn+kqX1fHjd61tnzAz/SAakO1+NLUiRj+Ly+q/7CvLar/J/5aA6C1n+Uu8z/scsVHz/xb4BV/v74rLEWzGHqv31dv1e6u3z/KN/k/3zHEdr7q7+me6jvWk7PXncsz/pn2c//7XsO/+ec9iUCPr+NjP9fTKHx1+K8TXTsv21d19GBmb9myGemL/lzT+fgTn/67zPOwtazz3Sf5StP695uAeeU1/P3I9tPWo8n/Yrqwd7pvbZEstS7ln5+XiYr6oetGx5qhG99joef/stOfaNEL36o31PjjPIyNW/TGTHBAD4Dv4AJVhLUg=",
+		"eLen":	840,
+		"cLen":	628,
 		"dLen":	33056
 	}
 }
