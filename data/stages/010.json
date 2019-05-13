@@ -6,13 +6,13 @@
 			"x":	-48,
 			"y":	5472,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	9,
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	4
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"left",
 			"x":	16,
 			"y":	5632,
 			"facing":	"FACING_RIGHT"
@@ -35,13 +35,13 @@
 			"x":	1720,
 			"y":	3408,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	12,
+			"targetFlag":	"bottom",
 			"w":	6,
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"top",
 			"x":	1880,
 			"y":	3568,
 			"facing":	"FACING_RIGHT"

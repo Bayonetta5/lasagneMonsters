@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+extern void doEntities(void);
 extern void destroyGame(void);
 extern void destroyStage(void);
 extern void doParticles(void);

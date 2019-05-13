@@ -99,7 +99,7 @@ static void tick(void)
 
 			self->dy = -20;
 
-			playSound(SND_JUMP, CH_PLAYER);
+			playSound(SND_JUMP, -1);
 		}
 
 		if (isControl(CONTROL_FIRE))

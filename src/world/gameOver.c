@@ -27,7 +27,7 @@ static int timeout;
 
 void initGameOver(void)
 {
-	timeout = FPS * 2;
+	timeout = FPS * 3;
 
 	app.delegate.logic = logic;
 }
@@ -38,6 +38,8 @@ static void logic(void)
 	{
 		initWipe(WIPE_OUT);
 	}
+
+	doEntities();
 
 	doParticles();
 
