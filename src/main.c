@@ -120,8 +120,7 @@ static void handleCommandLine(int argc, char *argv[])
 		}
 	}
 
-	loadMusic("music/Zander Noriega - Darker Waves.mp3");
-	playMusic(1);
+	playRandomStageMusic();
 
 	initStage(n, WIPE_FADE);
 }

@@ -27,6 +27,9 @@ static int findFreeChannel(void);
 static Mix_Chunk *sounds[SND_MAX];
 static Mix_Music *music;
 static int channelVolumes[CH_MAX];
+static char *randomMusicFiles[] = {"music/Monsterous.ogg", "music/neocrey - Last Cyber Dance.ogg", "music/Zander Noriega - Darker Waves.mp3"};
+static char *prevMusic;
+static int nextRandom;
 
 void initSounds(void)
 {
@@ -44,6 +47,10 @@ void initSounds(void)
 	}
 
 	Mix_ChannelFinished(channelDone);
+
+	prevMusic = NULL;
+
+	nextRandom = 0;
 }
 
 void loadMusic(char *filename)
@@ -61,6 +68,31 @@ void loadMusic(char *filename)
 void playMusic(int loop)
 {
 	Mix_PlayMusic(music, (loop) ? -1 : 0);
+}
+
+void playRandomStageMusic(void)
+{
+	int n;
+	char *m;
+
+	if (SDL_GetTicks() > nextRandom)
+	{
+		n = rand() % (sizeof(randomMusicFiles) / sizeof(char*));
+
+		m = randomMusicFiles[n];
+
+		if (m != prevMusic)
+		{
+			loadMusic(m);
+
+			playMusic(1);
+
+			prevMusic = m;
+		}
+	}
+
+	/* wait a least one minute before changing */
+	nextRandom = SDL_GetTicks() + (1000 * 60);
 }
 
 void playSound(int id, int channel)

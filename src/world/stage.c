@@ -92,6 +92,11 @@ void initStage(int stageId, int wipeType)
 	world.transferCube = NULL;
 
 	initWipe(wipeType);
+
+	if (!app.dev.editor)
+	{
+		playRandomStageMusic();
+	}
 }
 
 static void logic(void)
