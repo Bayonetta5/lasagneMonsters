@@ -123,7 +123,7 @@ static void handleCommandLine(int argc, char *argv[])
 	loadMusic("music/Zander Noriega - Darker Waves.mp3");
 	playMusic(1);
 
-	initStage(n, 1);
+	initStage(n, WIPE_FADE);
 }
 
 static void capFrameRate(long *then, float *remainder)

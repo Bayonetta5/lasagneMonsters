@@ -711,7 +711,7 @@ static void tryLoadStage(int n)
 		stage->entityTail = &stage->entityHead;
 	}
 
-	initStage(n, 0);
+	initStage(n, WIPE_NONE);
 }
 
 static void handleCommandLine(int argc, char *argv[])

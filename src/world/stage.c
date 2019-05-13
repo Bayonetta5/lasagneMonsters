@@ -35,7 +35,6 @@ static void load(void);
 static void stats(void);
 static void options(void);
 static void quit(void);
-static void destroyStage(void);
 static void drawLights(void);
 void loadStage(char *filename);
 
@@ -49,7 +48,7 @@ static Widget *quitWidget;
 static Widget *previousWidget;
 static int backgroundData[MAP_WIDTH][MAP_HEIGHT];
 
-void initStage(int stageId, int fade)
+void initStage(int stageId, int wipeType)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
@@ -92,10 +91,7 @@ void initStage(int stageId, int fade)
 	/* could be caused by dropToFloor */
 	world.transferCube = NULL;
 
-	if (fade)
-	{
-		initWipe(WIPE_FADE);
-	}
+	initWipe(wipeType);
 }
 
 static void logic(void)
@@ -131,6 +127,11 @@ static void doGame(void)
 	doParticles();
 
 	doHud();
+
+	if (world.player->alive == ALIVE_DEAD)
+	{
+		initGameOver();
+	}
 }
 
 static void doMenu(void)
@@ -196,8 +197,6 @@ static void drawGame()
 {
 	app.dev.drawing = 0;
 
-	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 64, 64, 64, 64);
-
 	drawBackground();
 
 	drawEntities(1);
@@ -214,7 +213,10 @@ static void drawGame()
 
 	drawLightMap();
 
-	drawHud();
+	if (world.player->alive == ALIVE_ALIVE)
+	{
+		drawHud();
+	}
 }
 
 static void drawMenu()
@@ -243,6 +245,8 @@ static void drawBackground(void)
 
 	mx = camX / TILE_SIZE;
 	my = world.camera.y / TILE_SIZE;
+
+	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 64, 64, 64, 64);
 
 	for (y = y1 ; y < y2 ; y += TILE_SIZE)
 	{
@@ -273,7 +277,7 @@ static void drawLights(void)
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
-static void destroyStage(void)
+void destroyStage(void)
 {
 	destroyQuadtree();
 
@@ -317,7 +321,7 @@ static void transfer(void)
 
 	destroyStage();
 
-	initStage(transferCube.targetStage, 0);
+	initStage(transferCube.targetStage, WIPE_NONE);
 
 	e = findStartPoint(transferCube.targetFlag);
 

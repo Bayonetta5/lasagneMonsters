@@ -107,6 +107,12 @@ enum
 
 enum
 {
+	WS_IN_PROGRESS,
+	WS_PLAYER_DEAD
+};
+
+enum
+{
 	DR_NOTHING,
 	DR_KEY,
 	DR_REMOTE
@@ -121,6 +127,7 @@ enum
 
 enum
 {
+	WIPE_NONE = -1,
 	WIPE_FADE,
 	WIPE_IN,
 	WIPE_OUT

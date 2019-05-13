@@ -18,24 +18,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "common.h"
+#include "../common.h"
 
-extern void cleanup(void);
-extern void doInput(void);
-extern void initGameSystem(void);
-extern void initSDL(void);
-extern void initStage(int id, int wipeType);
-extern void initTest(void);
+extern void destroyGame(void);
+extern void destroyStage(void);
+extern void doParticles(void);
+extern int doWipe(void);
+extern void initStage(int stageId, int wipeType);
+extern void initWipe(int type);
 extern void loadGame(void);
-extern void loadMusic(char *filename);
-extern void playMusic(int loop);
-extern void prepareScene(void);
-extern void presentScene(void);
-extern void saveGame(void);
 
-App app;
-Entity *player;
-Entity *self;
-Game game;
-Stage *stage;
-World world;
+extern App app;
+extern Game game;

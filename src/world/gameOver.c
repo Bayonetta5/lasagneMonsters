@@ -18,24 +18,45 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "common.h"
+#include "gameOver.h"
 
-extern void cleanup(void);
-extern void doInput(void);
-extern void initGameSystem(void);
-extern void initSDL(void);
-extern void initStage(int id, int wipeType);
-extern void initTest(void);
-extern void loadGame(void);
-extern void loadMusic(char *filename);
-extern void playMusic(int loop);
-extern void prepareScene(void);
-extern void presentScene(void);
-extern void saveGame(void);
+static void logic(void);
+static void reloadGame(void);
 
-App app;
-Entity *player;
-Entity *self;
-Game game;
-Stage *stage;
-World world;
+static int timeout;
+
+void initGameOver(void)
+{
+	timeout = FPS * 2;
+
+	app.delegate.logic = logic;
+}
+
+static void logic(void)
+{
+	if (timeout > 0 && --timeout == 0)
+	{
+		initWipe(WIPE_OUT);
+	}
+
+	doParticles();
+
+	if (timeout == 0)
+	{
+		if (doWipe())
+		{
+			reloadGame();
+		}
+	}
+}
+
+static void reloadGame(void)
+{
+	destroyStage();
+
+	destroyGame();
+
+	loadGame();
+
+	initStage(game.stageId, WIPE_IN);
+}

@@ -243,6 +243,7 @@ struct Stage {
 };
 
 typedef struct {
+	int state;
 	Entity *player;
 	Stage stagesHead;
 	AtlasImage *tiles[MAX_TILES];

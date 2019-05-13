@@ -94,6 +94,11 @@ void destroyGame(void)
 
 			s->entityHead.next = e->next;
 
+			if (e->data)
+			{
+				free(e->data);
+			}
+
 			free(e);
 		}
 

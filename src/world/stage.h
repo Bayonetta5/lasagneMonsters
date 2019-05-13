@@ -50,6 +50,7 @@ extern void dropToFloor(void);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Stage *getStage(int n);
 extern Widget *getWidget(const char *name, const char *groupName);
+extern void initGameOver(void);
 extern void initOptions(void (*done)(void));
 extern void initQuadtree(Quadtree *root);
 extern void initWipe(int type);

@@ -45,7 +45,7 @@ extern Stage *getStage(int i);
 extern Entity **initAllEnts(int *numEnts);
 extern void initGameSystem(void);
 extern void initSDL(void);
-extern void initStage(int i, int fade);
+extern void initStage(int id, int wipeType);
 extern void prepareScene(void);
 extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
