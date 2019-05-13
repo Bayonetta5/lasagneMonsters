@@ -56,7 +56,7 @@ static void haltAtEdge(void)
 
 		mx /= TILE_SIZE;
 
-		if (stage->map[mx][my] == 0)
+		if (stage->map[mx][my] < TILE_WALL || stage->map[mx][my] >= TILE_SLIME)
 		{
 			self->dx = 0;
 		}
