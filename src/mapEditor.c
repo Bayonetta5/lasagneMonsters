@@ -572,6 +572,8 @@ static void drawInfo(void)
 
 			if (d->requires == DR_KEY)
 			{
+				drawText(e->cx - world.camera.x, e->y - 32 - world.camera.y, 32, TEXT_CENTER, app.colors.white, "(key)");
+
 				keyDoors++;
 			}
 			else if (d->requires == DR_REMOTE)
