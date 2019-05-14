@@ -44,7 +44,6 @@ void initTransferCube(Entity *e)
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->flags = EF_WEIGHTLESS+EF_NO_WORLD_CLIP+EF_STATIC;
-	e->background = 1;
 
 	e->load = load;
 	e->save = save;
@@ -53,6 +52,9 @@ void initTransferCube(Entity *e)
 static void draw(void)
 {
 	SDL_Rect dest;
+	TransferCube *t;
+
+	t = (TransferCube*)self->data;
 
 	dest.x = self->x - world.camera.x;
 	dest.y = self->y - world.camera.y;
@@ -60,6 +62,11 @@ static void draw(void)
 	dest.h = self->h;
 
 	SDL_RenderCopyEx(app.renderer, self->atlasImage->texture, &self->atlasImage->rect, &dest, 0, NULL, SDL_FLIP_NONE);
+
+	if (app.dev.editor)
+	{
+		drawText(self->x - world.camera.x + (self->w / 2), self->y - world.camera.y - 32, 32, TEXT_CENTER, app.colors.white, "%d (%s)", t->targetStage, t->targetFlag);
+	}
 }
 
 static void touch(Entity *other)

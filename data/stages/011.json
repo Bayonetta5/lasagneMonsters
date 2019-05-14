@@ -1,5 +1,5 @@
 {
-	"id":	10,
+	"id":	11,
 	"entities":	[{
 			"type":	"trafficLight",
 			"name":	"",
@@ -61,7 +61,7 @@
 			"x":	-48,
 			"y":	48,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	9,
+			"targetStage":	13,
 			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
