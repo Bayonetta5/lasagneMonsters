@@ -19,13 +19,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "../json/cJSON.h"
 
-extern const char *getFileLocation(const char *filename);
-extern void destroyGame(void);
-extern void initGame(void);
-extern void loadStageData(cJSON *root);
-extern char *readFile(const char *filename);
+#define CELL_SIZE  8
+
+extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 
 extern App app;
-extern Game game;
+extern World world;

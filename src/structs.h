@@ -240,6 +240,8 @@ struct GameText {
 
 struct Stage {
 	int id;
+	int x, y;
+	int visited;
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters;
 	int numGirls;
@@ -250,7 +252,7 @@ struct Stage {
 typedef struct {
 	int state;
 	Entity *player;
-	Stage stagesHead;
+	Stage stagesHead, *stagesTail;
 	AtlasImage *tiles[MAX_TILES];
 	Particle particleHead, *particleTail;
 	GameText gameTextHead, *gameTextTail;

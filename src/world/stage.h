@@ -56,12 +56,12 @@ extern void initQuadtree(Quadtree *root);
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);
+extern void playRandomStageMusic(void);
 extern void resetSavePoints(void);
 extern void resumeSound(void);
 extern void showWidgets(const char *groupName, int visible);
 extern void updateCameraBounds(void);
 extern void updatePlayer(void);
-extern void playRandomStageMusic(void);
 
 extern App app;
 extern Game game;

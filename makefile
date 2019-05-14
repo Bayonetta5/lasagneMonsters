@@ -1,5 +1,6 @@
 PROG = lasagneMonsters
 MAP_PROG = mapEditor
+RADAR_PROG = radarEditor
 
 CC = gcc
 
@@ -7,6 +8,7 @@ include common.mk
 
 GAME_OBJS += $(OUT)/src/plat/unix/unixInit.o
 MAP_OBJS += $(OUT)/src/plat/unix/unixInit.o
+RADAR_OBJS += $(OUT)/src/plat/unix/unixInit.o
 
 NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
 MAKEFLAGS += -j$(NPROCS)
@@ -27,6 +29,9 @@ $(PROG): $(GAME_OBJS)
 $(MAP_PROG): $(MAP_OBJS)
 	$(CC) -o $@ $(MAP_OBJS) $(LDFLAGS)
 
+$(RADAR_PROG): $(RADAR_OBJS)
+	$(CC) -o $@ $(RADAR_OBJS) $(LDFLAGS)
+
 # prepare an archive for the program
 dist:
 	$(RM) -rf $(PROG)-$(VERSION).$(REVISION)
@@ -36,7 +41,7 @@ dist:
 	mkdir -p dist
 	mv $(PROG)-$(VERSION).$(REVISION).linux-x86.tar.gz dist
 	$(RM) -rf $(PROG)-$(VERSION).$(REVISION)
-	
+
 # prepare an archive for the program
 src-dist:
 	$(RM) -rf $(PROG)-$(VERSION).$(REVISION)

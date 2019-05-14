@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "world.h"
 
-static Stage *loadStage(int i, Stage *tail);
+static void loadStage(const char *filename);
+void loadStageData(cJSON *root);
 
 void initWorld(void)
 {
@@ -28,67 +29,82 @@ void initWorld(void)
 
 	world.particleTail = &world.particleHead;
 	world.gameTextTail = &world.gameTextHead;
+	world.stagesTail = &world.stagesHead;
 }
 
 Stage *getStage(int i)
 {
-	Stage *s, *tail;
-
-	tail = &world.stagesHead;
+	Stage *s;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		tail = s;
-
 		if (s->id == i)
 		{
 			return s;
 		}
 	}
 
-	return loadStage(i, tail);
+	return NULL;
 }
 
-static Stage *loadStage(int i, Stage *tail)
+void loadAllStages(void)
+{
+	char **filenames, filename[MAX_FILENAME_LENGTH];
+	int count, i;
+
+	filenames = getFileList("data/stages", &count);
+
+	for (i = 0 ; i < count ; i++)
+	{
+		sprintf(filename, "data/stages/%s", filenames[i]);
+
+		loadStage(filename);
+
+		free(filenames[i]);
+	}
+
+	free(filenames);
+}
+
+static void loadStage(const char *filename)
 {
 	cJSON *root;
-	char *json, filename[MAX_FILENAME_LENGTH];
+	char *json;
+	int id;
 
-	sprintf(filename, "data/stages/%03d.json", i);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s ...\n", filename);
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Loading %s ...\n", filename);
+	json = readFile(getFileLocation(filename));
 
-	if (fileExists(filename))
+	root = cJSON_Parse(json);
+
+	id = cJSON_GetObjectItem(root, "id")->valueint;
+
+	if (getStage(id) == NULL)
 	{
-		json = readFile(getFileLocation(filename));
-
-		root = cJSON_Parse(json);
-
-		stage = malloc(sizeof(Stage));
-		memset(stage, 0, sizeof(Stage));
-		tail->next = stage;
-		tail = stage;
-
-		stage->id = cJSON_GetObjectItem(root, "id")->valueint;
-
-		initMap(cJSON_GetObjectItem(root, "map"));
-
-		initEntities(root);
+		loadStageData(root);
 
 		free(json);
 
 		cJSON_Delete(root);
-
-		return stage;
 	}
+}
 
-	if (!app.dev.editor)
-	{
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such stage: %d", i);
-		exit(1);
-	}
+void loadStageData(cJSON *root)
+{
+	stage = malloc(sizeof(Stage));
+	memset(stage, 0, sizeof(Stage));
+	world.stagesTail->next = stage;
+	world.stagesTail = stage;
 
-	return NULL;
+	stage->id = cJSON_GetObjectItem(root, "id")->valueint;
+	stage->visited = cJSON_GetObjectItem(root, "visited")->valueint;
+	stage->x = cJSON_GetObjectItem(root, "x")->valueint;
+	stage->y = cJSON_GetObjectItem(root, "y")->valueint;
+
+	initMap(cJSON_GetObjectItem(root, "map"));
+
+	initEntities(root);
 }
 
 void updatePlayer(void)

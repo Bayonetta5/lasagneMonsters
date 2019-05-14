@@ -35,6 +35,7 @@ static Widget *rightWidget;
 static Widget *jumpWidget;
 static Widget *fireWidget;
 static Widget *useWidget;
+static Widget *mapWidget;
 static Widget *pauseWidget;
 static void (*oldDraw)(void);
 static void (*returnFromOptions)(void);
@@ -71,6 +72,7 @@ void initOptions(void (*done)(void))
 	jumpWidget = getWidget("jump", "controls");
 	fireWidget = getWidget("fire", "controls");
 	useWidget = getWidget("use", "controls");
+	mapWidget = getWidget("map", "controls");
 	pauseWidget = getWidget("pause", "controls");
 
 	app.selectedWidget = getWidget("soundVolume", "options");
@@ -217,6 +219,7 @@ static void controls(void)
 	updateControlWidget(jumpWidget, CONTROL_JUMP);
 	updateControlWidget(fireWidget, CONTROL_FIRE);
 	updateControlWidget(useWidget, CONTROL_USE);
+	updateControlWidget(mapWidget, CONTROL_MAP);
 	updateControlWidget(pauseWidget, CONTROL_PAUSE);
 
 	showWidgets("controls", 1);

@@ -54,6 +54,7 @@ void initLookups(void)
 	addLookup("fire", CONTROL_FIRE);
 	addLookup("jump", CONTROL_JUMP);
 	addLookup("use", CONTROL_USE);
+	addLookup("map", CONTROL_MAP);
 	addLookup("pause", CONTROL_PAUSE);
 }
 

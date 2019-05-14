@@ -77,6 +77,9 @@ static void saveStages(cJSON *root)
 		stageJSON = cJSON_CreateObject();
 
 		cJSON_AddNumberToObject(stageJSON, "id", s->id);
+		cJSON_AddNumberToObject(stageJSON, "visited", s->visited);
+		cJSON_AddNumberToObject(stageJSON, "x", s->x);
+		cJSON_AddNumberToObject(stageJSON, "y", s->y);
 
 		saveEntities(s, stageJSON);
 

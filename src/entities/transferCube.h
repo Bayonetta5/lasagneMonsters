@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern AtlasImage *getAtlasImage(char *filename, int required);
 
 extern App app;
 extern Entity *self;

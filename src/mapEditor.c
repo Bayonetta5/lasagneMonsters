@@ -753,6 +753,8 @@ int main(int argc, char *argv[])
 
 	initGameSystem();
 
+	loadAllStages();
+
 	handleCommandLine(argc, argv);
 
 	entities = initAllEnts(&numEnts);

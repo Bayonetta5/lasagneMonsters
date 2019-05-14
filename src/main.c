@@ -99,6 +99,13 @@ static void handleCommandLine(int argc, char *argv[])
 		if (strcmp(argv[i], "-debug") == 0)
 		{
 			app.dev.debug = 1;
+
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
+		}
+
+		if (strcmp(argv[i], "-info") == 0)
+		{
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 		}
 
 		if (strcmp(argv[i], "-stage") == 0)
@@ -118,7 +125,16 @@ static void handleCommandLine(int argc, char *argv[])
 			initTest();
 			return;
 		}
+
+		if (strcmp(argv[i], "-radar") == 0)
+		{
+			initRadar();
+			loadAllStages();
+			return;
+		}
 	}
+
+	loadAllStages();
 
 	playRandomStageMusic();
 

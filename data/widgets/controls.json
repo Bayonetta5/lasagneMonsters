@@ -41,10 +41,18 @@
 	},
 	{
 		"type" : "WT_INPUT",
-		"name" : "pause",
+		"name" : "map",
 		"groupName" : "controls",
 		"x" : 250,
 		"y" : 400,
+		"text" : "Map"
+	},
+	{
+		"type" : "WT_INPUT",
+		"name" : "pause",
+		"groupName" : "controls",
+		"x" : 250,
+		"y" : 450,
 		"text" : "Pause"
 	},
 	{

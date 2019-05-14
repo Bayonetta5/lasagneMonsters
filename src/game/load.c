@@ -60,22 +60,10 @@ static void loadGameData(cJSON *root)
 static void loadStages(cJSON *root)
 {
 	cJSON *node;
-	Stage *tail;
-
-	tail = &world.stagesHead;
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		stage = malloc(sizeof(Stage));
-		memset(stage, 0, sizeof(Stage));
-		tail->next = stage;
-		tail = stage;
-
-		stage->id = cJSON_GetObjectItem(node, "id")->valueint;
-
-		initMap(cJSON_GetObjectItem(node, "map"));
-
-		initEntities(node);
+		loadStageData(node);
 	}
 }
 
