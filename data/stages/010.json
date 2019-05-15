@@ -2,7 +2,7 @@
 	"id":	10,
 	"visited":	0,
 	"x":	1,
-	"y":	1,
+	"y":	2,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",

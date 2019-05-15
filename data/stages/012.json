@@ -1,8 +1,8 @@
 {
 	"id":	12,
 	"visited":	0,
-	"x":	2,
-	"y":	0,
+	"x":	1,
+	"y":	1,
 	"entities":	[{
 			"type":	"startPoint",
 			"name":	"bottom",

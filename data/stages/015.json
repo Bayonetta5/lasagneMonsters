@@ -2,12 +2,12 @@
 	"id":	15,
 	"visited":	0,
 	"x":	0,
-	"y":	1,
+	"y":	2,
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	544,
-			"y":	208,
+			"x":	472,
+			"y":	304,
 			"facing":	"FACING_RIGHT",
 			"health":	2,
 			"maxHealth":	3,
@@ -98,20 +98,10 @@
 			"w":	1,
 			"h":	3
 		}, {
-			"type":	"transferCube",
-			"name":	"",
-			"x":	336,
-			"y":	-48,
-			"facing":	"FACING_RIGHT",
-			"targetStage":	9,
-			"targetFlag":	"bottom",
-			"w":	5,
-			"h":	1
-		}, {
 			"type":	"startPoint",
 			"name":	"top",
-			"x":	408,
-			"y":	64,
+			"x":	496,
+			"y":	0,
 			"facing":	"FACING_RIGHT",
 			"dx":	0,
 			"dy":	0
@@ -125,9 +115,9 @@
 			"dy":	0
 		}],
 	"map":	{
-		"data":	"eJzt3TEKgDAQRcGreIRskftfTQQRtAsbCWGHaWL5PgTLtKPd4ujP+foa17YW6QVWF+T7cwusLpjRn1lgdcGc/vcCdUTxBaL4At/b3IetLpjbX/P/p79qPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwl11fPz0BS1cCtw=",
-		"eLen":	172,
-		"cLen":	127,
+		"data":	"eJzt3asNACAQRMFWKOEQ9N8aBoPkk8Alk1ErXwUbJYY6zGtFpKZfv/7sFfr1n/W3ba8L7vTve12gX79+/fr1AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/J+n7YAU50Ay4",
+		"eLen":	136,
+		"cLen":	101,
 		"dLen":	32768
 	}
 }

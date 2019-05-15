@@ -1,8 +1,8 @@
 {
 	"id":	11,
 	"visited":	0,
-	"x":	4,
-	"y":	0,
+	"x":	3,
+	"y":	1,
 	"entities":	[{
 			"type":	"trafficLight",
 			"name":	"",
