@@ -53,6 +53,7 @@ extern Widget *getWidget(const char *name, const char *groupName);
 extern void initGameOver(void);
 extern void initOptions(void (*done)(void));
 extern void initQuadtree(Quadtree *root);
+extern void initRadar(void (*done)(void));
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);

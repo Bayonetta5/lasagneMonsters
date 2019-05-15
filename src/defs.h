@@ -108,12 +108,6 @@ enum
 
 enum
 {
-	WS_IN_PROGRESS,
-	WS_PLAYER_DEAD
-};
-
-enum
-{
 	DR_NOTHING,
 	DR_KEY,
 	DR_REMOTE

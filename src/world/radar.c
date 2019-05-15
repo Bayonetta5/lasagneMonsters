@@ -23,52 +23,78 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void logic(void);
 static void draw(void);
 static void changeStage(int dx, int dy);
-static void updateCamera(void);
+static void doCamera(int jumpTo);
+static void drawStages(void);
+static void drawStageInfo(void);
 
-static SDL_Point camera;
+static PointF camera;
 static Stage *selectedStage;
+static AtlasImage *monstersTexture;
+static AtlasImage *girlsTexture;
+static AtlasImage *savePointTexture;
+static AtlasImage *chestTexture;
+static void (*returnFromRadar)(void);
+static void (*oldDraw)(void);
 
-void initRadar(void)
+void initRadar(void (*done)(void))
 {
 	camera.x = camera.y = 0;
+
+	oldDraw = app.delegate.draw;
 
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
 
-	selectedStage = world.stagesHead.next;
+	selectedStage = stage;
 
-	updateCamera();
+	monstersTexture = getAtlasImage("gfx/hud/monsters.png", 1);
+	girlsTexture = getAtlasImage("gfx/hud/girls.png", 1);
+	savePointTexture = getAtlasImage("gfx/entities/computer1.png", 1);
+	chestTexture = getAtlasImage("gfx/entities/chest1.png", 1);
+
+	doCamera(1);
+
+	returnFromRadar = done;
 }
 
 static void logic(void)
 {
-	if (app.keyboard[SDL_SCANCODE_A])
+	if (isControl(CONTROL_LEFT))
 	{
-		app.keyboard[SDL_SCANCODE_A] = 0;
+		clearControl(CONTROL_LEFT);
 
 		changeStage(-1, 0);
 	}
 
-	if (app.keyboard[SDL_SCANCODE_D])
+	if (isControl(CONTROL_RIGHT))
 	{
-		app.keyboard[SDL_SCANCODE_D] = 0;
+		clearControl(CONTROL_RIGHT);
 
 		changeStage(1, 0);
 	}
 
-	if (app.keyboard[SDL_SCANCODE_W])
+	if (isControl(CONTROL_UP))
 	{
-		app.keyboard[SDL_SCANCODE_W] = 0;
+		clearControl(CONTROL_UP);
 
 		changeStage(0, -1);
 	}
 
-	if (app.keyboard[SDL_SCANCODE_S])
+	if (isControl(CONTROL_DOWN))
 	{
-		app.keyboard[SDL_SCANCODE_S] = 0;
+		clearControl(CONTROL_DOWN);
 
 		changeStage(0, 1);
 	}
+
+	if (isControl(CONTROL_MAP))
+	{
+		clearControl(CONTROL_MAP);
+
+		returnFromRadar();
+	}
+
+	doCamera(0);
 }
 
 static void changeStage(int dx, int dy)
@@ -76,47 +102,131 @@ static void changeStage(int dx, int dy)
 	Stage *s;
 	int x, y;
 
-	x = selectedStage->x + (GRID_SPACING * 2 * dx);
-	y = selectedStage->y + (GRID_SPACING * 2 * dy);
-
-	printf("%d %d\n", x, y);
+	x = selectedStage->x + dx;
+	y = selectedStage->y + dy;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if (s->x == x && s->y == y)
+		if (s->visited && s->x == x && s->y == y)
 		{
 			selectedStage = s;
 		}
 	}
-
-	updateCamera();
 }
 
-static void updateCamera(void)
+static void doCamera(int jumpTo)
 {
-	camera.x = selectedStage->x - ((SCREEN_WIDTH - CELL_SIZE) / 2);
-	camera.y = selectedStage->y - ((SCREEN_HEIGHT - CELL_SIZE) / 2);
+	float dx, dy;
+	int x, y;
+
+	x = selectedStage->x * (CELL_SIZE + GRID_SPACING);
+	x -= SCREEN_WIDTH / 2;
+
+	y = selectedStage->y * (CELL_SIZE + GRID_SPACING);
+	y -= SCREEN_HEIGHT / 3;
+
+	if (!jumpTo && getDistance(camera.x, camera.y, x, y) > 16)
+	{
+		calcSlope(camera.x, camera.y, x, y, &dx, &dy);
+
+		dx *= 16;
+		dy *= 16;
+
+		camera.x -= dx;
+		camera.y -= dy;
+	}
+	else
+	{
+		camera.x = x;
+		camera.y = y;
+	}
 }
 
 static void draw(void)
+{
+	oldDraw();
+
+	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 64, 0, 192);
+
+	drawStages();
+
+	drawStageInfo();
+}
+
+static void drawStages(void)
 {
 	Stage *s;
 	int x, y;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		x = s->x - camera.x;
-		y = s->y - camera.y;
+		if (s->visited)
+		{
+			x = (s->x * (CELL_SIZE + GRID_SPACING)) - camera.x;
+			x -= CELL_SIZE / 2;
 
-		if (s == selectedStage)
-		{
-			drawRect(x, y, CELL_SIZE, CELL_SIZE, 128, 128, 255, 255);
-			drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 255, 255);
-		}
-		else
-		{
-			drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 128, 0, 255);
-			drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 255, 0, 255);
+			y = (s->y * (CELL_SIZE + GRID_SPACING)) - camera.y;
+			y -= CELL_SIZE / 2;
+
+			if (s == stage)
+			{
+				drawRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 0, 255);
+				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 255, 255, 0, 255);
+			}
+			else if (s == selectedStage)
+			{
+				drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 192, 0, 255);
+				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 255, 0, 255);
+			}
+			else
+			{
+				drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 64, 0, 255);
+				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 168, 0, 255);
+			}
 		}
 	}
 }
+
+static void drawStageInfo(void)
+{
+	int y;
+
+	y = SCREEN_HEIGHT - 50;
+
+	if (selectedStage->numMonsters > 0)
+	{
+		blitAtlasImage(monstersTexture, 25, y, 0, SDL_FLIP_NONE);
+
+		drawText(25 + monstersTexture->rect.w + 16, y, 32, TEXT_LEFT, app.colors.white, "x %03d", selectedStage->numMonsters);
+
+		y -= 40;
+	}
+
+	if (selectedStage->numGirls > 0)
+	{
+		blitAtlasImage(girlsTexture, 25, y, 0, SDL_FLIP_NONE);
+
+		drawText(25 + girlsTexture->rect.w + 16, y, 32, TEXT_LEFT, app.colors.white, "x %d", selectedStage->numGirls);
+
+		y -= 40;
+	}
+
+	if (selectedStage->numSavePoints > 0)
+	{
+		blitAtlasImage(savePointTexture, 25, y, 0, SDL_FLIP_NONE);
+
+		drawText(25 + savePointTexture->rect.w + 16, y, 32, TEXT_LEFT, app.colors.white, "x 1");
+
+		y -= 40;
+	}
+
+	if (selectedStage->numChests > 0)
+	{
+		blitAtlasImage(chestTexture, 25, y, 0, SDL_FLIP_NONE);
+
+		drawText(25 + chestTexture->rect.w + 16, y, 32, TEXT_LEFT, app.colors.white, "x %d", selectedStage->numChests);
+
+		y -= 40;
+	}
+}
+

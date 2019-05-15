@@ -1,8 +1,8 @@
 {
 	"id":	13,
 	"visited":	0,
-	"x":	704,
-	"y":	64,
+	"x":	3,
+	"y":	0,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",

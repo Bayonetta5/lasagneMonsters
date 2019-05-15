@@ -28,4 +28,5 @@ extern void playSound(int snd, int ch);
 
 extern App app;
 extern Entity *self;
+extern Stage *stage;
 extern World world;

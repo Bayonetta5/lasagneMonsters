@@ -53,6 +53,8 @@ void initSavePoint(Entity *e)
 	e->atlasImage = computer[0];
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+
+	stage->numSavePoints++;
 }
 
 static void tick(void)

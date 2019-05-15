@@ -1,8 +1,8 @@
 {
 	"id":	999,
 	"visited":	0,
-	"x":	-384,
-	"y":	320,
+	"x":	999,
+	"y":	999,
 	"entities":	[{
 			"type":	"player",
 			"name":	"",

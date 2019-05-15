@@ -1,8 +1,8 @@
 {
 	"id":	9,
 	"visited":	0,
-	"x":	-64,
-	"y":	-128,
+	"x":	0,
+	"y":	0,
 	"entities":	[{
 			"type":	"savePoint",
 			"name":	"",

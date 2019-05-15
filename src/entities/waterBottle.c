@@ -49,6 +49,8 @@ void initWaterBottle(Entity *e)
 	e->atlasImage = waterBottleTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+
+	stage->numWaterBottles++;
 }
 
 static void tick(void)

@@ -245,13 +245,18 @@ struct Stage {
 	int map[MAP_WIDTH][MAP_HEIGHT];
 	int numMonsters;
 	int numGirls;
+	int numChests;
+	int numSavePoints;
+	int numBatteries;
+	int numWaterBottles;
+	int numHearts;
 	Entity entityHead, *entityTail;
 	SDL_Rect bounds;
 	Stage *next;
 };
 
 typedef struct {
-	int state;
+	int showHUD;
 	Entity *player;
 	Stage stagesHead, *stagesTail;
 	AtlasImage *tiles[MAX_TILES];
@@ -301,6 +306,11 @@ struct Node {
 	Node *next;
 	int x, y;
 };
+
+typedef struct {
+	float x;
+	float y;
+} PointF;
 
 typedef struct {
 	char saveDir[MAX_FILENAME_LENGTH];

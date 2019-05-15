@@ -53,6 +53,8 @@ void initChest(Entity *e)
 
 	e->load = load;
 	e->save = save;
+
+	stage->numChests++;
 }
 
 static void tick(void)

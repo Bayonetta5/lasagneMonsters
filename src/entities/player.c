@@ -174,7 +174,7 @@ static void die(void)
 
 	playSound(SND_SCREAM, CH_PLAYER);
 
-	world.state = WS_PLAYER_DEAD;
+	world.showHUD = 0;
 }
 
 static void load(cJSON *root)

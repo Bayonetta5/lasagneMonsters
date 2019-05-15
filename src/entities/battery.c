@@ -49,6 +49,8 @@ void initBattery(Entity *e)
 	e->atlasImage = batteryTexture;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+
+	stage->numBatteries++;
 }
 
 static void tick(void)

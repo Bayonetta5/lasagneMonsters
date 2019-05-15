@@ -20,23 +20,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "common.h"
 
-#define GRID_SPACING   64
-#define CELL_SIZE      128
 #define CAM_SPEED      8
+#define CELL_SIZE      128
+#define GRID_SPACING   64
 
 extern void cleanup(void);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void doInput(void);
+extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
+extern Stage *getStage(int i);
 extern void initGameSystem(void);
 extern void initSDL(void);
 extern void loadAllStages(void);
 extern void prepareScene(void);
 extern void presentScene(void);
 extern void saveStage(char *filename);
-extern Stage *getStage(int i);
 
 App app;
 Entity *player;

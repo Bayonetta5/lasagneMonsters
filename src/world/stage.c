@@ -37,6 +37,7 @@ static void options(void);
 static void quit(void);
 static void drawLights(void);
 void loadStage(char *filename);
+static void returnFromRadar(void);
 
 static int show;
 static AtlasImage *backgroundTile;
@@ -54,6 +55,8 @@ void initStage(int stageId, int wipeType)
 	app.delegate.draw = draw;
 
 	stage = getStage(stageId);
+
+	stage->visited = 1;
 
 	game.stageId = stageId;
 
@@ -97,6 +100,8 @@ void initStage(int stageId, int wipeType)
 	{
 		playRandomStageMusic();
 	}
+
+	world.showHUD = 1;
 }
 
 static void logic(void)
@@ -174,6 +179,15 @@ static void doControls(void)
 		pauseSound();
 	}
 
+	if (isControl(CONTROL_MAP))
+	{
+		clearControl(CONTROL_MAP);
+
+		world.showHUD = 0;
+
+		initRadar(returnFromRadar);
+	}
+
 	if (app.dev.debug && app.keyboard[SDL_SCANCODE_F1])
 	{
 		app.keyboard[SDL_SCANCODE_F1] = 0;
@@ -218,7 +232,7 @@ static void drawGame()
 
 	drawLightMap();
 
-	if (world.player->alive == ALIVE_ALIVE)
+	if (world.showHUD)
 	{
 		drawHud();
 	}
@@ -369,6 +383,14 @@ static void load(void)
 static void resume(void)
 {
 	show = SHOW_GAME;
+}
+
+static void returnFromRadar(void)
+{
+	world.showHUD = 1;
+
+	app.delegate.logic = logic;
+	app.delegate.draw = draw;
 }
 
 static void returnFrom(void)

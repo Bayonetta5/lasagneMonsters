@@ -29,4 +29,5 @@ extern void throwCoins(int x, int y, int n);
 
 extern Entity *self;
 extern Game game;
+extern Stage *stage;
 extern World world;

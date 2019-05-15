@@ -195,10 +195,10 @@ void drawWidgets(const char *groupName)
 					break;
 
 				case WT_INPUT:
-					drawText(w->x, w->y, 64, TEXT_LEFT, c, w->text);
+					drawText(w->x, w->y, 48, TEXT_LEFT, c, w->text);
 					if (app.awaitingWidgetInput && w == app.selectedWidget)
 					{
-						drawText(SCREEN_WIDTH - w->x, w->y, 64, TEXT_RIGHT, c, "...");
+						drawText(SCREEN_WIDTH - w->x, w->y, 48, TEXT_RIGHT, c, "...");
 					}
 					else
 					{
@@ -210,7 +210,7 @@ void drawWidgets(const char *groupName)
 						{
 							sprintf(controlText, "%s", w->options[0]);
 						}
-						drawText(SCREEN_WIDTH - w->x, w->y, 64, TEXT_RIGHT, c, controlText);
+						drawText(SCREEN_WIDTH - w->x, w->y, 48, TEXT_RIGHT, c, controlText);
 					}
 					break;
 

@@ -119,19 +119,6 @@ static void handleCommandLine(int argc, char *argv[])
 
 			n = game.stageId;
 		}
-
-		if (strcmp(argv[i], "-test") == 0)
-		{
-			initTest();
-			return;
-		}
-
-		if (strcmp(argv[i], "-radar") == 0)
-		{
-			loadAllStages();
-			initRadar();
-			return;
-		}
 	}
 
 	loadAllStages();

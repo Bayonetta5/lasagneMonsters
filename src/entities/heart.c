@@ -50,6 +50,8 @@ void initHeart(Entity *e)
 	e->atlasImage = heartTextures[0];
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
+
+	stage->numHearts++;
 }
 
 static void tick(void)

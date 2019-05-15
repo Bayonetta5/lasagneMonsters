@@ -29,4 +29,5 @@ extern void itemHop(void);
 extern void playSound(int snd, int ch);
 
 extern Entity *self;
+extern Stage *stage;
 extern World world;
