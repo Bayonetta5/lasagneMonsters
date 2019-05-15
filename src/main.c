@@ -128,8 +128,8 @@ static void handleCommandLine(int argc, char *argv[])
 
 		if (strcmp(argv[i], "-radar") == 0)
 		{
-			initRadar();
 			loadAllStages();
+			initRadar();
 			return;
 		}
 	}

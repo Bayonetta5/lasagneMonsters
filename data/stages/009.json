@@ -1,8 +1,8 @@
 {
 	"id":	9,
-	"x" : -1,
-	"y" : -1,
-	"visited" : 0,
+	"visited":	0,
+	"x":	-64,
+	"y":	-128,
 	"entities":	[{
 			"type":	"savePoint",
 			"name":	"",
@@ -33,23 +33,27 @@
 			"name":	"left",
 			"x":	16,
 			"y":	496,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"startPoint",
 			"name":	"right",
-			"x":	1240,
-			"y":	256,
-			"facing":	"FACING_RIGHT"
+			"x":	1576,
+			"y":	632,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	-20
 		}, {
 			"type":	"transferCube",
 			"name":	"",
-			"x":	1296,
-			"y":	192,
+			"x":	1536,
+			"y":	720,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	10,
-			"targetFlag":	"left",
-			"w":	1,
-			"h":	2
+			"targetStage":	15,
+			"targetFlag":	"top",
+			"w":	2,
+			"h":	1
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -63,7 +67,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	1152,
+			"x":	1032,
 			"y":	216,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -127,7 +131,8 @@
 			"y":	160,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -135,7 +140,8 @@
 			"y":	160,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -161,9 +167,9 @@
 			"hasDoubleJump":	0
 		}],
 	"map":	{
-		"data":	"eJzt1jEKgDAMQNGreAQ79P5Xc9FBKihFCSaPtznlUyFpS5uwpjHToj96av3v9ffd8aUPomf8tj96gj/05/0jnvT3cvvv/NqZ9/91fZ37Z6Y+U/+47ardv9Xvf/2V+wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADubKNWArA",
-		"eLen":	172,
-		"cLen":	128,
+		"data":	"eJzt1kEKgCAQQNGrdIRaeP+rtSmyjAoJbOzxdi3EPyQ6DdMLxrDe2Lv+1hX66/eeFuuXVOi7/xtrfLv/+l/ovT9lN93ZBPrr35///V1fTiBy/3n99WvnOIG++u/qywlE7i9vu2cv3nwCkfvr3/wpW6N1RYv+bQJ/7V8nELkfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4M4Ml/IC4A=",
+		"eLen":	216,
+		"cLen":	160,
 		"dLen":	32768
 	}
 }

@@ -246,6 +246,7 @@ struct Stage {
 	int numMonsters;
 	int numGirls;
 	Entity entityHead, *entityTail;
+	SDL_Rect bounds;
 	Stage *next;
 };
 

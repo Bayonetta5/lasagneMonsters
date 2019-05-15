@@ -22,8 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void logic(void);
 static void draw(void);
+static void changeStage(int dx, int dy);
+static void updateCamera(void);
 
 static SDL_Point camera;
+static Stage *selectedStage;
 
 void initRadar(void)
 {
@@ -31,50 +34,89 @@ void initRadar(void)
 
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
+
+	selectedStage = world.stagesHead.next;
+
+	updateCamera();
 }
 
 static void logic(void)
 {
 	if (app.keyboard[SDL_SCANCODE_A])
 	{
-		camera.x++;
+		app.keyboard[SDL_SCANCODE_A] = 0;
+
+		changeStage(-1, 0);
 	}
 
 	if (app.keyboard[SDL_SCANCODE_D])
 	{
-		camera.x--;
+		app.keyboard[SDL_SCANCODE_D] = 0;
+
+		changeStage(1, 0);
 	}
 
 	if (app.keyboard[SDL_SCANCODE_W])
 	{
-		camera.y++;
+		app.keyboard[SDL_SCANCODE_W] = 0;
+
+		changeStage(0, -1);
 	}
 
 	if (app.keyboard[SDL_SCANCODE_S])
 	{
-		camera.y--;
+		app.keyboard[SDL_SCANCODE_S] = 0;
+
+		changeStage(0, 1);
 	}
+}
+
+static void changeStage(int dx, int dy)
+{
+	Stage *s;
+	int x, y;
+
+	x = selectedStage->x + (GRID_SPACING * 2 * dx);
+	y = selectedStage->y + (GRID_SPACING * 2 * dy);
+
+	printf("%d %d\n", x, y);
+
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		if (s->x == x && s->y == y)
+		{
+			selectedStage = s;
+		}
+	}
+
+	updateCamera();
+}
+
+static void updateCamera(void)
+{
+	camera.x = selectedStage->x - ((SCREEN_WIDTH - CELL_SIZE) / 2);
+	camera.y = selectedStage->y - ((SCREEN_HEIGHT - CELL_SIZE) / 2);
 }
 
 static void draw(void)
 {
 	Stage *s;
-	int x, y, mx, my;
+	int x, y;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		for (mx = 0 ; mx < MAP_WIDTH ; mx++)
-		{
-			for (my = 0 ; my < MAP_HEIGHT ; my++)
-			{
-				if (s->map[mx][my] >= TILE_WALL && s->map[mx][my] < TILE_FOREGROUND)
-				{
-					x = 16 + ((mx + camera.x + s->x) * CELL_SIZE);
-					y = 16 + ((my + camera.y + s->y) * CELL_SIZE);
+		x = s->x - camera.x;
+		y = s->y - camera.y;
 
-					drawRect(x, y, CELL_SIZE - 1, CELL_SIZE - 1, 0, 192, 0, 255);
-				}
-			}
+		if (s == selectedStage)
+		{
+			drawRect(x, y, CELL_SIZE, CELL_SIZE, 128, 128, 255, 255);
+			drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 255, 255);
+		}
+		else
+		{
+			drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 128, 0, 255);
+			drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 255, 0, 255);
 		}
 	}
 }

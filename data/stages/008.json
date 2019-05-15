@@ -1,8 +1,8 @@
 {
 	"id":	8,
-	"x" : -1,
-	"y" : -1,
-	"visited" : 0,
+	"visited":	0,
+	"x":	-256,
+	"y":	-128,
 	"entities":	[{
 			"type":	"door",
 			"name":	"downDoor",
@@ -19,19 +19,21 @@
 		}, {
 			"type":	"transferCube",
 			"name":	"",
-			"x":	4128,
-			"y":	3504,
+			"x":	4368,
+			"y":	2352,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
 			"targetFlag":	"bottomLeft",
-			"w":	1,
-			"h":	2
+			"w":	3,
+			"h":	1
 		}, {
 			"type":	"startPoint",
 			"name":	"right",
-			"x":	4096,
-			"y":	3568,
-			"facing":	"FACING_RIGHT"
+			"x":	4472,
+			"y":	2464,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"player",
 			"name":	"",
@@ -48,7 +50,7 @@
 		}, {
 			"type":	"transferCube",
 			"name":	"",
-			"x":	4128,
+			"x":	4560,
 			"y":	4224,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	9,
@@ -58,9 +60,11 @@
 		}, {
 			"type":	"startPoint",
 			"name":	"bottomLeft",
-			"x":	4088,
+			"x":	4520,
 			"y":	4288,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"lamp",
 			"name":	"",
@@ -164,7 +168,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	4024,
+			"x":	4472,
 			"y":	4248,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -454,7 +458,7 @@
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
-			"x":	3744,
+			"x":	3840,
 			"y":	4176,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -693,7 +697,8 @@
 			"y":	3472,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -701,7 +706,8 @@
 			"y":	4000,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"greenBugEyedMonster",
 			"name":	"",
@@ -856,7 +862,8 @@
 			"y":	3136,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"gumballMachine",
 			"name":	"",
@@ -1077,13 +1084,143 @@
 			"type":	"waterBottle",
 			"name":	"",
 			"x":	1672,
-			"y":	2600,
+			"y":	2599,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4000,
+			"y":	4176,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4208,
+			"y":	4224,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3752,
+			"y":	4248,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4472,
+			"y":	2544,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	2448,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	2640,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4472,
+			"y":	2736,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4472,
+			"y":	2928,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4472,
+			"y":	3120,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	3216,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	3024,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	2832,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4336,
+			"y":	3432,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJztmUG2gyAMAK/SI5QF97/aX/haEZIQqx+Cb94s2iogExEMfb/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsCgpGOP9fcfq47/31qqJfwR/X9nyVz7B5r99j+Cflb74Y+Wpq3OMzXh/qz/1nbv/+p/xEGn+k8uVvTsz3j1Pw2r+z17/7mp5Df/eCH26v/x959cIPMX/EwU/z/Nv5+l7HVL1Gcs/N1ZyyZX99feb1v5+f7vdEf7a1XPjtEVKWh+e559POJ0pW9ec+f6vr/HlrOe3T8Ja4K05w3/rca9f9lqnrw+9CMzPf2q/npHUX6uEFYFo+c/5DMdTeo9pL/uL49+rdXTrRUlaJax4ruPfOsme3giM97+a55VGdqmrV/kff8885Wtltss1f3snYK+h7WLVLf+2Hzbe31cqV7/153bd/NcfAcvetyau5l9GQH9nK5+EK3lwRP+jo+R/zBVX8W/ffG30MZuW9JevbefF8ruN5O+Z5+fmv9f966PHWlK7Ef//vd9fWs3T95x+dqz/pye1fy7O1KNW8q/3f5IYAdswzv23e+W7/+nV/s8f1d+ae+rdT23998z/6dBOOa7mz3/9d3F5V8ia/2vXsrQd6VH+/pxD2xM7W2uWq+x/1d5uQaolzbfz/L2ZqWZvt6DXkOuN94/F7PEAAAAAAAAAAAAAAAAAAAAAAACx+APWPAz",
-		"eLen":	704,
-		"cLen":	528,
+		"data":	"eJztmkFywyAMAL/SJ4QD//9aD2kaEEIIggG3O3upHbC1AoHt6ePrAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADclHEv8ie9qf985ef4Z43jG26Nhx/I//OMWf1/b9Ch28Jrd8WeGW/4rxj9WYvHnytO3TpmbvfVvjdz8++fOZ9S/3i6t2p757qmGmv859Z/7r9j/+uK72n/kyp+xqv5bM3SX/9XjU15fv9doBmb4r61/6149a9o8/xPG/zUOvZGPRLGj/tv+sbDSW871t2Oa7V9/vint5/vLK5xT/7FwemZK2x/m+++e/7HDqaet7Lnz+b++x8diNDz2+RNFT972rP/vXFtx2XtdfX9oZcC2X1H/0q9lpI9SHSsDtv1jqJp6/fUjn73HPyQ59b395dnZ49/qlbu1sqTtEnZGtZ3nRP/SSff0ZqBsdbX/p+95/lh77jK+m45F3l6p21eZF1XPzjvL3/4SkMamr2Olwzh6RVzj72sVxXG9bme9/57kLzNg2fv2xLv5pxmQ+3Zu/8mT68n+uaMWYb5j38W/fPL1r015hOGW/uVf8qiMIY9Qrnhpr/Z+Unv/vY+/PJv30q5bs/pb/toTVfj9Tf91T/1r/jH5Rc5aLUL5xBrUDNg+54y/HbNv/EOWxbP9rS8t8utnbf/3rP8hu046r/avf9Ya/c5SibX+S9e0tRbNjvr3tm19r/H2qvuvxx9F6z81/L3WfNn2+o+8k0qf3l6vSvBwtf/p7J4hAAAAAAAAAAAAAAAAAAAAAACwk2/OpQ5",
+		"eLen":	784,
+		"cLen":	588,
 		"dLen":	32768
 	}
 }

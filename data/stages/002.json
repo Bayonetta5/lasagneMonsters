@@ -1,8 +1,8 @@
 {
 	"id":	2,
-	"x" : 1,
-	"y" : 0,
-	"visited" : 0,
+	"visited":	0,
+	"x":	-448,
+	"y":	-320,
 	"entities":	[{
 			"type":	"greenHorse",
 			"name":	"",
@@ -118,7 +118,9 @@
 			"name":	"topLeft",
 			"x":	16,
 			"y":	256,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"player",
 			"name":	"",
@@ -186,7 +188,9 @@
 			"name":	"topRight",
 			"x":	3944,
 			"y":	208,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"transferCube",
 			"name":	"",

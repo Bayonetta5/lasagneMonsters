@@ -1,29 +1,31 @@
 {
 	"id":	6,
-	"x" : -1,
-	"y" : -1,
-	"visited" : 0,
+	"visited":	0,
+	"x":	128,
+	"y":	-128,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",
-			"x":	3072,
-			"y":	2400,
+			"x":	2544,
+			"y":	912,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	5,
 			"targetFlag":	"bottomLeft",
-			"w":	1,
-			"h":	2
+			"w":	4,
+			"h":	1
 		}, {
 			"type":	"startPoint",
 			"name":	"bottomRight",
-			"x":	3016,
-			"y":	2464,
-			"facing":	"FACING_RIGHT"
+			"x":	2648,
+			"y":	1024,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"player",
 			"name":	"",
-			"x":	2944,
-			"y":	2464,
+			"x":	2232,
+			"y":	1216,
 			"facing":	"FACING_LEFT",
 			"health":	5,
 			"maxHealth":	5,
@@ -92,7 +94,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	2848,
+			"x":	2392,
 			"y":	1176,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -111,9 +113,9 @@
 			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt2VEKgkAUQNGttIQZwf1vrY9+RB/lqGXz5nCQQIq8DwucKY8CAAAAAAC71ZX4bD3xDRnov/sK9H/H/EH2/vfq6nU0+vXr16//7ivRr/+qGv369esfp//1LDtu/96K5TN/vv6odd713oz9LXru365mtX7qyD/H/zi/it/3+v+yv+UOyNh/fAJ3V1zV3z6BTL//M/dAr7b9Y00g6q/hXs80xUe8J9SjeBZbUylvjyx74+ZhHuYBAAAAAAAAAAAAAAAAAAAAAAC/8AQdWhI",
-		"eLen":	276,
-		"cLen":	207,
+		"data":	"eJzt2eEKgjAUgNFX6RFM8P1frUAEcSvcFKd3h4N/MsHvtgp1eA0AAAAAAEXeifye1ud5Vf/y+tRl/6/6uP05U1LcU39a31N/fr3H7X9/P++13vr30d/6DPTr169fv379V1fob33ubfpjXf/X9NceeUf99i/Xtr32762Y5xS1P9c67XpvxP4ST+5f392qO6rml+M+jt/Ff/b//7q/ZAVE7K+fQOuKs/rLJxDp+39kDTxV2t/XBHL926c+s3HMb1uti86eRWochr9blGfj5mEe5gEAAAAAAAAAAAAAAAAAAAAAAFf4AMf2EhY",
+		"eLen":	312,
+		"cLen":	233,
 		"dLen":	32844
 	}
 }

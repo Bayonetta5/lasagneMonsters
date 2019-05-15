@@ -1,8 +1,8 @@
 {
 	"id":	3,
-	"x" : 2,
-	"y" : 0,
-	"visited" : 0,
+	"visited":	0,
+	"x":	-256,
+	"y":	-320,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",
@@ -18,7 +18,9 @@
 			"name":	"topLeft",
 			"x":	40,
 			"y":	2272,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"player",
 			"name":	"",
@@ -286,29 +288,35 @@
 			"name":	"bottomRightLower",
 			"x":	2496,
 			"y":	4240,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"startPoint",
 			"name":	"bottomRightUpper",
 			"x":	2456,
 			"y":	4048,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"startPoint",
 			"name":	"bottomLeft",
-			"x":	48,
-			"y":	4240,
-			"facing":	"FACING_RIGHT"
+			"x":	184,
+			"y":	4368,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	-20
 		}, {
 			"type":	"transferCube",
 			"name":	"",
-			"x":	-48,
-			"y":	4176,
+			"x":	144,
+			"y":	4464,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	8,
 			"targetFlag":	"right",
-			"w":	1,
-			"h":	2
+			"w":	2,
+			"h":	1
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -352,7 +360,8 @@
 			"y":	1552,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -360,7 +369,8 @@
 			"y":	3616,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -801,8 +811,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	112,
-			"y":	4200,
+			"x":	296,
+			"y":	4248,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -928,11 +938,21 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	112,
+			"y":	4248,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJztmltuwyAQAK/SI8Qf3P9qVRU5cTFgFrDZXUbzUzW8BvFYwK+fFwAAAAAAAAAAAAAAAAAAOGB7jNmmOf+7e/eJerT6P1+PvF3hwIr+R8Iw3qV//7LhP47wKV27f2uvydKt6B+W9g//9n29/ucV65qatXIz4t+SRx73rerfU49Wf831aG2XXn9ZRPdHeb205i+L6L77Wum0cO4Nrf5SQqJHymn23XB2y0fb73ZXaeKdQBeyU116Xuy9kE+j118Wy5T3+bpIQBf4j/Qv1TPbFH/88Zf51+dbzT/O+f5P/tzgz7+2LPx9+p9H+UrzP47zffrXn4R8+teDv8f9T+qf+wV//GebjvDvqWe2ab9/Xz2zTXv9e+uZbdrnf8wjuzPWff8vb1f+hvvO8aPFv9Xeh3/8VUdN+X78U+96+Yg3PifNNu31rx/5e8k2xn/+zb7N3pr/duqD83cMslXPlv+9PWvfXx7rePJv3+89+I+zt+g/0t6ef9p+dnuf8rf1FdNo/2v71l1BGyn/1NtOXf/Ym/8t6L3NGOGmdaTe5xu/67Xcb9md/08x2xQAAAAAAAAAAAAAAAAAAAAAAMAXv3roDiM",
-		"eLen":	600,
-		"cLen":	449,
+		"data":	"eJztm1uOwyAMAK+yR2g+uP/VVquKNpsAwUCCbUbzU7W8BgEGkr5+XgAAAAAAAAAAAAAAAAAA4IDtMWab5vzv7t0n6tHq/3w98naFHSv67wnDeJf+/WTDfxzhU7p2/9Zek6Vb0T8s7R/+xX29/ucV65qatXIz4t+SR77vW9W/px6t/prr0douvf6yHd0f5fXSmr9sR/eNa6XTwrk3tPpLCYkeKaeJ0XB2y0fbR7urNMdIoAvZqS49L2Iv5NPo9ZftZcpxvm4noAv8R/qX6pltij/++Mv86/Ot5n/M+f4mf27w519bFv4+/c+jfKX5f9zn+/SvPwn59K8Hf4/xT+qf+wV//GebjvDvqWe2ab9/Xz2zTXv9e+uZbdrnv88juzPWff8vb1f+hvvO8aPFv9Xeh//xrY6a8v34p57r5Xe8x3PSbNNe//qRH0u2Mf7zz+zb7K35b6c+OL/HIFv1bPnf27P2/eV7HU/+7fHeg/84e4v+I+3t+aftZ7f3KX9bbzGN9r+2b40K2kj5p57t1PWPp/mfR+9tRr+/3pH6hH/dPzvamG2a89+f2EfGeyvzP7btXnv9/vfaa/UHAAAAAAAAAAAAAAAAAAAAALDML/6bDnY",
+		"eLen":	620,
+		"cLen":	464,
 		"dLen":	32768
 	}
 }

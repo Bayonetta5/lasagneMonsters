@@ -189,6 +189,9 @@ void saveStage(const char *filename)
 	root = cJSON_CreateObject();
 
 	cJSON_AddNumberToObject(root, "id", stage->id);
+	cJSON_AddNumberToObject(root, "visited", stage->visited);
+	cJSON_AddNumberToObject(root, "x", stage->x);
+	cJSON_AddNumberToObject(root, "y", stage->y);
 
 	saveEntities(stage, root);
 

@@ -20,9 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define CELL_SIZE  8
+#define GRID_SPACING   64
+#define CELL_SIZE      128
 
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
+extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
 
 extern App app;
 extern World world;

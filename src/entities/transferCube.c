@@ -36,7 +36,7 @@ void initTransferCube(Entity *e)
 	t->h = 1;
 
 	e->typeName = "transferCube";
-	e->type = ET_STRUCTURE;
+	e->type = ET_TRANSFER_CUBE;
 	e->data = t;
 	e->draw = draw;
 	e->touch = touch;

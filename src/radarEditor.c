@@ -22,54 +22,121 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void capFrameRate(long *then, float *remainder);
 
-static int delay = 0;
-static Stage *selectedStage;
+static void save(void)
+{
+	Stage *s;
+	char filename[MAX_FILENAME_LENGTH];
+
+	printf("Saving ...\r");
+
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		stage = s;
+
+		sprintf(filename, "data/stages/%03d.json", stage->id);
+
+		saveStage(filename);
+	}
+
+	printf("Saving ... Done\n");
+
+	stage = NULL;
+}
+
+static void selectStage(void)
+{
+	Stage *s;
+
+	if (stage == NULL)
+	{
+		for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+		{
+			if (collision(s->x + world.camera.x, s->y + world.camera.y, CELL_SIZE, CELL_SIZE, app.mouse.x, app.mouse.y, 1, 1))
+			{
+				stage = s;
+			}
+		}
+	}
+	else
+	{
+		stage = NULL;
+	}
+}
 
 static void logic(void)
 {
-	if (--delay <= 0)
+	if (app.mouse.buttons[SDL_BUTTON_LEFT])
 	{
-		if (app.keyboard[SDL_SCANCODE_W])
-		{
-			selectedStage->y--;
-		}
+		app.mouse.buttons[SDL_BUTTON_LEFT] = 0;
 
-		if (app.keyboard[SDL_SCANCODE_S])
-		{
-			selectedStage->y++;
-		}
+		selectStage();
+	}
 
-		if (app.keyboard[SDL_SCANCODE_A])
-		{
-			selectedStage->x--;
-		}
+	if (app.keyboard[SDL_SCANCODE_A])
+	{
+		world.camera.x += CAM_SPEED;
+	}
 
-		if (app.keyboard[SDL_SCANCODE_D])
-		{
-			selectedStage->x++;
-		}
+	if (app.keyboard[SDL_SCANCODE_D])
+	{
+		world.camera.x -= CAM_SPEED;
+	}
 
-		if (app.keyboard[SDL_SCANCODE_LEFT])
-		{
-			world.camera.x++;
-		}
+	if (app.keyboard[SDL_SCANCODE_W])
+	{
+		world.camera.y += CAM_SPEED;
+	}
 
-		if (app.keyboard[SDL_SCANCODE_RIGHT])
-		{
-			world.camera.x--;
-		}
+	if (app.keyboard[SDL_SCANCODE_S])
+	{
+		world.camera.y -= CAM_SPEED;
+	}
 
-		if (app.keyboard[SDL_SCANCODE_UP])
-		{
-			world.camera.y++;
-		}
+	if (app.keyboard[SDL_SCANCODE_SPACE])
+	{
+		app.keyboard[SDL_SCANCODE_SPACE] = 0;
 
-		if (app.keyboard[SDL_SCANCODE_DOWN])
-		{
-			world.camera.y--;
-		}
+		save();
+	}
 
-		delay = 4;
+	if (stage != NULL)
+	{
+		stage->x = app.mouse.x - world.camera.x;
+		stage->x /= GRID_SPACING;
+		stage->x *= GRID_SPACING;
+
+		stage->y = app.mouse.y - world.camera.y;
+		stage->y /= GRID_SPACING;
+		stage->y *= GRID_SPACING;
+	}
+}
+
+static void drawStageLinks(Stage *s, int x, int y)
+{
+	Stage *other;
+	Entity *e;
+	TransferCube *t;
+	int sx, sy, ex, ey;
+
+	for (e = s->entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_TRANSFER_CUBE)
+		{
+			t = (TransferCube*)e->data;
+
+			other = getStage(t->targetStage);
+
+			if (other != NULL)
+			{
+				sx = (s->x + world.camera.x) + CELL_SIZE / 2;
+				sy = (s->y + world.camera.y) + CELL_SIZE / 2;
+
+				ex = (other->x + world.camera.x) + CELL_SIZE / 2;
+				ey = (other->y + world.camera.y) + CELL_SIZE / 2;
+
+				drawLine(sx, sy, ex, ey, 255, 255, 255, 255);
+			}
+		}
 	}
 }
 
@@ -80,22 +147,23 @@ static void draw(void)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		x = (s->x + world.camera.x) * CELL_W;
-		y = (s->y + world.camera.y) * CELL_H;
+		x = (s->x + world.camera.x);
+		y = (s->y + world.camera.y);
 
-		if (s == selectedStage)
+		if (s == stage)
 		{
-			drawRect(x, y, CELL_W - 4, CELL_H - 4, 192, 192, 0, 255);
+			drawRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 0, 255);
 		}
 		else
 		{
-			drawRect(x, y, CELL_W - 4, CELL_H - 4, 0, 192, 0, 255);
+			drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 192, 0, 255);
 		}
 
-		drawText(x + (CELL_W / 2), y, 32, TEXT_CENTER, app.colors.white, "%d", s->id);
+		drawStageLinks(s, x, y);
+
+		drawText(x + (CELL_SIZE / 2), y, 32, TEXT_CENTER, app.colors.white, "%d", s->id);
 	}
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -117,7 +185,7 @@ int main(int argc, char *argv[])
 
 	loadAllStages();
 
-	selectedStage = world.stagesHead.next;
+	stage = NULL;
 
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
@@ -163,7 +231,7 @@ static void capFrameRate(long *then, float *remainder)
 
 	SDL_Delay(wait);
 
-	*remainder += 0.667;
+	*remainder += 0.666667;
 
 	*then = SDL_GetTicks();
 }

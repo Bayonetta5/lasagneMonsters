@@ -1,8 +1,8 @@
 {
 	"id":	14,
-	"x" : -1,
-	"y" : -1,
-	"visited" : 0,
+	"visited":	0,
+	"x":	704,
+	"y":	256,
 	"entities":	[{
 			"type":	"platform",
 			"name":	"",

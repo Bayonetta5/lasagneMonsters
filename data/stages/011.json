@@ -1,8 +1,8 @@
 {
 	"id":	11,
-	"x" : -1,
-	"y" : -1,
-	"visited" : 0,
+	"visited":	0,
+	"x":	896,
+	"y":	64,
 	"entities":	[{
 			"type":	"trafficLight",
 			"name":	"",
@@ -73,7 +73,9 @@
 			"name":	"left",
 			"x":	16,
 			"y":	112,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}, {
 			"type":	"door",
 			"name":	"exitDoor",
@@ -437,7 +439,8 @@
 			"y":	304,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -445,7 +448,8 @@
 			"y":	400,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0
+			"coins":	0,
+			"nextRefill":	0
 		}, {
 			"type":	"lamp",
 			"name":	"",

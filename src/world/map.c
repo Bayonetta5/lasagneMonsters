@@ -167,6 +167,33 @@ static void loadMap(cJSON *root)
 		}
 	}
 
+	stage->bounds.x = MAP_WIDTH;
+	stage->bounds.w = 0;
+
+	stage->bounds.y = MAP_HEIGHT;
+	stage->bounds.h = 0;
+
+	for (y = 0 ; y < MAP_HEIGHT ; y++)
+	{
+		for (x = 0 ; x < MAP_WIDTH ; x++)
+		{
+			if (stage->map[x][y] != 0)
+			{
+				stage->bounds.w = MAX(stage->bounds.w, x + 1);
+				stage->bounds.x = MIN(stage->bounds.x, x);
+
+				stage->bounds.h = MAX(stage->bounds.h, y + 1);
+				stage->bounds.y = MIN(stage->bounds.y, y);
+			}
+		}
+	}
+
+	stage->bounds.x *= TILE_SIZE;
+	stage->bounds.y *= TILE_SIZE;
+
+	stage->bounds.w *= TILE_SIZE;
+	stage->bounds.h *= TILE_SIZE;
+
 	if (!app.dev.editor)
 	{
 		randomizeTiles();
