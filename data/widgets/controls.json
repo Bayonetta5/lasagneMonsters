@@ -12,15 +12,31 @@
 		"name" : "right",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 200,
+		"y" : 190,
 		"text" : "Right"
+	},
+	{
+		"type" : "WT_INPUT",
+		"name" : "up",
+		"groupName" : "controls",
+		"x" : 250,
+		"y" : 230,
+		"text" : "Up"
+	},
+	{
+		"type" : "WT_INPUT",
+		"name" : "down",
+		"groupName" : "controls",
+		"x" : 250,
+		"y" : 270,
+		"text" : "Down"
 	},
 	{
 		"type" : "WT_INPUT",
 		"name" : "jump",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 250,
+		"y" : 310,
 		"text" : "Jump"
 	},
 	{
@@ -28,7 +44,7 @@
 		"name" : "fire",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 300,
+		"y" : 350,
 		"text" : "Fire"
 	},
 	{
@@ -36,7 +52,7 @@
 		"name" : "use",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 350,
+		"y" : 390,
 		"text" : "Use"
 	},
 	{
@@ -44,7 +60,7 @@
 		"name" : "map",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 400,
+		"y" : 430,
 		"text" : "Map"
 	},
 	{
@@ -52,7 +68,7 @@
 		"name" : "pause",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 450,
+		"y" : 470,
 		"text" : "Pause"
 	},
 	{
@@ -60,7 +76,7 @@
 		"name" : "back",
 		"groupName" : "controls",
 		"x" : 250,
-		"y" : 550,
+		"y" : 600,
 		"text" : "Back"
 	}
 ]

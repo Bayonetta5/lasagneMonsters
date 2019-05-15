@@ -32,6 +32,8 @@ static void setWindowSizeWidgetValue(Widget *w);
 
 static Widget *leftWidget;
 static Widget *rightWidget;
+static Widget *upWidget;
+static Widget *downWidget;
 static Widget *jumpWidget;
 static Widget *fireWidget;
 static Widget *useWidget;
@@ -69,6 +71,8 @@ void initOptions(void (*done)(void))
 
 	leftWidget = getWidget("left", "controls");
 	rightWidget = getWidget("right", "controls");
+	upWidget = getWidget("up", "controls");
+	downWidget = getWidget("down", "controls");
 	jumpWidget = getWidget("jump", "controls");
 	fireWidget = getWidget("fire", "controls");
 	useWidget = getWidget("use", "controls");
@@ -216,6 +220,8 @@ static void controls(void)
 {
 	updateControlWidget(leftWidget, CONTROL_LEFT);
 	updateControlWidget(rightWidget, CONTROL_RIGHT);
+	updateControlWidget(upWidget, CONTROL_UP);
+	updateControlWidget(downWidget, CONTROL_DOWN);
 	updateControlWidget(jumpWidget, CONTROL_JUMP);
 	updateControlWidget(fireWidget, CONTROL_FIRE);
 	updateControlWidget(useWidget, CONTROL_USE);
