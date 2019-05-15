@@ -35,6 +35,7 @@ static AtlasImage *savePointTexture;
 static AtlasImage *chestTexture;
 static void (*returnFromRadar)(void);
 static void (*oldDraw)(void);
+static float pulse;
 
 void initRadar(void (*done)(void))
 {
@@ -53,6 +54,8 @@ void initRadar(void (*done)(void))
 	chestTexture = getAtlasImage("gfx/entities/chest1.png", 1);
 
 	doCamera(1);
+
+	pulse = 0;
 
 	returnFromRadar = done;
 }
@@ -123,7 +126,7 @@ static void doCamera(int jumpTo)
 	x -= SCREEN_WIDTH / 2;
 
 	y = selectedStage->y * (CELL_SIZE + GRID_SPACING);
-	y -= SCREEN_HEIGHT / 3;
+	y -= SCREEN_HEIGHT * 0.4;
 
 	if (!jumpTo && getDistance(camera.x, camera.y, x, y) > 16)
 	{
@@ -151,12 +154,19 @@ static void draw(void)
 	drawStages();
 
 	drawStageInfo();
+
+	drawText(SCREEN_WIDTH / 2, 25, 96, TEXT_CENTER, app.colors.white, "AREA MAP");
+
+	drawText(SCREEN_WIDTH / 2, 100, 64, TEXT_CENTER, app.colors.white, "Zone %03d", selectedStage->id);
 }
 
 static void drawStages(void)
 {
 	Stage *s;
-	int x, y;
+	int x, y, selectCol;
+
+	pulse += 0.125;
+	selectCol = 128 + ((sin(pulse) * 256) / 2);
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
@@ -170,18 +180,31 @@ static void drawStages(void)
 
 			if (s == stage)
 			{
-				drawRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 0, 255);
-				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 255, 255, 0, 255);
-			}
-			else if (s == selectedStage)
-			{
-				drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 192, 0, 255);
-				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 255, 0, 255);
+				drawRect(x, y, CELL_SIZE, CELL_SIZE, 168, 168, 255, 255);
+				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 192, 192, 255, 255);
 			}
 			else
 			{
-				drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 64, 0, 255);
-				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 168, 0, 255);
+				if (s->numMonsters > 0)
+				{
+					drawRect(x, y, CELL_SIZE, CELL_SIZE, 64, 0, 0, 255);
+					drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 168, 0, 0, 255);
+				}
+				else if (s->numGirls > 0)
+				{
+					drawRect(x, y, CELL_SIZE, CELL_SIZE, 64, 64, 0, 255);
+					drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 168, 168, 0, 255);
+				}
+				else
+				{
+					drawRect(x, y, CELL_SIZE, CELL_SIZE, 0, 64, 0, 255);
+					drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 0, 168, 0, 255);
+				}
+			}
+
+			if (s == selectedStage)
+			{
+				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 255, 255, 255, selectCol);
 			}
 		}
 	}

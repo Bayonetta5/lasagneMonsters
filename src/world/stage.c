@@ -56,8 +56,6 @@ void initStage(int stageId, int wipeType)
 
 	stage = getStage(stageId);
 
-	stage->visited = 1;
-
 	game.stageId = stageId;
 
 	resumeWidget = getWidget("resume", "stage");
@@ -98,6 +96,8 @@ void initStage(int stageId, int wipeType)
 
 	if (!app.dev.editor)
 	{
+		stage->visited = 1;
+
 		playRandomStageMusic();
 	}
 

@@ -29,6 +29,7 @@ static void drawCoins(void);
 static void drawMonsterInfo(void);
 static void drawGirlsInfo(void);
 static void drawKeys(void);
+static void drawZoneInfo(void);
 static void drawGameText(void);
 
 static AtlasImage *heartFullTexture;
@@ -174,6 +175,8 @@ static void drawBottomBar(void)
 	drawKeys();
 
 	drawGirlsInfo();
+
+	drawZoneInfo();
 }
 
 static void drawMonsterInfo(void)
@@ -202,6 +205,11 @@ static void drawGirlsInfo(void)
 	blitAtlasImage(girlsTexture, 600, SCREEN_HEIGHT - 28, 0, SDL_FLIP_NONE);
 
 	drawText(600 + girlsTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %d", stage->numGirls);
+}
+
+static void drawZoneInfo(void)
+{
+	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 32, 32, TEXT_RIGHT, app.colors.white, "Zone %03d", stage->id);
 }
 
 static void drawGameText(void)
