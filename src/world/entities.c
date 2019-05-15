@@ -26,6 +26,7 @@ static int push(Entity *e, float dx, float dy);
 static void moveToWorld(Entity *e, float dx, float dy);
 static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, int background);
 static int canPush(Entity *e, Entity *other);
+static int entityComparator(const void *a, const void *b);
 
 static Entity deadListHead, *deadListTail;
 
@@ -448,9 +449,15 @@ void dropToFloor(void)
 void drawEntities(int background)
 {
 	Entity *candidates[MAX_QT_CANDIDATES];
-	int i;
+	int i, n;
 
 	getAllEntsWithin(world.camera.x, world.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, candidates, NULL);
+
+	n = 0;
+
+	for (i = 0, self = candidates[0] ; i < MAX_QT_CANDIDATES && self != NULL ; self = candidates[++i]) {n++;}
+
+	qsort(candidates, n, sizeof(Entity*), entityComparator);
 
 	for (i = 0, self = candidates[0] ; i < MAX_QT_CANDIDATES && self != NULL ; self = candidates[++i])
 	{
@@ -545,4 +552,12 @@ void destroyEntities(void)
 	}
 
 	deadListTail = &deadListHead;
+}
+
+static int entityComparator(const void *a, const void *b)
+{
+	Entity *e1 = *((Entity**)a);
+	Entity *e2 = *((Entity**)b);
+
+	return e2->type - e1->type;
 }
