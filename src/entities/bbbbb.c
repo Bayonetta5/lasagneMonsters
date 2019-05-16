@@ -41,6 +41,7 @@ void initBBBBB(Entity *e)
 	memset(b, 0, sizeof(BBBBB));
 
 	b->health = 5;
+	b->cageType = CT_HANGING;
 
 	e->typeName = "bbbbb";
 	e->type = ET_STRUCTURE;
