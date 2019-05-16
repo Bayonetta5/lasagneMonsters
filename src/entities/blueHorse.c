@@ -18,9 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "redHorse.h"
+#include "blueHorse.h"
 
-void initRedHorse(Entity *e)
+void initBlueHorse(Entity *e)
 {
 	Monster *m;
 
@@ -29,9 +29,11 @@ void initRedHorse(Entity *e)
 	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 12;
-	m->coins = 3;
+	m->coins = 5;
+	m->aiFlags |= AIF_CLIMB_STAIRS;
+	m->aiFlags &= ~AIF_HALT_AT_EDGE;
 
-	e->typeName = "redHorse";
+	e->typeName = "blueHorse";
 
-	e->atlasImage = getAtlasImage("gfx/entities/redHorse1.png", 1);
+	e->atlasImage = getAtlasImage("gfx/entities/blueHorse1.png", 1);
 }

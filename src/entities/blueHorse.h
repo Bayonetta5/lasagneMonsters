@@ -18,20 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "redHorse.h"
+#include "../common.h"
 
-void initRedHorse(Entity *e)
-{
-	Monster *m;
+extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void initGreenHorse(Entity *e);
+extern void monsterSave(cJSON *root);
 
-	initGreenHorse(e);
-
-	m = (Monster*)e->data;
-
-	m->health = m->maxHealth = 12;
-	m->coins = 3;
-
-	e->typeName = "redHorse";
-
-	e->atlasImage = getAtlasImage("gfx/entities/redHorse1.png", 1);
-}
+extern Entity *self;
+extern Stage *stage;

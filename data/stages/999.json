@@ -6,8 +6,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	1040,
-			"y":	400,
+			"x":	104,
+			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -56,11 +56,38 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	296,
+			"y":	312,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	728,
+			"y":	264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	552,
+			"y":	352,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt11EKgCAQQMGreIRV8P5XC4LCv8AwQ4dBEkHo7Z855Q6xjJ4W/bP/Wr9+/fr163/bX09xf69du2/P6mL939z5q5xKqcPXYhOLGL5MbO+J7f0qBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhyAC8eHzw",
-		"eLen":	160,
-		"cLen":	119,
-		"dLen":	32918
+		"data":	"eJzt1aENACAMRcFVGIHuvxweQ4KApP9yCtcnaGvUhdnGTYv+31Prf9mf/f+z91/a/q/t1b8//f7r169fv/7EfgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICTBbrcAjo",
+		"eLen":	132,
+		"cLen":	98,
+		"dLen":	32768
 	}
 }
