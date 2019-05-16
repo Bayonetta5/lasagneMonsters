@@ -106,4 +106,6 @@ void destroyGame(void)
 
 		free(s);
 	}
+
+	world.stagesTail = &world.stagesHead;
 }
