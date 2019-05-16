@@ -147,7 +147,7 @@ static void showLoadingStep(float step, float maxSteps)
 
 	presentScene();
 
-	SDL_Delay(1);
+	SDL_Delay(step < maxSteps ? 1 : 100);
 }
 
 void cleanup(void)
