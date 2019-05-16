@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void haltAtEdge(void);
 static void climbStairs(void);
+static int canWalkOnEntity(void);
 
 void monsterTick(void)
 {
@@ -63,9 +64,49 @@ static void haltAtEdge(void)
 
 		if (stage->map[mx][my] < TILE_WALL || stage->map[mx][my] >= TILE_SLIME)
 		{
-			self->dx = 0;
+			if (!canWalkOnEntity())
+			{
+				self->dx = 0;
+			}
 		}
 	}
+}
+
+static int canWalkOnEntity(void)
+{
+	int x, y, i, x1, y1, x2, y2;
+	Entity *candidates[MAX_QT_CANDIDATES], *e;
+
+	if (self->dx < 0)
+	{
+		x = self->x - 1;
+	}
+	else
+	{
+		x = self->x + self->w;
+	}
+
+	y = self->y;
+
+	x1 = x;
+	y1 = y;
+	x2 = x;
+	y2 = y + self->h + 8;
+
+	getAllEntsWithin(x1, y1, x2, y2, candidates, self);
+
+	for (i = 0, e = candidates[0] ; i < MAX_QT_CANDIDATES && e != NULL ; e = candidates[++i])
+	{
+		if (lineRectCollision(x1, y1, x2, y2, e->x, e->y, e->w, e->h))
+		{
+			if (e->flags & EF_SOLID)
+			{
+				return 1;
+			}
+		}
+	}
+
+	return 0;
 }
 
 static void climbStairs(void)
