@@ -9,8 +9,8 @@
 	"keyControls" : {
 		"left" : 4,
 		"right" : 7,
-		"up" : 82,
-		"down" : 81,
+		"up":	26,
+		"down":	22,
 		"fire" : 13,
 		"jump" : 12,
 		"use" : 15,
