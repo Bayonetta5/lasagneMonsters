@@ -209,7 +209,7 @@ static void drawGirlsInfo(void)
 
 static void drawZoneInfo(void)
 {
-	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 32, 32, TEXT_RIGHT, app.colors.white, "Zone %03d", stage->id);
+	drawText(SCREEN_WIDTH - 10, 5, 32, TEXT_RIGHT, app.colors.white, "Zone %03d", stage->id);
 }
 
 static void drawGameText(void)
