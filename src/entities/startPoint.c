@@ -40,11 +40,6 @@ void initStartPoint(Entity *e)
 
 	e->load = load;
 	e->save = save;
-
-	if (app.dev.debug)
-	{
-		e->flags &= ~EF_INVISIBLE;
-	}
 }
 
 static void load(cJSON *root)

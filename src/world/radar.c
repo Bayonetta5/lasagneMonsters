@@ -110,7 +110,7 @@ static void changeStage(int dx, int dy)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if (s->visited && s->x == x && s->y == y)
+		if ((s->visited || app.dev.debug) && s->x == x && s->y == y)
 		{
 			selectedStage = s;
 		}
@@ -170,7 +170,7 @@ static void drawStages(void)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if (s->visited)
+		if (s->visited || app.dev.debug)
 		{
 			x = (s->x * (CELL_SIZE + GRID_SPACING)) - camera.x;
 			x -= CELL_SIZE / 2;
