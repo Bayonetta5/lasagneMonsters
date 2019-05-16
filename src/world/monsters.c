@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "monsters.h"
 
 static void haltAtEdge(void);
+static void climbStairs(void);
 
 void monsterTick(void)
 {
@@ -34,6 +35,10 @@ void monsterTick(void)
 	if (m->aiFlags & AIF_HALT_AT_EDGE)
 	{
 		haltAtEdge();
+	}
+	else if (m->aiFlags & AIF_CLIMB_STAIRS)
+	{
+		climbStairs();
 	}
 }
 
@@ -59,6 +64,33 @@ static void haltAtEdge(void)
 		if (stage->map[mx][my] < TILE_WALL || stage->map[mx][my] >= TILE_SLIME)
 		{
 			self->dx = 0;
+		}
+	}
+}
+
+static void climbStairs(void)
+{
+	int x, y, speed;
+
+	if (self->isOnGround && self->dx != 0)
+	{
+		speed = 4 * abs(self->dx);
+
+		if (self->dx < 0)
+		{
+			x = (self->x - speed) / TILE_SIZE;
+		}
+		else
+		{
+			x = (self->x + self->w + speed) / TILE_SIZE;
+		}
+
+		y = (self->y + self->h - 1) / TILE_SIZE;
+
+		/* jump if a wall in front and space above wall is empty */
+		if (isInsideMap(x, y) && stage->map[x][y] >= TILE_WALL && stage->map[x][y] < TILE_FOREGROUND && isInsideMap(x, y - 1) && stage->map[x][y - 1] == 0)
+		{
+			self->dy = -20;
 		}
 	}
 }

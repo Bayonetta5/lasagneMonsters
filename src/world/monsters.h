@@ -27,6 +27,7 @@ extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, 
 extern void spawnRandomHealthItem(int x, int y);
 extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
+extern int isInsideMap(int x, int y);
 
 extern Entity *self;
 extern Stage *stage;
