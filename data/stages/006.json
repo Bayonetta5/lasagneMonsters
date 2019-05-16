@@ -10,12 +10,12 @@
 			"y":	912,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	5,
-			"targetFlag":	"bottomLeft",
+			"targetFlag":	"bottom",
 			"w":	4,
 			"h":	1
 		}, {
 			"type":	"startPoint",
-			"name":	"bottomRight",
+			"name":	"top",
 			"x":	2040,
 			"y":	960,
 			"facing":	"FACING_RIGHT",
@@ -194,8 +194,8 @@
 			"x":	6000,
 			"y":	3168,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	17,
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	2
 		}, {
@@ -204,13 +204,13 @@
 			"x":	960,
 			"y":	1584,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	9,
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"left",
 			"x":	1032,
 			"y":	1648,
 			"facing":	"FACING_RIGHT",
@@ -218,7 +218,7 @@
 			"dy":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"right",
 			"x":	5968,
 			"y":	3232,
 			"facing":	"FACING_RIGHT",
@@ -349,12 +349,6 @@
 			"open":	0,
 			"coins":	0,
 			"nextRefill":	0
-		}, {
-			"type":	"boots",
-			"name":	"",
-			"x":	2584,
-			"y":	1254,
-			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"platform",
 			"name":	"",

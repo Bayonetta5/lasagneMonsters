@@ -55,7 +55,7 @@
 			"y":	576,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	7,
-			"targetFlag":	"topLeft",
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	2
 		}, {
@@ -65,7 +65,7 @@
 			"y":	240,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	4,
-			"targetFlag":	"bottomRight",
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
 		}, {
@@ -75,7 +75,7 @@
 			"y":	816,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	6,
-			"targetFlag":	"bottomRight",
+			"targetFlag":	"top",
 			"w":	2,
 			"h":	1
 		}, {
@@ -149,7 +149,7 @@
 			"isMonster":	1
 		}, {
 			"type":	"startPoint",
-			"name":	"topLeft",
+			"name":	"left",
 			"x":	16,
 			"y":	304,
 			"facing":	"FACING_RIGHT",
@@ -157,7 +157,7 @@
 			"dy":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"bottomLeft",
+			"name":	"bottom",
 			"x":	232,
 			"y":	720,
 			"facing":	"FACING_RIGHT",
@@ -165,7 +165,7 @@
 			"dy":	-20
 		}, {
 			"type":	"startPoint",
-			"name":	"bottomRight",
+			"name":	"right",
 			"x":	1256,
 			"y":	640,
 			"facing":	"FACING_RIGHT",

@@ -18,7 +18,7 @@
 			"hasDoubleJump":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"rightFlag",
+			"name":	"right",
 			"x":	1256,
 			"y":	640,
 			"facing":	"FACING_RIGHT",
@@ -31,7 +31,7 @@
 			"y":	576,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	2,
-			"targetFlag":	"topLeft",
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	2
 		}, {

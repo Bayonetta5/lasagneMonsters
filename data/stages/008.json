@@ -23,12 +23,12 @@
 			"y":	2352,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
-			"targetFlag":	"bottomLeft",
+			"targetFlag":	"bottom",
 			"w":	3,
 			"h":	1
 		}, {
 			"type":	"startPoint",
-			"name":	"right",
+			"name":	"top",
 			"x":	4472,
 			"y":	2464,
 			"facing":	"FACING_RIGHT",
@@ -59,7 +59,7 @@
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"bottomLeft",
+			"name":	"right",
 			"x":	4520,
 			"y":	4288,
 			"facing":	"FACING_RIGHT",

@@ -115,7 +115,7 @@
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
-			"name":	"topLeft",
+			"name":	"left",
 			"x":	16,
 			"y":	256,
 			"facing":	"FACING_RIGHT",
@@ -185,7 +185,7 @@
 			"ey":	52
 		}, {
 			"type":	"startPoint",
-			"name":	"topRight",
+			"name":	"right",
 			"x":	3944,
 			"y":	208,
 			"facing":	"FACING_RIGHT",
@@ -198,7 +198,7 @@
 			"y":	144,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	3,
-			"targetFlag":	"topLeft",
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	2
 		}, {

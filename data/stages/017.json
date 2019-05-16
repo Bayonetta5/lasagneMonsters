@@ -1,0 +1,44 @@
+{
+	"id":	17,
+	"visited":	0,
+	"x":	2,
+	"y":	0,
+	"entities":	[{
+			"type":	"transferCube",
+			"name":	"",
+			"x":	-48,
+			"y":	2832,
+			"facing":	"FACING_RIGHT",
+			"targetStage":	6,
+			"targetFlag":	"right",
+			"w":	1,
+			"h":	2
+		}, {
+			"type":	"startPoint",
+			"name":	"left",
+			"x":	16,
+			"y":	2896,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
+		}, {
+			"type":	"player",
+			"name":	"",
+			"x":	64,
+			"y":	2896,
+			"facing":	"FACING_RIGHT",
+			"health":	5,
+			"maxHealth":	5,
+			"ammo":	5,
+			"maxAmmo":	5,
+			"refillRate":	0.050000,
+			"autoFire":	0,
+			"hasDoubleJump":	0
+		}],
+	"map":	{
+		"data":	"eJzt0kERAEAIAsAqF8HrX84GPsXHzhYAhnoFAAAAAAAAAAAAAAAAAMAhf5DOll4mnUD/jZb+DwAAAAAAAAAAAAAAAAAAAEBOA4rxAUs",
+		"eLen":	104,
+		"cLen":	77,
+		"dLen":	32768
+	}
+}

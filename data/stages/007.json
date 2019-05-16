@@ -10,12 +10,12 @@
 			"y":	2976,
 			"facing":	"FACING_RIGHT",
 			"targetStage":	5,
-			"targetFlag":	"bottomRight",
+			"targetFlag":	"right",
 			"w":	1,
 			"h":	2
 		}, {
 			"type":	"startPoint",
-			"name":	"topLeft",
+			"name":	"left",
 			"x":	16,
 			"y":	3040,
 			"facing":	"FACING_RIGHT",
