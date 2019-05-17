@@ -57,13 +57,6 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"greenHorse",
-			"name":	"",
-			"x":	872,
-			"y":	352,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
 			"type":	"lamp",
 			"name":	"",
 			"x":	736,
@@ -124,30 +117,24 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"platform",
+			"type":	"redFlyingCyclops",
 			"name":	"",
-			"x":	576,
-			"y":	384,
+			"x":	912,
+			"y":	144,
 			"facing":	"FACING_RIGHT",
-			"sx":	576,
-			"sy":	384,
-			"ex":	576,
-			"ey":	576,
-			"pause":	60,
-			"speed":	2,
-			"enabled":	1
+			"isMonster":	1
 		}, {
-			"type":	"greenHorse",
+			"type":	"greenFlyingCyclops",
 			"name":	"",
-			"x":	672,
-			"y":	544,
+			"x":	720,
+			"y":	128,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt1cEJACAIQNFVGiH3X64JKoog0Mc7evEfxGhxoadx06L/99b69evX/67/pClX//zD1/j/6zr99fpjM83fX/v+9dfpBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANgZk60B/A=",
-		"eLen":	140,
-		"cLen":	103,
-		"dLen":	32768
+		"data":	"eJzt1cEJwCAURMFWUsJXSP+t5RpQCOhByA6D97wFY7vagvqNlRb9p79av379+vXv96e//6Pe7+mJ3KJqehK3GNfIvB/vJVL/ETbI2wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgywPlDQq",
+		"eLen":	148,
+		"cLen":	111,
+		"dLen":	32812
 	}
 }

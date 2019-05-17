@@ -48,6 +48,7 @@ void initEntityFactory(void)
 	addInitFunc("piggyBank", initPiggyBank);
 	addInitFunc("player", initPlayer);
 	addInitFunc("platform", initPlatform);
+	addInitFunc("redFlyingCyclops", initRedFlyingCyclops);
 	addInitFunc("redHorse", initRedHorse);
 	addInitFunc("savePoint", initSavePoint);
 	addInitFunc("startPoint", initStartPoint);
