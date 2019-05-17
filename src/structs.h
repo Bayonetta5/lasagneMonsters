@@ -271,14 +271,7 @@ typedef struct {
 	GameText gameTextHead, *gameTextTail;
 	Quadtree quadtree;
 	TransferCube *transferCube;
-	struct {
-		int x;
-		int y;
-		int minX;
-		int maxX;
-		int minY;
-		int maxY;
-	} camera;
+	SDL_Point camera;
 } World;
 
 typedef struct {

@@ -81,8 +81,6 @@ void initStage(int stageId, int wipeType)
 
 	updatePlayer();
 
-	updateCameraBounds();
-
 	initQuadtree(&world.quadtree);
 
 	resetSavePoints();

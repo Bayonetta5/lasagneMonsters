@@ -61,7 +61,6 @@ extern void playRandomStageMusic(void);
 extern void resetSavePoints(void);
 extern void resumeSound(void);
 extern void showWidgets(const char *groupName, int visible);
-extern void updateCameraBounds(void);
 extern void updatePlayer(void);
 
 extern App app;

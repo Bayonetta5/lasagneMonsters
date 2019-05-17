@@ -28,38 +28,6 @@ void doCamera(void)
 	world.camera.x -= (SCREEN_WIDTH / 2);
 	world.camera.y -= (SCREEN_HEIGHT / 2);
 
-	world.camera.x = MIN(MAX(world.camera.x, world.camera.minX), world.camera.maxX - SCREEN_WIDTH + (TILE_SIZE - 64));
-	world.camera.y = MIN(MAX(world.camera.y, world.camera.minY), world.camera.maxY - SCREEN_HEIGHT + (TILE_SIZE - 64));
-}
-
-void updateCameraBounds(void)
-{
-	int x, y;
-
-	world.camera.minX = MAP_WIDTH;
-	world.camera.maxX = 0;
-
-	world.camera.minY = MAP_HEIGHT;
-	world.camera.maxY = 0;
-
-	for (y = 0 ; y < MAP_HEIGHT ; y++)
-	{
-		for (x = 0 ; x < MAP_WIDTH ; x++)
-		{
-			if (stage->map[x][y] != 0)
-			{
-				world.camera.maxX = MAX(world.camera.maxX, x + 1);
-				world.camera.minX = MIN(world.camera.minX, x);
-
-				world.camera.maxY = MAX(world.camera.maxY, y + 1);
-				world.camera.minY = MIN(world.camera.minY, y);
-			}
-		}
-	}
-
-	world.camera.minX *= TILE_SIZE;
-	world.camera.maxX *= TILE_SIZE;
-
-	world.camera.minY *= TILE_SIZE;
-	world.camera.maxY *= TILE_SIZE;
+	world.camera.x = MIN(MAX(world.camera.x, stage->bounds.x), stage->bounds.w - SCREEN_WIDTH + (TILE_SIZE - 64));
+	world.camera.y = MIN(MAX(world.camera.y, stage->bounds.y), stage->bounds.h - SCREEN_HEIGHT + (TILE_SIZE - 64));
 }

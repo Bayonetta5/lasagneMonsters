@@ -128,15 +128,15 @@ void doEntities(void)
 
 static void clipToMap(Entity *e)
 {
-	e->x = MIN(MAX(e->x, world.camera.minX), world.camera.maxX - (e->w + 16));
-	e->y = MIN(MAX(e->y, world.camera.minY), world.camera.maxY);
+	e->x = MIN(MAX(e->x, stage->bounds.x), stage->bounds.w - (e->w + 16));
+	e->y = MIN(MAX(e->y, stage->bounds.y), stage->bounds.h);
 
-	if ((e->x == world.camera.minX && e->dx < 0) || (e->x == world.camera.maxX - (e->w + 16) && e->dx > 0))
+	if ((e->x == stage->bounds.x && e->dx < 0) || (e->x == stage->bounds.w - (e->w + 16) && e->dx > 0))
 	{
 		e->dx = 0;
 	}
 
-	if ((e->y == world.camera.minY && e->dy < 0) || (e->y == world.camera.maxY && e->dy > 0))
+	if ((e->y == stage->bounds.y && e->dy < 0) || (e->y == stage->bounds.h && e->dy > 0))
 	{
 		e->dy = 0;
 	}
