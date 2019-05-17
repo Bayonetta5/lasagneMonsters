@@ -263,7 +263,7 @@ static void linkStage(Stage *s, int dx, int dy)
 
 	other = getAdjacentStage(s, dx, dy);
 
-	if (other != NULL)
+	if (other != NULL && other->visited)
 	{
 		sx = (s->x * (CELL_SIZE + GRID_SPACING));
 		sy = (s->y * (CELL_SIZE + GRID_SPACING));
@@ -285,24 +285,27 @@ static void drawStageExits(void)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if (s->exits.n)
+		if (s->visited)
 		{
-			linkStage(s, 0, -1);
-		}
+			if (s->exits.n)
+			{
+				linkStage(s, 0, -1);
+			}
 
-		if (s->exits.s)
-		{
-			linkStage(s, 0, 1);
-		}
+			if (s->exits.s)
+			{
+				linkStage(s, 0, 1);
+			}
 
-		if (s->exits.e)
-		{
-			linkStage(s, 1, 0);
-		}
+			if (s->exits.e)
+			{
+				linkStage(s, 1, 0);
+			}
 
-		if (s->exits.w)
-		{
-			linkStage(s, -1, 0);
+			if (s->exits.w)
+			{
+				linkStage(s, -1, 0);
+			}
 		}
 	}
 }
