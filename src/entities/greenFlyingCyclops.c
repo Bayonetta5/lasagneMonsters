@@ -26,6 +26,7 @@ static void wander(void);
 static void hover(void);
 static void preCharge(void);
 static void chasePlayer(void);
+static void fireAtTarget(void);
 
 void initGreenFlyingCyclops(Entity *e)
 {
@@ -36,6 +37,9 @@ void initGreenFlyingCyclops(Entity *e)
 
 	m->health = m->maxHealth = 5;
 	m->coins = 2;
+	m->minShotsToFire = 1;
+	m->maxShotsToFire = 2;
+	m->reloadTime = FPS / 2;
 
 	e->typeName = "greenFlyingCyclops";
 	e->type = ET_MONSTER;
@@ -66,7 +70,7 @@ static void tick(void)
 
 	if (m->alert)
 	{
-		self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
+		monsterFaceTarget(world.player);
 
 		preCharge();
 
@@ -93,7 +97,7 @@ static void preCharge(void)
 	switch (rand() % 4)
 	{
 		case 1:
-			m->shotsToFire = 1 + rand() % 2;
+			m->shotsToFire = rrnd(m->minShotsToFire, m->maxShotsToFire);
 			self->tick = hover;
 			break;
 
@@ -102,7 +106,7 @@ static void preCharge(void)
 			break;
 
 		case 3:
-			m->shotsToFire = 1 + rand() % 2;
+			m->shotsToFire = rrnd(m->minShotsToFire, m->maxShotsToFire);
 			self->tick = chasePlayer;
 			break;
 
@@ -133,18 +137,7 @@ static void chasePlayer(void)
 	{
 		if (m->shotsToFire > 0)
 		{
-			if (m->reload == 0)
-			{
-				initAimedSlimeBullet(self, world.player);
-
-				monsterFaceTarget(world.player);
-
-				m->shotsToFire--;
-
-				m->reload = FPS / 2;
-
-				playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
-			}
+			fireAtTarget();
 		}
 		else if (--m->thinkTime <= 0)
 		{
@@ -171,16 +164,7 @@ static void hover(void)
 	{
 		if (m->shotsToFire > 0)
 		{
-			if (m->reload == 0)
-			{
-				initAimedSlimeBullet(self, world.player);
-
-				m->shotsToFire--;
-
-				m->reload = FPS / 2;
-
-				playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
-			}
+			fireAtTarget();
 		}
 		else if (--m->thinkTime <= 0)
 		{
@@ -189,6 +173,26 @@ static void hover(void)
 	}
 
 	monsterTick();
+}
+
+static void fireAtTarget(void)
+{
+	Monster *m;
+
+	m = (Monster*)self->data;
+
+	if (m->reload == 0)
+	{
+		monsterFaceTarget(world.player);
+
+		initAimedSlimeBullet(self, world.player);
+
+		m->shotsToFire--;
+
+		m->reload = m->reloadTime;
+
+		playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
+	}
 }
 
 static void patrol(void)

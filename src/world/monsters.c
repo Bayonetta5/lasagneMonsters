@@ -33,11 +33,12 @@ void monsterTick(void)
 	m->hitTimer = MAX(m->hitTimer - 16, 0);
 	m->reload = MAX(m->reload - 1, 0);
 
-	if (m->aiFlags & AIF_HALT_AT_EDGE)
+	if (self->isOnGround && m->aiFlags & AIF_HALT_AT_EDGE)
 	{
 		haltAtEdge();
 	}
-	else if (m->aiFlags & AIF_CLIMB_STAIRS)
+
+	if (m->aiFlags & AIF_CLIMB_STAIRS)
 	{
 		climbStairs();
 	}
@@ -45,7 +46,8 @@ void monsterTick(void)
 
 static void haltAtEdge(void)
 {
-	int mx, my;
+	int mx, my, n;
+	Monster *m;
 
 	if (self->dx != 0)
 	{
@@ -62,9 +64,19 @@ static void haltAtEdge(void)
 
 		mx /= TILE_SIZE;
 
-		if (stage->map[mx][my] < TILE_WALL || stage->map[mx][my] >= TILE_SLIME)
+		if (!isSolidMap(mx, my, &n))
 		{
-			if (!canWalkOnEntity())
+			m = (Monster*)self->data;
+
+			if (canWalkOnEntity())
+			{
+				/* ok */
+			}
+			else if ((m->aiFlags & AIF_CLIMB_STAIRS) && isSolidMap(mx, my + 1, &n))
+			{
+				/* ok */
+			}
+			else
 			{
 				self->dx = 0;
 			}
@@ -115,7 +127,7 @@ static void climbStairs(void)
 
 	if (self->isOnGround && self->dx != 0)
 	{
-		speed = 4 * abs(self->dx);
+		speed = 8 * abs(self->dx);
 
 		if (self->dx < 0)
 		{
@@ -210,14 +222,17 @@ void monsterDie(void)
 void monsterTouch(Entity *other)
 {
 	Entity *oldSelf;
+	Monster *m;
 
 	if (other == world.player)
 	{
+		m = (Monster*)self->data;
+
 		oldSelf = self;
 
 		self = other;
 
-		world.player->damage(1, DT_SLIME);
+		world.player->damage(m->touchDamage, DT_SLIME);
 
 		self = oldSelf;
 	}

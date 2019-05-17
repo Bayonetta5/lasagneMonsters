@@ -86,7 +86,10 @@ static void preCharge(void)
 
 	if (abs(self->y - world.player->y) <= 16)
 	{
-		self->dx = 0;
+		if (self->isOnGround)
+		{
+			self->dx = 0;
+		}
 		m->thinkTime = FPS;
 		self->tick = charge;
 	}

@@ -105,8 +105,9 @@ typedef struct {
 	int health;
 	int maxHealth;
 	int thinkTime;
-	int reload;
-	int shotsToFire;
+	int reload, reloadTime;
+	int shotsToFire, minShotsToFire, maxShotsToFire;
+	int touchDamage;
 	int hitTimer;
 	int coins;
 	int alert;

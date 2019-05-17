@@ -25,6 +25,7 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern void drawLightEffect(int x, int y, int size, int r, int g, int b, int a);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity **candidates, Entity *ignore);
 extern int isInsideMap(int x, int y);
+extern int isSolidMap(int x, int y, int *tile);
 extern int lineRectCollision(int x1, int y1, int x2, int y2, int rx, int ry, int rw, int rh);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void spawnRandomHealthItem(int x, int y);
