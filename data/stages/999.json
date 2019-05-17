@@ -120,14 +120,22 @@
 			"type":	"greenHorse",
 			"name":	"",
 			"x":	576,
-			"y":	344,
+			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
+		}, {
+			"type":	"bbbbb",
+			"name":	"",
+			"x":	976,
+			"y":	320,
+			"facing":	"FACING_RIGHT",
+			"health":	5,
+			"cageType":	"CT_HANGING"
 		}],
 	"map":	{
-		"data":	"eJzt1cEJwCAURMFWUsJXSP+t5RpQCOhByA6D97wFY7vagvqNlRb9p79av379+vXv96e//6Pe7+mJ3KJqehK3GNfIvB/vJVL/ETbI2wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgywPlDQq",
-		"eLen":	148,
-		"cLen":	111,
+		"data":	"eJzt1VEKgCAQBNCrdAQVuv/V+i0UAoMK5/HYT8EZcK1bnVCWMZNF/q9vLb/8b+a/br28/M/P/JX86f9/r7V9OJFdlDKcxC76NjLfx7mJ1B2hg7wOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO4cVjcKlg=",
+		"eLen":	160,
+		"cLen":	118,
 		"dLen":	32812
 	}
 }

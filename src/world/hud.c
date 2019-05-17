@@ -36,8 +36,8 @@ static void doVanquished(void);
 
 static int stageId;
 static int numMonsters;
-static int vaniquished;
-static int vx;
+static int numGirls;
+static GameText ticker;
 static AtlasImage *heartFullTexture;
 static AtlasImage *heartEmptyTexture;
 static AtlasImage *coinTexture;
@@ -58,7 +58,9 @@ void initHud(void)
 	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
 	hourGlassTexture = getAtlasImage("gfx/hud/hourGlass.png", 1);
 
-	vaniquished = stageId = numMonsters = 0;
+	stageId = numGirls = numMonsters = 0;
+
+	memset(&ticker, 0, sizeof(GameText));
 }
 
 void addGameText(int x, int y, char *format, ...)
@@ -95,26 +97,41 @@ static void doVanquished(void)
 {
 	if (stage->id == stageId)
 	{
-		if (numMonsters > 0 && stage->numMonsters == 0)
+		if ((numMonsters > 0 && stage->numMonsters == 0) || (numGirls > 0 && stage->numGirls == 0))
 		{
 			playSound(SND_YAY, -1);
 			playSound(SND_CLAPPING, -1);
-			vaniquished = 1;
-			vx = SCREEN_WIDTH + 256;
+			ticker.health = 1;
+			ticker.x = SCREEN_WIDTH + 128;
+
+			if (numMonsters > 0 && stage->numMonsters == 0)
+			{
+				STRNCPY(ticker.text, "MONSTERS VANQUISHED!", MAX_NAME_LENGTH);
+			}
+			else if (numGirls > 0 && stage->numGirls == 0)
+			{
+				STRNCPY(ticker.text, "GIRLS RESCUED!", MAX_NAME_LENGTH);
+			}
 		}
 
-		if (vaniquished && vx > -SCREEN_WIDTH)
+		if (ticker.health && ticker.x > -320)
 		{
-			vx -= 12;
+			ticker.x -= 8;
+
+			if (ticker.x <= -320)
+			{
+				ticker.health = 0;
+			}
 		}
 	}
 	else
 	{
-		vaniquished = 0;
+		ticker.health = 0;
 	}
 
 	stageId = stage->id;
 	numMonsters = stage->numMonsters;
+	numGirls = stage->numGirls;
 }
 
 static void doGameText(void)
@@ -150,11 +167,6 @@ void drawHud(void)
 	drawBottomBar();
 
 	drawGameText();
-
-	if (vaniquished)
-	{
-		drawText(vx, 100, 128, TEXT_LEFT, app.colors.white, "MONSTERS VANQUISHED!");
-	}
 }
 
 static void drawTopBar(void)
@@ -218,15 +230,22 @@ static void drawBottomBar(void)
 {
 	drawRect(0, SCREEN_HEIGHT - 32, SCREEN_WIDTH, 32, 0, 0, 0, 192);
 
-	drawMonsterInfo();
+	if (ticker.health == 0)
+	{
+		drawMonsterInfo();
 
-	drawCoins();
+		drawCoins();
 
-	drawKeys();
+		drawKeys();
 
-	drawGirlsInfo();
+		drawGirlsInfo();
 
-	drawTimeLimit();
+		drawTimeLimit();
+	}
+	else
+	{
+		drawText(ticker.x, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, ticker.text);
+	}
 }
 
 static void drawMonsterInfo(void)

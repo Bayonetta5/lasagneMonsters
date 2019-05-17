@@ -536,16 +536,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/coin.png",
+		"filename" : "gfx/hud/hourGlass.png",
 		"x" : 164,
 		"y" : 238,
-		"w" : 24,
-		"h" : 24,
+		"w" : 19,
+		"h" : 25,
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/hourGlass.png",
-		"x" : 189,
+		"filename" : "gfx/entities/coin.png",
+		"x" : 184,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,
@@ -553,7 +553,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 214,
+		"x" : 209,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,
@@ -561,7 +561,7 @@
 	},
 	{
 		"filename" : "gfx/hud/girls.png",
-		"x" : 239,
+		"x" : 234,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,
