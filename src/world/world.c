@@ -47,6 +47,25 @@ Stage *getStage(int i)
 	return NULL;
 }
 
+Stage *getAdjacentStage(Stage *s, int dx, int dy)
+{
+	Stage *other;
+	int x, y;
+
+	x = s->x + dx;
+	y = s->y + dy;
+
+	for (other = world.stagesHead.next ; other != NULL ; other = other->next)
+	{
+		if (other->x == x && other->y == y)
+		{
+			return other;
+		}
+	}
+
+	return NULL;
+}
+
 void loadAllStages(void)
 {
 	char **filenames, filename[MAX_FILENAME_LENGTH];
@@ -102,9 +121,9 @@ void loadStageData(cJSON *root)
 	stage->x = cJSON_GetObjectItem(root, "x")->valueint;
 	stage->y = cJSON_GetObjectItem(root, "y")->valueint;
 
-	initMap(cJSON_GetObjectItem(root, "map"));
-
 	initEntities(root);
+
+	initMap(cJSON_GetObjectItem(root, "map"));
 }
 
 void updatePlayer(void)

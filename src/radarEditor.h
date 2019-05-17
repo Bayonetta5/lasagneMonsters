@@ -30,7 +30,7 @@ extern void doInput(void);
 extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern Stage *getStage(int i);
+extern Stage *getAdjacentStage(Stage *s, int dx, int dy);
 extern void initGameSystem(void);
 extern void initSDL(void);
 extern void loadAllStages(void);

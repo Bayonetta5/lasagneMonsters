@@ -253,6 +253,12 @@ struct Stage {
 	int numHearts;
 	Entity entityHead, *entityTail;
 	SDL_Rect bounds;
+	struct {
+		int n;
+		int s;
+		int e;
+		int w;
+	} exits;
 	Stage *next;
 };
 

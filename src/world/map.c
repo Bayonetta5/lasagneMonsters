@@ -22,6 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadTiles(void);
 static void loadMap(cJSON *root);
+static void loadMapData(cJSON *root);
+static void calcStageBounds(void);
+static void calcStageExits(void);
 int isInsideMap(int x, int y);
 static void randomizeTiles(void);
 
@@ -141,6 +144,20 @@ static void loadTiles(void)
 
 static void loadMap(cJSON *root)
 {
+	loadMapData(root);
+
+	calcStageBounds();
+
+	calcStageExits();
+
+	if (!app.dev.editor)
+	{
+		randomizeTiles();
+	}
+}
+
+static void loadMapData(cJSON *root)
+{
 	char *data, *cData, *p;
 	int x, y;
 	unsigned long eLen, cLen, dLen;
@@ -166,6 +183,13 @@ static void loadMap(cJSON *root)
 			}
 		}
 	}
+
+	free(data);
+}
+
+static void calcStageBounds(void)
+{
+	int x, y;
 
 	stage->bounds.x = MAP_WIDTH;
 	stage->bounds.w = 0;
@@ -193,13 +217,37 @@ static void loadMap(cJSON *root)
 
 	stage->bounds.w *= TILE_SIZE;
 	stage->bounds.h *= TILE_SIZE;
+}
 
-	if (!app.dev.editor)
+static void calcStageExits(void)
+{
+	Entity *e;
+
+	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		randomizeTiles();
-	}
+		if (e->type == ET_TRANSFER_CUBE)
+		{
+			if (e->x < stage->bounds.x)
+			{
+				stage->exits.w = 1;
+			}
 
-	free(data);
+			if (e->x >= stage->bounds.w)
+			{
+				stage->exits.e = 1;
+			}
+
+			if (e->y < stage->bounds.y)
+			{
+				stage->exits.n = 1;
+			}
+
+			if (e->y >= stage->bounds.h)
+			{
+				stage->exits.s = 1;
+			}
+		}
+	}
 }
 
 static void randomizeTiles(void)

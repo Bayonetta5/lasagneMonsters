@@ -26,6 +26,7 @@ static void changeStage(int dx, int dy);
 static void doCamera(int jumpTo);
 static void drawStages(void);
 static void drawStageInfo(void);
+static void drawStageExits(void);
 
 static PointF camera;
 static Stage *selectedStage;
@@ -151,6 +152,8 @@ static void draw(void)
 
 	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 64, 0, 192);
 
+	drawStageExits();
+
 	drawStages();
 
 	drawStageInfo();
@@ -253,3 +256,53 @@ static void drawStageInfo(void)
 	}
 }
 
+static void linkStage(Stage *s, int dx, int dy)
+{
+	Stage *other;
+	int sx, sy, ex, ey;
+
+	other = getAdjacentStage(s, dx, dy);
+
+	if (other != NULL)
+	{
+		sx = (s->x * (CELL_SIZE + GRID_SPACING));
+		sy = (s->y * (CELL_SIZE + GRID_SPACING));
+		sx -= camera.x;
+		sy -= camera.y;
+
+		ex = (other->x * (CELL_SIZE + GRID_SPACING));
+		ey = (other->y * (CELL_SIZE + GRID_SPACING));
+		ex -= camera.x;
+		ey -= camera.y;
+
+		drawLine(sx, sy, ex, ey, 255, 255, 255, 255);
+	}
+}
+
+static void drawStageExits(void)
+{
+	Stage *s;
+
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		if (s->exits.n)
+		{
+			linkStage(s, 0, -1);
+		}
+
+		if (s->exits.s)
+		{
+			linkStage(s, 0, 1);
+		}
+
+		if (s->exits.e)
+		{
+			linkStage(s, 1, 0);
+		}
+
+		if (s->exits.w)
+		{
+			linkStage(s, -1, 0);
+		}
+	}
+}

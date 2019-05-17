@@ -113,40 +113,53 @@ static void logic(void)
 	}
 }
 
-static void drawStageLinks(void)
+static void linkStage(Stage *s, int dx, int dy)
 {
-	Stage *s, *other;
-	Entity *e;
-	TransferCube *t;
+	Stage *other;
 	int sx, sy, ex, ey;
+
+	other = getAdjacentStage(s, dx, dy);
+
+	if (other != NULL)
+	{
+		sx = (s->x * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
+		sy = (s->y * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
+		sx += world.camera.x;
+		sy += world.camera.y;
+
+		ex = (other->x * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
+		ey = (other->y * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
+		ex += world.camera.x;
+		ey += world.camera.y;
+
+		drawLine(sx, sy, ex, ey, 192, 255, 192, 255);
+	}
+}
+
+static void drawStageExits(void)
+{
+	Stage *s;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		for (e = s->entityHead.next ; e != NULL ; e = e->next)
+		if (s->exits.n)
 		{
-			if (e->type == ET_TRANSFER_CUBE)
-			{
-				t = (TransferCube*)e->data;
+			linkStage(s, 0, -1);
+		}
 
-				other = getStage(t->targetStage);
+		if (s->exits.s)
+		{
+			linkStage(s, 0, 1);
+		}
 
-				if (other != NULL)
-				{
-					sx = (s->x * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
-					sy = (s->y * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
+		if (s->exits.e)
+		{
+			linkStage(s, 1, 0);
+		}
 
-					sx += world.camera.x;
-					sy += world.camera.y;
-
-					ex = (other->x * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
-					ey = (other->y * (CELL_SIZE + GRID_SPACING)) + CELL_SIZE / 2;
-
-					ex += world.camera.x;
-					ey += world.camera.y;
-
-					drawLine(sx, sy, ex, ey, 255, 255, 255, 255);
-				}
-			}
+		if (s->exits.w)
+		{
+			linkStage(s, -1, 0);
 		}
 	}
 }
@@ -156,7 +169,7 @@ static void draw(void)
 	Stage *s;
 	int x, y;
 
-	drawStageLinks();
+	drawStageExits();
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
