@@ -39,7 +39,7 @@ void initCoin(Entity *e)
 	e->typeName = "coin";
 	e->type = ET_ITEM;
 	e->data = i;
-	e->flags = EF_DELETE+EF_FRICTION+EF_TRANSIENT;
+	e->flags = EF_DELETE+EF_FRICTION+EF_TRANSIENT+EF_PUSHABLE;
 	e->tick = tick;
 	e->draw = draw;
 

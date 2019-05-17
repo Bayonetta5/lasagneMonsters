@@ -37,7 +37,6 @@ void initChest(Entity *e)
 	e->typeName = "chest";
 	e->type = ET_STRUCTURE;
 	e->data = c;
-	e->flags = EF_STATIC;
 	e->tick = tick;
 	e->touch = touch;
 
