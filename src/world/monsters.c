@@ -20,9 +20,36 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "monsters.h"
 
+static void draw(void);
+static void drawLight(void);
+static void touch(Entity *other);
+static void takeDamage(int amount, int damageType);
+static void save(cJSON *root);
+static void die(void);
 static void haltAtEdge(void);
 static void climbStairs(void);
 static int canWalkOnEntity(void);
+
+void initMonster(Entity *e)
+{
+	Monster *m;
+
+	m = malloc(sizeof(Monster));
+	memset(m, 0, sizeof(Monster));
+
+	m->touchDamage = 1;
+
+	e->type = ET_MONSTER;
+	e->data = m;
+	e->draw = draw;
+	e->drawLight = drawLight;
+	e->touch = touch;
+	e->damage = takeDamage;
+	e->die = die;
+	e->save = save;
+
+	stage->numMonsters++;
+}
 
 void monsterTick(void)
 {
@@ -148,7 +175,7 @@ static void climbStairs(void)
 	}
 }
 
-void monsterDraw(void)
+static void draw(void)
 {
 	Monster *m;
 
@@ -170,12 +197,12 @@ void monsterDraw(void)
 	}
 }
 
-void monsterDrawLight(void)
+static void drawLight(void)
 {
 	drawLightEffect(self->cx - world.camera.x, self->cy - world.camera.y, MAX(self->w, self->h) / 2, 192, 192, 192, 255);
 }
 
-void monsterTakeDamage(int amount, int damageType)
+static void takeDamage(int amount, int damageType)
 {
 	Monster *m;
 
@@ -194,7 +221,7 @@ void monsterTakeDamage(int amount, int damageType)
 	}
 }
 
-void monsterDie(void)
+static void die(void)
 {
 	Monster *m;
 	Walter *w;
@@ -219,7 +246,7 @@ void monsterDie(void)
 	stage->numMonsters--;
 }
 
-void monsterTouch(Entity *other)
+static void touch(Entity *other)
 {
 	Entity *oldSelf;
 	Monster *m;
@@ -238,7 +265,7 @@ void monsterTouch(Entity *other)
 	}
 }
 
-void monsterSave(cJSON *root)
+static void save(cJSON *root)
 {
 	cJSON_AddNumberToObject(root, "isMonster", 1);
 }

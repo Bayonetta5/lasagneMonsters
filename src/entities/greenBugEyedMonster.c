@@ -33,8 +33,9 @@ void initGreenBugEyedMonster(Entity *e)
 {
 	Monster *m;
 
-	m = malloc(sizeof(Monster));
-	memset(m, 0, sizeof(Monster));
+	initMonster(e);
+
+	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 12;
 	m->coins = 10;
@@ -47,21 +48,11 @@ void initGreenBugEyedMonster(Entity *e)
 	}
 
 	e->typeName = "greenBugEyedMonster";
-	e->type = ET_MONSTER;
-	e->data = m;
 	e->atlasImage = textures[0];
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->tick = tick;
-	e->draw = monsterDraw;
-	e->drawLight = monsterDrawLight;
 	e->flags = EF_PUSHABLE;
-	e->touch = monsterTouch;
-	e->damage = monsterTakeDamage;
-	e->die = monsterDie;
-	e->save = monsterSave;
-
-	stage->numMonsters++;
 }
 
 static void tick(void)

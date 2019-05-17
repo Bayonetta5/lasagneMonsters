@@ -29,29 +29,20 @@ void initGreenHorse(Entity *e)
 {
 	Monster *m;
 
-	m = malloc(sizeof(Monster));
-	memset(m, 0, sizeof(Monster));
+	initMonster(e);
+
+	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 5;
 	m->coins = 1;
 	m->aiFlags = AIF_HALT_AT_EDGE;
 
 	e->typeName = "greenHorse";
-	e->type = ET_MONSTER;
-	e->data = m;
 	e->atlasImage = getAtlasImage("gfx/entities/greenHorse1.png", 1);
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 	e->flags = EF_PUSHABLE;
 	e->tick = tick;
-	e->draw = monsterDraw;
-	e->drawLight = monsterDrawLight;
-	e->touch = monsterTouch;
-	e->damage = monsterTakeDamage;
-	e->die = monsterDie;
-	e->save = monsterSave;
-
-	stage->numMonsters++;
 }
 
 static void tick(void)
