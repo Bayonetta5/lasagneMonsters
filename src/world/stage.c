@@ -123,6 +123,8 @@ static void logic(void)
 
 static void doGame(void)
 {
+	game.time--;
+
 	if (world.transferCube != NULL)
 	{
 		transfer();

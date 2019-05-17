@@ -29,6 +29,7 @@ static void drawCoins(void);
 static void drawMonsterInfo(void);
 static void drawGirlsInfo(void);
 static void drawKeys(void);
+static void drawTimeLimit(void);
 static void drawZoneInfo(void);
 static void drawGameText(void);
 
@@ -39,6 +40,7 @@ static AtlasImage *waterTexture;
 static AtlasImage *monstersTexture;
 static AtlasImage *girlsTexture;
 static AtlasImage *keyTexture;
+static AtlasImage *hourGlassTexture;
 
 void initHud(void)
 {
@@ -49,6 +51,7 @@ void initHud(void)
 	monstersTexture = getAtlasImage("gfx/hud/monsters.png", 1);
 	girlsTexture = getAtlasImage("gfx/hud/girls.png", 1);
 	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
+	hourGlassTexture = getAtlasImage("gfx/hud/hourGlass.png", 1);
 }
 
 void addGameText(int x, int y, char *format, ...)
@@ -121,6 +124,8 @@ static void drawTopBar(void)
 	drawHealth();
 
 	drawAmmo();
+
+	drawZoneInfo();
 }
 
 static void drawHealth(void)
@@ -164,6 +169,11 @@ static void drawAmmo(void)
 	drawOutlineRect(542, 14, maxWidth, 16, 0, 0, 0, 255);
 }
 
+static void drawZoneInfo(void)
+{
+	drawText(SCREEN_WIDTH - 10, 5, 32, TEXT_RIGHT, app.colors.white, "Zone %03d", stage->id);
+}
+
 static void drawBottomBar(void)
 {
 	drawRect(0, SCREEN_HEIGHT - 32, SCREEN_WIDTH, 32, 0, 0, 0, 192);
@@ -176,7 +186,7 @@ static void drawBottomBar(void)
 
 	drawGirlsInfo();
 
-	drawZoneInfo();
+	drawTimeLimit();
 }
 
 static void drawMonsterInfo(void)
@@ -207,9 +217,19 @@ static void drawGirlsInfo(void)
 	drawText(600 + girlsTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "x %d", stage->numGirls);
 }
 
-static void drawZoneInfo(void)
+static void drawTimeLimit(void)
 {
-	drawText(SCREEN_WIDTH - 10, 5, 32, TEXT_RIGHT, app.colors.white, "Zone %03d", stage->id);
+	int t, h, m, s;
+
+	t = game.time / FPS;
+
+	h = t / (60 * 60);
+	m = (t / 60) % 60;
+	s = t % 60;
+
+	blitAtlasImage(hourGlassTexture, 800, SCREEN_HEIGHT - 28, 0, SDL_FLIP_NONE);
+
+	drawText(800 + hourGlassTexture->rect.w + 16, SCREEN_HEIGHT - 32, 32, TEXT_LEFT, app.colors.white, "%02d:%02d:%02d", h, m, s);
 }
 
 static void drawGameText(void)

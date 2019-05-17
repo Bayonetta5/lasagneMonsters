@@ -544,7 +544,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/monsters.png",
+		"filename" : "gfx/hud/hourGlass.png",
 		"x" : 189,
 		"y" : 238,
 		"w" : 24,
@@ -552,8 +552,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/girls.png",
+		"filename" : "gfx/hud/monsters.png",
 		"x" : 214,
+		"y" : 238,
+		"w" : 24,
+		"h" : 24,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/girls.png",
+		"x" : 239,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,

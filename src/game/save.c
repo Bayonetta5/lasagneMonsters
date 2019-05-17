@@ -61,6 +61,7 @@ static void saveGameData(cJSON *root)
 	cJSON_AddNumberToObject(gameJSON, "stageId", game.stageId);
 	cJSON_AddNumberToObject(gameJSON, "coins", game.coins);
 	cJSON_AddNumberToObject(gameJSON, "keys", game.keys);
+	cJSON_AddNumberToObject(gameJSON, "time", game.time);
 
 	cJSON_AddItemToObject(root, "game", gameJSON);
 }

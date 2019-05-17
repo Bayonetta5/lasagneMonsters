@@ -280,6 +280,7 @@ typedef struct {
 	int keys;
 	int totalMonsters;
 	int totalGirls;
+	int time;
 	unsigned int stats[STAT_MAX];
 } Game;
 
