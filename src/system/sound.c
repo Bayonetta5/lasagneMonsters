@@ -99,6 +99,11 @@ void playSound(int id, int channel)
 {
 	int c;
 
+	if (channel == -1)
+	{
+		channel = findFreeChannel();
+	}
+
 	c = Mix_PlayChannel(channel, sounds[id], 0);
 
 	if (c != -1)
@@ -199,6 +204,8 @@ static void loadSounds(void)
 	sounds[SND_TIP] = Mix_LoadWAV("sound/tip.ogg");
 	sounds[SND_BREAK] = Mix_LoadWAV("sound/371094__mccormick-iain__glass-break-1.ogg");
 	sounds[SND_FANFARE] = Mix_LoadWAV("sound/449069__ricniclas__fanfare.ogg");
+	sounds[SND_YAY] = Mix_LoadWAV("sound/69338__timtube__crowd-yay.ogg");
+	sounds[SND_CLAPPING] = Mix_LoadWAV("sound/209792__alterr__applause-mono-24bit-48khz.ogg");
 }
 
 void destroySounds(void)

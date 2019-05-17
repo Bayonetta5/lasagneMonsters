@@ -25,6 +25,7 @@ extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void playSound(int snd, int ch);
 
 extern App app;
 extern Game game;

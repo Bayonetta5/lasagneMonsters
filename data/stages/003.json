@@ -363,15 +363,6 @@
 			"coins":	0,
 			"nextRefill":	0
 		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	80,
-			"y":	3616,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0
-		}, {
 			"type":	"platform",
 			"name":	"",
 			"x":	2040,
@@ -948,6 +939,14 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"bbbbb",
+			"name":	"",
+			"x":	80,
+			"y":	3616,
+			"facing":	"FACING_RIGHT",
+			"health":	5,
+			"cageType":	"CT_STANDING"
 		}],
 	"map":	{
 		"data":	"eJztm1uOwyAMAK+yR2g+uP/VVquKNpsAwUCCbUbzU7W8BgEGkr5+XgAAAAAAAAAAAAAAAAAA4IDtMWab5vzv7t0n6tHq/3w98naFHSv67wnDeJf+/WTDfxzhU7p2/9Zek6Vb0T8s7R/+xX29/ucV65qatXIz4t+SR77vW9W/px6t/prr0douvf6yHd0f5fXSmr9sR/eNa6XTwrk3tPpLCYkeKaeJ0XB2y0fbR7urNMdIoAvZqS49L2Iv5NPo9ZftZcpxvm4noAv8R/qX6pltij/++Mv86/Ot5n/M+f4mf27w519bFv4+/c+jfKX5f9zn+/SvPwn59K8Hf4/xT+qf+wV//GebjvDvqWe2ab9/Xz2zTXv9e+uZbdrnv88juzPWff8vb1f+hvvO8aPFv9Xeh//xrY6a8v34p57r5Xe8x3PSbNNe//qRH0u2Mf7zz+zb7K35b6c+OL/HIFv1bPnf27P2/eV7HU/+7fHeg/84e4v+I+3t+aftZ7f3KX9bbzGN9r+2b40K2kj5p57t1PWPp/mfR+9tRr+/3pH6hH/dPzvamG2a89+f2EfGeyvzP7btXnv9/vfaa/UHAAAAAAAAAAAAAAAAAAAAALDML/6bDnY",

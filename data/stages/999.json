@@ -117,17 +117,10 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"redFlyingCyclops",
+			"type":	"greenHorse",
 			"name":	"",
-			"x":	912,
-			"y":	144,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
-			"x":	720,
-			"y":	128,
+			"x":	576,
+			"y":	344,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],

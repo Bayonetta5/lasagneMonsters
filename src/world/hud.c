@@ -32,7 +32,12 @@ static void drawKeys(void);
 static void drawTimeLimit(void);
 static void drawZoneInfo(void);
 static void drawGameText(void);
+static void doVanquished(void);
 
+static int stageId;
+static int numMonsters;
+static int vaniquished;
+static int vx;
 static AtlasImage *heartFullTexture;
 static AtlasImage *heartEmptyTexture;
 static AtlasImage *coinTexture;
@@ -52,6 +57,8 @@ void initHud(void)
 	girlsTexture = getAtlasImage("gfx/hud/girls.png", 1);
 	keyTexture = getAtlasImage("gfx/hud/key.png", 1);
 	hourGlassTexture = getAtlasImage("gfx/hud/hourGlass.png", 1);
+
+	vaniquished = stageId = numMonsters = 0;
 }
 
 void addGameText(int x, int y, char *format, ...)
@@ -79,7 +86,35 @@ void addGameText(int x, int y, char *format, ...)
 
 void doHud(void)
 {
+	doVanquished();
+
 	doGameText();
+}
+
+static void doVanquished(void)
+{
+	if (stage->id == stageId)
+	{
+		if (numMonsters > 0 && stage->numMonsters == 0)
+		{
+			playSound(SND_YAY, -1);
+			playSound(SND_CLAPPING, -1);
+			vaniquished = 1;
+			vx = SCREEN_WIDTH + 256;
+		}
+
+		if (vaniquished && vx > -SCREEN_WIDTH)
+		{
+			vx -= 12;
+		}
+	}
+	else
+	{
+		vaniquished = 0;
+	}
+
+	stageId = stage->id;
+	numMonsters = stage->numMonsters;
 }
 
 static void doGameText(void)
@@ -115,6 +150,11 @@ void drawHud(void)
 	drawBottomBar();
 
 	drawGameText();
+
+	if (vaniquished)
+	{
+		drawText(vx, 100, 128, TEXT_LEFT, app.colors.white, "MONSTERS VANQUISHED!");
+	}
 }
 
 static void drawTopBar(void)
