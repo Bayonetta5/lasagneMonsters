@@ -855,13 +855,6 @@
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
-			"x":	3448,
-			"y":	1576,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
 			"x":	2592,
 			"y":	1584,
 			"facing":	"FACING_RIGHT",
@@ -869,22 +862,8 @@
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
-			"x":	2320,
-			"y":	2888,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
 			"x":	2848,
 			"y":	2888,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
-			"x":	4432,
-			"y":	2776,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
@@ -904,22 +883,8 @@
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",
-			"x":	5520,
-			"y":	2304,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
 			"x":	5248,
 			"y":	1616,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"greenFlyingCyclops",
-			"name":	"",
-			"x":	5472,
-			"y":	1192,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
@@ -1392,6 +1357,41 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"redFlyingCyclops",
+			"name":	"",
+			"x":	3448,
+			"y":	1576,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redFlyingCyclops",
+			"name":	"",
+			"x":	2320,
+			"y":	2888,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redFlyingCyclops",
+			"name":	"",
+			"x":	4432,
+			"y":	2776,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redFlyingCyclops",
+			"name":	"",
+			"x":	5520,
+			"y":	2304,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redFlyingCyclops",
+			"name":	"",
+			"x":	5472,
+			"y":	1192,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
 		"data":	"eJztmmFygyAQRq+SI2hmuP/V+qNjo7K4u8AqNG/epE2tbnifCFS7vBYAAAAAAAAAAAD4elYj3v2fIso/PZa+r0KUf0wCM/lHJDCXf/8EZvPXEkgXHPeZ1b9PH1j/vs/nvwrn9v2Ofc2dV857WUJfnrzkq5S8bJwTGyMvP22jQU9/fWtLa/v7/2bwhH9/7ElZK8S0clT/9NX+ub2/pVcryI31Yr56zl+yj7r+9yNPnyS2ZGv9S8dG+0tJSCsavU9Z8djH+2vVzjObvr/f/yq9sfz1T9c59iyt7/j9pdX4Vifvq+czkffqcxLy/i3n/ypBv7++1VN/FSts9vuzOq5/epX9tfG/7C/1oxH9U1ZHri8nUPI/X7VWf739ff2TUKdU374GOPcoORO/fQ//4+gq1Wmp/6lqab3fJeL6t63/7Ouf8pGt9vf7W69Y3zG19nkL/4e/18K63rzf33bWWu0/1aL9rfXqRq96+63a7P719vZPPR6Rj9629Z806rf6t9nX+etbW1qYLr967LUZd0z/dfdMzfrOnohlBhlvTbTungNZ39kTKRncm4l3nqx/5uZL5huzsSYzZza2/S32ukGUv7dqL3T7dv/z3cskrC+es89H789v87bGnP8n7cvXy31z6Uj2d/mX13A1Lnm/lX/S7e/xz8fv1gx8eV3NF/n/VkT4SzPYPRlod13zNsb4P0OPe87z+lueO/f21/86ug/dXmuv3/9/gT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAiPwAq64/9g=",
