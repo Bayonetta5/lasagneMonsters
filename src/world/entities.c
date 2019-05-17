@@ -414,31 +414,33 @@ static int canPush(Entity *e, Entity *other)
 
 void dropToFloor(void)
 {
-	Entity *e;
 	int onGround;
 
 	onGround = 0;
 
-	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+	for (self = stage->entityHead.next ; self != NULL ; self = self->next)
 	{
-		addToQuadtree(e, &world.quadtree);
+		addToQuadtree(self, &world.quadtree);
+
+		if (self->init)
+		{
+			self->init();
+		}
 	}
 
 	while (!onGround)
 	{
 		onGround = 1;
 
-		for (e = stage->entityHead.next ; e != NULL ; e = e->next)
+		for (self = stage->entityHead.next ; self != NULL ; self = self->next)
 		{
-			self = e;
-
-			if ((!(e->flags & EF_WEIGHTLESS)) && !e->isOnGround)
+			if ((!(self->flags & EF_WEIGHTLESS)) && !self->isOnGround)
 			{
-				removeFromQuadtree(e, &world.quadtree);
+				removeFromQuadtree(self, &world.quadtree);
 
-				push(e, 0, 8);
+				push(self, 0, 8);
 
-				addToQuadtree(e, &world.quadtree);
+				addToQuadtree(self, &world.quadtree);
 
 				onGround = 0;
 			}
@@ -503,21 +505,6 @@ void activeEntities(char *targetName, int active)
 	}
 
 	self = oldSelf;
-}
-
-void resetSavePoints(void)
-{
-	Entity *e;
-	SavePoint *s;
-
-	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
-	{
-		if (e->type == ET_SAVE_POINT)
-		{
-			s = (SavePoint*)e->data;
-			s->active = s->frame = s->frameTime = 0;
-		}
-	}
 }
 
 void destroyEntities(void)

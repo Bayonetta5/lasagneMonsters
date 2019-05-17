@@ -83,8 +83,6 @@ void initStage(int stageId, int wipeType)
 
 	initQuadtree(&world.quadtree);
 
-	resetSavePoints();
-
 	dropToFloor();
 
 	/* could be caused by dropToFloor */

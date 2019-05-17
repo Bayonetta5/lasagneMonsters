@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "savePoint.h"
 
 static void tick(void);
+static void init(void);
 static void draw(void);
 static void drawLight(void);
 static void touch(Entity *other);
@@ -39,6 +40,7 @@ void initSavePoint(Entity *e)
 	e->data = s;
 	e->flags = EF_STATIC;
 	e->tick = tick;
+	e->init = init;
 	e->draw = draw;
 	e->drawLight = drawLight;
 	e->touch = touch;
@@ -126,4 +128,13 @@ static void touch(Entity *other)
 			app.save.saving = FPS * 2;
 		}
 	}
+}
+
+void init(void)
+{
+	SavePoint *s;
+
+	s = (SavePoint*)self->data;
+
+	s->active = s->frame = s->frameTime = 0;
 }

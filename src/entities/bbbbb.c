@@ -20,10 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "bbbbb.h"
 
+static void init(void);
 static void tick(void);
 static void draw(void);
 static void touch(Entity *other);
-static void attachChain(void);
 static void damage(int amount, int damageType);
 static void load(cJSON *root);
 static void save(cJSON *root);
@@ -48,6 +48,7 @@ void initBBBBB(Entity *e)
 	e->data = b;
 	e->flags = EF_SOLID;
 	e->tick = tick;
+	e->init = init;
 	e->draw = draw;
 	e->touch = touch;
 	e->damage = damage;
@@ -170,26 +171,29 @@ static void touch(Entity *other)
 	}
 }
 
-static void attachChain(void)
+static void init(void)
 {
 	BBBBB *b;
 	int x, y, found;
 
 	b = (BBBBB*)self->data;
 
-	x = (self->x + (self->w / 2)) / TILE_SIZE;
-	y = self->y / TILE_SIZE;
-
-	do
+	if (b->cageType != CT_STANDING)
 	{
-		y--;
+		x = (self->x + (self->w / 2)) / TILE_SIZE;
+		y = self->y / TILE_SIZE;
 
-		found = !isInsideMap(x, y) || stage->map[x][y] != 0;
+		do
+		{
+			y--;
+
+			found = !isInsideMap(x, y) || stage->map[x][y] != 0;
+		}
+		while (!found);
+
+		b->chainX = self->x + (self->w / 2);
+		b->chainY = (y * TILE_SIZE) + TILE_SIZE;
 	}
-	while (!found);
-
-	b->chainX = self->x + (self->w / 2);
-	b->chainY = (y * TILE_SIZE) + TILE_SIZE;
 }
 
 static void initTextures(void)
@@ -223,7 +227,6 @@ static void load(cJSON *root)
 		case CT_HANGING:
 		case CT_SWINGING:
 			self->flags |= EF_WEIGHTLESS;
-			attachChain();
 			break;
 
 		default:
