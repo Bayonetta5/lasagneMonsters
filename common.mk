@@ -15,9 +15,7 @@ GAME_OBJS = $(OBJS) $(OUT)/src/main.o
 
 MAP_OBJS = $(OBJS) $(OUT)/src/mapEditor.o
 
-RADAR_OBJS = $(OBJS) $(OUT)/src/radarEditor.o
-
-all: $(PROG) $(MAP_PROG) $(RADAR_PROG)
+all: $(PROG) $(MAP_PROG)
 
 $(OUT)/%.o: %.c %.h $(DEPS)
 	@mkdir -p $(@D)
