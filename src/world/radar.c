@@ -111,7 +111,7 @@ static void changeStage(int dx, int dy)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if ((s->visited || app.dev.debug) && s->x == x && s->y == y)
+		if (s->visited && s->x == x && s->y == y)
 		{
 			selectedStage = s;
 		}
@@ -173,7 +173,7 @@ static void drawStages(void)
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
 	{
-		if (s->visited || app.dev.debug)
+		if (s->visited)
 		{
 			x = (s->x * (CELL_SIZE + GRID_SPACING)) - camera.x;
 			x -= CELL_SIZE / 2;
@@ -209,6 +209,12 @@ static void drawStages(void)
 			{
 				drawOutlineRect(x, y, CELL_SIZE, CELL_SIZE, 255, 255, 255, selectCol);
 			}
+		}
+
+		if (app.dev.debug)
+		{
+			drawText(x + (CELL_SIZE / 2), y + 12, 16, TEXT_CENTER, app.colors.white, "%d", s->id, s->x, s->y);
+			drawText(x + (CELL_SIZE / 2), y + 32, 16, TEXT_CENTER, app.colors.white, "(%d,%d)", s->id, s->x, s->y);
 		}
 	}
 }

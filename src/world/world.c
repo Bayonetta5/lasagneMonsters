@@ -117,7 +117,7 @@ void loadStageData(cJSON *root)
 	world.stagesTail = stage;
 
 	stage->id = cJSON_GetObjectItem(root, "id")->valueint;
-	stage->visited = cJSON_GetObjectItem(root, "visited")->valueint;
+	stage->visited = app.dev.debug ? 1 : cJSON_GetObjectItem(root, "visited")->valueint;
 	stage->x = cJSON_GetObjectItem(root, "x")->valueint;
 	stage->y = cJSON_GetObjectItem(root, "y")->valueint;
 
