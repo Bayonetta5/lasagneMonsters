@@ -6,7 +6,7 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	104,
+			"x":	368,
 			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
@@ -119,15 +119,22 @@
 		}, {
 			"type":	"blueHorse",
 			"name":	"",
-			"x":	1040,
+			"x":	984,
 			"y":	352,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	624,
+			"y":	104,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt18EJwCAMBdBVOkIUuv9qHSDBgj0UzOMR8Oj/l+i4xoY4xk4W+f++tfzyyy+//N/zV9s9n87d/9mcdzktu4gop2MXuY0O7+N1Ez3+CDrQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMC7B/TYCpE",
-		"eLen":	156,
-		"cLen":	116,
+		"data":	"eJzt10EKgCAQBdCrdARH6P5XC9oUJhVCBOPjMTsX/V+oxRIDShojWeT/+6m/zB/7HF96f0UW3r/88s+cvz3Zz/tfuxtmPP+v2Wpdu9NbnbuLWGop3cl/L3zTxgz34/sm5vhH0IEOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ5tgjQKlA=",
+		"eLen":	184,
+		"cLen":	136,
 		"dLen":	32812
 	}
 }

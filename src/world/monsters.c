@@ -101,13 +101,18 @@ static void haltAtEdge(void)
 			}
 			else if (m->aiFlags & AIF_JUMPS)
 			{
-				if (isSolidMap(mx + (self->dx < 0) ? 1 : -1, my, &n))
+				/* gap that can be jumped */
+				if (isSolidMap(mx + (self->dx < 0 ? -1 : 1), my, &n))
 				{
-					self->dy = -14;
+					self->dy = -(20 - abs(self->dx));
 				}
 				else if (isSolidMap(mx, my + 1, &n))
 				{
 					/* ok */
+				}
+				else
+				{
+					self->dx = 0;
 				}
 			}
 			else
