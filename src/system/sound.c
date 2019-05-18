@@ -27,7 +27,16 @@ static int findFreeChannel(void);
 static Mix_Chunk *sounds[SND_MAX];
 static Mix_Music *music;
 static int channelVolumes[CH_MAX];
-static char *randomMusicFiles[] = {"music/Monsterous.ogg", "music/neocrey - Last Cyber Dance.ogg", "music/Zander Noriega - Darker Waves.mp3"};
+static char *randomMusicFiles[] = {
+	"music/30thstreet.mp3",
+	"music/collesium.mp3",
+	"music/hades.mp3",
+	"music/lightdark.mp3",
+	"music/Monsterous.ogg",
+	"music/phil.mp3",
+	"music/Zander Noriega - Darker Waves.mp3"
+};
+
 static char *prevMusic;
 static int nextRandom;
 
