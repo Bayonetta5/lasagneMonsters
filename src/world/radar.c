@@ -269,7 +269,7 @@ static void linkStage(Stage *s, int dx, int dy)
 
 	other = getAdjacentStage(s, dx, dy);
 
-	if (other != NULL && other->visited)
+	if (other != NULL)
 	{
 		sx = (s->x * (CELL_SIZE + GRID_SPACING));
 		sy = (s->y * (CELL_SIZE + GRID_SPACING));

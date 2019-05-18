@@ -59,7 +59,7 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	736,
+			"x":	704,
 			"y":	312,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
@@ -117,25 +117,17 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"greenHorse",
+			"type":	"blueHorse",
 			"name":	"",
-			"x":	576,
+			"x":	1040,
 			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
-		}, {
-			"type":	"bbbbb",
-			"name":	"",
-			"x":	976,
-			"y":	320,
-			"facing":	"FACING_RIGHT",
-			"health":	5,
-			"cageType":	"CT_HANGING"
 		}],
 	"map":	{
-		"data":	"eJzt1VEKgCAQBNCrdAQVuv/V+i0UAoMK5/HYT8EZcK1bnVCWMZNF/q9vLb/8b+a/br28/M/P/JX86f9/r7V9OJFdlDKcxC76NjLfx7mJ1B2hg7wOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO4cVjcKlg=",
-		"eLen":	160,
-		"cLen":	118,
+		"data":	"eJzt18EJwCAMBdBVOkIUuv9qHSDBgj0UzOMR8Oj/l+i4xoY4xk4W+f++tfzyyy+//N/zV9s9n87d/9mcdzktu4gop2MXuY0O7+N1Ez3+CDrQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMC7B/TYCpE",
+		"eLen":	156,
+		"cLen":	116,
 		"dLen":	32812
 	}
 }
