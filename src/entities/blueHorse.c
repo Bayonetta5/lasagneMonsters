@@ -30,7 +30,7 @@ void initBlueHorse(Entity *e)
 
 	m->health = m->maxHealth = 12;
 	m->coins = 5;
-	m->aiFlags |= AIF_CLIMB_STAIRS;
+	m->aiFlags |= AIF_JUMPS;
 
 	e->typeName = "blueHorse";
 

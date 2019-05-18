@@ -43,18 +43,21 @@ int isInsideMap(int x, int y)
 	return x >= 0 && y >= 0 && x < MAP_WIDTH && y < MAP_HEIGHT;
 }
 
-int isSolidMap(int x, int y, int *tile)
+int getTileAt(int x, int y)
 {
 	if (isInsideMap(x, y))
 	{
-		*tile = stage->map[x][y];
-
-		return stage->map[x][y] >= TILE_WALL && stage->map[x][y] < TILE_FOREGROUND;
+		return stage->map[x][y];
 	}
 
-	*tile = -1;
+	return -1;
+}
 
-	return 1;
+int isSolidMap(int x, int y, int *tile)
+{
+	*tile = getTileAt(x, y);
+
+	return *tile >= TILE_WALL && *tile < TILE_FOREGROUND;
 }
 
 void drawMap(int background)

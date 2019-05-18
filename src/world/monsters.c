@@ -27,7 +27,7 @@ static void takeDamage(int amount, int damageType);
 static void save(cJSON *root);
 static void die(void);
 static void haltAtEdge(void);
-static void climbStairs(void);
+static void jump(void);
 static int canWalkOnEntity(void);
 
 void initMonster(Entity *e)
@@ -65,9 +65,9 @@ void monsterTick(void)
 		haltAtEdge();
 	}
 
-	if (m->aiFlags & AIF_CLIMB_STAIRS)
+	if (m->aiFlags & AIF_JUMPS)
 	{
-		climbStairs();
+		jump();
 	}
 }
 
@@ -99,9 +99,16 @@ static void haltAtEdge(void)
 			{
 				/* ok */
 			}
-			else if ((m->aiFlags & AIF_CLIMB_STAIRS) && isSolidMap(mx, my + 1, &n))
+			else if (m->aiFlags & AIF_JUMPS)
 			{
-				/* ok */
+				if (isSolidMap(mx + (self->dx < 0) ? 1 : -1, my, &n))
+				{
+					self->dy = -14;
+				}
+				else if (isSolidMap(mx, my + 1, &n))
+				{
+					/* ok */
+				}
 			}
 			else
 			{
@@ -148,7 +155,7 @@ static int canWalkOnEntity(void)
 	return 0;
 }
 
-static void climbStairs(void)
+static void jump(void)
 {
 	int x, y, speed;
 
