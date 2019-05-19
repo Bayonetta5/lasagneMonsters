@@ -67,4 +67,6 @@ static void reloadGame(void)
 	initStage(game.stageId, WIPE_IN);
 
 	game.time = time;
+
+	app.save.saving = FPS * 2;
 }
