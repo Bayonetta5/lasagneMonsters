@@ -22,11 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define CELL_SIZE   16
 
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void blit(SDL_Texture *texture, int x, int y, int center, SDL_RendererFlip flip);
-extern int getTileAt(int x, int y);
 extern void clearControl(int type);
+extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern int getTileAt(int x, int y);
 extern void initZoneMap(void (*done)(void));
 extern int isControl(int type);
 

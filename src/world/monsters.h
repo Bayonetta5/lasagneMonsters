@@ -29,7 +29,6 @@ extern int isSolidMap(int x, int y, int *tile);
 extern int lineRectCollision(int x1, int y1, int x2, int y2, int rx, int ry, int rw, int rh);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void spawnRandomHealthItem(int x, int y);
-extern int getTileAt(int x, int y);
 extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
 

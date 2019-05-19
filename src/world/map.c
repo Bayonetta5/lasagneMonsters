@@ -37,7 +37,6 @@ void initMap(cJSON *root)
 	loadMap(root);
 }
 
-
 int isInsideMap(int x, int y)
 {
 	return x >= 0 && y >= 0 && x < MAP_WIDTH && y < MAP_HEIGHT;

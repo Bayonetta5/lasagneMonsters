@@ -135,7 +135,6 @@ void loadEntities(cJSON *root)
 	}
 }
 
-
 /* used by map editor */
 Entity **initAllEnts(int *numEnts)
 {
