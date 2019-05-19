@@ -20,15 +20,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define CELL_SIZE   16
+#define CELL_SIZE      64
+#define GRID_SPACING   16
 
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void blit(SDL_Texture *texture, int x, int y, int center, SDL_RendererFlip flip);
-extern int getTileAt(int x, int y);
+extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
+extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern void clearControl(int type);
+extern void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a);
+extern void drawOutlineRect(int x, int y, int w, int h, int r, int g, int b, int a);
+extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern void initZoneMap(void (*done)(void));
+extern Stage *getAdjacentStage(Stage *s, int dx, int dy);
+extern AtlasImage *getAtlasImage(char *filename, int required);
+extern int getDistance(int x1, int y1, int x2, int y2);
 extern int isControl(int type);
+extern void initRadar(void (*done)(void));
 
 extern App app;
 extern Stage *stage;
