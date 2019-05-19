@@ -304,24 +304,32 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/digit3.png",
+		"filename" : "gfx/entities/chest4.png",
 		"x" : 469,
 		"y" : 170,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/digit3.png",
+		"x" : 0,
+		"y" : 205,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/key.png",
-		"x" : 490,
-		"y" : 170,
+		"x" : 21,
+		"y" : 205,
 		"w" : 18,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/battery.png",
-		"x" : 0,
+		"x" : 40,
 		"y" : 205,
 		"w" : 14,
 		"h" : 32,
@@ -329,7 +337,7 @@
 	},
 	{
 		"filename" : "gfx/entities/digit4.png",
-		"x" : 15,
+		"x" : 55,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -337,7 +345,7 @@
 	},
 	{
 		"filename" : "gfx/entities/chest2.png",
-		"x" : 36,
+		"x" : 76,
 		"y" : 205,
 		"w" : 32,
 		"h" : 32,
@@ -345,7 +353,7 @@
 	},
 	{
 		"filename" : "gfx/entities/chocolate.png",
-		"x" : 69,
+		"x" : 109,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -353,7 +361,7 @@
 	},
 	{
 		"filename" : "gfx/entities/digit6.png",
-		"x" : 90,
+		"x" : 130,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -361,7 +369,7 @@
 	},
 	{
 		"filename" : "gfx/entities/digit5.png",
-		"x" : 111,
+		"x" : 151,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -369,7 +377,7 @@
 	},
 	{
 		"filename" : "gfx/entities/blueHorse1.png",
-		"x" : 132,
+		"x" : 172,
 		"y" : 205,
 		"w" : 32,
 		"h" : 32,
@@ -377,15 +385,23 @@
 	},
 	{
 		"filename" : "gfx/entities/digit8.png",
-		"x" : 165,
+		"x" : 205,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/chest3.png",
+		"x" : 226,
+		"y" : 205,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/entities/digit7.png",
-		"x" : 186,
+		"x" : 259,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -393,7 +409,7 @@
 	},
 	{
 		"filename" : "gfx/entities/digit1.png",
-		"x" : 207,
+		"x" : 280,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -401,7 +417,7 @@
 	},
 	{
 		"filename" : "gfx/entities/computer1.png",
-		"x" : 228,
+		"x" : 301,
 		"y" : 205,
 		"w" : 32,
 		"h" : 32,
@@ -409,7 +425,7 @@
 	},
 	{
 		"filename" : "gfx/entities/bbbbb1.png",
-		"x" : 261,
+		"x" : 334,
 		"y" : 205,
 		"w" : 24,
 		"h" : 32,
@@ -417,7 +433,7 @@
 	},
 	{
 		"filename" : "gfx/entities/digit2.png",
-		"x" : 286,
+		"x" : 359,
 		"y" : 205,
 		"w" : 20,
 		"h" : 32,
@@ -425,7 +441,7 @@
 	},
 	{
 		"filename" : "gfx/entities/apple.png",
-		"x" : 307,
+		"x" : 380,
 		"y" : 205,
 		"w" : 24,
 		"h" : 30,
@@ -433,7 +449,7 @@
 	},
 	{
 		"filename" : "gfx/main/saving.png",
-		"x" : 332,
+		"x" : 405,
 		"y" : 205,
 		"w" : 30,
 		"h" : 30,
@@ -441,7 +457,7 @@
 	},
 	{
 		"filename" : "gfx/entities/gumball1.png",
-		"x" : 363,
+		"x" : 436,
 		"y" : 205,
 		"w" : 28,
 		"h" : 28,
@@ -449,7 +465,7 @@
 	},
 	{
 		"filename" : "gfx/entities/gumball3.png",
-		"x" : 392,
+		"x" : 465,
 		"y" : 205,
 		"w" : 28,
 		"h" : 28,
@@ -457,30 +473,6 @@
 	},
 	{
 		"filename" : "gfx/entities/gumball2.png",
-		"x" : 421,
-		"y" : 205,
-		"w" : 28,
-		"h" : 28,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/entities/gumball6.png",
-		"x" : 450,
-		"y" : 205,
-		"w" : 28,
-		"h" : 28,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/entities/gumball4.png",
-		"x" : 479,
-		"y" : 205,
-		"w" : 28,
-		"h" : 28,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/entities/gumball5.png",
 		"x" : 0,
 		"y" : 238,
 		"w" : 28,
@@ -488,8 +480,32 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/healthUp1.png",
+		"filename" : "gfx/entities/gumball6.png",
 		"x" : 29,
+		"y" : 238,
+		"w" : 28,
+		"h" : 28,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/gumball4.png",
+		"x" : 58,
+		"y" : 238,
+		"w" : 28,
+		"h" : 28,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/gumball5.png",
+		"x" : 87,
+		"y" : 238,
+		"w" : 28,
+		"h" : 28,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/healthUp1.png",
+		"x" : 116,
 		"y" : 238,
 		"w" : 26,
 		"h" : 26,
@@ -497,7 +513,7 @@
 	},
 	{
 		"filename" : "gfx/entities/healthUp2.png",
-		"x" : 56,
+		"x" : 143,
 		"y" : 238,
 		"w" : 26,
 		"h" : 26,
@@ -505,15 +521,15 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 83,
-		"y" : 238,
+		"x" : 494,
+		"y" : 205,
 		"w" : 18,
 		"h" : 26,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 102,
+		"x" : 170,
 		"y" : 238,
 		"w" : 26,
 		"h" : 26,
@@ -521,7 +537,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 129,
+		"x" : 197,
 		"y" : 238,
 		"w" : 26,
 		"h" : 26,
@@ -529,15 +545,15 @@
 	},
 	{
 		"filename" : "gfx/effects/alert.png",
-		"x" : 156,
-		"y" : 238,
+		"x" : 502,
+		"y" : 170,
 		"w" : 7,
 		"h" : 25,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/hud/hourGlass.png",
-		"x" : 164,
+		"x" : 224,
 		"y" : 238,
 		"w" : 19,
 		"h" : 25,
@@ -545,7 +561,7 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 184,
+		"x" : 244,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,
@@ -553,7 +569,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 209,
+		"x" : 269,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,
@@ -561,7 +577,7 @@
 	},
 	{
 		"filename" : "gfx/hud/girls.png",
-		"x" : 234,
+		"x" : 294,
 		"y" : 238,
 		"w" : 24,
 		"h" : 24,

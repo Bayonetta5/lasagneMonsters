@@ -136,7 +136,7 @@
 			"x":	240,
 			"y":	424,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"exitLift",
+			"targetName":	"",
 			"on":	0
 		}],
 	"map":	{

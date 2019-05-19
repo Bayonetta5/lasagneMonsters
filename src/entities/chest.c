@@ -21,11 +21,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "chest.h"
 
 static void tick(void);
+static void init(void);
 static void touch(Entity *other);
+static void loadTextures(void);
 static void load(cJSON *root);
 static void save(cJSON *root);
 
-static AtlasImage *textures[2] = {NULL};
+static AtlasImage *textures[4] = {NULL};
 
 void initChest(Entity *e)
 {
@@ -42,14 +44,14 @@ void initChest(Entity *e)
 
 	if (textures[0] == NULL)
 	{
-		textures[0] = getAtlasImage("gfx/entities/chest1.png", 1);
-		textures[1] = getAtlasImage("gfx/entities/chest2.png", 1);
+		loadTextures();
 	}
 
 	e->atlasImage = textures[0];
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 
+	e->init = init;
 	e->load = load;
 	e->save = save;
 
@@ -61,8 +63,6 @@ static void tick(void)
 	Chest *c;
 
 	c = (Chest*)self->data;
-
-	self->atlasImage = textures[c->open];
 
 	if (c->open && c->coins > 0 && --c->delay <= 0)
 	{
@@ -77,13 +77,6 @@ static void tick(void)
 
 		c->nextRefill = game.stats[STAT_TIME] + REFILL_TIME;
 	}
-
-	if (c->open && c->nextRefill <= game.stats[STAT_TIME])
-	{
-		c->open = 0;
-		c->coins = 3 + rand() % 8;
-		c->delay = 0;
-	}
 }
 
 static void touch(Entity *other)
@@ -97,7 +90,38 @@ static void touch(Entity *other)
 		if (!c->open)
 		{
 			c->open = 1;
+
+			self->atlasImage = !c->found ? textures[c->open] : textures[c->open + 2];
 		}
+	}
+}
+
+void init(void)
+{
+	Chest *c;
+
+	c = (Chest*)self->data;
+
+	if (c->nextRefill <= game.stats[STAT_TIME])
+	{
+		c->open = 0;
+		c->coins = 3 + rand() % 8;
+		c->delay = 0;
+	}
+
+	self->atlasImage = !c->found ? textures[c->open] : textures[c->open + 2];
+}
+
+static void loadTextures(void)
+{
+	int i;
+	char filename[MAX_FILENAME_LENGTH];
+
+	for (i = 0 ; i < 4 ; i++)
+	{
+		sprintf(filename, "gfx/entities/chest%d.png", i + 1);
+
+		textures[i] = getAtlasImage(filename, 1);
 	}
 }
 
