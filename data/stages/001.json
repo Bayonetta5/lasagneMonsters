@@ -6,8 +6,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	88,
-			"y":	304,
+			"x":	344,
+			"y":	448,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -50,8 +50,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	136,
-			"y":	264,
+			"x":	64,
+			"y":	408,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -108,20 +108,41 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"ceilingLamp",
+			"type":	"transferCube",
 			"name":	"",
-			"x":	136,
-			"y":	48,
+			"x":	48,
+			"y":	-48,
 			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
+			"targetStage":	0,
+			"targetFlag":	"",
+			"w":	4,
+			"h":	1
+		}, {
+			"type":	"platform",
+			"name":	"exitLift",
+			"x":	96,
+			"y":	0,
+			"facing":	"FACING_RIGHT",
+			"sx":	96,
+			"sy":	0,
+			"ex":	96,
+			"ey":	440,
+			"pause":	60,
+			"speed":	2,
+			"enabled":	0
+		}, {
+			"type":	"trafficLight",
+			"name":	"",
+			"x":	240,
+			"y":	424,
+			"facing":	"FACING_RIGHT",
+			"targetName":	"exitLift",
+			"on":	0
 		}],
 	"map":	{
-		"data":	"eJzt18ENgCAQRcFWLEEO9N+aiV6JLMZIXCbTAO8fSLZs5YE9jfEW/fpnv1q/fv3v9NfTuv2X+AY5++Mb5O2PbZC7v79B/v6x/+Df7q6cFTboXXq1afarv+vPf/+u3Q8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARB3AzAmM",
-		"eLen":	172,
-		"cLen":	128,
+		"data":	"eJzt17EJwDAMRcFVMoJdeP/V0qQT2BEpAtJxC/j9wqB5jcdMGGXkW/Tr//vV+vXr169f/9f+FfTqj/Yb1O8/b1DH7srpsMHp0ou/Q61VMldvzfu3dz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8cQMwIgJ",
+		"eLen":	160,
+		"cLen":	120,
 		"dLen":	32768
 	}
 }

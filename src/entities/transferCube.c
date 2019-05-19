@@ -71,9 +71,17 @@ static void draw(void)
 
 static void touch(Entity *other)
 {
-	if (other == world.player)
+	if (other != NULL)
 	{
-		world.transferCube = (TransferCube*)self->data;
+		if (other == world.player)
+		{
+			world.transferCube = (TransferCube*)self->data;
+		}
+		else
+		{
+			other->alive = ALIVE_DEAD;
+			other->flags |= EF_TRANSIENT;
+		}
 	}
 }
 
