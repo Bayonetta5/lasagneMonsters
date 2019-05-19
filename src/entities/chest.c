@@ -66,6 +66,8 @@ static void tick(void)
 
 	if (c->open && c->coins > 0 && --c->delay <= 0)
 	{
+		c->found = 1;
+
 		c->coins--;
 		c->delay = FPS / 10;
 
@@ -108,6 +110,7 @@ static void load(cJSON *root)
 	c->open = cJSON_GetValueInt(root, "open", 0);
 	c->coins = cJSON_GetValueInt(root, "coins", 0);
 	c->nextRefill = cJSON_GetValueInt(root, "nextRefill", 0);
+	c->found = cJSON_GetValueInt(root, "found", 0);
 
 	self->atlasImage = textures[c->open];
 }
@@ -121,4 +124,5 @@ static void save(cJSON *root)
 	cJSON_AddNumberToObject(root, "open", c->open);
 	cJSON_AddNumberToObject(root, "coins", c->coins);
 	cJSON_AddNumberToObject(root, "nextRefill", c->nextRefill);
+	cJSON_AddNumberToObject(root, "found", c->found);
 }

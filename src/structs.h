@@ -181,6 +181,7 @@ typedef struct {
 	int coins;
 	int delay;
 	int nextRefill;
+	int found;
 } Chest;
 
 typedef struct {
