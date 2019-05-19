@@ -139,7 +139,7 @@ static void touch(Entity *other)
 					activeEntities(p->targetName, 1);
 				}
 
-				p->pauseTime = FPS / 8;
+				p->pauseTime = FPS / 12;
 			}
 		}
 	}
