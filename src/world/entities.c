@@ -434,7 +434,7 @@ void dropToFloor(void)
 
 		for (self = stage->entityHead.next ; self != NULL ; self = self->next)
 		{
-			if ((!(self->flags & EF_WEIGHTLESS)) && !self->isOnGround && self->dy <= 0)
+			if ((!(self->flags & EF_WEIGHTLESS)) && !self->isOnGround && self != world.player)
 			{
 				removeFromQuadtree(self, &world.quadtree);
 
