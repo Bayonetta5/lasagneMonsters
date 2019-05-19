@@ -26,7 +26,7 @@ void initGame(void)
 {
 	memset(&game, 0, sizeof(Game));
 
-	game.time = FPS * 60 * 60 * 3;
+	game.time = FPS * 60 * 60 * 2;
 
 	initMetaData();
 }
