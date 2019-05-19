@@ -248,9 +248,9 @@ static void die(void)
 
 	throwCoins(self->x, self->y, m->coins);
 
-	playerHealth = ((1.0 * w->health) / w->maxHealth) * 25;
+	playerHealth = (((1.0 * w->health) / w->maxHealth) * 125);
 
-	if (rand() % 25 > playerHealth - 1)
+	if (rand() % 100 > playerHealth)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}
