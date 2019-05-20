@@ -21,6 +21,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "horizontalDoor.h"
 
 static void tick(void);
+static void load(cJSON *root);
+
+static AtlasImage *textures[3] = {NULL};
+static void (*superLoad)(cJSON *root);
 
 void initHorizontalDoor(Entity *e)
 {
@@ -32,9 +36,17 @@ void initHorizontalDoor(Entity *e)
 
 	e->typeName = "horizontalDoor";
 	e->tick = tick;
-	e->atlasImage = getAtlasImage("gfx/entities/horizontalDoor.png", 1);
-	e->w = e->atlasImage->rect.w;
-	e->h = e->atlasImage->rect.h;
+
+	if (textures[0] == NULL)
+	{
+		textures[0] = getAtlasImage("gfx/entities/horizontalDoor1.png", 1);
+		textures[1] = getAtlasImage("gfx/entities/horizontalDoor2.png", 1);
+		textures[2] = getAtlasImage("gfx/entities/horizontalDoor3.png", 1);
+	}
+
+	superLoad = e->load;
+
+	e->load = load;
 
 	/* when opened */
 	d->ey = e->y;
@@ -77,4 +89,31 @@ static void tick(void)
 			playPositionalSound(SND_DOOR_DONE, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
 		}
 	}
+}
+
+static void load(cJSON *root)
+{
+	Door *d;
+
+	superLoad(root);
+
+	d = (Door*)self->data;
+
+	switch (d->requires)
+	{
+		case DR_KEY:
+			self->atlasImage = textures[1];
+			break;
+
+		case DR_REMOTE:
+			self->atlasImage = textures[2];
+			break;
+
+		default:
+			self->atlasImage = textures[0];
+			break;
+	}
+
+	self->w = self->atlasImage->rect.w;
+	self->h = self->atlasImage->rect.h;
 }

@@ -28,6 +28,8 @@ static void touch(Entity *other);
 static void load(cJSON *root);
 static void save(cJSON *root);
 
+static AtlasImage *textures[3] = {NULL};
+
 void initDoor(Entity *e)
 {
 	Door *d;
@@ -49,9 +51,14 @@ void initDoor(Entity *e)
 	e->drawLight = drawLight;
 	e->activate = activate;
 	e->touch = touch;
-	e->atlasImage = getAtlasImage("gfx/entities/door.png", 1);
-	e->w = e->atlasImage->rect.w;
-	e->h = e->atlasImage->rect.h;
+
+	if (textures[0] == NULL)
+	{
+		textures[0] = getAtlasImage("gfx/entities/door1.png", 1);
+		textures[1] = getAtlasImage("gfx/entities/door2.png", 1);
+		textures[2] = getAtlasImage("gfx/entities/door3.png", 1);
+	}
+
 	e->flags = EF_SOLID+EF_WEIGHTLESS+EF_PUSH+EF_NO_WORLD_CLIP;
 	e->background = 1;
 
@@ -169,6 +176,24 @@ static void load(cJSON *root)
 	d->sy = cJSON_GetObjectItem(root, "sy")->valueint;
 	d->ex = cJSON_GetObjectItem(root, "ex")->valueint;
 	d->ey = cJSON_GetObjectItem(root, "ey")->valueint;
+
+	switch (d->requires)
+	{
+		case DR_KEY:
+			self->atlasImage = textures[1];
+			break;
+
+		case DR_REMOTE:
+			self->atlasImage = textures[2];
+			break;
+
+		default:
+			self->atlasImage = textures[0];
+			break;
+	}
+
+	self->w = self->atlasImage->rect.w;
+	self->h = self->atlasImage->rect.h;
 }
 
 static void save(cJSON *root)
