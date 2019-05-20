@@ -100,6 +100,8 @@ static void logic(void)
 
 	if (isControl(CONTROL_USE))
 	{
+		playSound(SND_TIP, 0);
+
 		app.delegate.draw = oldDraw;
 
 		clearControl(CONTROL_USE);
@@ -123,6 +125,8 @@ static void changeStage(int dx, int dy)
 		if (s->visited && s->x == x && s->y == y)
 		{
 			selectedStage = s;
+
+			playSound(SND_NAV, 0);
 		}
 	}
 }

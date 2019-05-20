@@ -54,6 +54,8 @@ static void logic(void)
 
 	if (isControl(CONTROL_USE))
 	{
+		playSound(SND_TIP, 0);
+
 		app.delegate.draw = oldDraw;
 
 		clearControl(CONTROL_USE);

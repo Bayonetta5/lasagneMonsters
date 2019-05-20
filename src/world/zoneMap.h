@@ -35,6 +35,7 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void initRadar(void (*done)(void));
 extern int isControl(int type);
+extern void playSound(int snd, int ch);
 
 extern App app;
 extern Stage *stage;

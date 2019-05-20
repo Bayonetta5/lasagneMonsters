@@ -28,6 +28,7 @@ extern void drawText(int x, int y, int size, int align, SDL_Color color, const c
 extern int getTileAt(int x, int y);
 extern void initZoneMap(void (*done)(void));
 extern int isControl(int type);
+extern void playSound(int snd, int ch);
 
 extern App app;
 extern Stage *stage;
