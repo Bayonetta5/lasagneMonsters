@@ -107,60 +107,29 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"chest",
+			"type":	"door",
 			"name":	"",
-			"x":	1048,
-			"y":	352,
+			"x":	616,
+			"y":	288,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
+			"requires":	"DR_KEY",
+			"speed":	4,
+			"sx":	616,
+			"sy":	288,
+			"ex":	616,
+			"ey":	196
 		}, {
-			"type":	"chest",
+			"type":	"key",
 			"name":	"",
-			"x":	784,
-			"y":	352,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	72,
-			"y":	352,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	224,
-			"y":	352,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	584,
-			"y":	352,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
+			"x":	448,
+			"y":	336,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQBdCrdARH6P5XC9oUJhVCBOPjMTsX/V+oxRIDShojWeT/+6m/zB/7HF96f0UW3r/88s+cvz3Zz/tfuxtmPP+v2Wpdu9NbnbuLWGop3cl/L3zTxgz34/sm5vhH0IEOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ5tgjQKlA=",
-		"eLen":	184,
-		"cLen":	136,
+		"data":	"eJzt11kKgCAABcCrdAQVuv/V+m2RMqFFHQY/CoTeI1ziFCuEbtRkkf/rr34uf8nf3nP+dQ9357RI/nfm/JX8+7Uurt5un/rc/4/ZUpqzo2x3aFcuXQohO/o/F5a0McL5+LyJMe4IOtABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwLUF5+0Kmw=",
+		"eLen":	188,
+		"cLen":	139,
 		"dLen":	32812
 	}
 }

@@ -44,6 +44,10 @@ void initHorizontalDoor(Entity *e)
 		textures[2] = getAtlasImage("gfx/entities/horizontalDoor3.png", 1);
 	}
 
+	e->atlasImage = textures[0];
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+
 	superLoad = e->load;
 
 	e->load = load;
@@ -86,7 +90,10 @@ static void tick(void)
 			self->x = tx;
 			self->dx = 0;
 
-			playPositionalSound(SND_DOOR_DONE, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			if (d->requires == DR_NOTHING)
+			{
+				playPositionalSound(SND_DOOR_DONE, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			}
 		}
 	}
 }

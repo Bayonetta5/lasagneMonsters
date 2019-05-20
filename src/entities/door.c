@@ -59,6 +59,10 @@ void initDoor(Entity *e)
 		textures[2] = getAtlasImage("gfx/entities/door3.png", 1);
 	}
 
+	e->atlasImage = textures[0];
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+
 	e->flags = EF_SOLID+EF_WEIGHTLESS+EF_PUSH+EF_NO_WORLD_CLIP;
 	e->background = 1;
 
@@ -102,7 +106,10 @@ static void tick(void)
 			self->y = ty;
 			self->dy = 0;
 
-			playPositionalSound(SND_DOOR_DONE, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			if (d->requires == DR_NOTHING)
+			{
+				playPositionalSound(SND_DOOR_DONE, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			}
 		}
 	}
 }
@@ -136,7 +143,7 @@ static void activate(int active)
 
 	d->open = !d->open;
 
-	playPositionalSound(SND_DOOR, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+	playPositionalSound(SND_DOOR_MECH, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
 }
 
 static void touch(Entity *other)
@@ -147,18 +154,26 @@ static void touch(Entity *other)
 	{
 		d = (Door*)self->data;
 
-		if (d->requires == DR_KEY && game.keys > 0)
+		if (!d->open)
 		{
-			d->requires = DR_NOTHING;
-			game.keys--;
-		}
+			if (d->requires == DR_KEY && game.keys > 0)
+			{
+				game.keys--;
 
-		if (!d->open && d->requires == DR_NOTHING)
-		{
-			d->open = 1;
-			self->flags |= EF_NO_WORLD_CLIP;
+				d->open = 1;
 
-			playPositionalSound(SND_DOOR, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+				self->flags |= EF_NO_WORLD_CLIP;
+
+				playPositionalSound(SND_DOOR_MECH, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			}
+			else if (d->requires == DR_NOTHING)
+			{
+				d->open = 1;
+
+				self->flags |= EF_NO_WORLD_CLIP;
+
+				playPositionalSound(SND_DOOR, CH_DOOR, self->x, self->y, world.player->x, world.player->y);
+			}
 		}
 	}
 }
