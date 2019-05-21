@@ -113,11 +113,49 @@
 			"facing":	"FACING_RIGHT",
 			"dx":	0,
 			"dy":	0
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	1504,
+			"y":	384,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"startPoint",
+			"name":	"bottom",
+			"x":	792,
+			"y":	688,
+			"facing":	"FACING_RIGHT",
+			"dx":	8,
+			"dy":	-20
+		}, {
+			"type":	"transferCube",
+			"name":	"",
+			"x":	720,
+			"y":	720,
+			"facing":	"FACING_RIGHT",
+			"targetStage":	18,
+			"targetFlag":	"top",
+			"w":	4,
+			"h":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	1504,
+			"y":	496,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0
 		}],
 	"map":	{
-		"data":	"eJzt3asNACAQRMFWKOEQ9N8aBoPkk8Alk1ErXwUbJYY6zGtFpKZfv/7sFfr1n/W3ba8L7vTve12gX79+/fr1AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/J+n7YAU50Ay4",
-		"eLen":	136,
-		"cLen":	101,
+		"data":	"eJzt3UEKgCAQQNGrdARbeP+rRRBUpJFUiMPjrdJafIShnWlKm3lzfmqRhqZfv/7RK/Trf9efq9a36ru5e8E3/a2TLdr8u6svnXb0/mP9cT1fvutd8Ed/rX6fFJH77+qj/v+Uip7Ux+1/Vj96PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC3UW8/XAAAzQM",
+		"eLen":	196,
+		"cLen":	147,
 		"dLen":	32768
 	}
 }
