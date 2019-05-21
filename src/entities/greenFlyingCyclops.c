@@ -147,7 +147,8 @@ static void hover(void)
 
 	if (m->thinkTime == 0)
 	{
-		self->dx = self->dy = 0;
+		self->dx = 0;
+		self->dy = EPSILON;
 
 		m->thinkTime = FPS;
 	}

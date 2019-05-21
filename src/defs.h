@@ -82,6 +82,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_HALT_AT_EDGE   (2 << 0)
 #define AIF_JUMPS          (2 << 1)
 
+#define EPSILON      0.000001
+
 enum
 {
 	ET_PLAYER,
