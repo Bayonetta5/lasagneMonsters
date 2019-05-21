@@ -440,8 +440,8 @@ static void logic(void)
 		}
 
 		/* use 64, so things don't look wonky on the right-hand side */
-		world.camera.x = MIN(MAX(world.camera.x, -(TILE_SIZE * 4)), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + (TILE_SIZE - 64));
-		world.camera.y = MIN(MAX(world.camera.y, -(TILE_SIZE * 4)), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT);
+		world.camera.x = MIN(MAX(world.camera.x, -(TILE_SIZE * 4)), (MAP_WIDTH * TILE_SIZE) - SCREEN_WIDTH + ((TILE_SIZE * 4) - 64));
+		world.camera.y = MIN(MAX(world.camera.y, -(TILE_SIZE * 4)), (MAP_HEIGHT * TILE_SIZE) - SCREEN_HEIGHT + ((TILE_SIZE * 4) - 64));
 	}
 }
 

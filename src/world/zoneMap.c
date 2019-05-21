@@ -227,8 +227,8 @@ static void drawStages(void)
 
 		if (app.dev.debug)
 		{
-			drawText(x + (CELL_SIZE / 2), y + 12, 16, TEXT_CENTER, app.colors.white, "%d", s->id, s->x, s->y);
-			drawText(x + (CELL_SIZE / 2), y + 32, 16, TEXT_CENTER, app.colors.white, "(%d,%d)", s->id, s->x, s->y);
+			drawText(x + (CELL_SIZE / 2), y + 12, 16, TEXT_CENTER, app.colors.white, "%d", s->id);
+			drawText(x + (CELL_SIZE / 2), y + 32, 16, TEXT_CENTER, app.colors.white, "(%d,%d)", s->x, s->y);
 		}
 	}
 }
