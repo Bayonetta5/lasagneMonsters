@@ -193,19 +193,15 @@ static void draw(void)
 
 	m = (Monster*)self->data;
 
+	blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+
 	if (m->hitTimer > 0)
 	{
-		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_ADD);
-		SDL_SetTextureColorMod(self->atlasImage->texture, 255 - m->hitTimer, 128 - m->hitTimer, 255);
+		SDL_SetTextureColorMod(self->atlasImage->texture, 192 - (m->hitTimer / 2), 192 - (m->hitTimer / 2), 255);
 
 		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
-		SDL_SetTextureBlendMode(self->atlasImage->texture, SDL_BLENDMODE_BLEND);
-	}
-	else
-	{
-		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 }
 

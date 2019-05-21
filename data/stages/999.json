@@ -6,7 +6,7 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	368,
+			"x":	296,
 			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
@@ -57,92 +57,24 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"lamp",
+			"type":	"greenHorse",
 			"name":	"",
-			"x":	704,
-			"y":	312,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	520,
-			"y":	312,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	904,
-			"y":	312,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	312,
-			"y":	312,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	144,
-			"y":	312,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"door",
-			"name":	"",
-			"x":	616,
-			"y":	288,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_KEY",
-			"sx":	616,
-			"sy":	288,
-			"ex":	616,
-			"ey":	196
-		}, {
-			"type":	"key",
-			"name":	"",
-			"x":	448,
-			"y":	336,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"redFlyingCyclops",
-			"name":	"",
-			"x":	200,
-			"y":	288,
+			"x":	624,
+			"y":	304,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
-			"type":	"greenFlyingCyclops",
+			"type":	"greenHorse",
 			"name":	"",
-			"x":	120,
-			"y":	240,
+			"x":	800,
+			"y":	256,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt11kKgCAABcCrdAQVuv/V+m2RMqFFHQY/CoTeI1ziFCuEbtRkkf/rr34uf8nf3nP+dQ9357RI/nfm/JX8+7Uurt5un/rc/4/ZUpqzo2x3aFcuXQohO/o/F5a0McL5+LyJMe4IOtABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwLUF5+0Kmw=",
-		"eLen":	188,
-		"cLen":	139,
+		"data":	"eJzt1cEJwCAQBMBWLEGF9N9a3iEHAUGE7DDc313UG20s6L+xkkX+06eWX3759+dP/P/T9l/6/n9nm/Mqp27rdIKdXYw2ey8n715UbSS+j2cTmX+EDhI7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhyAz+MCq0",
+		"eLen":	164,
+		"cLen":	122,
 		"dLen":	32812
 	}
 }
