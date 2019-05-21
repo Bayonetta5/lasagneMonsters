@@ -186,7 +186,6 @@ static void load(cJSON *root)
 
 	d->open = cJSON_GetObjectItem(root, "open")->valueint;
 	d->requires = lookup(cJSON_GetObjectItem(root, "requires")->valuestring);
-	d->speed = cJSON_GetObjectItem(root, "speed")->valueint;
 	d->sx = cJSON_GetObjectItem(root, "sx")->valueint;
 	d->sy = cJSON_GetObjectItem(root, "sy")->valueint;
 	d->ex = cJSON_GetObjectItem(root, "ex")->valueint;
@@ -196,14 +195,17 @@ static void load(cJSON *root)
 	{
 		case DR_KEY:
 			self->atlasImage = textures[1];
+			d->speed = 4;
 			break;
 
 		case DR_REMOTE:
 			self->atlasImage = textures[2];
+			d->speed = 4;
 			break;
 
 		default:
 			self->atlasImage = textures[0];
+			d->speed = 1;
 			break;
 	}
 
@@ -219,7 +221,6 @@ static void save(cJSON *root)
 
 	cJSON_AddNumberToObject(root, "open", d->open);
 	cJSON_AddStringToObject(root, "requires", getLookupName("DR_", d->requires));
-	cJSON_AddNumberToObject(root, "speed", d->speed);
 	cJSON_AddNumberToObject(root, "sx", d->sx);
 	cJSON_AddNumberToObject(root, "sy", d->sy);
 	cJSON_AddNumberToObject(root, "ex", d->ex);
