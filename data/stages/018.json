@@ -32,8 +32,8 @@
 		}, {
 			"type":	"player",
 			"name":	"",
-			"x":	2880,
-			"y":	112,
+			"x":	2928,
+			"y":	64,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -76,7 +76,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3184,
 			"sy":	960,
 			"ex":	3184,
@@ -89,7 +88,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3904,
 			"sy":	1344,
 			"ex":	3904,
@@ -102,7 +100,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	4576,
 			"sy":	1680,
 			"ex":	4576,
@@ -115,7 +112,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	5344,
 			"sy":	2160,
 			"ex":	5344,
@@ -141,7 +137,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1792,
 			"sy":	864,
 			"ex":	1792,
@@ -154,7 +149,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	1072,
 			"sy":	720,
 			"ex":	1072,
@@ -167,7 +161,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	976,
 			"sy":	336,
 			"ex":	976,
@@ -180,7 +173,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	976,
 			"sy":	96,
 			"ex":	976,
@@ -238,7 +230,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	5536,
 			"sy":	912,
 			"ex":	5536,
@@ -250,7 +241,7 @@
 			"y":	976,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	3,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0
 		}, {
@@ -260,7 +251,7 @@
 			"y":	1120,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	5,
+			"coins":	6,
 			"nextRefill":	0,
 			"found":	0
 		}, {
@@ -270,7 +261,7 @@
 			"y":	928,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	5,
+			"coins":	7,
 			"nextRefill":	0,
 			"found":	0
 		}, {
@@ -280,7 +271,7 @@
 			"y":	1936,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	6,
+			"coins":	3,
 			"nextRefill":	0,
 			"found":	0
 		}, {
@@ -351,7 +342,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	6040,
 			"sy":	2400,
 			"ex":	6040,
@@ -430,9 +420,9 @@
 			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
-		"data":	"eJztnFluwyAUAK/SI9iRuP/VKn+ksfHb8PagGY0itTZg5oHZGnX6mTbMD/Ds06J1edeovmJfj7MvoaTbx/3PU5fcg32efx/2kn9p4uPjpZg7tL/q/S9iWVoJ/dhf41+UsrZ9Y65S90FbO1v2Ws76frbxtf7FKEu+n23s+Ze/mkdYl7Ue76T7Y/jrbW33jej4l22MP/746/71CPZt/vWVbQy+zz8aA3nn8Mk/sv/bQZrhPzN9pJe095zjI9K6z0XzR592xrdvf313W+/gxvGP35dy1DsYyT46Sh6JTqRFpupO7J2Mjf/6aLFNc5f/mlLds2o7K7Gz/f0djrYLajs50k+KLP9tBPwzxfb2z0OOgJXOP1McyV/ee9vjn9d39u+HXXauv9QH9HOlYuaz8vba/pKJf66kR2C7YhnD3x/jtTPUeN/p21/rzba9lG9UfysC9vm53Hfi42O299pEXvW1RO79m7Y26dlfc/Jr+x/6fywCWtqi+o3q789vMb9x/a+Z30b29+ZFya99/9c3bRHw8o7nv5/J4v6R9VG23ZF4xP39tXW2zbUR8FL/D39rfeSND8/52zWJ0B4B6+zgyfXvefdjEYh+J+U+/6vMrfpZqW378fxltNnQPx8fzd86f19oPTm523/fKuXUz5Enxu2fGv+WGLxe+Z/ody/lFaac+5kILrymKf1ztP33vTEjgnlYEfgG/5ada3ZNsyOQXc87IxD/uzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMxvIfp7LrEOEXN24xZQ=",
-		"eLen":	800,
-		"cLen":	598,
+		"data":	"eJztmlluwyAUAK/SIziRuP/VqnyksfHb8MKDZjSK1NiAmQdma5afZcOjA32fFq3Lu0b1Fft6nH0JJd0+7n+euuQR7PP8x7CX/EsTHx8vxWNA+6ve/yKWpZUwjv01/kUpa9s3HlXqMWhrZ8tey1nfzza+1r8YZcn3s409//JX8wjrstbjnXR/Dn+9re2+ER3/so3xxx9/3b8ewb7Nv76yjcH3+UdjIO8cPvln9n87SDP8Z6aP9JL2nnN8RFr3uWj+6NPO+I7tr+9u6x3cPP7x+1KOegcj2UdHySPRibTIUt2JvZOx8V8fLbZp7vJfU6p7Vm0fSuxsf3+Ho+2C2k6O9JMiy38bAf9Msb3985AjYKXzzxRn8pf33vb45/Wd/fthl53rL/UB/VypmPmsvKO2v2TinyvpEdiuWObw98d47Qw13nfG9td6s20v5ZvV34qAfX4u9534+JjtvTaRV30tkXt/09YmI/trTn5t/0P/j0VAS1tUv1n9/fkt5jev/zXz28z+3rwo+bXv/8amLQJe3vn89zNZ3D+yPsq2OxKPuL+/ts62uTYCXur/4W+tj7zxoZ+/XZMI7RGwzg56rn/Pux+LQPQ3Kff5X2Vu1c9KbdvP5y+jzYb++fhs/tb5+4vWk5O7/fetUk79HXli3L7X+PeKwfOZ/4n+9lJeYcq5+0TwxXNZ0j9H23/fGzMimIcVgW/wb9m5Ztc0OwLZ9bwzApH/e2fXsjf4AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9OUXk5syUw=",
+		"eLen":	796,
+		"cLen":	595,
 		"dLen":	32900
 	}
 }
