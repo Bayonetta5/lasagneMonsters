@@ -40,6 +40,7 @@ void initEntityFactory(void)
 	addInitFunc("gumballMachine", initGumballMachine);
 	addInitFunc("greenBugEyedMonster", initGreenBugEyedMonster);
 	addInitFunc("greenHorse", initGreenHorse);
+	addInitFunc("greenTentacleMonster", initGreenTentacleMonster);
 	addInitFunc("gumball", initGumball);
 	addInitFunc("heart", initHeart);
 	addInitFunc("horizontalDoor", initHorizontalDoor);

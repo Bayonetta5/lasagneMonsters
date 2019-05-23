@@ -32,6 +32,7 @@ extern void initEntity(Entity *e);
 extern void initGreenBugEyedMonster(Entity *e);
 extern void initGreenFlyingCyclops(Entity *e);
 extern void initGreenHorse(Entity *e);
+extern void initGreenTentacleMonster(Entity *e);
 extern void initGumball(Entity *e);
 extern void initGumballMachine(Entity *e);
 extern void initHeart(Entity *e);
