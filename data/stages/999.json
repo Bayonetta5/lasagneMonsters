@@ -6,8 +6,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	296,
-			"y":	352,
+			"x":	384,
+			"y":	592,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -57,24 +57,67 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"greenHorse",
+			"type":	"lamp",
 			"name":	"",
-			"x":	624,
-			"y":	304,
+			"x":	1168,
+			"y":	312,
 			"facing":	"FACING_RIGHT",
-			"isMonster":	1
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}, {
-			"type":	"greenHorse",
+			"type":	"lamp",
 			"name":	"",
-			"x":	800,
-			"y":	256,
+			"x":	976,
+			"y":	312,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	720,
+			"y":	312,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	400,
+			"y":	552,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	80,
+			"y":	312,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	1040,
+			"y":	344,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt1cEJwCAQBMBWLEGF9N9a3iEHAUGE7DDc313UG20s6L+xkkX+06eWX3759+dP/P/T9l/6/n9nm/Mqp27rdIKdXYw2ey8n715UbSS+j2cTmX+EDhI7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhyAz+MCq0",
-		"eLen":	164,
-		"cLen":	122,
-		"dLen":	32812
+		"data":	"eJzt18ENABAURMFWlED/zSkAkXCQ2Mk04J3+aqUdqN84adH/+tX69evXr/++f33PM+7/qihl/8ybcvbfrCpp/45dWfs//f+T3Q8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACw0wHoMwH",
+		"eLen":	144,
+		"cLen":	108,
+		"dLen":	32768
 	}
 }
