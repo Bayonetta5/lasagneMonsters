@@ -225,7 +225,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 			e->x = (mx * TILE_SIZE) + adj;
 
-			e->dx = 0;
+			if (e->flags & EF_BOUNCES)
+			{
+				e->dx = -e->dx;
+			}
+			else
+			{
+				e->dx = 0;
+			}
 		}
 	}
 
@@ -256,7 +263,14 @@ static void moveToWorld(Entity *e, float dx, float dy)
 
 			e->y = (my * TILE_SIZE) + adj;
 
-			e->dy = 0;
+			if (e->flags & EF_BOUNCES)
+			{
+				e->dy = -e->dy;
+			}
+			else
+			{
+				e->dy = 0;
+			}
 
 			if (dy > 0)
 			{
@@ -356,7 +370,14 @@ static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, i
 
 						e->y = other->y + adj;
 
-						e->dy = 0;
+						if (e->flags & EF_BOUNCES)
+						{
+							e->dy = -e->dy;
+						}
+						else
+						{
+							e->dy = 0;
+						}
 
 						if (dy > 0)
 						{
@@ -375,7 +396,14 @@ static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, i
 
 						e->x = other->x + adj;
 
-						e->dx = 0;
+						if (e->flags & EF_BOUNCES)
+						{
+							e->dx = -e->dx;
+						}
+						else
+						{
+							e->dx = 0;
+						}
 					}
 				}
 			}

@@ -24,16 +24,19 @@ static Entity *initBullet(Entity *owner, int damage, int damageType);
 static void waterBulletDie(void);
 static void slimeBulletDie(void);
 static void drawSlimeBulletLight(void);
+static void tickBouncer(void);
 
 static AtlasImage *waterBulletTexture;
 static AtlasImage *slimeBulletTexture;
 static AtlasImage *aimedSlimeBulletTexture;
+static AtlasImage *bouncerTexture;
 
 void initBullets(void)
 {
 	waterBulletTexture = getAtlasImage("gfx/entities/waterBullet.png", 1);
 	slimeBulletTexture = getAtlasImage("gfx/entities/slimeBullet.png", 1);
 	aimedSlimeBulletTexture = getAtlasImage("gfx/entities/aimedSlimeBullet1.png", 1);
+	bouncerTexture = getAtlasImage("gfx/entities/slimeBouncer1.png", 1);
 }
 
 void initWaterBullet(Entity *owner)
@@ -103,6 +106,41 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 	e->dy *= 8;
 }
 
+void initSlimeBouncerBullet(Entity *owner, Entity *target)
+{
+	Entity *e;
+
+	e = initBullet(owner, 1, DT_SLIME);
+
+	e->atlasImage = bouncerTexture;
+	e->w = e->atlasImage->rect.w;
+	e->h = e->atlasImage->rect.h;
+	e->drawLight = drawSlimeBulletLight;
+	e->die = slimeBulletDie;
+	e->tick = tickBouncer;
+
+	e->flags |= EF_BOUNCES;
+	e->flags &= ~EF_WEIGHTLESS;
+
+	e->x = owner->x;
+	e->y = owner->y;
+	e->y += owner->h / 2;
+	e->y -= e->h / 2;
+
+	e->dy = -(12 + rand() % 9);
+
+	if (e->facing == FACING_RIGHT)
+	{
+		e->dx = 8;
+
+		e->x += self->w;
+	}
+	else
+	{
+		e->dx = -8;
+	}
+}
+
 static void tick(void)
 {
 	Bullet *b;
@@ -113,6 +151,18 @@ static void tick(void)
 	{
 		self->alive = ALIVE_DEAD;
 		self->die = NULL;
+	}
+}
+
+static void tickBouncer(void)
+{
+	Bullet *b;
+
+	b = (Bullet*)self->data;
+
+	if (--b->health <= 0)
+	{
+		self->alive = ALIVE_DEAD;
 	}
 }
 
@@ -150,12 +200,12 @@ static void touch(Entity *other)
 				self->alive = ALIVE_DEAD;
 
 			}
-			else if (other->flags & EF_SOLID)
+			else if ((other->flags & EF_SOLID) && (!(self->flags & EF_BOUNCES)))
 			{
 				self->alive = ALIVE_DEAD;
 			}
 		}
-		else
+		else if (!(self->flags & EF_BOUNCES))
 		{
 			self->alive = ALIVE_DEAD;
 		}
