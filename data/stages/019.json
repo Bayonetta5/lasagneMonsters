@@ -1129,7 +1129,7 @@
 			"y":	1984,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	4,
+			"coins":	10,
 			"nextRefill":	0,
 			"found":	0
 		}, {
@@ -1139,86 +1139,104 @@
 			"y":	1312,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	6,
+			"coins":	10,
 			"nextRefill":	0,
 			"found":	0
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	904,
-			"y":	2504,
+			"y":	2502,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	296,
-			"y":	1976,
+			"y":	1974,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	520,
-			"y":	1640,
+			"y":	1638,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	1720,
-			"y":	1544,
+			"y":	1542,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	1632,
-			"y":	1304,
+			"y":	1302,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	1104,
-			"y":	1304,
+			"y":	1302,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	4160,
-			"y":	1304,
+			"y":	1302,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	3080,
-			"y":	2792,
+			"y":	2790,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	2584,
-			"y":	2792,
+			"y":	2790,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	2672,
-			"y":	2408,
+			"y":	2406,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	3168,
-			"y":	1976,
+			"y":	1974,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
+		}, {
+			"type":	"transferCube",
+			"name":	"",
+			"x":	5712,
+			"y":	1824,
+			"facing":	"FACING_RIGHT",
+			"targetStage":	20,
+			"targetFlag":	"left",
+			"w":	1,
+			"h":	2
+		}, {
+			"type":	"startPoint",
+			"name":	"right",
+			"x":	5672,
+			"y":	1888,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}],
 	"map":	{
 		"data":	"eJztmAGugyAQBa/SI2gT7n+1n9T8VHEXdmFRq5OJSWPqwjwE1Ok1AQAAAAAAAAAAAADcjvlRSP5nj8DY0d2OM/7P8l974i/7p8H8t7T+7UGuZr9i4fzxnz9Z++1rK7i99fP9vQnk9r/v70lgb38Hf2sCkv0V/a3r4OxKQLa/nr/WzxrlBPSq4/zbdrc2+yWBlqpXG/+eGkc+e+H/bP+RfdjP5af5+1b3GPJ3C8+7yGj/8QmkzXy27jlS39vf6cq7Vdt+aps/+ftcu/8vknY+9/OX7rTcPsLfv2ofY6+NVRJ9euZ//5oVnZ/VPtq/NYHv1REp2O3j/dsSyCv0pOCxH+HfkoDUUlsKPvsx/v4E9PZ8KXjtR/l7E6i1an3q8drH+e+rXGc3tHwN6fOXq/Q/pY62j/HP07Be+e3huDxq39ei/SXK/1j3MDqB+tfFCP/e3Xo7Z460j17/InoYlYDty3KUv3YPlOa2/t5/lH3s/v9+J9OhVyv1upRv/ZxtF1x89r/KGRUzmSbToVWrjaPumSrnrDtjmZZM7HeY5S7WnaTvHclc+yz/7fNs3xX6uXpt6xN3tP89wB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgivwBTqYXaA=",
