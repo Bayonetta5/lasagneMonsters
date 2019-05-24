@@ -122,6 +122,8 @@ void initSlimeBouncerBullet(Entity *owner, Entity *target)
 	e->flags |= EF_BOUNCES;
 	e->flags &= ~EF_WEIGHTLESS;
 
+	((Bullet*)e)->health = FPS * 3;
+
 	e->x = owner->x;
 	e->y = owner->y;
 	e->y += owner->h / 2;
@@ -131,13 +133,13 @@ void initSlimeBouncerBullet(Entity *owner, Entity *target)
 
 	if (e->facing == FACING_RIGHT)
 	{
-		e->dx = 8;
+		e->dx = 6;
 
 		e->x += self->w;
 	}
 	else
 	{
-		e->dx = -8;
+		e->dx = -6;
 	}
 }
 

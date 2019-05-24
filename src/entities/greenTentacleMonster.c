@@ -37,8 +37,8 @@ void initGreenTentacleMonster(Entity *e)
 
 	m = (Monster*)e->data;
 
-	m->health = m->maxHealth = 24;
-	m->coins = 14;
+	m->health = m->maxHealth = 12;
+	m->coins = 5;
 	m->aiFlags = AIF_HALT_AT_EDGE;
 
 	if (textures[0] == NULL)
@@ -92,9 +92,9 @@ static void preAttack(void)
 	switch (rand() % 4)
 	{
 		case 1:
-			if (abs(self->y - world.player->y) <= 16)
+			if (abs(self->y - world.player->y) <= TILE_SIZE * 3)
 			{
-				m->shotsToFire = 1 + rand() % 2;
+				m->shotsToFire = 1;
 			}
 			self->tick = stand;
 			break;
@@ -104,9 +104,9 @@ static void preAttack(void)
 			break;
 
 		case 3:
-			if (abs(self->y - world.player->y) <= 16)
+			if (abs(self->y - world.player->y) <= TILE_SIZE * 3)
 			{
-				m->shotsToFire = 1 + rand() % 2;
+				m->shotsToFire = 1;
 			}
 			self->tick = chasePlayer;
 			break;
@@ -127,7 +127,7 @@ static void chasePlayer(void)
 	{
 		self->dx = 0;
 
-		m->thinkTime = FPS / 2;
+		m->thinkTime = FPS;
 	}
 	else
 	{
@@ -156,7 +156,7 @@ static void stand(void)
 	{
 		self->dx = 0;
 
-		m->thinkTime = FPS / 3;
+		m->thinkTime = FPS / 2;
 	}
 	else
 	{
@@ -182,7 +182,7 @@ static void fireShots(void)
 
 			m->shotsToFire--;
 
-			m->reload = FPS / 4;
+			m->reload = FPS / 2;
 
 			playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
 		}
@@ -206,7 +206,7 @@ static void patrol(void)
 	{
 		if (m->thinkTime == 0)
 		{
-			m->thinkTime = FPS / 3;
+			m->thinkTime = FPS;
 		}
 		else if (--m->thinkTime <= 0)
 		{
