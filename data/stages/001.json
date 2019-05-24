@@ -42,7 +42,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
-			"speed":	1,
 			"sx":	1216,
 			"sy":	576,
 			"ex":	1216,
@@ -130,14 +129,6 @@
 			"pause":	60,
 			"speed":	2,
 			"enabled":	0
-		}, {
-			"type":	"trafficLight",
-			"name":	"",
-			"x":	240,
-			"y":	424,
-			"facing":	"FACING_RIGHT",
-			"targetName":	"",
-			"on":	0
 		}],
 	"map":	{
 		"data":	"eJzt17EJwDAMRcFVMoJdeP/V0qQT2BEpAtJxC/j9wqB5jcdMGGXkW/Tr//vV+vXr169f/9f+FfTqj/Yb1O8/b1DH7srpsMHp0ou/Q61VMldvzfu3dz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8cQMwIgJ",
