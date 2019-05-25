@@ -535,6 +535,31 @@ void activeEntities(char *targetName, int active)
 	self = oldSelf;
 }
 
+void removeFromDeadlist(Entity *candidate)
+{
+	Entity *e, *prev;
+
+	prev = &deadListHead;
+
+	for (e = deadListHead.next ; e != NULL ; e = e->next)
+	{
+		if (e == candidate)
+		{
+			if (e == deadListTail)
+			{
+				deadListTail = prev;
+			}
+
+			prev->next = e->next;
+			e->next = NULL;
+
+			e = prev;
+		}
+
+		prev = e;
+	}
+}
+
 void destroyEntities(void)
 {
 	Entity *e, *prev;

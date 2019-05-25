@@ -349,6 +349,8 @@ static void transfer(void)
 
 	world.player->x = e->x;
 	world.player->y = e->y;
+	((Walter*)world.player)->checkpoint.x = e->x;
+	((Walter*)world.player)->checkpoint.y = e->y;
 	world.player->dx = s->dx;
 	world.player->dy = s->dy;
 	world.player->facing = facing;

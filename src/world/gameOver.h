@@ -28,6 +28,9 @@ extern int doWipe(void);
 extern void initStage(int stageId, int wipeType);
 extern void initWipe(int type);
 extern void loadGame(void);
+extern void removeFromDeadlist(Entity *candidate);
 
 extern App app;
 extern Game game;
+extern Stage *stage;
+extern World world;

@@ -71,6 +71,13 @@ static void tick(void)
 	if (self->isOnGround)
 	{
 		w->jumps = w->hasDoubleJump ? 2 : 1;
+
+		if (self->riding == NULL && --w->checkpointTimer <= 0)
+		{
+			w->checkpoint.x = self->x;
+			w->checkpoint.y = self->y;
+			w->checkpointTimer = FPS * 5;
+		}
 	}
 
 	if (self->alive == ALIVE_ALIVE)

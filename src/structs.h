@@ -123,6 +123,8 @@ typedef struct {
 	float refillRate;
 	int autoFire;
 	int hasDoubleJump;
+	SDL_Point checkpoint;
+	int checkpointTimer;
 } Walter;
 
 typedef struct {
