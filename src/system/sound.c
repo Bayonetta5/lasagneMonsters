@@ -216,6 +216,7 @@ static void loadSounds(void)
 	sounds[SND_YAY] = Mix_LoadWAV("sound/69338__timtube__crowd-yay.ogg");
 	sounds[SND_CLAPPING] = Mix_LoadWAV("sound/209792__alterr__applause-mono-24bit-48khz.ogg");
 	sounds[SND_DOOR_MECH] = Mix_LoadWAV("sound/148309__keemocore__robot-step-short-medium-heavy-edit.ogg");
+	sounds[SND_TIME_WARNING] = Mix_LoadWAV("sound/382620__causticlasagne__emergencysiren.ogg");
 }
 
 void destroySounds(void)

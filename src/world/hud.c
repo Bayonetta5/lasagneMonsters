@@ -33,6 +33,7 @@ static void drawTimeLimit(void);
 static void drawZoneInfo(void);
 static void drawGameText(void);
 static void doVanquished(void);
+static void initGameText(const char *text);
 
 static int stageId;
 static int numMonsters;
@@ -101,17 +102,21 @@ static void doVanquished(void)
 		{
 			playSound(SND_YAY, -1);
 			playSound(SND_CLAPPING, -1);
-			ticker.health = 1;
-			ticker.x = SCREEN_WIDTH + 128;
 
 			if (numMonsters > 0 && stage->numMonsters == 0)
 			{
-				STRNCPY(ticker.text, "MONSTERS VANQUISHED!", MAX_NAME_LENGTH);
+				initGameText("MONSTERS VANQUISHED!");
 			}
 			else if (numGirls > 0 && stage->numGirls == 0)
 			{
-				STRNCPY(ticker.text, "GIRLS RESCUED!", MAX_NAME_LENGTH);
+				initGameText("GIRLS RESCUED!");
 			}
+		}
+
+		if (game.time == FPS * 60 * 5)
+		{
+			playSound(SND_TIME_WARNING, -1);
+			initGameText("5 MINUTE WARNING!");
 		}
 
 		if (ticker.health && ticker.x > -320)
@@ -132,6 +137,13 @@ static void doVanquished(void)
 	stageId = stage->id;
 	numMonsters = stage->numMonsters;
 	numGirls = stage->numGirls;
+}
+
+static void initGameText(const char *text)
+{
+	ticker.health = 1;
+	ticker.x = SCREEN_WIDTH + 128;
+	STRNCPY(ticker.text, text, MAX_NAME_LENGTH);
 }
 
 static void doGameText(void)
