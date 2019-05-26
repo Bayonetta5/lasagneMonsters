@@ -31,28 +31,27 @@ static int timeout;
 static int reloading;
 static void (*oldLogic)(void);
 static void (*oldDraw)(void);
-static Widget *reloadWidget;
-static Widget *retryWidget;
-static Widget *quitWidget;
 
 void initGameOver(void)
 {
+	Widget *w;
+
 	timeout = FPS * 2;
 
 	reloading = 0;
 
-	reloadWidget = getWidget("reload", "gameOver");
-	reloadWidget->action = preReloadGame;
+	w = getWidget("reload", "gameOver");
+	w->action = preReloadGame;
+	app.selectedWidget = w;
 
-	retryWidget = getWidget("retry", "gameOver");
-	retryWidget->action = restartAtCheckpoint;
+	w = getWidget("retry", "gameOver");
+	w->action = restartAtCheckpoint;
+	w->disabled = game.time <= (FPS * 60 * 5);
 
-	quitWidget = getWidget("quit", "gameOver");
-	quitWidget->action = quit;
+	w = getWidget("quit", "gameOver");
+	w->action = quit;
 
 	calculateWidgetFrame("gameOver");
-
-	app.selectedWidget = reloadWidget;
 
 	oldLogic = app.delegate.logic;
 	oldDraw = app.delegate.draw;
@@ -63,14 +62,6 @@ void initGameOver(void)
 
 static void logic(void)
 {
-	if (timeout > 0 && !reloading)
-	{
-		if (--timeout == 0)
-		{
-			showWidgets("gameOver", 1);
-		}
-	}
-
 	doEntities();
 
 	doParticles();
@@ -78,6 +69,27 @@ static void logic(void)
 	if (timeout == 0)
 	{
 		doWidgets("gameOver");
+	}
+
+	if (timeout > 0 && !reloading)
+	{
+		if (--timeout == 0)
+		{
+			switch (app.config.gameOverAction)
+			{
+				case GO_RELOAD:
+					preReloadGame();
+					break;
+
+				case GO_CONTINUE:
+					restartAtCheckpoint();
+					break;
+
+				default:
+					showWidgets("gameOver", 1);
+					break;
+			}
+		}
 	}
 
 	if (reloading && doWipe())

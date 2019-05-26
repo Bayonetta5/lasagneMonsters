@@ -20,22 +20,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+extern void calculateWidgetFrame(const char *groupName);
 extern void destroyGame(void);
 extern void destroyStage(void);
 extern void doEntities(void);
 extern void doParticles(void);
+extern void doWidgets(const char *groupName);
 extern int doWipe(void);
+extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern void drawWidgetFrame(void);
+extern void drawWidgets(const char *groupName);
+extern Widget *getWidget(const char *name, const char *groupName);
 extern void initStage(int stageId, int wipeType);
 extern void initWipe(int type);
 extern void loadGame(void);
 extern void removeFromDeadlist(Entity *candidate);
-extern void drawWidgetFrame(void);
-extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
 extern void showWidgets(const char *groupName, int visible);
-extern void drawWidgets(const char *groupName);
-extern void doWidgets(const char *groupName);
-extern Widget *getWidget(const char *name, const char *groupName);
-extern void calculateWidgetFrame(const char *groupName);
 
 extern App app;
 extern Game game;

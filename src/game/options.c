@@ -26,6 +26,7 @@ static void sound(void);
 static void music(void);
 static void windowSize(void);
 static void fullscreen(void);
+static void onGameOver(void);
 static void controls(void);
 static void back(void);
 static void setWindowSizeWidgetValue(Widget *w);
@@ -62,6 +63,10 @@ void initOptions(void (*done)(void))
 	w = getWidget("fullscreen", "options");
 	w->action = fullscreen;
 	w->value = app.config.fullscreen;
+
+	w = getWidget("gameOver", "options");
+	w->action = onGameOver;
+	w->value = app.config.gameOverAction;
 
 	w = getWidget("controls", "options");
 	w->action = controls;
@@ -214,6 +219,11 @@ static void windowSize(void)
 static void fullscreen(void)
 {
 	app.config.fullscreen = app.selectedWidget->value;
+}
+
+static void onGameOver(void)
+{
+	app.config.gameOverAction = app.selectedWidget->value;
 }
 
 static void controls(void)

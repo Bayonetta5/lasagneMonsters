@@ -44,11 +44,22 @@
 		]
 	},
 	{
+		"type" : "WT_SELECT",
+		"name" : "gameOver",
+		"groupName" : "options",
+		"x" : 300,
+		"y" : 350,
+		"text" : "On Game Over",
+		"options" : [
+			"Prompt", "Reload", "Continue"
+		]
+	},
+	{
 		"type" : "WT_BUTTON",
 		"name" : "controls",
 		"groupName" : "options",
 		"x" : 300,
-		"y" : 350,
+		"y" : 400,
 		"text" : "Controls ..."
 	},
 	{

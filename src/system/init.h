@@ -39,7 +39,6 @@ extern void initFonts(void);
 extern void initGame(void);
 extern void initGraphics(void);
 extern void initHud(void);
-extern void initLookups(void);
 extern void initParticles(void);
 extern void initSounds(void);
 extern void initWidgets(void);

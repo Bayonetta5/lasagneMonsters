@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 	memset(&app, 0, sizeof(App));
 	app.texturesTail = &app.texturesHead;
 
+	initLookups();
+
 	initSDL();
 
 	atexit(cleanup);

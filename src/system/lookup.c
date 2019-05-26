@@ -47,6 +47,10 @@ void initLookups(void)
 	addLookup("FACING_LEFT", FACING_LEFT);
 	addLookup("FACING_RIGHT", FACING_RIGHT);
 
+	addLookup("GO_PROMPT", GO_PROMPT);
+	addLookup("GO_RELOAD", GO_RELOAD);
+	addLookup("GO_CONTINUE", GO_CONTINUE);
+
 	addLookup("left", CONTROL_LEFT);
 	addLookup("right", CONTROL_RIGHT);
 	addLookup("up", CONTROL_UP);

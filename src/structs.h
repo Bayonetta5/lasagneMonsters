@@ -359,6 +359,7 @@ typedef struct {
 		int soundVolume;
 		int musicVolume;
 		int fullscreen;
+		int gameOverAction;
 		int keyControls[CONTROL_MAX];
 		int joypadControls[CONTROL_MAX];
 		int deadzone;

@@ -52,6 +52,7 @@ static void loadConfigFile(const char *filename)
 	app.config.winWidth = cJSON_GetObjectItem(root, "winWidth")->valueint;
 	app.config.winHeight = cJSON_GetObjectItem(root, "winHeight")->valueint;
 	app.config.fullscreen = cJSON_GetObjectItem(root, "fullscreen")->valueint;
+	app.config.gameOverAction = lookup(cJSON_GetObjectItem(root, "gameOverAction")->valuestring);
 	app.config.deadzone = cJSON_GetObjectItem(root, "deadzone")->valueint;
 
 	controls = cJSON_GetObjectItem(root, "keyControls");
@@ -96,6 +97,7 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "winHeight", app.config.winHeight);
 	cJSON_AddNumberToObject(root, "fullscreen", app.config.fullscreen);
 	cJSON_AddNumberToObject(root, "deadzone", app.config.deadzone / 256);
+	cJSON_AddStringToObject(root, "gameOverAction", getLookupName("GO_", app.config.gameOverAction));
 
 	controlsJSON = cJSON_CreateObject();
 

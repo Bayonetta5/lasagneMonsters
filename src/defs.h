@@ -225,6 +225,13 @@ enum
 
 enum
 {
+	GO_PROMPT,
+	GO_RELOAD,
+	GO_CONTINUE
+};
+
+enum
+{
 	STAT_TIME,
 	STAT_MAX
 };
