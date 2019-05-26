@@ -21,43 +21,82 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gameOver.h"
 
 static void logic(void);
+static void draw(void);
+static void preReloadGame(void);
 static void reloadGame(void);
 static void restartAtCheckpoint(void);
+static void quit(void);
 
 static int timeout;
+static int reloading;
 static void (*oldLogic)(void);
+static void (*oldDraw)(void);
+static Widget *reloadWidget;
+static Widget *retryWidget;
+static Widget *quitWidget;
 
 void initGameOver(void)
 {
-	timeout = FPS * 3;
+	timeout = FPS * 2;
+
+	reloading = 0;
+
+	reloadWidget = getWidget("reload", "gameOver");
+	reloadWidget->action = preReloadGame;
+
+	retryWidget = getWidget("retry", "gameOver");
+	retryWidget->action = restartAtCheckpoint;
+
+	quitWidget = getWidget("quit", "gameOver");
+	quitWidget->action = quit;
+
+	calculateWidgetFrame("gameOver");
+
+	app.selectedWidget = reloadWidget;
 
 	oldLogic = app.delegate.logic;
+	oldDraw = app.delegate.draw;
 
 	app.delegate.logic = logic;
+	app.delegate.draw = draw;
 }
 
 static void logic(void)
 {
-	if (timeout > 0 && --timeout == 0)
+	if (timeout > 0 && !reloading)
 	{
-		restartAtCheckpoint();
-
-		if (0)
-		initWipe(WIPE_OUT);
+		if (--timeout == 0)
+		{
+			showWidgets("gameOver", 1);
+		}
 	}
 
 	doEntities();
 
 	doParticles();
 
-	if (0 && timeout == 0)
+	if (timeout == 0)
 	{
-		if (doWipe())
-		{
-			restartAtCheckpoint();
+		doWidgets("gameOver");
+	}
 
-			reloadGame();
-		}
+	if (reloading && doWipe())
+	{
+		reloadGame();
+	}
+}
+
+static void draw(void)
+{
+	oldDraw();
+
+	if (timeout == 0)
+	{
+		drawText(SCREEN_WIDTH / 2, 75, 128, TEXT_CENTER, app.colors.white, "GAME OVER");
+
+		drawWidgetFrame();
+
+		drawWidgets("gameOver");
 	}
 }
 
@@ -84,7 +123,19 @@ static void restartAtCheckpoint(void)
 
 	world.showHUD = 1;
 
+	initWipe(WIPE_FADE);
+
 	app.delegate.logic = oldLogic;
+	app.delegate.draw = oldDraw;
+}
+
+static void preReloadGame(void)
+{
+	reloading = 1;
+
+	timeout = 1;
+
+	initWipe(WIPE_OUT);
 }
 
 static void reloadGame(void)
@@ -104,4 +155,9 @@ static void reloadGame(void)
 	game.time = time;
 
 	app.save.saving = FPS * 2;
+}
+
+static void quit(void)
+{
+	exit(0);
 }

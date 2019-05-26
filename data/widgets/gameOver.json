@@ -1,0 +1,26 @@
+[
+	{
+		"type" : "WT_BUTTON",
+		"name" : "reload",
+		"groupName" : "gameOver",
+		"x" : -1,
+		"y" : 250,
+		"text" : "Reload Last Save"
+	},
+	{
+		"type" : "WT_BUTTON",
+		"name" : "retry",
+		"groupName" : "gameOver",
+		"x" : -1,
+		"y" : 325,
+		"text" : "Continue (-5 min)"
+	},
+	{
+		"type" : "WT_BUTTON",
+		"name" : "quit",
+		"groupName" : "gameOver",
+		"x" : -1,
+		"y" : 500,
+		"text" : "Quit to Title"
+	}
+]

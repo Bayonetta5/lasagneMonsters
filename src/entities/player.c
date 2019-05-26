@@ -180,8 +180,6 @@ static void die(void)
 	playSound(SND_DEATH, -1);
 
 	playSound(SND_SCREAM, CH_PLAYER);
-
-	world.showHUD = 0;
 }
 
 static void load(cJSON *root)

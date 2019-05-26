@@ -6,8 +6,8 @@
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
-			"x":	384,
-			"y":	592,
+			"x":	784,
+			"y":	352,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
 			"maxHealth":	5,
@@ -89,16 +89,6 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	400,
-			"y":	552,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
 			"x":	80,
 			"y":	312,
 			"facing":	"FACING_RIGHT",
@@ -110,14 +100,14 @@
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	1040,
-			"y":	344,
+			"y":	342,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt18ENABAURMFWlED/zSkAkXCQ2Mk04J3+aqUdqN84adH/+tX69evXr/++f33PM+7/qihl/8ybcvbfrCpp/45dWfs//f+T3Q8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACw0wHoMwH",
-		"eLen":	144,
-		"cLen":	108,
-		"dLen":	32768
+		"data":	"eJzt2MEJwCAQRcFWUsIqpP/WrCAIG0RZh8G7718E29MSooxMi/7dt9avX79+/f/7v9/zO97/3t/lp9hiEcuPxSxmMYtZ7ByZn4JK/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDcAAkSO6g",
+		"eLen":	148,
+		"cLen":	110,
+		"dLen":	33068
 	}
 }

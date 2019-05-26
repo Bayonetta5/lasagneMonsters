@@ -29,6 +29,13 @@ extern void initStage(int stageId, int wipeType);
 extern void initWipe(int type);
 extern void loadGame(void);
 extern void removeFromDeadlist(Entity *candidate);
+extern void drawWidgetFrame(void);
+extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
+extern void showWidgets(const char *groupName, int visible);
+extern void drawWidgets(const char *groupName);
+extern void doWidgets(const char *groupName);
+extern Widget *getWidget(const char *name, const char *groupName);
+extern void calculateWidgetFrame(const char *groupName);
 
 extern App app;
 extern Game game;
