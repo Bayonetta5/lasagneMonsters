@@ -148,14 +148,14 @@
 			"y":	496,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	8,
 			"nextRefill":	0,
 			"found":	0
 		}],
 	"map":	{
-		"data":	"eJzt3UEKgCAQQNGrdARbeP+rRRBUpJFUiMPjrdJafIShnWlKm3lzfmqRhqZfv/7RK/Trf9efq9a36ru5e8E3/a2TLdr8u6svnXb0/mP9cT1fvutd8Ed/rX6fFJH77+qj/v+Uip7Ux+1/Vj96PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC3UW8/XAAAzQM",
-		"eLen":	196,
-		"cLen":	147,
+		"data":	"eJzt1kEKgCAQQNGrdARbeP+rRRBUpFJUiMPjrUxdfIShNKXNvDmvnkhD069f/+gV+vW/689V66n6bu5e8E3/08kWbf616kuvHb3/WH/8ni/3ehf80V+r3ydF5P5WfdT/n1LRnfq4/ffqR+8HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKFsAABUDLw=",
+		"eLen":	192,
+		"cLen":	142,
 		"dLen":	32768
 	}
 }

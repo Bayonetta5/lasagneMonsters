@@ -712,6 +712,8 @@ static void tryLoadStage(int n)
 	}
 
 	initStage(n, WIPE_NONE);
+
+	printf("Bounds: %d,%d %d,%d\n", stage->bounds.x, stage->bounds.y, stage->bounds.w, stage->bounds.h);
 }
 
 static void handleCommandLine(int argc, char *argv[])
@@ -744,6 +746,8 @@ int main(int argc, char *argv[])
 	selectedEntity = NULL;
 
 	nodeListTail = &nodeListHead;
+
+	initLookups();
 
 	initSDL();
 

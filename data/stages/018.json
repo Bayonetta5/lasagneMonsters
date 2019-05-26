@@ -5,7 +5,7 @@
 	"y":	3,
 	"entities":	[{
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"top",
 			"x":	2880,
 			"y":	0,
 			"facing":	"FACING_RIGHT",

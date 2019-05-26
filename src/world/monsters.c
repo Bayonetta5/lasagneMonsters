@@ -232,11 +232,8 @@ static void takeDamage(int amount, int damageType)
 static void die(void)
 {
 	Monster *m;
-	Walter *w;
-	int playerHealth;
 
 	m = (Monster*)self->data;
-	w = (Walter*)world.player->data;
 
 	playPositionalSound(SND_MONSTER_DIE, -1, self->x, self->y, world.player->x, world.player->y);
 
@@ -244,9 +241,7 @@ static void die(void)
 
 	throwCoins(self->x, self->y, m->coins);
 
-	playerHealth = (((1.0 * w->health) / w->maxHealth) * 125);
-
-	if (rand() % 100 > playerHealth)
+	if (rand() % 8 == 0)
 	{
 		spawnRandomHealthItem(self->x, self->y);
 	}

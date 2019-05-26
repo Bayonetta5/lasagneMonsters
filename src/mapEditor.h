@@ -50,6 +50,7 @@ extern void prepareScene(void);
 extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
+extern void initLookups(void);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 
 App app;
