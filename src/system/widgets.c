@@ -129,7 +129,17 @@ void doWidgets(const char *groupName)
 
 static void changeWidgetValue(int dir)
 {
-	app.selectedWidget->value = MAX(MIN(app.selectedWidget->value + dir, app.selectedWidget->numOptions - 1), 0);
+	app.selectedWidget->value += dir;
+
+	if (app.selectedWidget->value < 0)
+	{
+		app.selectedWidget->value = app.selectedWidget->numOptions - 1;
+	}
+
+	if (app.selectedWidget->value > app.selectedWidget->numOptions - 1)
+	{
+		app.selectedWidget->value = 0;
+	}
 
 	app.selectedWidget->action();
 
