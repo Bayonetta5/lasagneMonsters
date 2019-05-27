@@ -19,13 +19,13 @@
 		}, {
 			"type":	"platform",
 			"name":	"",
-			"x":	888,
-			"y":	144,
+			"x":	864,
+			"y":	632,
 			"facing":	"FACING_RIGHT",
-			"sx":	888,
-			"sy":	144,
-			"ex":	888,
-			"ey":	632,
+			"sx":	864,
+			"sy":	632,
+			"ex":	864,
+			"ey":	144,
 			"pause":	60,
 			"speed":	2,
 			"enabled":	1
@@ -36,8 +36,7 @@
 			"y":	576,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
+			"requires":	"DR_REMOTE",
 			"sx":	1264,
 			"sy":	576,
 			"ex":	1264,
@@ -77,38 +76,8 @@
 			"type":	"gumballMachine",
 			"name":	"",
 			"x":	608,
-			"y":	616,
+			"y":	622,
 			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	136,
-			"y":	576,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	144,
-			"y":	384,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	152,
-			"y":	192,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -130,44 +99,13 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	1128,
-			"y":	192,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	1136,
-			"y":	384,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"ceilingLamp",
-			"name":	"",
-			"x":	1136,
-			"y":	576,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
 			"type":	"horizontalDoor",
 			"name":	"",
 			"x":	912,
 			"y":	672,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
+			"requires":	"DR_REMOTE",
 			"sx":	912,
 			"sy":	672,
 			"ex":	1008,
@@ -179,8 +117,7 @@
 			"y":	672,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
+			"requires":	"DR_REMOTE",
 			"sx":	904,
 			"sy":	672,
 			"ex":	1104,
@@ -192,8 +129,7 @@
 			"y":	672,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
-			"speed":	1,
+			"requires":	"DR_REMOTE",
 			"sx":	912,
 			"sy":	672,
 			"ex":	1200,
@@ -238,11 +174,17 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"snakeBoss",
+			"name":	"",
+			"x":	1096,
+			"y":	144,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
-		"data":	"eJzt11EKgCAQBcCrdAQLuv/VCopKyogIKx2G/Vh0obfgR23THgizo7Pt+f/dySL/21/9ZP5+cX5zvVdW/jwzXyV/7fm9/xwzXyV/7fm9/5rJ33X9riZxl+63VdI+x92EsKvpDzju0n08+XaiPLtJKX0nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcMUAUWQRNw=",
-		"eLen":	200,
-		"cLen":	148,
+		"data":	"eJzt10EKgCAQQNGrdAQVuv/VCmyhqBAtlOTxcDFI0J+d8Ygd4dG7K+//70uL/tV/rV+/fv369evXr39m/070p3Q2J6un8VyenfZ57yaE5uQXcD2N5/rL1UVzdjOy+04AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgjQtJ7xC",
+		"eLen":	172,
+		"cLen":	129,
 		"dLen":	32844
 	}
 }

@@ -49,6 +49,7 @@ extern void initStartPoint(Entity *e);
 extern void initTrafficLight(Entity *e);
 extern void initTransferCube(Entity *e);
 extern void initWaterBottle(Entity *e);
+extern void initSnakeBoss(Entity *e);
 extern long lookup(const char *key);
 
 extern Entity *self;

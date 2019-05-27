@@ -213,6 +213,13 @@ typedef struct {
 	int dy;
 } StartPoint;
 
+typedef struct {
+	int health;
+	int maxHealth;
+	int thinkTime;
+	int shotsToFire;
+} Boss;
+
 struct Particle {
 	float x;
 	float y;
@@ -268,6 +275,7 @@ struct Stage {
 typedef struct {
 	int showHUD;
 	Entity *player;
+	Boss *boss;
 	Stage stagesHead, *stagesTail;
 	AtlasImage *tiles[MAX_TILES];
 	Particle particleHead, *particleTail;

@@ -33,6 +33,7 @@ static void drawTimeLimit(void);
 static void drawZoneInfo(void);
 static void drawGameText(void);
 static void doVanquished(void);
+static void drawBossHealth(void);
 static void initGameText(const char *text);
 
 static int stageId;
@@ -179,6 +180,8 @@ void drawHud(void)
 	drawBottomBar();
 
 	drawGameText();
+
+	drawBossHealth();
 }
 
 static void drawTopBar(void)
@@ -314,5 +317,29 @@ static void drawGameText(void)
 		y = g->y - world.camera.y;
 
 		drawText(x, y, 32, TEXT_CENTER, app.colors.white, g->text);
+	}
+}
+
+static void drawBossHealth(void)
+{
+	SDL_Rect r;
+	float p;
+	int w;
+
+	if (world.boss != NULL)
+	{
+		r.w = 900;
+		r.h = 16;
+		r.x = (SCREEN_WIDTH - r.w) / 2;
+		r.y = (SCREEN_HEIGHT - 64);
+
+		p = world.boss->health;
+		p /= world.boss->maxHealth;
+
+		w = r.w * p;
+
+		drawRect(r.x, r.y, r.w, r.h, 255, 255, 255, 255);
+		drawRect(r.x + 1, r.y + 1, r.w - 2, r.h - 2, 96, 0, 0, 255);
+		drawRect(r.x + 1, r.y + 1, w - 2, r.h - 2, 192, 0, 0, 255);
 	}
 }
