@@ -35,6 +35,10 @@ extern void loadMusic(char *filename);
 extern void playMusic(int loop);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
 extern void throwCoins(int x, int y, int n);
+extern Entity *findStartPoint(const char *name);
+extern int rrnd(int low, int high);
+extern void throwPusBalls(int x, int y, int n);
+extern void activeEntities(char *targetName, int activate);
 
 extern App app;
 extern Entity *self;

@@ -306,7 +306,7 @@ void destroyStage(void)
 	world.gameTextTail = &world.gameTextHead;
 }
 
-static Entity *findStartPoint(const char *name)
+Entity *findStartPoint(const char *name)
 {
 	Entity *e;
 

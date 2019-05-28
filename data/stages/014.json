@@ -100,7 +100,7 @@
 			"a":	255
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"bossDoor",
 			"x":	912,
 			"y":	672,
 			"facing":	"FACING_RIGHT",
@@ -112,7 +112,7 @@
 			"ey":	672
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"bossDoor",
 			"x":	904,
 			"y":	672,
 			"facing":	"FACING_RIGHT",
@@ -124,7 +124,7 @@
 			"ey":	672
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"bossDoor",
 			"x":	912,
 			"y":	672,
 			"facing":	"FACING_RIGHT",
@@ -180,6 +180,22 @@
 			"x":	1096,
 			"y":	144,
 			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"startPoint",
+			"name":	"bossRight",
+			"x":	1120,
+			"y":	768,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
+		}, {
+			"type":	"startPoint",
+			"name":	"bossLeft",
+			"x":	152,
+			"y":	768,
+			"facing":	"FACING_RIGHT",
+			"dx":	0,
+			"dy":	0
 		}],
 	"map":	{
 		"data":	"eJzt10EKgCAQQNGrdAQVuv/VCmyhqBAtlOTxcDFI0J+d8Ygd4dG7K+//70uL/tV/rV+/fv369evXr39m/070p3Q2J6un8VyenfZ57yaE5uQXcD2N5/rL1UVzdjOy+04AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgjQtJ7xC",
