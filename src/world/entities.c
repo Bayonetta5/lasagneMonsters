@@ -516,7 +516,7 @@ void drawEntityLights(void)
 	}
 }
 
-void activeEntities(char *targetName, int active)
+void activateEntities(char *targetName, int active)
 {
 	Entity *e, *oldSelf;
 

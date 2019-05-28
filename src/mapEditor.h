@@ -43,6 +43,7 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern Stage *getStage(int i);
 extern Entity **initAllEnts(int *numEnts);
 extern void initGameSystem(void);
+extern void initLookups(void);
 extern void initSDL(void);
 extern void initStage(int id, int wipeType);
 extern void loadAllStages(void);
@@ -50,7 +51,6 @@ extern void prepareScene(void);
 extern void presentScene(void);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void saveStage(const char *filename);
-extern void initLookups(void);
 extern Entity *spawnEditorEntity(const char *type, int x, int y);
 
 App app;

@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-extern void activeEntities(char *targetName, int activate);
+extern void activateEntities(char *targetName, int activate);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern int deductCoins(int i);
 extern void drawEntityLinkLines(Entity *e, char *targetName);

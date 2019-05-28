@@ -209,7 +209,7 @@ static void killBoss(void)
 		}
 		else if (killPart == -5)
 		{
-			activeEntities("bossDoor", 1);
+			activateEntities("bossDoor", 1);
 		}
 
 		killPart--;

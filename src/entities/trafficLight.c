@@ -147,7 +147,7 @@ static void toggle(void)
 
 	t->on = !t->on;
 
-	activeEntities(t->targetName, t->on);
+	activateEntities(t->targetName, t->on);
 
 	playPositionalSound(SND_TRAFFIC_LIGHT, -1, self->x, self->y, world.player->x, world.player->y);
 }

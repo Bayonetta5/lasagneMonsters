@@ -22,25 +22,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_BODY_PARTS 10
 
-extern void addCoinParticles(int x, int y);
-extern void addGameText(int x, int y, char *format, ...);
-extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
-extern void drawObjectGlow(int r, int g, int b, int a);
-extern AtlasImage *getAtlasImage(char *filename, int required);
-extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
-extern Entity *spawnEntity(void);
+extern void activateEntities(char *targetName, int activate);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
+extern Entity *findStartPoint(const char *name);
+extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);
-extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
-extern void throwCoins(int x, int y, int n);
-extern Entity *findStartPoint(const char *name);
+extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern int rrnd(int low, int high);
+extern Entity *spawnEntity(void);
+extern void throwCoins(int x, int y, int n);
 extern void throwPusBalls(int x, int y, int n);
-extern void activeEntities(char *targetName, int activate);
 
 extern App app;
 extern Entity *self;
-extern Game game;
 extern World world;

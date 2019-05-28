@@ -136,7 +136,7 @@ static void touch(Entity *other)
 				{
 					playPositionalSound(SND_SQUEAK, CH_PLAYER, self->x, self->y, world.player->x, world.player->y);
 
-					activeEntities(p->targetName, 1);
+					activateEntities(p->targetName, 1);
 				}
 
 				p->pauseTime = FPS / 12;
