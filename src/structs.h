@@ -216,8 +216,6 @@ typedef struct {
 typedef struct {
 	int health;
 	int maxHealth;
-	int thinkTime;
-	int shotsToFire;
 } Boss;
 
 struct Particle {

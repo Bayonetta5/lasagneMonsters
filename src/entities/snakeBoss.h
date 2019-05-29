@@ -33,7 +33,11 @@ extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, 
 extern int rrnd(int low, int high);
 extern Entity *spawnEntity(void);
 extern void throwCoins(int x, int y, int n);
+extern void removeFromQuadtree(Entity *e, Quadtree *root);
+extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void throwPusBalls(int x, int y, int n);
+extern void initSlimeBullet(Entity *owner);
+extern void initAimedSlimeBullet(Entity *owner, Entity *target);
 
 extern App app;
 extern Entity *self;

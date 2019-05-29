@@ -31,7 +31,7 @@
 			"enabled":	1
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"bossDoor",
 			"x":	1264,
 			"y":	576,
 			"facing":	"FACING_RIGHT",
@@ -68,10 +68,10 @@
 			"x":	1296,
 			"y":	576,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	21,
+			"targetFlag":	"left",
 			"w":	1,
-			"h":	1
+			"h":	2
 		}, {
 			"type":	"gumballMachine",
 			"name":	"",
@@ -101,38 +101,26 @@
 		}, {
 			"type":	"horizontalDoor",
 			"name":	"bossDoor",
-			"x":	912,
+			"x":	1968,
 			"y":	672,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"sx":	912,
-			"sy":	672,
-			"ex":	1008,
-			"ey":	672
-		}, {
-			"type":	"horizontalDoor",
-			"name":	"bossDoor",
-			"x":	904,
-			"y":	672,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_REMOTE",
-			"sx":	904,
-			"sy":	672,
-			"ex":	1104,
-			"ey":	672
-		}, {
-			"type":	"horizontalDoor",
-			"name":	"bossDoor",
-			"x":	912,
-			"y":	672,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_REMOTE",
-			"sx":	912,
+			"sx":	1968,
 			"sy":	672,
 			"ex":	1200,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1872,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1872,
+			"sy":	672,
+			"ex":	1104,
 			"ey":	672
 		}, {
 			"type":	"lamp",
@@ -177,8 +165,8 @@
 		}, {
 			"type":	"snakeBoss",
 			"name":	"",
-			"x":	1096,
-			"y":	144,
+			"x":	144,
+			"y":	760,
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"startPoint",
@@ -196,11 +184,83 @@
 			"facing":	"FACING_RIGHT",
 			"dx":	0,
 			"dy":	0
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1776,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1776,
+			"sy":	672,
+			"ex":	1008,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1680,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1680,
+			"sy":	672,
+			"ex":	720,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1392,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1392,
+			"sy":	672,
+			"ex":	96,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1584,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1584,
+			"sy":	672,
+			"ex":	432,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1488,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1488,
+			"sy":	672,
+			"ex":	192,
+			"ey":	672
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"bossDoor",
+			"x":	1296,
+			"y":	672,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_REMOTE",
+			"sx":	1296,
+			"sy":	672,
+			"ex":	0,
+			"ey":	672
 		}],
 	"map":	{
-		"data":	"eJzt10EKgCAQQNGrdAQVuv/VCmyhqBAtlOTxcDFI0J+d8Ygd4dG7K+//70uL/tV/rV+/fv369evXr39m/070p3Q2J6un8VyenfZ57yaE5uQXcD2N5/rL1UVzdjOy+04AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgjQtJ7xC",
-		"eLen":	172,
-		"cLen":	129,
-		"dLen":	32844
+		"data":	"eJzt10EKgCAQQNGrdAQVuv/VCmyhqJsWWvJ4uBgk6M/OeMSO8Ojdlff/96ZF/+q/1q9fv379+vXr1z+zfyf6Uzqbk9XTeC7PTvu8dxNCc/ILuJ7Gc/3l6iK7AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgK+4AJB9EiU",
+		"eLen":	168,
+		"cLen":	125,
+		"dLen":	32852
 	}
 }

@@ -27,9 +27,11 @@ static void retract(void);
 static void emerge(void);
 static void killBoss(void);
 static void die(void);
+static void preFire(void);
+static void fireShots(void);
 static void damage(int amount, int type);
 static void touch(Entity *other);
-static void initBodyParts(void);
+static void initBodyParts(Entity *e);
 static void updateBodyParts(void);
 
 static Entity *head;
@@ -38,6 +40,10 @@ static Entity *leftFlag, *rightFlag, *originFlag;
 static int attackDistance;
 static int deathCounter;
 static int killPart;
+static int thinkTime;
+static int shotsToFire;
+static int reload;
+static int shotType;
 
 /* This boss is hard-coded to the layout of stage 14. */
 void initSnakeBoss(Entity *e)
@@ -47,7 +53,7 @@ void initSnakeBoss(Entity *e)
 	b = malloc(sizeof(Boss));
 	memset(b, 0, sizeof(Boss));
 
-	b->health = b->maxHealth = 1;
+	b->health = b->maxHealth = 250;
 
 	e->typeName = "snakeBoss";
 	e->background = 1;
@@ -65,21 +71,21 @@ void initSnakeBoss(Entity *e)
 
 	head = e;
 
+	thinkTime = 0;
+	shotsToFire = 0;
+	reload = 0;
+	shotType = 0;
 	deathCounter = 0;
 	killPart = MAX_BODY_PARTS;
 
 	if (!app.dev.editor)
 	{
-		initBodyParts();
+		initBodyParts(e);
 	}
 }
 
 static void tick(void)
 {
-	Boss *b;
-
-	b = (Boss*)self->data;
-
 	if (rand() % 4 == 0)
 	{
 		self->flags |= EF_NO_WORLD_CLIP;
@@ -88,10 +94,12 @@ static void tick(void)
 	}
 	else
 	{
-		b->thinkTime = FPS * rrnd(1, 3);
+		thinkTime = FPS * rrnd(1, 3);
 
 		self->tick = chase;
 	}
+
+	preFire();
 
 	updateBodyParts();
 }
@@ -99,9 +107,6 @@ static void tick(void)
 static void chase(void)
 {
 	int distance;
-	Boss *b;
-
-	b = (Boss*)self->data;
 
 	distance = getDistance(self->x, self->y, world.player->x, world.player->y);
 
@@ -116,7 +121,9 @@ static void chase(void)
 
 	updateBodyParts();
 
-	if (--b->thinkTime <= 0)
+	fireShots();
+
+	if (--thinkTime <= 0)
 	{
 		self->tick = tick;
 	}
@@ -124,10 +131,6 @@ static void chase(void)
 
 static void retract(void)
 {
-	Boss *b;
-
-	b = (Boss*)self->data;
-
 	calcSlope(originFlag->x, originFlag->y, self->x, self->y, &self->dx, &self->dy);
 
 	self->dx *= 5;
@@ -135,22 +138,27 @@ static void retract(void)
 
 	updateBodyParts();
 
+	fireShots();
+
 	/* swap side */
 	if (getDistance(self->x, self->y, originFlag->x, originFlag->y) <= 5)
 	{
-		if (originFlag == leftFlag)
+		if (rand() % 3 >= 0)
 		{
-			originFlag = rightFlag;
-		}
-		else
-		{
-			originFlag = leftFlag;
+			if (originFlag == leftFlag)
+			{
+				originFlag = rightFlag;
+			}
+			else
+			{
+				originFlag = leftFlag;
+			}
 		}
 
 		self->x = originFlag->x;
 		self->y = originFlag->y;
 
-		b->thinkTime = rrnd(FPS * 1.5, FPS * 2.5);
+		thinkTime = rrnd(FPS * 1.5, FPS * 2.5);
 
 		self->tick = emerge;
 	}
@@ -158,15 +166,13 @@ static void retract(void)
 
 static void emerge(void)
 {
-	Boss *b;
-
-	b = (Boss*)self->data;
-
 	self->dy = -5;
 
 	updateBodyParts();
 
-	if (--b->thinkTime <= 0)
+	fireShots();
+
+	if (--thinkTime <= 0)
 	{
 		self->flags &= ~EF_NO_WORLD_CLIP;
 
@@ -184,12 +190,46 @@ static void damage(int amount, int type)
 
 	if (b->health > 0 && type == DT_WATER)
 	{
+		amount *= 5;
+
 		b->health = MAX(b->health - amount, 0);
 
 		if (b->health == 0)
 		{
 			self->tick = killBoss;
 		}
+	}
+}
+
+static void preFire(void)
+{
+	if (rand() % 2 == 0)
+	{
+		shotsToFire = rrnd(3, 8);
+		shotType = rand() % 3;
+	}
+}
+
+static void fireShots(void)
+{
+	if (shotsToFire > 0 && --reload <= 0)
+	{
+		switch (shotType)
+		{
+			case 0:
+				initAimedSlimeBullet(self, world.player);
+				break;
+
+			default:
+				initSlimeBullet(self);
+				break;
+		}
+
+		playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
+
+		shotsToFire--;
+
+		reload = FPS / 4;
 	}
 }
 
@@ -209,6 +249,8 @@ static void killBoss(void)
 		}
 		else if (killPart == -5)
 		{
+			self->alive = ALIVE_DEAD;
+
 			activateEntities("bossDoor", 1);
 		}
 
@@ -256,8 +298,12 @@ static void updateBodyParts(void)
 
 	for (i = 0 ; i < MAX_BODY_PARTS ; i++)
 	{
+		removeFromQuadtree(bodyPart[i], &world.quadtree);
+
 		bodyPart[i]->x = x;
 		bodyPart[i]->y = y;
+
+		addToQuadtree(bodyPart[i], &world.quadtree);
 
 		x += dx;
 		y += dy;
@@ -269,20 +315,25 @@ static void updateBodyParts(void)
 
 static void die(void)
 {
-	playPositionalSound(SND_MONSTER_DIE, -1, self->x, self->y, world.player->x, world.player->y);
+	playPositionalSound(SND_MONSTER_DIE, -1, self->cx, self->cy, world.player->x, world.player->y);
 
-	throwPusBalls(self->x, self->y, 8);
+	throwPusBalls(self->cx, self->cy, 8);
 }
 
 static void damageBody(int amount, int type)
 {
-	if (type == DT_WATER && rand() % 3 == 0)
+	if (type == DT_WATER)
 	{
-		throwCoins(self->x, self->y, 1);
+		world.boss->health = MAX(world.boss->health - amount, 1);
+
+		if (rand() % 3 == 0)
+		{
+			throwCoins(self->cx, self->cy, 1);
+		}
 	}
 }
 
-static void initBodyParts(void)
+static void initBodyParts(Entity *owner)
 {
 	int i;
 	Entity *e;
@@ -297,6 +348,8 @@ static void initBodyParts(void)
 		e->damage = damageBody;
 		e->touch = touch;
 		e->die = die;
+
+		e->owner = owner;
 
 		e->flags = EF_WEIGHTLESS+EF_NO_WORLD_CLIP+EF_STATIC;
 

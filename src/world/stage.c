@@ -58,6 +58,8 @@ void initStage(int stageId, int wipeType)
 
 	game.stageId = stageId;
 
+	world.boss = NULL;
+
 	resumeWidget = getWidget("resume", "stage");
 	resumeWidget->action = resume;
 
