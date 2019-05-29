@@ -25,6 +25,7 @@ static void waterBulletDie(void);
 static void slimeBulletDie(void);
 static void drawSlimeBulletLight(void);
 static void tickBouncer(void);
+static int isBulletOwner(Entity *other);
 
 static AtlasImage *waterBulletTexture;
 static AtlasImage *slimeBulletTexture;
@@ -187,7 +188,7 @@ static void touch(Entity *other)
 	{
 		if (other != NULL)
 		{
-			if (other->damage && other != self->owner && (other->owner == NULL || other->owner != self->owner))
+			if (other->damage && !isBulletOwner(other))
 			{
 				b = (Bullet*)self->data;
 
@@ -212,6 +213,20 @@ static void touch(Entity *other)
 			self->alive = ALIVE_DEAD;
 		}
 	}
+}
+
+static int isBulletOwner(Entity *other)
+{
+	if (self->owner == other)
+	{
+		return 1;
+	}
+	else if (other != NULL)
+	{
+		return isBulletOwner(other->owner);
+	}
+
+	return 0;
 }
 
 static Entity *initBullet(Entity *owner, int amount, int damageType)
