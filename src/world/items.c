@@ -52,7 +52,7 @@ void spawnRandomHealthItem(int x, int y)
 	throwItem(e);
 }
 
-void spawnGumball(int x, int y)
+void spawnGumball(int x, int y, int throw)
 {
 	Entity *e;
 
@@ -62,7 +62,14 @@ void spawnGumball(int x, int y)
 
 	initGumball(e);
 
-	throwItem(e);
+	if (throw)
+	{
+		throwItem(e);
+	}
+	else
+	{
+		e->dy = -12;
+	}
 }
 
 void throwItem(Entity *e)

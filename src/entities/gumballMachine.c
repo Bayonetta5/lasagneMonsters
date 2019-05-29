@@ -45,7 +45,7 @@ static void touch(Entity *other)
 			{
 				playSound(SND_BUY, -1);
 
-				spawnGumball(self->x, self->y);
+				spawnGumball(self->x, self->y, world.boss == NULL);
 			}
 		}
 	}
