@@ -187,7 +187,7 @@ static void touch(Entity *other)
 	{
 		if (other != NULL)
 		{
-			if (other->damage && other != self->owner)
+			if (other->damage && other != self->owner && (other->owner == NULL || other->owner != self->owner))
 			{
 				b = (Bullet*)self->data;
 
