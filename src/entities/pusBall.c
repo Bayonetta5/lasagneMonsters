@@ -28,7 +28,7 @@ void initPusBall(Entity *e)
 	e->type = ET_DECORATION;
 	e->tick = tick;
 	e->touch = touch;
-	e->flags = EF_TRANSIENT;
+	e->flags = EF_TRANSIENT+EF_DELETE;
 
 	e->drawLight = NULL;
 }
