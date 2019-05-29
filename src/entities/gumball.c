@@ -35,7 +35,7 @@ void initGumball(Entity *e)
 	i = malloc(sizeof(Item));
 	memset(i, 0, sizeof(Item));
 
-	i->touchDelay = FPS / 2;
+	i->touchDelay = FPS / 3;
 	i->value = rand() % NUM_GUMBALLS;
 
 	e->typeName = "gumball";
