@@ -23,22 +23,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_BODY_PARTS 10
 
 extern void activateEntities(char *targetName, int activate);
+extern void addToQuadtree(Entity *e, Quadtree *root);
+extern void blitAtlasImageRotated(AtlasImage *atlasImage, int x, int y, float angle, SDL_RendererFlip flip);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern Entity *findStartPoint(const char *name);
+extern float getAngle(int x1, int y1, int x2, int y2);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern void initAimedSlimeBullet(Entity *owner, Entity *target);
+extern void initSlimeBullet(Entity *owner);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
+extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern int rrnd(int low, int high);
 extern Entity *spawnEntity(void);
 extern void throwCoins(int x, int y, int n);
-extern void removeFromQuadtree(Entity *e, Quadtree *root);
-extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void throwPusBalls(int x, int y, int n);
-extern void initSlimeBullet(Entity *owner);
-extern void initAimedSlimeBullet(Entity *owner, Entity *target);
 
-extern App app;
 extern Entity *self;
 extern World world;

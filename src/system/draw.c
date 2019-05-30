@@ -93,21 +93,19 @@ void presentScene(void)
 	SDL_RenderPresent(app.renderer);
 }
 
-void blit(SDL_Texture *texture, int x, int y, int center, SDL_RendererFlip flip)
+void blitAtlasImageRotated(AtlasImage *atlasImage, int x, int y, float angle, SDL_RendererFlip flip)
 {
 	SDL_Rect dest;
 
 	dest.x = x;
 	dest.y = y;
-	SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
+	dest.w = atlasImage->rect.w;
+	dest.h = atlasImage->rect.h;
 
-	if (center)
-	{
-		dest.x -= dest.w / 2;
-		dest.y -= dest.h / 2;
-	}
+	dest.x -= (dest.w / 2);
+	dest.y -= (dest.h / 2);
 
-	SDL_RenderCopyEx(app.renderer, texture, NULL, &dest, 0, NULL, flip);
+	SDL_RenderCopyEx(app.renderer, atlasImage->texture, &atlasImage->rect, &dest, angle, NULL, flip);
 }
 
 void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip)

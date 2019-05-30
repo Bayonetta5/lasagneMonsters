@@ -26,6 +26,7 @@ static void chase(void);
 static void retract(void);
 static void emerge(void);
 static void killBoss(void);
+static void draw(void);
 static void die(void);
 static void preFire(void);
 static void fireShots(void);
@@ -44,6 +45,8 @@ static int thinkTime;
 static int shotsToFire;
 static int reload;
 static int shotType;
+static int hitTimer;
+static int angle;
 
 /* This boss is hard-coded to the layout of stage 14. */
 void initSnakeBoss(Entity *e)
@@ -59,9 +62,10 @@ void initSnakeBoss(Entity *e)
 	e->background = 1;
 	e->type = ET_MONSTER;
 	e->data = b;
-	e->flags = EF_WEIGHTLESS+EF_NO_ENT_CLIP;
+	e->flags = EF_NO_WORLD_CLIP+EF_WEIGHTLESS+EF_NO_ENT_CLIP;
 	e->init = init;
 	e->tick = tick;
+	e->draw = draw;
 	e->damage = damage;
 	e->touch = touch;
 
@@ -76,12 +80,8 @@ void initSnakeBoss(Entity *e)
 	reload = 0;
 	shotType = 0;
 	deathCounter = 0;
+	hitTimer = 0;
 	killPart = MAX_BODY_PARTS;
-
-	if (!app.dev.editor)
-	{
-		initBodyParts(e);
-	}
 }
 
 static void tick(void)
@@ -190,6 +190,8 @@ static void damage(int amount, int type)
 
 	if (b->health > 0 && type == DT_WATER)
 	{
+		hitTimer = 255;
+
 		amount *= 5;
 
 		b->health = MAX(b->health - amount, 0);
@@ -260,6 +262,22 @@ static void killBoss(void)
 	deathCounter++;
 }
 
+static void draw(void)
+{
+	if (hitTimer == 0)
+	{
+		blitAtlasImageRotated(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, angle, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+	}
+	else
+	{
+		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255 - hitTimer, 255 - hitTimer);
+
+		blitAtlasImageRotated(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, angle, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+
+		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
+	}
+}
+
 static void touch(Entity *other)
 {
 	Entity *oldSelf;
@@ -311,6 +329,10 @@ static void updateBodyParts(void)
 
 	/* always face player */
 	self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
+
+	angle = getAngle(self->x, self->y, world.player->x, world.player->y) + (self->facing == FACING_RIGHT ? -90 : 90);
+
+	hitTimer = MAX(hitTimer - 32, 0);
 }
 
 static void die(void)
@@ -324,6 +346,8 @@ static void damageBody(int amount, int type)
 {
 	if (type == DT_WATER)
 	{
+		hitTimer = 255;
+
 		world.boss->health = MAX(world.boss->health - amount, 1);
 
 		if (rand() % 3 == 0)
@@ -346,6 +370,7 @@ static void initBodyParts(Entity *owner)
 		e->y = head->y;
 		e->background = 1;
 		e->damage = damageBody;
+		e->draw = draw;
 		e->touch = touch;
 		e->die = die;
 
@@ -374,4 +399,13 @@ static void init(void)
 	originFlag = rightFlag;
 
 	attackDistance = rrnd(250, 500);
+
+	initBodyParts(head);
+
+	self->x = originFlag->x;
+	self->y = originFlag->y;
+
+	self->tick = emerge;
+
+	thinkTime = FPS * 2;
 }
