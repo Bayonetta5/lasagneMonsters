@@ -41,6 +41,7 @@ extern void initKey(Entity *e);
 extern void initLamp(Entity *e);
 extern void initPiggyBank(Entity *e);
 extern void initPlatform(Entity *e);
+extern void initRadarUpgrade(Entity *e);
 extern void initPlayer(Entity *e);
 extern void initRedFlyingCyclops(Entity *e);
 extern void initRedHorse(Entity *e);

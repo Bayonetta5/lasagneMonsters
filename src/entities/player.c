@@ -111,17 +111,14 @@ static void tick(void)
 
 		if (isControl(CONTROL_FIRE))
 		{
-			if (!w->autoFire)
-			{
-				clearControl(CONTROL_FIRE);
-			}
+			clearControl(CONTROL_FIRE);
 
 			if (w->ammo > 0 && w->reload == 0)
 			{
 				w->ammo--;
 
 				/* don't let the player fire too quickly */
-				w->reload = w->autoFire;
+				w->reload = 16;
 
 				initWaterBullet(self);
 
@@ -188,13 +185,13 @@ static void load(cJSON *root)
 
 	w = (Walter*)self->data;
 
-	w->health = cJSON_GetValueInt(root, "health", 3);
-	w->maxHealth = cJSON_GetValueInt(root, "maxHealth", 3);
-	w->ammo = cJSON_GetValueInt(root, "ammo", 5);
-	w->maxAmmo = cJSON_GetValueInt(root, "maxAmmo", 5);
-	w->refillRate = cJSON_GetValueDouble(root, "refillRate", 0.05f);
-	w->autoFire = cJSON_GetValueInt(root, "autoFire", 0);
+	w->health = cJSON_GetValueInt(root, "health", w->health);
+	w->maxHealth = cJSON_GetValueInt(root, "maxHealth", w->maxHealth);
+	w->ammo = cJSON_GetValueInt(root, "ammo", w->ammo);
+	w->maxAmmo = cJSON_GetValueInt(root, "maxAmmo", w->maxAmmo);
+	w->refillRate = cJSON_GetValueDouble(root, "refillRate", w->refillRate);
 	w->hasDoubleJump = cJSON_GetValueInt(root, "hasDoubleJump", 0);
+	w->hasRadarUpgrade = cJSON_GetValueInt(root, "hasRadarUpgrade", 0);
 }
 
 static void save(cJSON *root)
@@ -208,6 +205,6 @@ static void save(cJSON *root)
 	cJSON_AddNumberToObject(root, "ammo", w->ammo);
 	cJSON_AddNumberToObject(root, "maxAmmo", w->maxAmmo);
 	cJSON_AddNumberToObject(root, "refillRate", w->refillRate);
-	cJSON_AddNumberToObject(root, "autoFire", w->autoFire);
 	cJSON_AddNumberToObject(root, "hasDoubleJump", w->hasDoubleJump);
+	cJSON_AddNumberToObject(root, "hasRadarUpgrade", w->hasRadarUpgrade);
 }

@@ -121,8 +121,8 @@ typedef struct {
 	int reload;
 	int jumps;
 	float refillRate;
-	int autoFire;
 	int hasDoubleJump;
+	int hasRadarUpgrade;
 	SDL_Point checkpoint;
 	int checkpointTimer;
 } Walter;
