@@ -20,21 +20,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "radar.h"
 
-static void initStageMap(void);
 static void logic(void);
 static void draw(void);
 static void drawRadar(void);
 static void drawEntities(void);
+static void initMapView(void);
+static void updateMapView(void);
+static void drawArrows(void);
 
 static void (*returnFromRadar)(void);
 static void (*oldDraw)(void);
 static SDL_Rect areaRect;
 static SDL_Rect offset;
 static AtlasImage *arrowTexture;
+static int showArrow[4];
+static float arrowPulse;
 
 void initRadar(void (*done)(void))
 {
-	initStageMap();
+	initMapView();
+
+	arrowPulse = 0;
 
 	arrowTexture = getAtlasImage("gfx/main/radarArrow.png", 1);
 
@@ -48,6 +54,8 @@ void initRadar(void (*done)(void))
 
 static void logic(void)
 {
+	arrowPulse += 0.1;
+
 	if (isControl(CONTROL_MAP))
 	{
 		clearControl(CONTROL_MAP);
@@ -65,6 +73,28 @@ static void logic(void)
 
 		initZoneMap(returnFromRadar);
 	}
+
+	if (isControl(CONTROL_RIGHT))
+	{
+		areaRect.x++;
+	}
+
+	if (isControl(CONTROL_LEFT))
+	{
+		areaRect.x--;
+	}
+
+	if (isControl(CONTROL_UP))
+	{
+		areaRect.y--;
+	}
+
+	if (isControl(CONTROL_DOWN))
+	{
+		areaRect.y++;
+	}
+
+	updateMapView();
 }
 
 static void draw(void)
@@ -80,6 +110,8 @@ static void draw(void)
 	drawRadar();
 
 	drawEntities();
+
+	drawArrows();
 }
 
 static void drawRadar(void)
@@ -126,7 +158,7 @@ static void drawEntities(void)
 
 	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (!w->hasRadarUpgrade && e->type != ET_PLAYER)
+		if ((!w->hasRadarUpgrade && e->type != ET_PLAYER) && !app.dev.debug)
 		{
 			continue;
 		}
@@ -172,7 +204,34 @@ static void drawEntities(void)
 	}
 }
 
-static void initStageMap(void)
+static void drawArrows(void)
+{
+	float pulse;
+
+	pulse = sin(arrowPulse) * 10;
+
+	if (showArrow[0])
+	{
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 250 + pulse, 0, SDL_FLIP_NONE);
+	}
+
+	if (showArrow[1])
+	{
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + 250 + pulse, 180, SDL_FLIP_NONE);
+	}
+
+	if (showArrow[2])
+	{
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2) - 550 + pulse, (SCREEN_HEIGHT / 2), -90, SDL_FLIP_NONE);
+	}
+
+	if (showArrow[3])
+	{
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2) + 550 + pulse, (SCREEN_HEIGHT / 2), 90, SDL_FLIP_NONE);
+	}
+}
+
+static void initMapView(void)
 {
 	areaRect.x = (world.camera.x + (SCREEN_WIDTH / 2)) / TILE_SIZE;
 	areaRect.x -= (RADAR_WIDTH / 2);
@@ -190,4 +249,32 @@ static void initStageMap(void)
 
 	offset.x = (areaRect.w - areaRect.x);
 	offset.y = (areaRect.h - areaRect.y);
+
+	updateMapView();
 }
+
+static void updateMapView(void)
+{
+	int w, h;
+
+	w = MAX(0, (stage->bounds.w / TILE_SIZE) - RADAR_WIDTH);
+	h = MAX(0, (stage->bounds.h / TILE_SIZE) - RADAR_HEIGHT);
+
+	areaRect.x = MIN(MAX(areaRect.x, stage->bounds.x / TILE_SIZE), w);
+	areaRect.y = MIN(MAX(areaRect.y, stage->bounds.y / TILE_SIZE), h);
+
+	areaRect.w = areaRect.x + RADAR_WIDTH;
+	areaRect.h = areaRect.y + RADAR_HEIGHT;
+
+	areaRect.w = MIN(areaRect.w, stage->bounds.w / TILE_SIZE);
+	areaRect.h = MIN(areaRect.h, stage->bounds.h / TILE_SIZE);
+
+	showArrow[0] = areaRect.y != stage->bounds.y / TILE_SIZE;
+
+	showArrow[1] = areaRect.y != h;
+
+	showArrow[2] = areaRect.x != stage->bounds.x / TILE_SIZE;
+
+	showArrow[3] = areaRect.x != w;
+}
+
