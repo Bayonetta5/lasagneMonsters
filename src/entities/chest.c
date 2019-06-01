@@ -37,7 +37,7 @@ void initChest(Entity *e)
 	memset(c, 0, sizeof(Chest));
 
 	e->typeName = "chest";
-	e->type = ET_STRUCTURE;
+	e->type = ET_CHEST;
 	e->data = c;
 	e->tick = tick;
 	e->touch = touch;

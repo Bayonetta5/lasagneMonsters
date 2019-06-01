@@ -34,7 +34,7 @@ void initHeart(Entity *e)
 	memset(h, 0, sizeof(Item));
 
 	e->typeName = "heart";
-	e->type = ET_ITEM;
+	e->type = ET_POWERUP;
 	e->data = h;
 	e->flags = EF_DELETE;
 	e->tick = tick;

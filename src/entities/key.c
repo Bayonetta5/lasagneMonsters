@@ -39,7 +39,7 @@ void initKey(Entity *e)
 	k->bobValue *= 0.01;
 
 	e->typeName = "key";
-	e->type = ET_ITEM;
+	e->type = ET_KEY;
 	e->data = k;
 	e->flags = EF_WEIGHTLESS+EF_NO_ENT_CLIP+EF_DELETE;
 	e->tick = tick;

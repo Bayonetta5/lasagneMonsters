@@ -20,7 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define CELL_SIZE   16
+#define CELL_SIZE        16
+#define RADAR_WIDTH      64
+#define RADAR_HEIGHT     32
 
 extern void clearControl(int type);
 extern void drawRect(int x, int y, int w, int h, int r, int g, int b, int a);
@@ -29,6 +31,8 @@ extern int getTileAt(int x, int y);
 extern void initZoneMap(void (*done)(void));
 extern int isControl(int type);
 extern void playSound(int snd, int ch);
+extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void blitAtlasImageRotated(AtlasImage *atlasImage, int x, int y, float angle, SDL_RendererFlip flip);
 
 extern App app;
 extern Stage *stage;

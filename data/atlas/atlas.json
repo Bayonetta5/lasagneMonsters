@@ -680,7 +680,7 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/monsters.png",
+		"filename" : "gfx/main/radarArrow.png",
 		"x" : 288,
 		"y" : 281,
 		"w" : 24,
@@ -688,8 +688,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/hud/girls.png",
+		"filename" : "gfx/hud/monsters.png",
 		"x" : 313,
+		"y" : 281,
+		"w" : 24,
+		"h" : 24,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/girls.png",
+		"x" : 338,
 		"y" : 281,
 		"w" : 24,
 		"h" : 24,

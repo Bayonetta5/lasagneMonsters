@@ -30,10 +30,13 @@ static void (*returnFromRadar)(void);
 static void (*oldDraw)(void);
 static SDL_Rect areaRect;
 static SDL_Rect offset;
+static AtlasImage *arrowTexture;
 
 void initRadar(void (*done)(void))
 {
 	initStageMap();
+
+	arrowTexture = getAtlasImage("gfx/main/radarArrow.png", 1);
 
 	returnFromRadar = done;
 
@@ -113,27 +116,58 @@ static void drawRadar(void)
 static void drawEntities(void)
 {
 	Entity *e;
+	Walter *w;
 	int x, y, ox, oy;
 
 	ox = (SCREEN_WIDTH - (offset.x * CELL_SIZE)) / 2;
 	oy = (SCREEN_HEIGHT - (offset.y * CELL_SIZE)) / 2;
 
+	w = (Walter*)world.player->data;
+
 	for (e = stage->entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (!w->hasRadarUpgrade && e->type != ET_PLAYER)
+		{
+			continue;
+		}
+
 		x = ((e->x + (e->w / 2)) / TILE_SIZE) - areaRect.x;
 		y = ((e->y + (e->h / 2)) / TILE_SIZE) - areaRect.y;
 
-		switch (e->type)
+		if (x > 0 && y > 0 && x < RADAR_WIDTH && y < RADAR_HEIGHT)
 		{
-			case ET_PLAYER:
-				if (SDL_GetTicks() % 1000 < 500)
-				{
-					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 255, 255, 255);
-				}
-				break;
+			switch (e->type)
+			{
+				case ET_PLAYER:
+					if (SDL_GetTicks() % 1000 < 500)
+					{
+						drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 255, 255, 255);
+					}
+					break;
 
-			default:
-				break;
+				case ET_MONSTER:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 0, 0, 255);
+					break;
+
+				case ET_BBBBB:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 255, 0, 255);
+					break;
+
+				case ET_POWERUP:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 160, 160, 255, 255);
+					break;
+
+				case ET_CHEST:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 0, 255, 255, 255);
+					break;
+
+				case ET_SAVE_POINT:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 0, 255, 255);
+					break;
+
+				default:
+					break;
+			}
 		}
 	}
 }
@@ -141,15 +175,15 @@ static void drawEntities(void)
 static void initStageMap(void)
 {
 	areaRect.x = (world.camera.x + (SCREEN_WIDTH / 2)) / TILE_SIZE;
-	areaRect.x -= 32;
+	areaRect.x -= (RADAR_WIDTH / 2);
 	areaRect.x = MAX(areaRect.x, stage->bounds.x / TILE_SIZE);
 
 	areaRect.y = (world.camera.y + (SCREEN_HEIGHT / 2)) / TILE_SIZE;
-	areaRect.y -= 16;
+	areaRect.y -= (RADAR_HEIGHT / 2);
 	areaRect.y = MAX(areaRect.y, stage->bounds.y / TILE_SIZE);
 
-	areaRect.w = areaRect.x + 64;
-	areaRect.h = areaRect.y + 32;
+	areaRect.w = areaRect.x + RADAR_WIDTH;
+	areaRect.h = areaRect.y + RADAR_HEIGHT;
 
 	areaRect.w = MIN(areaRect.w, stage->bounds.w / TILE_SIZE);
 	areaRect.h = MIN(areaRect.h, stage->bounds.h / TILE_SIZE);

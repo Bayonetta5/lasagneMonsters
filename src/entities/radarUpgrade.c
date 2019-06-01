@@ -35,7 +35,7 @@ void initRadarUpgrade(Entity *e)
 	memset(i, 0, sizeof(Item));
 
 	e->typeName = "radarUpgrade";
-	e->type = ET_ITEM;
+	e->type = ET_POWERUP;
 	e->data = i;
 	e->flags = EF_DELETE;
 	e->tick = tick;

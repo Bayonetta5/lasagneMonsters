@@ -39,7 +39,7 @@ void initGumball(Entity *e)
 	i->value = rand() % NUM_GUMBALLS;
 
 	e->typeName = "gumball";
-	e->type = ET_ITEM;
+	e->type = ET_POWERUP;
 	e->data = i;
 	e->flags = EF_FRICTION;
 	e->tick = tick;

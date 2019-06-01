@@ -43,8 +43,8 @@ void initBBBBB(Entity *e)
 	b->health = 5;
 	b->cageType = CT_HANGING;
 
+	e->type = ET_BBBBB;
 	e->typeName = "bbbbb";
-	e->type = ET_STRUCTURE;
 	e->data = b;
 	e->flags = EF_SOLID;
 	e->tick = tick;

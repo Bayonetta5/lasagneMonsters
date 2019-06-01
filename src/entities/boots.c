@@ -34,7 +34,7 @@ void initBoots(Entity *e)
 	memset(b, 0, sizeof(Item));
 
 	e->typeName = "boots";
-	e->type = ET_ITEM;
+	e->type = ET_POWERUP;
 	e->data = b;
 	e->flags = EF_DELETE;
 	e->tick = tick;
