@@ -217,7 +217,7 @@ static void drawArrows(void)
 
 	if (showArrow[1])
 	{
-		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + 250 + pulse, 180, SDL_FLIP_NONE);
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + 250 - pulse, 180, SDL_FLIP_NONE);
 	}
 
 	if (showArrow[2])
@@ -227,7 +227,7 @@ static void drawArrows(void)
 
 	if (showArrow[3])
 	{
-		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2) + 550 + pulse, (SCREEN_HEIGHT / 2), 90, SDL_FLIP_NONE);
+		blitAtlasImageRotated(arrowTexture, (SCREEN_WIDTH / 2) + 550 - pulse, (SCREEN_HEIGHT / 2), 90, SDL_FLIP_NONE);
 	}
 }
 
@@ -247,34 +247,39 @@ static void initMapView(void)
 	areaRect.w = MIN(areaRect.w, stage->bounds.w / TILE_SIZE);
 	areaRect.h = MIN(areaRect.h, stage->bounds.h / TILE_SIZE);
 
-	offset.x = (areaRect.w - areaRect.x);
-	offset.y = (areaRect.h - areaRect.y);
-
 	updateMapView();
+
+	offset.x = MIN(RADAR_WIDTH, (stage->bounds.w - stage->bounds.x) / TILE_SIZE);
+	offset.y = MIN(RADAR_HEIGHT, (stage->bounds.h - stage->bounds.y) / TILE_SIZE);
 }
 
 static void updateMapView(void)
 {
+	SDL_Rect limits;
 	int w, h;
 
-	w = MAX(0, (stage->bounds.w / TILE_SIZE) - RADAR_WIDTH);
-	h = MAX(0, (stage->bounds.h / TILE_SIZE) - RADAR_HEIGHT);
+	limits.x = (stage->bounds.x / TILE_SIZE);
+	limits.y = (stage->bounds.y / TILE_SIZE);
+	limits.w = (stage->bounds.w / TILE_SIZE);
+	limits.h = (stage->bounds.h / TILE_SIZE);
 
-	areaRect.x = MIN(MAX(areaRect.x, stage->bounds.x / TILE_SIZE), w);
-	areaRect.y = MIN(MAX(areaRect.y, stage->bounds.y / TILE_SIZE), h);
+	w = (stage->bounds.w - stage->bounds.x) / TILE_SIZE;
+	h = (stage->bounds.h - stage->bounds.y) / TILE_SIZE;
 
-	areaRect.w = areaRect.x + RADAR_WIDTH;
-	areaRect.h = areaRect.y + RADAR_HEIGHT;
+	w = MIN(w, RADAR_WIDTH);
+	h = MIN(h, RADAR_HEIGHT);
 
-	areaRect.w = MIN(areaRect.w, stage->bounds.w / TILE_SIZE);
-	areaRect.h = MIN(areaRect.h, stage->bounds.h / TILE_SIZE);
+	areaRect.x = MIN(MAX(areaRect.x, limits.x), limits.w - w);
+	areaRect.y = MIN(MAX(areaRect.y, limits.y), limits.h - h);
+	areaRect.w = areaRect.x + w;
+	areaRect.h = areaRect.y + h;
 
-	showArrow[0] = areaRect.y != stage->bounds.y / TILE_SIZE;
+	showArrow[0] = areaRect.y != limits.y;
 
-	showArrow[1] = areaRect.y != h;
+	showArrow[1] = areaRect.y != limits.h - h;
 
-	showArrow[2] = areaRect.x != stage->bounds.x / TILE_SIZE;
+	showArrow[2] = areaRect.x != limits.x;
 
-	showArrow[3] = areaRect.x != w;
+	showArrow[3] = areaRect.x != limits.w - w;
 }
 
