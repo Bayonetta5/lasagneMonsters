@@ -27,6 +27,7 @@ static void doCamera(int jumpTo);
 static void drawStages(void);
 static void drawStageInfo(void);
 static void drawStageExits(void);
+static void selectComputerZone(void);
 
 static PointF camera;
 static Stage *selectedStage;
@@ -95,16 +96,28 @@ static void logic(void)
 	{
 		clearControl(CONTROL_MAP);
 
+		world.selectComputer = 0;
+
 		returnFromRadar();
+	}
+
+	if (isControl(CONTROL_FIRE))
+	{
+		clearControl(CONTROL_FIRE);
+
+		if (world.selectComputer)
+		{
+			selectComputerZone();
+		}
 	}
 
 	if (isControl(CONTROL_USE))
 	{
+		clearControl(CONTROL_USE);
+
 		playSound(SND_TIP, 0);
 
 		app.delegate.draw = oldDraw;
-
-		clearControl(CONTROL_USE);
 
 		initRadar(returnFromRadar);
 	}
@@ -159,8 +172,20 @@ static void doCamera(int jumpTo)
 	}
 }
 
+static void selectComputerZone(void)
+{
+	if (selectedStage->numSavePoints >  0 && selectedStage != stage)
+	{
+		world.selectComputer = 0;
+
+		initTeleport(selectedStage->id);
+	}
+}
+
 static void draw(void)
 {
+	int canTeleport;
+
 	oldDraw();
 
 	drawRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 64, 0, 192);
@@ -175,7 +200,18 @@ static void draw(void)
 
 	drawText(SCREEN_WIDTH / 2, 80, 64, TEXT_CENTER, app.colors.white, "Zone %03d", selectedStage->id);
 
-	drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 64, 32, TEXT_CENTER, app.colors.white, "[USE] View Area Map");
+	if (!world.selectComputer)
+	{
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 64, 32, TEXT_CENTER, app.colors.white, "[USE] View Area Map");
+	}
+	else
+	{
+		canTeleport = (selectedStage->numSavePoints > 0 && selectedStage != stage);
+
+		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - 64, 32, TEXT_RIGHT, app.colors.white, "[USE] View Area Map");
+
+		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - 64, 32, TEXT_LEFT, canTeleport ? app.colors.white : app.colors.darkGrey, "[FIRE] Select Destination Computer");
+	}
 }
 
 static void drawStages(void)

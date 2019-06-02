@@ -34,6 +34,7 @@ extern Stage *getAdjacentStage(Stage *s, int dx, int dy);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void initRadar(void (*done)(void));
+extern void initTeleport(int s);
 extern int isControl(int type);
 extern void playSound(int snd, int ch);
 

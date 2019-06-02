@@ -272,6 +272,7 @@ struct Stage {
 
 typedef struct {
 	int showHUD;
+	int selectComputer;
 	Entity *player;
 	Boss *boss;
 	Stage stagesHead, *stagesTail;

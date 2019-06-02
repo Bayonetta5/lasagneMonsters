@@ -119,6 +119,8 @@ static void touch(Entity *other)
 	{
 		s = (SavePoint*)self->data;
 
+		world.selectComputer = 1;
+
 		if (!s->active)
 		{
 			s->active = 1;

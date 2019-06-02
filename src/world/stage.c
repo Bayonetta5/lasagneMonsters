@@ -125,6 +125,8 @@ static void doGame(void)
 {
 	game.time--;
 
+	world.selectComputer = 0;
+
 	if (world.transferCube != NULL)
 	{
 		transfer();
