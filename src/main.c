@@ -94,7 +94,7 @@ static void handleCommandLine(int argc, char *argv[])
 {
 	int i, n;
 
-	n = 1;
+	n = 0;
 
 	for (i = 1 ; i < argc ; i++)
 	{
@@ -108,6 +108,11 @@ static void handleCommandLine(int argc, char *argv[])
 		if (strcmp(argv[i], "-info") == 0)
 		{
 			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+		}
+
+		if (strcmp(argv[i], "-title") == 0)
+		{
+			n = 0;
 		}
 
 		if (strcmp(argv[i], "-stage") == 0)
@@ -127,7 +132,14 @@ static void handleCommandLine(int argc, char *argv[])
 
 	playRandomStageMusic();
 
-	initStage(n, WIPE_FADE);
+	if (n > 0)
+	{
+		initStage(n, WIPE_FADE);
+	}
+	else
+	{
+		initTitle();
+	}
 }
 
 static void capFrameRate(long *then, float *remainder)

@@ -26,6 +26,7 @@ extern void initGameSystem(void);
 extern void initLookups(void);
 extern void initSDL(void);
 extern void initStage(int id, int wipeType);
+extern void initTitle(void);
 extern void loadAllStages(void);
 extern void loadGame(void);
 extern void playRandomStageMusic(void);

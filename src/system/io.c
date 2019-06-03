@@ -32,16 +32,16 @@ int fileExists(const char *filename)
 const char *getFileLocation(const char *filename)
 {
 	static char path[MAX_FILENAME_LENGTH];
-	
+
 	if (fileExists(filename))
 	{
 		return filename;
 	}
-	
+
 	memset(path, '\0', MAX_FILENAME_LENGTH);
 
 	sprintf(path, DATA_DIR"/%s", filename);
-	
+
 	if (!fileExists(path))
 	{
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such file '%s'", path);
@@ -68,7 +68,7 @@ char *readFile(const char *filename)
 		fread(buffer, 1, length, file);
 
 		fclose(file);
-		
+
 		buffer[length] = '\0';
 	}
 
@@ -78,7 +78,7 @@ char *readFile(const char *filename)
 int writeFile(const char *filename, const char *data)
 {
 	FILE *file;
-	
+
 	file = fopen(filename, "wb");
 
 	if (file)
@@ -151,18 +151,18 @@ char *compressData(const char *src, unsigned long *eLength, unsigned long *compr
 	unsigned char *dest;
 	unsigned long sLen;
 	char *e;
-	
+
 	sLen = strlen(src);
 	*compressedLen = (sLen * 1.01) + 12;
-	
+
 	dest = malloc(*compressedLen);
-	
+
 	compress(dest, compressedLen, (const Bytef *)src, sLen);
-	
+
 	e = base64Encode(dest, *compressedLen, eLength);
-	
+
 	free(dest);
-	
+
 	return e;
 }
 
@@ -170,15 +170,15 @@ char *decompressData(const char *src, unsigned long eLength, unsigned long compr
 {
 	unsigned char *decoded;
 	char *dest;
-	
+
 	decoded = base64Decode(src, eLength);
-	
+
 	dest = malloc(decompressedLen);
-	
+
 	uncompress((Bytef *)dest, &decompressedLen, decoded, compressedLen);
-	
+
 	free(decoded);
-	
+
 	return dest;
 }
 
@@ -187,4 +187,9 @@ static int stringComparator(const void *a, const void *b)
     char **s1 = (char **)a;
     char **s2 = (char **)b;
     return strcmp(*s1, *s2);
+}
+
+int deleteFile(char *path)
+{
+	return unlink(path) == 0;
 }
