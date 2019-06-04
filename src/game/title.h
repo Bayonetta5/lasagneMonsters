@@ -34,6 +34,8 @@ extern void initStage(int stageId, int wipeType);
 extern void loadMusic(char *filename);
 extern void playMusic(int loop);
 extern void showWidgets(const char *groupName, int visible);
+extern void loadGame(void);
 
 extern App app;
+extern Game game;
 extern World world;

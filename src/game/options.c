@@ -147,7 +147,6 @@ static void draw(void)
 	{
 		case SHOW_CONTROLS:
 			drawText(SCREEN_WIDTH / 2, 25, 96, TEXT_CENTER, app.colors.white, "CONTROLS");
-			drawWidgetFrame();
 			drawWidgets("controls");
 			if (!app.awaitingWidgetInput)
 			{
@@ -161,7 +160,6 @@ static void draw(void)
 
 		default:
 			drawText(SCREEN_WIDTH / 2, 25, 96, TEXT_CENTER, app.colors.white, "OPTIONS");
-			drawWidgetFrame();
 			drawWidgets("options");
 			drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 75, 32, TEXT_CENTER, app.colors.yellow, "Restart the game to apply resolution and fullscreen options.");
 			break;

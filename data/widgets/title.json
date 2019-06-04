@@ -13,7 +13,7 @@
 		"groupName" : "title",
 		"x" : -1,
 		"y" : 350,
-		"text" : "Load"
+		"text" : "Continue"
 	},
 	{
 		"type" : "WT_BUTTON",

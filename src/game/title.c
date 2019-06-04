@@ -124,6 +124,9 @@ static void newGame(void)
 
 static void continueGame(void)
 {
+	loadGame();
+
+	initStage(game.stageId, WIPE_IN);
 }
 
 static void options(void)

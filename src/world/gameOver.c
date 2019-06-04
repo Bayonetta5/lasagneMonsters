@@ -152,10 +152,6 @@ static void preReloadGame(void)
 
 static void reloadGame(void)
 {
-	long time;
-
-	time = game.time;
-
 	destroyStage();
 
 	destroyGame();
@@ -163,8 +159,6 @@ static void reloadGame(void)
 	loadGame();
 
 	initStage(game.stageId, WIPE_IN);
-
-	game.time = time;
 
 	app.save.saving = FPS * 2;
 }

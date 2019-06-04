@@ -96,7 +96,7 @@ void initStage(int stageId, int wipeType)
 	{
 		stage->visited = 1;
 
-		playRandomStageMusic();
+		playRandomStageMusic(0);
 	}
 
 	world.showHUD = 1;

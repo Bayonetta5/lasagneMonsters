@@ -57,7 +57,7 @@ extern void initRadar(void (*done)(void));
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);
-extern void playRandomStageMusic(void);
+extern void playRandomStageMusic(int force);
 extern void resumeSound(void);
 extern void showWidgets(const char *groupName, int visible);
 extern void updatePlayer(void);

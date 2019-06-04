@@ -130,8 +130,6 @@ static void handleCommandLine(int argc, char *argv[])
 
 	loadAllStages();
 
-	playRandomStageMusic();
-
 	if (n > 0)
 	{
 		initStage(n, WIPE_FADE);

@@ -79,12 +79,12 @@ void playMusic(int loop)
 	Mix_PlayMusic(music, (loop) ? -1 : 0);
 }
 
-void playRandomStageMusic(void)
+void playRandomStageMusic(int force)
 {
 	int n;
 	char *m;
 
-	if (SDL_GetTicks() > nextRandom)
+	if (force || SDL_GetTicks() > nextRandom)
 	{
 		n = rand() % (sizeof(randomMusicFiles) / sizeof(char*));
 
