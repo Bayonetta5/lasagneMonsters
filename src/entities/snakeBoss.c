@@ -46,7 +46,6 @@ static int shotsToFire;
 static int reload;
 static int shotType;
 static int hitTimer;
-static int angle;
 
 /* This boss is hard-coded to the layout of stage 14. */
 void initSnakeBoss(Entity *e)
@@ -266,13 +265,13 @@ static void draw(void)
 {
 	if (hitTimer == 0)
 	{
-		blitAtlasImageRotated(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, angle, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 	}
 	else
 	{
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255 - hitTimer, 255 - hitTimer);
 
-		blitAtlasImageRotated(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, angle, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+		blitAtlasImage(self->atlasImage, self->x - world.camera.x, self->y - world.camera.y, 0, self->facing == FACING_LEFT ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 
 		SDL_SetTextureColorMod(self->atlasImage->texture, 255, 255, 255);
 	}
@@ -297,12 +296,15 @@ static void touch(Entity *other)
 static void updateBodyParts(void)
 {
 	int i, sx, sy, steps;
-	float x, y, dx, dy;
+	float x, y, dx, dy, ox, oy;
 
-	calcSlope(head->x, head->y, originFlag->x, originFlag->y, &dx, &dy);
+	ox = head->x + (head->facing ? 64 : -16);
+	oy = head->y - 8;
 
-	sx = abs(head->x - originFlag->x);
-	sy = abs(head->y - originFlag->y);
+	calcSlope(ox, oy, originFlag->x, originFlag->y, &dx, &dy);
+
+	sx = abs(ox - originFlag->x);
+	sy = abs(oy - originFlag->y);
 
 	steps = MAX(sx, sy);
 
@@ -329,8 +331,6 @@ static void updateBodyParts(void)
 
 	/* always face player */
 	self->facing = self->x < world.player->x ? FACING_RIGHT : FACING_LEFT;
-
-	angle = getAngle(self->x, self->y, world.player->x, world.player->y) + (self->facing == FACING_RIGHT ? -90 : 90);
 
 	hitTimer = MAX(hitTimer - 32, 0);
 }

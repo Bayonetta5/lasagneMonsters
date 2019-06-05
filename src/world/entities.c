@@ -596,8 +596,12 @@ void destroyEntities(void)
 
 static int entityComparator(const void *a, const void *b)
 {
+	int r;
+
 	Entity *e1 = *((Entity**)a);
 	Entity *e2 = *((Entity**)b);
 
-	return e2->type - e1->type;
+	r = e2->type - e1->type;
+
+	return r != 0 ? r : e2->id - e1->id;
 }

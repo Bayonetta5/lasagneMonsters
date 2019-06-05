@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void activateEntities(char *targetName, int activate);
 extern void addToQuadtree(Entity *e, Quadtree *root);
-extern void blitAtlasImageRotated(AtlasImage *atlasImage, int x, int y, float angle, SDL_RendererFlip flip);
+extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern Entity *findStartPoint(const char *name);
 extern float getAngle(int x1, int y1, int x2, int y2);

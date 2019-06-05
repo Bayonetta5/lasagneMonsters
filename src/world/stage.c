@@ -92,7 +92,7 @@ void initStage(int stageId, int wipeType)
 
 	initWipe(wipeType);
 
-	if (!app.dev.editor && stageId != 0)
+	if (!app.dev.editor && stageId != 0 && world.boss == NULL)
 	{
 		stage->visited = 1;
 
