@@ -28,7 +28,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void calculateWidgetFrame(const char *groupName);
 extern void doWidgets(const char *groupName);
 extern void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);
-extern void drawWidgetFrame(void);
 extern void drawWidgets(const char *groupName);
 extern Widget *getWidget(const char *name, const char *groupName);
 extern long lookup(const char *name);

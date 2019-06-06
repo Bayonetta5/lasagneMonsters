@@ -27,6 +27,7 @@ extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL
 extern void calculateWidgetFrame(const char *groupName);
 extern void clearControl(int type);
 extern void destroyEntities(void);
+extern void destroyGame(void);
 extern void destroyParticles(void);
 extern void destroyQuadtree(void);
 extern void doCamera(void);
@@ -54,6 +55,7 @@ extern void initGameOver(void);
 extern void initOptions(void (*done)(void));
 extern void initQuadtree(Quadtree *root);
 extern void initRadar(void (*done)(void));
+extern void initTitle(void);
 extern void initWipe(int type);
 extern int isControl(int type);
 extern void pauseSound(void);

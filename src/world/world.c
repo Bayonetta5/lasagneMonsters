@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "world.h"
 
-static void loadStage(const char *filename);
+void loadStage(const char *filename);
 void loadStageData(cJSON *root);
 
 void initWorld(void)
@@ -85,7 +85,7 @@ void loadAllStages(void)
 	free(filenames);
 }
 
-static void loadStage(const char *filename)
+void loadStage(const char *filename)
 {
 	cJSON *root;
 	char *json;
@@ -102,11 +102,11 @@ static void loadStage(const char *filename)
 	if (getStage(id) == NULL)
 	{
 		loadStageData(root);
-
-		free(json);
-
-		cJSON_Delete(root);
 	}
+
+	cJSON_Delete(root);
+
+	free(json);
 }
 
 void loadStageData(cJSON *root)

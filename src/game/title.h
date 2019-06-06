@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void calculateWidgetFrame(const char *groupName);
 extern int deleteFile(char *path);
+extern void destroyStage(void);
 extern void doEntities(void);
 extern void doWidgets(const char *groupName);
 extern void doWipe(void);
@@ -31,10 +32,12 @@ extern void drawWidgets(const char *groupName);
 extern Widget *getWidget(const char *name, const char *groupName);
 extern void initOptions(void (*done)(void));
 extern void initStage(int stageId, int wipeType);
+extern void loadAllStages(void);
+extern void loadGame(void);
 extern void loadMusic(char *filename);
+extern void loadStage(const char *filename);
 extern void playMusic(int loop);
 extern void showWidgets(const char *groupName, int visible);
-extern void loadGame(void);
 
 extern App app;
 extern Game game;

@@ -36,7 +36,6 @@ static void stats(void);
 static void options(void);
 static void quit(void);
 static void drawLights(void);
-void loadStage(char *filename);
 static void returnFromRadar(void);
 
 static int show;
@@ -53,6 +52,8 @@ void initStage(int stageId, int wipeType)
 {
 	app.delegate.logic = logic;
 	app.delegate.draw = draw;
+
+	show = SHOW_GAME;
 
 	stage = getStage(stageId);
 
@@ -427,7 +428,11 @@ static void stats(void)
 
 static void quit(void)
 {
+	showWidgets("stage", 0);
+
 	destroyStage();
 
-	exit(1);
+	destroyGame();
+
+	initTitle();
 }

@@ -29,7 +29,6 @@ extern void initStage(int id, int wipeType);
 extern void initTitle(void);
 extern void loadAllStages(void);
 extern void loadGame(void);
-extern void playRandomStageMusic(int force);
 extern void prepareScene(void);
 extern void presentScene(void);
 extern void saveGame(void);

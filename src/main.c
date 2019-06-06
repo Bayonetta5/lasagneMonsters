@@ -128,10 +128,10 @@ static void handleCommandLine(int argc, char *argv[])
 		}
 	}
 
-	loadAllStages();
-
 	if (n > 0)
 	{
+		loadAllStages();
+
 		initStage(n, WIPE_FADE);
 	}
 	else

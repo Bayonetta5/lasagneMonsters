@@ -58,12 +58,11 @@ void initTitle(void)
 
 	showWidgets("title", 1);
 
+	loadStage("data/stages/000.json");
+
 	initStage(0, WIPE_FADE);
 
 	world.showHUD = 0;
-
-	world.player->alive = ALIVE_DEAD;
-	world.player->die = NULL;
 
 	loadMusic("music/Mini_Epic_Theme.mp3");
 
@@ -83,6 +82,9 @@ static void logic(void)
 	doEntities();
 
 	doWidgets("title");
+
+	world.camera.x = 0;
+	world.camera.y = 0;
 }
 
 static void draw(void)
@@ -119,12 +121,24 @@ static void newGame(void)
 
 	app.save.saving = FPS * 2;
 
+	showWidgets("title", 0);
+
+	destroyStage();
+
+	loadAllStages();
+
 	initStage(1, WIPE_IN);
 }
 
 static void continueGame(void)
 {
+	showWidgets("title", 0);
+
+	destroyStage();
+
 	loadGame();
+
+	loadAllStages();
 
 	initStage(game.stageId, WIPE_IN);
 }
