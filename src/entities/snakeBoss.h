@@ -20,14 +20,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MAX_BODY_PARTS 10
+#define MAX_BODY_PARTS 12
 
 extern void activateEntities(char *targetName, int activate);
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void blitAtlasImage(AtlasImage *atlasImage, int x, int y, int center, SDL_RendererFlip flip);
 extern void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
 extern Entity *findStartPoint(const char *name);
-extern float getAngle(int x1, int y1, int x2, int y2);
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void initAimedSlimeBullet(Entity *owner, Entity *target);

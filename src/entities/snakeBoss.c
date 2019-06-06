@@ -38,7 +38,6 @@ static void updateBodyParts(void);
 static Entity *head;
 static Entity *bodyPart[MAX_BODY_PARTS];
 static Entity *leftFlag, *rightFlag, *originFlag;
-static int attackDistance;
 static int deathCounter;
 static int killPart;
 static int thinkTime;
@@ -46,6 +45,7 @@ static int shotsToFire;
 static int reload;
 static int shotType;
 static int hitTimer;
+static int strikeDistance;
 
 /* This boss is hard-coded to the layout of stage 14. */
 void initSnakeBoss(Entity *e)
@@ -109,7 +109,7 @@ static void chase(void)
 
 	distance = getDistance(self->x, self->y, world.player->x, world.player->y);
 
-	if (distance > attackDistance)
+	if (distance > strikeDistance)
 	{
 		calcSlope(world.player->x, world.player->y, self->x, self->y, &self->dx, &self->dy);
 	}
@@ -157,7 +157,7 @@ static void retract(void)
 		self->x = originFlag->x;
 		self->y = originFlag->y;
 
-		thinkTime = rrnd(FPS * 1.5, FPS * 2.5);
+		thinkTime = rrnd(FPS, FPS * 2);
 
 		self->tick = emerge;
 	}
@@ -165,6 +165,7 @@ static void retract(void)
 
 static void emerge(void)
 {
+	self->dx = 0;
 	self->dy = -5;
 
 	updateBodyParts();
@@ -175,9 +176,9 @@ static void emerge(void)
 	{
 		self->flags &= ~EF_NO_WORLD_CLIP;
 
-		attackDistance = rrnd(250, 500);
-
 		self->tick = tick;
+
+		strikeDistance = rrnd(100, 350);
 	}
 }
 
@@ -198,6 +199,8 @@ static void damage(int amount, int type)
 		if (b->health == 0)
 		{
 			self->tick = killBoss;
+
+			hitTimer = 0;
 		}
 	}
 }
@@ -398,8 +401,6 @@ static void init(void)
 	rightFlag = findStartPoint("bossRight");
 	originFlag = rightFlag;
 
-	attackDistance = rrnd(250, 500);
-
 	initBodyParts(head);
 
 	self->x = originFlag->x;
@@ -407,5 +408,5 @@ static void init(void)
 
 	self->tick = emerge;
 
-	thinkTime = FPS * 2;
+	thinkTime = FPS * 1.5;
 }
