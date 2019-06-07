@@ -119,7 +119,7 @@ typedef struct {
 	int health, maxHealth;
 	float ammo, maxAmmo;
 	int reload;
-	int jumps;
+	int canAirJump;
 	float refillRate;
 	int hasDoubleJump;
 	int hasRadarUpgrade;
@@ -290,6 +290,7 @@ typedef struct {
 	int keys;
 	int totalMonsters;
 	int totalGirls;
+	int totalStatEntities;
 	long time;
 	unsigned int stats[STAT_MAX];
 } Game;

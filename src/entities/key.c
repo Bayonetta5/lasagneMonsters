@@ -24,6 +24,7 @@ static void tick(void);
 static void draw(void);
 static void drawLight(void);
 static void touch(Entity *other);
+static void save(cJSON *root);
 
 static AtlasImage *keyTexture = NULL;
 static AtlasImage *lightTexture = NULL;
@@ -46,6 +47,7 @@ void initKey(Entity *e)
 	e->draw = draw;
 	e->drawLight = drawLight;
 	e->touch = touch;
+	e->save = save;
 
 	if (keyTexture == NULL)
 	{
@@ -106,4 +108,9 @@ static void touch(Entity *other)
 
 		addGameText(self->x, self->y, "+Key");
 	}
+}
+
+static void save(cJSON *root)
+{
+	cJSON_AddNumberToObject(root, "isStatEntity", 1);
 }

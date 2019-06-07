@@ -242,4 +242,5 @@ static void save(cJSON *root)
 
 	cJSON_AddNumberToObject(root, "health", b->health);
 	cJSON_AddStringToObject(root, "cageType", getLookupName("CT_", b->cageType));
+	cJSON_AddNumberToObject(root, "isGirl", 1);
 }

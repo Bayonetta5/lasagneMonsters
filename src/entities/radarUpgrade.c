@@ -24,6 +24,7 @@ static void tick(void);
 static void draw(void);
 static void loadTextures(void);
 static void touch(Entity *other);
+static void save(cJSON *root);
 
 static AtlasImage *textures[NUM_TEXTURES] = {NULL};
 
@@ -41,6 +42,7 @@ void initRadarUpgrade(Entity *e)
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;
+	e->save = save;
 
 	if (textures[0] == NULL)
 	{
@@ -111,4 +113,9 @@ static void loadTextures(void)
 
 		textures[i] = getAtlasImage(filename, 1);
 	}
+}
+
+static void save(cJSON *root)
+{
+	cJSON_AddNumberToObject(root, "isStatEntity", 1);
 }

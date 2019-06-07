@@ -63,11 +63,18 @@ static void initMetaData(void)
 			if (cJSON_GetObjectItem(node, "isMonster"))
 			{
 				game.totalMonsters++;
-			}
 
-			if (strcmp(cJSON_GetObjectItem(node, "type")->valuestring, "bbbbb") == 0)
+				game.totalStatEntities++;
+			}
+			else if (cJSON_GetObjectItem(node, "isGirl"))
 			{
 				game.totalGirls++;
+
+				game.totalStatEntities++;
+			}
+			else if (cJSON_GetObjectItem(node, "isStatEntity"))
+			{
+				game.totalStatEntities++;
 			}
 		}
 

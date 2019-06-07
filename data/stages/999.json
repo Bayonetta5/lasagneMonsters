@@ -59,8 +59,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	1168,
-			"y":	312,
+			"x":	984,
+			"y":	408,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -69,8 +69,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	976,
-			"y":	312,
+			"x":	184,
+			"y":	648,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -79,8 +79,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	720,
-			"y":	312,
+			"x":	608,
+			"y":	648,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -96,35 +96,6 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
-		}, {
-			"type":	"greenTentacleMonster",
-			"name":	"",
-			"x":	1040,
-			"y":	342,
-			"facing":	"FACING_RIGHT",
-			"isMonster":	1
-		}, {
-			"type":	"battery",
-			"name":	"",
-			"x":	352,
-			"y":	592,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"savePoint",
-			"name":	"",
-			"x":	424,
-			"y":	592,
-			"facing":	"FACING_RIGHT"
-		}, {
-			"type":	"chest",
-			"name":	"",
-			"x":	512,
-			"y":	592,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"coins":	0,
-			"nextRefill":	0,
-			"found":	0
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -160,21 +131,21 @@
 		}, {
 			"type":	"platform",
 			"name":	"",
-			"x":	296,
-			"y":	192,
+			"x":	376,
+			"y":	672,
 			"facing":	"FACING_RIGHT",
-			"sx":	296,
-			"sy":	192,
-			"ex":	568,
-			"ey":	192,
+			"sx":	376,
+			"sy":	672,
+			"ex":	376,
+			"ey":	408,
 			"pause":	60,
 			"speed":	2,
 			"enabled":	1
 		}],
 	"map":	{
-		"data":	"eJzt18EJwCAMBdBVOoIK3X+1Hluo1iIexDweORkP+RDEfOQBaRvfs9RP48w/786qzN/e6trWx9r/eXdWZf7o87f3Ocb7X8pZrbun1dGrzXJK6VW529ErGclIRv8yepLRSAKxE4v90wcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6Lo0OLwA",
-		"eLen":	184,
-		"cLen":	137,
-		"dLen":	33002
+		"data":	"eJzt18EJwCAQRcFWLCH231waUEOChMU/zFH28JAF7a1/cB1j3TI+zenfN1OV/vlWj7Y+a//3zVSlP73//T6f1f/PTFXr+094/+nXrz+7P/f/CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADy7ATbWAdI",
+		"eLen":	156,
+		"cLen":	116,
+		"dLen":	32768
 	}
 }

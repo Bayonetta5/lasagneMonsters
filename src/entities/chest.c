@@ -149,4 +149,5 @@ static void save(cJSON *root)
 	cJSON_AddNumberToObject(root, "coins", c->coins);
 	cJSON_AddNumberToObject(root, "nextRefill", c->nextRefill);
 	cJSON_AddNumberToObject(root, "found", c->found);
+	cJSON_AddNumberToObject(root, "isStatEntity", 1);
 }

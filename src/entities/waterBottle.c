@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void tick(void);
 static void draw(void);
 static void touch(Entity *other);
+static void save(cJSON *root);
 
 static AtlasImage *waterBottleTexture = NULL;
 
@@ -40,6 +41,7 @@ void initWaterBottle(Entity *e)
 	e->tick = tick;
 	e->draw = draw;
 	e->touch = touch;
+	e->save = save;
 
 	if (waterBottleTexture == NULL)
 	{
@@ -83,4 +85,9 @@ static void touch(Entity *other)
 
 		playSound(SND_POWERUP, -1);
 	}
+}
+
+static void save(cJSON *root)
+{
+	cJSON_AddNumberToObject(root, "isStatEntity", 1);
 }
