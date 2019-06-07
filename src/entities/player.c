@@ -70,7 +70,7 @@ static void tick(void)
 
 	if (self->isOnGround)
 	{
-		w->jumps = w->hasDoubleJump ? 2 : 1;
+		w->canAirJump = w->hasDoubleJump;
 
 		if (self->riding == NULL && --w->checkpointTimer <= 0)
 		{
@@ -96,17 +96,23 @@ static void tick(void)
 			self->facing = FACING_RIGHT;
 		}
 
-		if (isControl(CONTROL_JUMP) && w->jumps > 0)
+		if (isControl(CONTROL_JUMP))
 		{
-			clearControl(CONTROL_JUMP);
+			if (self->isOnGround || (!self->isOnGround && w->canAirJump))
+			{
+				clearControl(CONTROL_JUMP);
 
-			w->jumps--;
+				if (!self->isOnGround)
+				{
+					w->canAirJump = 0;
+				}
 
-			self->riding = NULL;
+				self->riding = NULL;
 
-			self->dy = -20;
+				self->dy = -20;
 
-			playSound(SND_JUMP, -1);
+				playSound(SND_JUMP, -1);
+			}
 		}
 
 		if (isControl(CONTROL_FIRE))
