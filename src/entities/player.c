@@ -39,6 +39,9 @@ void initPlayer(Entity *e)
 	w->ammo = w->maxAmmo = 5;
 	w->refillRate = 0.05f;
 
+	w->oldPosition.x = e->x;
+	w->oldPosition.y = e->y;
+
 	e->typeName = "player";
 	e->data = w;
 	e->type = ET_PLAYER;
@@ -61,6 +64,16 @@ static void tick(void)
 	Walter *w;
 
 	w = (Walter*)self->data;
+
+	if (w->oldPosition.x != self->x)
+	{
+		game.stats[STAT_MOVED] += fabs(w->oldPosition.x - self->x);
+	}
+
+	if (self->y > w->oldPosition.y)
+	{
+		game.stats[STAT_FALLEN] += self->y - w->oldPosition.y;
+	}
 
 	self->dx = 0;
 
@@ -98,7 +111,7 @@ static void tick(void)
 
 		if (isControl(CONTROL_JUMP))
 		{
-			if (self->isOnGround || (!self->isOnGround && w->canAirJump))
+			if (self->isOnGround || w->canAirJump)
 			{
 				clearControl(CONTROL_JUMP);
 
@@ -112,6 +125,8 @@ static void tick(void)
 				self->dy = -20;
 
 				playSound(SND_JUMP, -1);
+
+				game.stats[STAT_JUMPS]++;
 			}
 		}
 
@@ -129,6 +144,8 @@ static void tick(void)
 				initWaterBullet(self);
 
 				playPositionalSound(SND_SHOOT, CH_PLAYER, self->x, self->y, world.player->x, world.player->y);
+
+				game.stats[STAT_SHOTS_FIRED]++;
 			}
 		}
 		else
@@ -173,6 +190,8 @@ static void damage(int amount, int damageType)
 		w->immuneTimer = FPS;
 
 		playSound(SND_INJURED, -1);
+
+		game.stats[STAT_HEALTH_LOST] += amount;
 	}
 }
 

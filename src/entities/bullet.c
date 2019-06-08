@@ -202,6 +202,18 @@ static void touch(Entity *other)
 
 				self->alive = ALIVE_DEAD;
 
+				if (self->owner == world.player)
+				{
+					/* player's bullet hit another bullet */
+					if (other->type == ET_BULLET)
+					{
+						game.stats[STAT_SHOTS_DESTROYED]++;
+					}
+					else
+					{
+						game.stats[STAT_SHOTS_HIT]++;
+					}
+				}
 			}
 			else if ((other->flags & EF_SOLID) && (!(self->flags & EF_BOUNCES)))
 			{

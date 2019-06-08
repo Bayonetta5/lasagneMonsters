@@ -125,6 +125,7 @@ typedef struct {
 	int hasRadarUpgrade;
 	SDL_Point checkpoint;
 	int checkpointTimer;
+	SDL_Point oldPosition;
 } Walter;
 
 typedef struct {

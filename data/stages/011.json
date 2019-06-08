@@ -27,7 +27,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1264,
 			"sy":	48,
 			"ex":	1264,
@@ -56,8 +55,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -84,7 +83,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	256,
 			"sy":	480,
 			"ex":	256,
@@ -105,7 +103,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	2416,
 			"sy":	1056,
 			"ex":	2416,
@@ -115,7 +112,8 @@
 			"name":	"",
 			"x":	2552,
 			"y":	982,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -431,7 +429,8 @@
 			"name":	"",
 			"x":	2408,
 			"y":	1446,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -440,7 +439,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -449,7 +450,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"lamp",
 			"name":	"",

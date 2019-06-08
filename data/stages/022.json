@@ -168,7 +168,8 @@
 			"name":	"",
 			"x":	3232,
 			"y":	1016,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -178,7 +179,8 @@
 			"open":	0,
 			"coins":	0,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -188,7 +190,8 @@
 			"open":	0,
 			"coins":	0,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -198,7 +201,8 @@
 			"open":	0,
 			"coins":	0,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}],
 	"map":	{
 		"data":	"eJzt10EKgzAUBNCr9Ah2kftfrQuLlBRtopbA5PFWgsKfgfDj8lgAAIBTnpeMnv4f+b/f2P929PT35+9JmZD/N/nL2/pcNgn5S6WvmdHTX1ef/54GEvP3NJCZv72B1PytDeTmb2sgOf9xAzn77+h2X+/Gz82fe/+f/f9nrvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA83gBVw0Cvg=",

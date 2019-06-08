@@ -66,6 +66,11 @@ static void tick(void)
 
 	if (c->open && c->coins > 0 && --c->delay <= 0)
 	{
+		if (!c->found)
+		{
+			game.stats[STAT_CHESTS_OPENED]++;
+		}
+
 		c->found = 1;
 
 		c->coins--;

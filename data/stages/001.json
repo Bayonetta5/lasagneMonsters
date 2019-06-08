@@ -14,8 +14,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"startPoint",
 			"name":	"right",

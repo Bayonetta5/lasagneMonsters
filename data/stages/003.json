@@ -32,8 +32,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"greenHorse",
 			"name":	"",
@@ -144,13 +144,15 @@
 			"name":	"",
 			"x":	1912,
 			"y":	2936,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	1920,
 			"y":	2576,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"door",
 			"name":	"firstDoor",
@@ -159,7 +161,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1312,
 			"sy":	2016,
 			"ex":	1312,
@@ -172,7 +173,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2296,
 			"sy":	1536,
 			"ex":	2296,
@@ -192,7 +192,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	1,
 			"sx":	2496,
 			"sy":	3984,
 			"ex":	2496,
@@ -257,7 +256,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	1,
 			"sx":	1616,
 			"sy":	2736,
 			"ex":	1616,
@@ -270,7 +268,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1728,
 			"sy":	2304,
 			"ex":	1632,
@@ -352,7 +349,8 @@
 			"y":	2752,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -361,7 +359,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -408,7 +408,8 @@
 			"name":	"",
 			"x":	1376,
 			"y":	3512,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"lamp",
 			"name":	"",
@@ -946,7 +947,8 @@
 			"y":	3616,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_STANDING"
+			"cageType":	"CT_STANDING",
+			"isGirl":	1
 		}],
 	"map":	{
 		"data":	"eJztm1uOwyAMAK+yR2g+uP/VVquKNpsAwUCCbUbzU7W8BgEGkr5+XgAAAAAAAAAAAAAAAAAA4IDtMWab5vzv7t0n6tHq/3w98naFHSv67wnDeJf+/WTDfxzhU7p2/9Zek6Vb0T8s7R/+xX29/ucV65qatXIz4t+SR77vW9W/px6t/prr0douvf6yHd0f5fXSmr9sR/eNa6XTwrk3tPpLCYkeKaeJ0XB2y0fbR7urNMdIoAvZqS49L2Iv5NPo9ZftZcpxvm4noAv8R/qX6pltij/++Mv86/Ot5n/M+f4mf27w519bFv4+/c+jfKX5f9zn+/SvPwn59K8Hf4/xT+qf+wV//GebjvDvqWe2ab9/Xz2zTXv9e+uZbdrnv88juzPWff8vb1f+hvvO8aPFv9Xeh//xrY6a8v34p57r5Xe8x3PSbNNe//qRH0u2Mf7zz+zb7K35b6c+OL/HIFv1bPnf27P2/eV7HU/+7fHeg/84e4v+I+3t+aftZ7f3KX9bbzGN9r+2b40K2kj5p57t1PWPp/mfR+9tRr+/3pH6hH/dPzvamG2a89+f2EfGeyvzP7btXnv9/vfaa/UHAAAAAAAAAAAAAAAAAAAAALDML/6bDnY",

@@ -97,5 +97,7 @@ static void touch(Entity *other)
 		addCoinParticles(self->cx, self->cy);
 
 		game.coins++;
+
+		game.stats[STAT_COINS_COLLECTED]++;
 	}
 }

@@ -28,4 +28,5 @@ extern void playSound(int snd, int ch);
 extern void spawnGumball(int x, int y, int throw);
 
 extern Entity *self;
+extern Game game;
 extern World world;

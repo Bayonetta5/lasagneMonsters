@@ -32,8 +32,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"lamp",
 			"name":	"",
@@ -65,7 +65,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	3136,
 			"sy":	2112,
 			"ex":	3136,
@@ -78,7 +77,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2944,
 			"sy":	2112,
 			"ex":	2944,
@@ -91,7 +89,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	3136,
 			"sy":	2544,
 			"ex":	3136,
@@ -104,7 +101,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2944,
 			"sy":	2544,
 			"ex":	2944,
@@ -117,7 +113,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	1888,
 			"sy":	2928,
 			"ex":	1888,
@@ -130,7 +125,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	1888,
 			"sy":	3168,
 			"ex":	1888,
@@ -169,7 +163,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -178,7 +174,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -187,7 +185,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -258,7 +258,6 @@
 			"facing":	"FACING_LEFT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	2952,
 			"sy":	1776,
 			"ex":	2880,
@@ -271,7 +270,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3048,
 			"sy":	1776,
 			"ex":	3120,
@@ -281,43 +279,50 @@
 			"name":	"",
 			"x":	3800,
 			"y":	2960,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	5576,
 			"y":	2816,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	3592,
 			"y":	2144,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	2200,
 			"y":	2432,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	3904,
 			"y":	2480,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	3464,
 			"y":	2960,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	4136,
 			"y":	2960,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -326,7 +331,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	5200,
 			"sy":	2784,
 			"ex":	5200,
@@ -339,7 +343,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -348,7 +354,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -415,19 +423,22 @@
 			"name":	"",
 			"x":	1640,
 			"y":	1654,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"battery",
 			"name":	"",
 			"x":	1720,
 			"y":	1648,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"waterBottle",
 			"name":	"",
 			"x":	1800,
 			"y":	1639,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"door",
 			"name":	"powerupsDoor",
@@ -436,7 +447,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1552,
 			"sy":	1584,
 			"ex":	1552,
@@ -449,7 +459,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1248,
 			"sy":	2896,
 			"ex":	1344,
@@ -462,7 +471,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1392,
 			"sy":	2512,
 			"ex":	1296,
@@ -475,7 +483,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	1248,
 			"sy":	2176,
 			"ex":	1344,
@@ -660,7 +667,8 @@
 			"y":	1888,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_STANDING"
+			"cageType":	"CT_STANDING",
+			"isGirl":	1
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
@@ -668,7 +676,8 @@
 			"y":	1208,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_SWINGING"
+			"cageType":	"CT_SWINGING",
+			"isGirl":	1
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
@@ -676,7 +685,8 @@
 			"y":	2072,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"greenFlyingCyclops",
 			"name":	"",

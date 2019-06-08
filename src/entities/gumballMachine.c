@@ -46,6 +46,8 @@ static void touch(Entity *other)
 				playSound(SND_BUY, -1);
 
 				spawnGumball(self->x, self->y, world.boss == NULL);
+
+				game.stats[STAT_GUMBALLS_BOUGHT]++;
 			}
 		}
 	}

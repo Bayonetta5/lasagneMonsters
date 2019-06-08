@@ -32,8 +32,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"blueHorse",
 			"name":	"",
@@ -70,7 +70,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	832,
 			"sy":	1680,
 			"ex":	832,
@@ -80,7 +79,8 @@
 			"name":	"",
 			"x":	952,
 			"y":	1750,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"redFlyingCyclops",
 			"name":	"",
@@ -179,7 +179,8 @@
 			"y":	3136,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"redFlyingCyclops",
 			"name":	"",
@@ -236,7 +237,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	2272,
 			"sy":	2160,
 			"ex":	2272,
@@ -249,7 +249,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2608,
 			"sy":	2736,
 			"ex":	2608,
@@ -262,7 +261,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	2920,
 			"sy":	2592,
 			"ex":	2920,
@@ -275,7 +273,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3280,
 			"sy":	2592,
 			"ex":	3280,
@@ -288,7 +285,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3520,
 			"sy":	2592,
 			"ex":	3520,
@@ -301,7 +297,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	3488,
 			"sy":	1680,
 			"ex":	3488,
@@ -314,7 +309,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2920,
 			"sy":	1776,
 			"ex":	2920,
@@ -327,7 +321,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	3312,
 			"sy":	2688,
 			"ex":	3220,
@@ -408,7 +401,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -417,7 +412,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -426,7 +423,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -435,7 +434,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -843,19 +844,22 @@
 			"y":	3136,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	2392,
 			"y":	3304,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	1288,
 			"y":	3104,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"redFlyingCyclops",
 			"name":	"",
@@ -871,7 +875,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -880,13 +886,16 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	608,
 			"y":	2040,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"horizontalDoor",
 			"name":	"treasureDoor",
@@ -895,7 +904,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	624,
 			"sy":	2928,
 			"ex":	528,

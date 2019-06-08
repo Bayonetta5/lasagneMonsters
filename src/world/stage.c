@@ -70,7 +70,6 @@ void initStage(int stageId, int wipeType)
 
 	statsWidget = getWidget("stats", "stage");
 	statsWidget->action = stats;
-	statsWidget->disabled = 1;
 
 	optionsWidget = getWidget("options", "stage");
 	optionsWidget->action = options;
@@ -332,7 +331,7 @@ Entity *findStartPoint(const char *name)
 static void transfer(void)
 {
 	TransferCube transferCube;
-	Walter walter;
+	Walter walter, *w;
 	Entity *e;
 	StartPoint *s;
 	int facing;
@@ -352,13 +351,18 @@ static void transfer(void)
 
 	memcpy(world.player->data, &walter, sizeof(Walter));
 
+	w = (Walter*)world.player;
+
 	world.player->x = e->x;
 	world.player->y = e->y;
-	((Walter*)world.player)->checkpoint.x = e->x;
-	((Walter*)world.player)->checkpoint.y = e->y;
 	world.player->dx = s->dx;
 	world.player->dy = s->dy;
 	world.player->facing = facing;
+
+	w->checkpoint.x = e->x;
+	w->checkpoint.y = e->y;
+	w->oldPosition.x = e->x;
+	w->oldPosition.y = e->y;
 }
 
 static void initBackgroundData(void)
@@ -424,6 +428,8 @@ static void stats(void)
 	previousWidget = statsWidget;
 
 	showWidgets("stage", 0);
+
+	initStats(returnFrom);
 }
 
 static void quit(void)

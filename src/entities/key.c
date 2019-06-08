@@ -107,6 +107,8 @@ static void touch(Entity *other)
 		addPowerupParticles(self->cx, self->cy);
 
 		addGameText(self->x, self->y, "+Key");
+
+		game.stats[STAT_KEYS_FOUND]++;
 	}
 }
 

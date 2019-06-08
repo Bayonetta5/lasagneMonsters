@@ -106,13 +106,15 @@
 			"name":	"",
 			"x":	1664,
 			"y":	112,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	1768,
 			"y":	560,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"startPoint",
 			"name":	"left",
@@ -132,8 +134,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -152,7 +154,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	2464,
 			"sy":	672,
 			"ex":	2464,
@@ -165,7 +166,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"speed":	4,
 			"sx":	3424,
 			"sy":	96,
 			"ex":	3424,
@@ -178,7 +178,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_NOTHING",
-			"speed":	1,
 			"sx":	2488,
 			"sy":	144,
 			"ex":	2488,

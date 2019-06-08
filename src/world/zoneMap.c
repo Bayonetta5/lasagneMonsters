@@ -307,8 +307,6 @@ static void drawStageInfo(void)
 		blitAtlasImage(chestTexture, 25, y, 0, SDL_FLIP_NONE);
 
 		drawText(25 + chestTexture->rect.w + 16, y, 32, TEXT_LEFT, app.colors.white, "x %d", selectedStage->numChests);
-
-		y -= 40;
 	}
 }
 

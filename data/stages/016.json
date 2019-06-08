@@ -32,8 +32,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}],
 	"map":	{
 		"data":	"eJztz7EJACAMRNFVMoLZfznBKkVIqSCPV15zPyMb6+iWuv9g6tOvX79+/fr169evX79+/a9fAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANyzAZIlApU",

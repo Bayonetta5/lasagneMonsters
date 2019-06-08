@@ -36,6 +36,9 @@ int deductCoins(int i)
 	if (game.coins >= i)
 	{
 		game.coins -= i;
+
+		game.stats[STAT_COINS_SPENT] += i;
+
 		return 1;
 	}
 
@@ -52,40 +55,45 @@ static void initMetaData(void)
 
 	for (i = 0 ; i < count ; i++)
 	{
-		sprintf(filename, "data/stages/%s", filenames[i]);
-
-		text = readFile(getFileLocation(filename));
-
-		root = cJSON_Parse(text);
-
-		for (node = cJSON_GetObjectItem(root, "entities")->child ; node != NULL ; node = node->next)
+		if (strcmp(filenames[i], "000.json") && strcmp(filenames[i], "999.json"))
 		{
-			if (cJSON_GetObjectItem(node, "isMonster"))
-			{
-				game.totalMonsters++;
+			sprintf(filename, "data/stages/%s", filenames[i]);
 
-				game.totalStatEntities++;
-			}
-			else if (cJSON_GetObjectItem(node, "isGirl"))
-			{
-				game.totalGirls++;
+			text = readFile(getFileLocation(filename));
 
-				game.totalStatEntities++;
-			}
-			else if (cJSON_GetObjectItem(node, "isStatEntity"))
+			root = cJSON_Parse(text);
+
+			for (node = cJSON_GetObjectItem(root, "entities")->child ; node != NULL ; node = node->next)
 			{
-				game.totalStatEntities++;
+				if (cJSON_GetObjectItem(node, "isMonster"))
+				{
+					game.totalMonsters++;
+
+					game.totalStatEntities++;
+				}
+				else if (cJSON_GetObjectItem(node, "isGirl"))
+				{
+					game.totalGirls++;
+
+					game.totalStatEntities++;
+				}
+				else if (cJSON_GetObjectItem(node, "isStatEntity"))
+				{
+					game.totalStatEntities++;
+				}
 			}
+
+			free(text);
+
+			cJSON_Delete(root);
 		}
-
-		free(text);
-
-		cJSON_Delete(root);
 
 		free(filenames[i]);
 	}
 
 	free(filenames);
+
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Stat Totals: [Monsters=%d, Girls=%d, Entities=%d]", game.totalMonsters, game.totalGirls, game.totalStatEntities);
 }
 
 void destroyGame(void)

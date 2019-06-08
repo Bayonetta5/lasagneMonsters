@@ -55,6 +55,7 @@ extern void initGameOver(void);
 extern void initOptions(void (*done)(void));
 extern void initQuadtree(Quadtree *root);
 extern void initRadar(void (*done)(void));
+extern void initStats(void (*done)(void));
 extern void initTitle(void);
 extern void initWipe(int type);
 extern int isControl(int type);

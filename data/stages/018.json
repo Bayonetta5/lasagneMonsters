@@ -40,8 +40,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -243,7 +243,8 @@
 			"open":	0,
 			"coins":	4,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -253,7 +254,8 @@
 			"open":	0,
 			"coins":	6,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -263,7 +265,8 @@
 			"open":	0,
 			"coins":	7,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -273,13 +276,15 @@
 			"open":	0,
 			"coins":	3,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"waterBottle",
 			"name":	"",
 			"x":	472,
 			"y":	151,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"piggyBank",
 			"name":	"",
@@ -306,13 +311,15 @@
 			"name":	"",
 			"x":	1864,
 			"y":	992,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	472,
 			"y":	1000,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -417,7 +424,8 @@
 			"name":	"",
 			"x":	2360,
 			"y":	2120,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}],
 	"map":	{
 		"data":	"eJztmlluwyAUAK/SIziRuP/VqnyksfHb8MKDZjSK1NiAmQdma5afZcOjA32fFq3Lu0b1Fft6nH0JJd0+7n+euuQR7PP8x7CX/EsTHx8vxWNA+6ve/yKWpZUwjv01/kUpa9s3HlXqMWhrZ8tey1nfzza+1r8YZcn3s409//JX8wjrstbjnXR/Dn+9re2+ER3/so3xxx9/3b8ewb7Nv76yjcH3+UdjIO8cPvln9n87SDP8Z6aP9JL2nnN8RFr3uWj+6NPO+I7tr+9u6x3cPP7x+1KOegcj2UdHySPRibTIUt2JvZOx8V8fLbZp7vJfU6p7Vm0fSuxsf3+Ho+2C2k6O9JMiy38bAf9Msb3985AjYKXzzxRn8pf33vb45/Wd/fthl53rL/UB/VypmPmsvKO2v2TinyvpEdiuWObw98d47Qw13nfG9td6s20v5ZvV34qAfX4u9534+JjtvTaRV30tkXt/09YmI/trTn5t/0P/j0VAS1tUv1n9/fkt5jev/zXz28z+3rwo+bXv/8amLQJe3vn89zNZ3D+yPsq2OxKPuL+/ts62uTYCXur/4W+tj7zxoZ+/XZMI7RGwzg56rn/Pux+LQPQ3Kff5X2Vu1c9KbdvP5y+jzYb++fhs/tb5+4vWk5O7/fetUk79HXli3L7X+PeKwfOZ/4n+9lJeYcq5+0TwxXNZ0j9H23/fGzMimIcVgW/wb9m5Ztc0OwLZ9bwzApH/e2fXsjf4AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9OUXk5syUw=",

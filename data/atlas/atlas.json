@@ -616,8 +616,16 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/healthUp1.png",
+		"filename" : "gfx/main/arrow.png",
 		"x" : 145,
+		"y" : 281,
+		"w" : 28,
+		"h" : 28,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/healthUp1.png",
+		"x" : 174,
 		"y" : 281,
 		"w" : 26,
 		"h" : 26,
@@ -625,7 +633,7 @@
 	},
 	{
 		"filename" : "gfx/entities/healthUp2.png",
-		"x" : 172,
+		"x" : 201,
 		"y" : 281,
 		"w" : 26,
 		"h" : 26,
@@ -633,7 +641,7 @@
 	},
 	{
 		"filename" : "gfx/hud/water.png",
-		"x" : 199,
+		"x" : 228,
 		"y" : 281,
 		"w" : 18,
 		"h" : 26,
@@ -641,7 +649,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartEmpty.png",
-		"x" : 218,
+		"x" : 247,
 		"y" : 281,
 		"w" : 26,
 		"h" : 26,
@@ -649,7 +657,7 @@
 	},
 	{
 		"filename" : "gfx/hud/heartFull.png",
-		"x" : 245,
+		"x" : 274,
 		"y" : 281,
 		"w" : 26,
 		"h" : 26,
@@ -665,7 +673,7 @@
 	},
 	{
 		"filename" : "gfx/hud/hourGlass.png",
-		"x" : 272,
+		"x" : 301,
 		"y" : 281,
 		"w" : 19,
 		"h" : 25,
@@ -673,7 +681,7 @@
 	},
 	{
 		"filename" : "gfx/entities/coin.png",
-		"x" : 292,
+		"x" : 321,
 		"y" : 281,
 		"w" : 24,
 		"h" : 24,
@@ -681,7 +689,7 @@
 	},
 	{
 		"filename" : "gfx/main/radarArrow.png",
-		"x" : 317,
+		"x" : 346,
 		"y" : 281,
 		"w" : 24,
 		"h" : 24,
@@ -689,7 +697,7 @@
 	},
 	{
 		"filename" : "gfx/hud/monsters.png",
-		"x" : 342,
+		"x" : 371,
 		"y" : 281,
 		"w" : 24,
 		"h" : 24,
@@ -697,7 +705,7 @@
 	},
 	{
 		"filename" : "gfx/hud/girls.png",
-		"x" : 367,
+		"x" : 396,
 		"y" : 281,
 		"w" : 24,
 		"h" : 24,

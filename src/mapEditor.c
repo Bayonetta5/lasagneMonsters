@@ -716,6 +716,20 @@ static void tryLoadStage(int n)
 	printf("Bounds: %d,%d %d,%d\n", stage->bounds.x, stage->bounds.y, stage->bounds.w, stage->bounds.h);
 }
 
+static void resaveAll(void)
+{
+	Stage *s;
+
+	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
+	{
+		stage = s;
+
+		save();
+	}
+
+	exit(0);
+}
+
 static void handleCommandLine(int argc, char *argv[])
 {
 	int i;
@@ -725,6 +739,11 @@ static void handleCommandLine(int argc, char *argv[])
 		if (strcmp(argv[i], "-stage") == 0)
 		{
 			tryLoadStage(atoi(argv[i + 1]));
+		}
+
+		if (strcmp(argv[i], "-resave") == 0)
+		{
+			resaveAll();
 		}
 	}
 }

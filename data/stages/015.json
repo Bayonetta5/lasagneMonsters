@@ -14,8 +14,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"redHorse",
 			"name":	"",
@@ -150,7 +150,8 @@
 			"open":	0,
 			"coins":	8,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}],
 	"map":	{
 		"data":	"eJzt1kEKgCAQQNGrdARbeP+rRRBUpFJUiMPjrUxdfIShNKXNvDmvnkhD069f/+gV+vW/689V66n6bu5e8E3/08kWbf616kuvHb3/WH/8ni/3ehf80V+r3ydF5P5WfdT/n1LRnfq4/ffqR+8HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKFsAABUDLw=",

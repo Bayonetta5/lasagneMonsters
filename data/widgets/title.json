@@ -17,18 +17,10 @@
 	},
 	{
 		"type" : "WT_BUTTON",
-		"name" : "stats",
-		"groupName" : "title",
-		"x" : -1,
-		"y" : 425,
-		"text" : "Stats"
-	},
-	{
-		"type" : "WT_BUTTON",
 		"name" : "options",
 		"groupName" : "title",
 		"x" : -1,
-		"y" : 500,
+		"y" : 425,
 		"text" : "Options"
 	},
 	{

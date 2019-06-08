@@ -59,7 +59,8 @@
 			"name":	"",
 			"x":	104,
 			"y":	2624,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -169,7 +170,8 @@
 			"y":	2944,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_STANDING"
+			"cageType":	"CT_STANDING",
+			"isGirl":	1
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
@@ -177,7 +179,8 @@
 			"y":	2944,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_STANDING"
+			"cageType":	"CT_STANDING",
+			"isGirl":	1
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -214,8 +217,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}, {
 			"type":	"transferCube",
 			"name":	"",
@@ -279,7 +282,8 @@
 			"name":	"",
 			"x":	5472,
 			"y":	1312,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"door",
 			"name":	"",
@@ -303,13 +307,15 @@
 			"name":	"",
 			"x":	160,
 			"y":	1240,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"key",
 			"name":	"",
 			"x":	1776,
 			"y":	1792,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"lamp",
 			"name":	"",
@@ -1111,7 +1117,8 @@
 			"open":	0,
 			"coins":	9,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -1121,7 +1128,8 @@
 			"open":	0,
 			"coins":	5,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -1131,7 +1139,8 @@
 			"open":	0,
 			"coins":	10,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -1141,7 +1150,8 @@
 			"open":	0,
 			"coins":	10,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",

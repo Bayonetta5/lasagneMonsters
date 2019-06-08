@@ -117,5 +117,7 @@ static void touch(Entity *other)
 		playSound(SND_CRUNCH, CH_ITEM);
 
 		self->alive = ALIVE_DEAD;
+
+		game.stats[STAT_HEALTH_EATEN]++;
 	}
 }

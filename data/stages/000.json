@@ -31,7 +31,8 @@
 			"open":	0,
 			"coins":	3,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -41,7 +42,8 @@
 			"open":	0,
 			"coins":	9,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"chest",
 			"name":	"",
@@ -51,7 +53,8 @@
 			"open":	0,
 			"coins":	6,
 			"nextRefill":	0,
-			"found":	0
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"bbbbb",
 			"name":	"",
@@ -59,7 +62,8 @@
 			"y":	192,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"player",
 			"name":	"",
@@ -128,7 +132,8 @@
 			"name":	"",
 			"x":	712,
 			"y":	376,
-			"facing":	"FACING_RIGHT"
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}, {
 			"type":	"greenHorse",
 			"name":	"",

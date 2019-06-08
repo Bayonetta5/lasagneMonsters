@@ -137,6 +137,8 @@ static void restartAtCheckpoint(void)
 
 	initWipe(WIPE_FADE);
 
+	game.stats[STAT_RETRIES]++;
+
 	app.delegate.logic = oldLogic;
 	app.delegate.draw = oldDraw;
 }

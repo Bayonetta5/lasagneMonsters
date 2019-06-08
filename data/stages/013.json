@@ -52,7 +52,6 @@
 			"facing":	"FACING_LEFT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	640,
 			"sy":	672,
 			"ex":	584,
@@ -65,7 +64,6 @@
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"speed":	4,
 			"sx":	736,
 			"sy":	672,
 			"ex":	808,
@@ -94,7 +92,9 @@
 			"facing":	"FACING_RIGHT",
 			"open":	1,
 			"coins":	0,
-			"nextRefill":	0
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
 		}, {
 			"type":	"lamp",
 			"name":	"",
@@ -276,8 +276,8 @@
 			"ammo":	5,
 			"maxAmmo":	5,
 			"refillRate":	0.050000,
-			"autoFire":	0,
-			"hasDoubleJump":	0
+			"hasDoubleJump":	0,
+			"hasRadarUpgrade":	0
 		}],
 	"map":	{
 		"data":	"eJzt10sKgDAMQMGreAS78P5Xcykq1LaIn2SYteDLoiRlKsPmAMYr9L/97/rv6F8aRO5//ssv0Z+7f1y+/v2bGKO//sbXxOjfttneCUTr759ABCX5BI433Xnr69sK/+b6vo1+/+buBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBYr9kYCsQ=",

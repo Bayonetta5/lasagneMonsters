@@ -26,4 +26,5 @@ extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void playSound(int snd, int ch);
 
 extern Entity *self;
+extern Game game;
 extern World world;

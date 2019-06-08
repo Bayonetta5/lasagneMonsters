@@ -317,7 +317,7 @@ static void moveToEntities(Entity *e, float dx, float dy, Entity **candidates, i
 				{
 					removeFromQuadtree(other, &world.quadtree);
 
-					pushPower = e->flags & EF_SLOW_PUSH ? 0.5f : 1.0f;
+					pushPower = (e->flags & EF_SLOW_PUSH) ? 0.5f : 1.0f;
 
 					oldSelf = self;
 

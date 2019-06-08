@@ -25,7 +25,6 @@ static void draw(void);
 static void newGame(void);
 static void continueGame(void);
 static void options(void);
-static void stats(void);
 static void quit(void);
 
 static Widget *previousWidget;
@@ -46,10 +45,6 @@ void initTitle(void)
 
 	w = getWidget("options", "title");
 	w->action = options;
-
-	w = getWidget("stats", "title");
-	w->action = stats;
-	w->disabled = 1;
 
 	w = getWidget("quit", "title");
 	w->action = quit;
@@ -150,11 +145,6 @@ static void options(void)
 	showWidgets("title", 0);
 
 	initOptions(returnFrom);
-}
-
-static void stats(void)
-{
-	previousWidget = app.selectedWidget;
 }
 
 static void quit(void)

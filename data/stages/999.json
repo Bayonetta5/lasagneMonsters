@@ -127,7 +127,8 @@
 			"y":	296,
 			"facing":	"FACING_RIGHT",
 			"health":	5,
-			"cageType":	"CT_HANGING"
+			"cageType":	"CT_HANGING",
+			"isGirl":	1
 		}, {
 			"type":	"platform",
 			"name":	"",

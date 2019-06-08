@@ -68,7 +68,7 @@ static void logic(void)
 
 	if (app.keyboard[SDL_SCANCODE_DOWN] || isControl(CONTROL_DOWN))
 	{
-		start = MIN(start + 1, STAT_TIME - 1);
+		start = MIN(start + 1, STAT_TIME - NUM_VISIBLE_STATS);
 	}
 
 	if (app.keyboard[SDL_SCANCODE_ESCAPE])
@@ -188,6 +188,8 @@ static void calculate(void)
 
 	game.stats[STAT_ACCURACY] = percent;
 
+	game.stats[STAT_ZONES_VISITED] = 0;
+
 	remainingStatEntities = 0;
 
 	for (s = world.stagesHead.next ; s != NULL ; s = s->next)
@@ -218,6 +220,11 @@ static void calculate(void)
 				}
 			}
 		}
+
+		if (s->visited)
+		{
+			game.stats[STAT_ZONES_VISITED]++;
+		}
 	}
 
 	percent = game.totalStatEntities - remainingStatEntities;
@@ -232,17 +239,19 @@ static void initStatNames(void)
 	statNames[STAT_SHOTS_FIRED] = "Shots fired";
 	statNames[STAT_SHOTS_HIT] = "Shots hit";
 	statNames[STAT_ACCURACY] = "Accuracy";
+	statNames[STAT_SHOTS_DESTROYED] = "Shots destroyed";
 	statNames[STAT_ZONES_VISITED] = "Zones visited";
 	statNames[STAT_JUMPS] = "Times jumped";
 	statNames[STAT_MOVED] = "Distance moved";
 	statNames[STAT_FALLEN] = "Distance fallen";
 	statNames[STAT_HEALTH_EATEN] = "Health picked up";
 	statNames[STAT_HEALTH_LOST] = "Total health lost";
-	statNames[STAT_COINS] = "Coins picked up";
+	statNames[STAT_COINS_COLLECTED] = "Coins collected";
 	statNames[STAT_COINS_SPENT] = "Coins spent";
 	statNames[STAT_RETRIES] = "Retries";
 	statNames[STAT_GUMBALLS_BOUGHT] = "Gumballs bought";
 	statNames[STAT_CHESTS_OPENED] = "Chest opened";
+	statNames[STAT_KEYS_FOUND] = "Keys found";
 	statNames[STAT_PERCENT_COMPLETE] = "Percent complete";
 	statNames[STAT_TIME] = "Time";
 }
