@@ -75,6 +75,9 @@ static void tick(void)
 		game.stats[STAT_FALLEN] += self->y - w->oldPosition.y;
 	}
 
+	w->oldPosition.x = self->x;
+	w->oldPosition.y = self->y;
+
 	self->dx = 0;
 
 	w->immuneTimer = MAX(w->immuneTimer - 1, 0);

@@ -150,6 +150,7 @@ static void drawStats(void)
 					break;
 
 				case STAT_PERCENT_COMPLETE:
+				case STAT_ACCURACY:
 					drawText(r.x + r.w - 25, y, 48, TEXT_RIGHT, app.colors.white, "%d%%", game.stats[i]);
 					break;
 
