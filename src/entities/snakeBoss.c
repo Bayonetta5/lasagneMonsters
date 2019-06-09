@@ -38,6 +38,7 @@ static void updateBodyParts(void);
 static Entity *head;
 static Entity *bodyPart[MAX_BODY_PARTS];
 static Entity *leftFlag, *rightFlag, *originFlag;
+static AtlasImage *straightAtlasImage, *aimedAtlasImage;
 static int deathCounter;
 static int killPart;
 static int thinkTime;
@@ -68,7 +69,10 @@ void initSnakeBoss(Entity *e)
 	e->damage = damage;
 	e->touch = touch;
 
-	e->atlasImage = getAtlasImage("gfx/entities/snakeBossHead.png", 1);
+	straightAtlasImage = getAtlasImage("gfx/entities/snakeBossHead1.png", 1);
+	aimedAtlasImage = getAtlasImage("gfx/entities/snakeBossHead2.png", 1);
+
+	e->atlasImage = straightAtlasImage;
 	e->w = e->atlasImage->rect.w;
 	e->h = e->atlasImage->rect.h;
 
@@ -77,7 +81,7 @@ void initSnakeBoss(Entity *e)
 	thinkTime = 0;
 	shotsToFire = 0;
 	reload = 0;
-	shotType = 0;
+	shotType = SHOT_TYPE_STRAIGHT;
 	deathCounter = 0;
 	hitTimer = 0;
 	killPart = MAX_BODY_PARTS;
@@ -160,6 +164,19 @@ static void retract(void)
 		thinkTime = rrnd(FPS, FPS * 2);
 
 		self->tick = emerge;
+
+		/* select shot type */
+		if (rand() % 2)
+		{
+			shotType = SHOT_TYPE_STRAIGHT;
+			self->atlasImage = straightAtlasImage;
+		}
+		else
+		{
+			shotType = SHOT_TYPE_AIMED;
+			self->atlasImage = aimedAtlasImage;
+		}
+
 	}
 }
 
@@ -199,8 +216,6 @@ static void damage(int amount, int type)
 		if (b->health == 0)
 		{
 			self->tick = killBoss;
-
-			hitTimer = 0;
 		}
 	}
 }
@@ -210,7 +225,6 @@ static void preFire(void)
 	if (rand() % 2 == 0)
 	{
 		shotsToFire = rrnd(3, 8);
-		shotType = rand() % 3;
 	}
 }
 
@@ -220,7 +234,7 @@ static void fireShots(void)
 	{
 		switch (shotType)
 		{
-			case 0:
+			case SHOT_TYPE_AIMED:
 				initAimedSlimeBullet(self, world.player);
 				break;
 
@@ -239,6 +253,8 @@ static void fireShots(void)
 
 static void killBoss(void)
 {
+	hitTimer = 0;
+
 	if (deathCounter % (FPS / 4) == 0)
 	{
 		if (killPart == MAX_BODY_PARTS)
