@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 #define MAX_BODY_PARTS         12
-#define SHOT_TYPE_STRAIGHT     0
 #define SHOT_TYPE_AIMED        1
+#define SHOT_TYPE_STRAIGHT     0
 
 extern void activateEntities(char *targetName, int activate);
 extern void addToQuadtree(Entity *e, Quadtree *root);
