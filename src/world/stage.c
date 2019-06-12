@@ -351,7 +351,7 @@ static void transfer(void)
 
 	memcpy(world.player->data, &walter, sizeof(Walter));
 
-	w = (Walter*)world.player;
+	w = (Walter*)world.player->data;
 
 	world.player->x = e->x;
 	world.player->y = e->y;
