@@ -117,7 +117,7 @@
 			"x":	2256,
 			"y":	1296,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	21,
+			"targetStage":	23,
 			"targetFlag":	"left",
 			"w":	1,
 			"h":	2

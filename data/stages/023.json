@@ -1,8 +1,8 @@
 {
 	"id":	23,
 	"visited":	0,
-	"x":	0,
-	"y":	0,
+	"x":	3,
+	"y":	3,
 	"entities":	[{
 			"type":	"player",
 			"name":	"",
@@ -18,7 +18,7 @@
 			"hasRadarUpgrade":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"left",
 			"x":	2560,
 			"y":	1744,
 			"facing":	"FACING_RIGHT",
@@ -26,7 +26,7 @@
 			"dy":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"right",
 			"x":	6064,
 			"y":	3616,
 			"facing":	"FACING_RIGHT",
@@ -38,20 +38,20 @@
 			"x":	6096,
 			"y":	3552,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	20,
+			"targetFlag":	"right",
 			"w":	1,
-			"h":	1
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"name":	"",
 			"x":	2496,
 			"y":	1680,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	20,
+			"targetFlag":	"right",
 			"w":	1,
-			"h":	1
+			"h":	2
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -106,36 +106,36 @@
 			"enabled":	1
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"tfDoor1",
 			"x":	5392,
 			"y":	1632,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	5392,
 			"sy":	1632,
 			"ex":	5392,
 			"ey":	1540
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"exitDoor",
 			"x":	5824,
 			"y":	3552,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	5824,
 			"sy":	3552,
 			"ex":	5824,
 			"ey":	3460
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"tfDoor3",
 			"x":	4744,
 			"y":	1632,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	4744,
 			"sy":	1632,
 			"ex":	4744,
@@ -146,7 +146,7 @@
 			"x":	5464,
 			"y":	1672,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"tfDoor1",
 			"on":	0
 		}, {
 			"type":	"trafficLight",
@@ -154,7 +154,7 @@
 			"x":	4944,
 			"y":	2056,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"tfDoor3",
 			"on":	0
 		}, {
 			"type":	"piggyBank",
@@ -162,28 +162,28 @@
 			"x":	3256,
 			"y":	2128,
 			"facing":	"FACING_RIGHT",
-			"requiredCoins":	0,
-			"targetName":	""
+			"requiredCoins":	150,
+			"targetName":	"piggyDoor"
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"piggyDoor",
 			"x":	3424,
 			"y":	2064,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	3424,
 			"sy":	2064,
 			"ex":	3424,
 			"ey":	1972
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"tfDoor2",
 			"x":	3856,
 			"y":	2496,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	3856,
 			"sy":	2496,
 			"ex":	3856,
@@ -208,7 +208,7 @@
 			"y":	2688,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"sx":	4000,
 			"sy":	2688,
 			"ex":	4000,
@@ -219,7 +219,7 @@
 			"x":	3880,
 			"y":	2728,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"exitDoor",
 			"on":	0
 		}, {
 			"type":	"trafficLight",
@@ -227,7 +227,7 @@
 			"x":	3928,
 			"y":	2536,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"tfDoor2",
 			"on":	0
 		}, {
 			"type":	"key",
@@ -256,7 +256,7 @@
 			"type":	"waterBottle",
 			"name":	"",
 			"x":	3520,
-			"y":	2168,
+			"y":	2167,
 			"facing":	"FACING_RIGHT",
 			"isStatEntity":	1
 		}, {
@@ -266,11 +266,583 @@
 			"y":	3344,
 			"facing":	"FACING_RIGHT",
 			"isStatEntity":	1
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	2848,
+			"y":	3312,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_KEY",
+			"sx":	2848,
+			"sy":	3312,
+			"ex":	2848,
+			"ey":	3220
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2616,
+			"y":	1704,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3136,
+			"y":	1704,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3648,
+			"y":	1848,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3872,
+			"y":	1848,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4360,
+			"y":	1848,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4592,
+			"y":	1656,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5000,
+			"y":	1656,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5312,
+			"y":	1656,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5808,
+			"y":	1656,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2984,
+			"y":	2136,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2880,
+			"y":	2424,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2792,
+			"y":	2856,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3000,
+			"y":	2856,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4720,
+			"y":	2280,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4960,
+			"y":	2280,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4224,
+			"y":	2136,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4208,
+			"y":	3096,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4080,
+			"y":	2760,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5504,
+			"y":	3480,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5608,
+			"y":	3336,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4952,
+			"y":	2760,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3536,
+			"y":	3432,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3176,
+			"y":	3480,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	3880,
+			"y":	3528,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	2608,
+			"y":	3480,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	4696,
+			"y":	3384,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	5048,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4328,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3744,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3264,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2784,
+			"y":	3504,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2688,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2712,
+			"y":	2592,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2720,
+			"y":	2256,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2728,
+			"y":	1968,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3304,
+			"y":	1968,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3536,
+			"y":	1968,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3656,
+			"y":	2448,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2792,
+			"y":	1584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3320,
+			"y":	1584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3848,
+			"y":	1584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4376,
+			"y":	1584,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	5264,
+			"y":	3264,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4656,
+			"y":	2640,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4320,
+			"y":	2640,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	4400,
+			"y":	2832,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3816,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	3432,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	2640,
+			"y":	2976,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	4216,
+			"y":	1888,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	3512,
+			"y":	1888,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	2696,
+			"y":	2464,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	4368,
+			"y":	2320,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	5280,
+			"y":	3616,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	4040,
+			"y":	3128,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	4432,
+			"y":	2744,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	4928,
+			"y":	1688,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	4040,
+			"y":	3368,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	2744,
+			"y":	3368,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt2lFygzAMRdGtdAnAjPe/tf60JbUly3JTI8GdM/nIgLGf4oAh2T42AAAAAAAAAAAAAACAQXtAa/P/Z2X9vd4n/+x4oo2I/F5F1Nt2bl+d3xrPzBF7ZzXrrLf++6+Zq4CWPl/+mQro6TPm393f4t6xoub37LM7WsnHIH++/FIK8o85zwz58rdrgTt+/r2VT30d2NVWefPP7N1vJdXjOfnL14x5Vv52DfQ9C/Ke/8bzSys/rWXm/HIred2bJf9f73r797vx8//mrYB1vxs/vy/t+B3f/fKXZqz+fvLmL81YZ/rJmr8IY31O/vp73l4trGtI7vzamO0rZub7Xyu/3a49Z8TLP/Js05+9bRc1/3uPZ1Xs3vkzPv9fk/7u+a1fP+Lm138B9ehnj5x/laj5V/Zmj4P85L+i37knYPP/Eql7vTp/fR4aba1VwFvJq/OfNZBmgTw3ijra8nOk+PlL9V6vgpRRmgGvqwH9GHNPm9+fv37/6jiK61Wq7PY++uetz67VFeqt9I5tc73qVc/IPtoatbdtbYV61lTIL06FrrEyPwAAAAAAAAAAAAAAAAAAAAAAwJxP854fVA=",
+		"data":	"eJzt2m2OwjAMRdGtzBLaSt7/1ubPiEJqJ3FgUjtcHSGB2qR5ph9pYfvZAAAAAAAAAAAAAAAAOu0Bzc3/n5X1b3Wd/KPjiTYi8nuJor70XGN2fms08kaP2jlNqkvP1POPf8tYBXry5cg/UgE7fcb8u3lUWMdM+6oeL79nnd3RSu+D/PnyaynI3+c8M+TLf50LrPj912Y+5XVgN1vlzT+ydr2VVo/vyS9/e8x35b/OgeRl2dr5tZmf1TJzfr2VPu/Nkv/du15r1p8l/ytvBVr3u/Hz+9L23/Gtl18uY/VvJ29+uYx1ZDtZ84sy1u/JXx7n9ae66+W3xty+Yma+/23lb7e7njPi5e95tunPfm0XNf9n+2tVbO38GZ//z0m/ev7Wrx9x89u/gHrUs0fOP0vU/Pr72SLkvxP5780/9gRs/F8i5Vbvzl+eh3pbWxXwVvLu/GcNtL1A3zfEHK08eoqfX4rPdhW0jNoe8DwbsPsYe9r8+fzl52fHIa6XFNnb69jft713za5QbaZ3bJvrVc56etax5qi1ZXMrVDOnQn5xKnSPmfkBAAAAAAAAAAAAAAAAAAAAAADG/AJeHx9",
 		"eLen":	592,
-		"cLen":	442,
+		"cLen":	444,
 		"dLen":	32870
 	}
 }
