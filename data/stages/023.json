@@ -771,8 +771,8 @@
 		}, {
 			"type":	"blueHorse",
 			"name":	"",
-			"x":	4216,
-			"y":	1888,
+			"x":	3016,
+			"y":	3472,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
@@ -807,42 +807,259 @@
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	4040,
-			"y":	3128,
+			"y":	3126,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	4432,
-			"y":	2744,
+			"y":	2742,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	4928,
-			"y":	1688,
+			"y":	1686,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	4040,
-			"y":	3368,
+			"y":	3366,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"greenTentacleMonster",
 			"name":	"",
 			"x":	2744,
-			"y":	3368,
+			"y":	3366,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
+		}, {
+			"type":	"purpleBugEyedMonster",
+			"name":	"",
+			"x":	2728,
+			"y":	2168,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"purpleBugEyedMonster",
+			"name":	"",
+			"x":	2680,
+			"y":	3128,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"purpleBugEyedMonster",
+			"name":	"",
+			"x":	3920,
+			"y":	2168,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"purpleBugEyedMonster",
+			"name":	"",
+			"x":	4048,
+			"y":	1872,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	5016,
+			"y":	3376,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	3288,
+			"y":	2416,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	4448,
+			"y":	1624,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	5520,
+			"y":	1608,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	3424,
+			"y":	3304,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"gumballMachine",
+			"name":	"",
+			"x":	2616,
+			"y":	2448,
+			"facing":	"FACING_RIGHT"
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	4992,
+			"y":	2320,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	3984,
+			"y":	2176,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	4096,
+			"y":	2176,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	4304,
+			"y":	2752,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	2616,
+			"y":	2896,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	2608,
+			"y":	3616,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	5304,
+			"y":	2512,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	5360,
+			"y":	2512,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"chest",
+			"name":	"",
+			"x":	5416,
+			"y":	2512,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"coins":	0,
+			"nextRefill":	0,
+			"found":	0,
+			"isStatEntity":	1
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	5280,
+			"y":	2784,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_KEY",
+			"sx":	5280,
+			"sy":	2784,
+			"ex":	5280,
+			"ey":	2692
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	5384,
+			"y":	2784,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	5360,
+			"y":	2448,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"ceilingLamp",
+			"name":	"",
+			"x":	5624,
+			"y":	2448,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"key",
+			"name":	"",
+			"x":	4696,
+			"y":	1664,
+			"facing":	"FACING_RIGHT",
+			"isStatEntity":	1
 		}],
 	"map":	{
-		"data":	"eJzt2m2OwjAMRdGtzBLaSt7/1ubPiEJqJ3FgUjtcHSGB2qR5ph9pYfvZAAAAAAAAAAAAAAAAOu0Bzc3/n5X1b3Wd/KPjiTYi8nuJor70XGN2fms08kaP2jlNqkvP1POPf8tYBXry5cg/UgE7fcb8u3lUWMdM+6oeL79nnd3RSu+D/PnyaynI3+c8M+TLf50LrPj912Y+5XVgN1vlzT+ydr2VVo/vyS9/e8x35b/OgeRl2dr5tZmf1TJzfr2VPu/Nkv/du15r1p8l/ytvBVr3u/Hz+9L23/Gtl18uY/VvJ29+uYx1ZDtZ84sy1u/JXx7n9ae66+W3xty+Yma+/23lb7e7njPi5e95tunPfm0XNf9n+2tVbO38GZ//z0m/ev7Wrx9x89u/gHrUs0fOP0vU/Pr72SLkvxP5780/9gRs/F8i5Vbvzl+eh3pbWxXwVvLu/GcNtL1A3zfEHK08eoqfX4rPdhW0jNoe8DwbsPsYe9r8+fzl52fHIa6XFNnb69jft713za5QbaZ3bJvrVc56etax5qi1ZXMrVDOnQn5xKnSPmfkBAAAAAAAAAAAAAAAAAAAAAADG/AJeHx9",
-		"eLen":	592,
-		"cLen":	444,
+		"data":	"eJzt2n9uwyAMhuGr7AhJJd//avtnWlqwAdMN7PTVo0prAwmfmx8k3fF1AAAAAAAAAAAAAAAADDoDWpv/Pyvr3+p98s+OJ9qIyO8livbSq8Xq/NZo5I01auc0aS69Uq8//i1zFRjJlyP/TAXs9Bnzn+ZRYR0z/at6vPyeNqejl74O8ufLr6Ug/5jrzJAvfz0XuOP335r5lNeB0+yVN/9M63YvrR6fk19+9pjPyl/PgeRl2b3zazM/q2fm/Hovfd47VrmrJrvyv3vXa836s+R/5a1A7363zl9fOfPs/547Pit/3SpLfimyefrq+Z8/i55fqnHPbKdOLynyizLy9/IfxSeR85fHefuprmc79TEVMb91jutfMcs7J3vN+fL3+9XnDPv6sSv/yLNNf/a6X6uS0b//cb2K3Tt/xuf/a9LfPX/v14+4+e1fQD3a2SPnXyVqfv3v1SLk34n8e/PPPQGb/y+Rcqu785fnodHeVgW8ldyd/6qBthfo+4aYo5XfNcXPL8V7uwpaRm0PeJ4N2OuYe9r89/nL988eD3G9pMjeb2N/3/betbpCrZne4zhcr3LWM9LGmqO2lq2tUMuaCvnFqdAeK/MDAAAAAAAAAAAAAAAAAAAAAADM+QYDkh9",
+		"eLen":	636,
+		"cLen":	477,
 		"dLen":	32870
 	}
 }
