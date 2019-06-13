@@ -77,7 +77,7 @@ static void touch(Entity *other)
 		{
 			world.transferCube = (TransferCube*)self->data;
 		}
-		else
+		else if (other->flags & EF_TRANSIENT)
 		{
 			other->alive = ALIVE_DEAD;
 			other->flags |= EF_TRANSIENT;
