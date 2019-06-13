@@ -28,6 +28,7 @@ extern void initMonster(Entity *e);
 extern void initSlimeBullet(Entity *owner);
 extern void lookForPlayer(void);
 extern void monsterTick(void);
+extern int rrnd(int min, int max);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 
 extern Entity *self;

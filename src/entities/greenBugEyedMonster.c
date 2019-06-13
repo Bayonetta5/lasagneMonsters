@@ -40,6 +40,9 @@ void initGreenBugEyedMonster(Entity *e)
 	m->health = m->maxHealth = 12;
 	m->coins = 10;
 	m->aiFlags = AIF_HALT_AT_EDGE;
+	m->minShotsToFire = 3;
+	m->maxShotsToFire = 5;
+	m->reloadTime = FPS / 4;
 
 	if (textures[0] == NULL)
 	{
@@ -94,7 +97,7 @@ static void preAttack(void)
 		case 1:
 			if (abs(self->y - world.player->y) <= 16)
 			{
-				m->shotsToFire = 3 + rand() % 3;
+				m->shotsToFire = rrnd(m->minShotsToFire, m->maxShotsToFire);
 			}
 			self->tick = stand;
 			break;
@@ -106,7 +109,7 @@ static void preAttack(void)
 		case 3:
 			if (abs(self->y - world.player->y) <= 16)
 			{
-				m->shotsToFire = 3 + rand() % 3;
+				m->shotsToFire = rrnd(m->minShotsToFire, m->maxShotsToFire);
 			}
 			self->tick = chasePlayer;
 			break;
@@ -182,7 +185,7 @@ static void fireShots(void)
 
 			m->shotsToFire--;
 
-			m->reload = FPS / 4;
+			m->reload = m->reloadTime;
 
 			playPositionalSound(SND_SLIME_SHOOT, -1, self->x, self->y, world.player->x, world.player->y);
 		}
