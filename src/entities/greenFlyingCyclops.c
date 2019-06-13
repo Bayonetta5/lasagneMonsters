@@ -37,7 +37,7 @@ void initGreenFlyingCyclops(Entity *e)
 	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 5;
-	m->coins = 2;
+	m->coins = 3;
 	m->minShotsToFire = 1;
 	m->maxShotsToFire = 2;
 	m->reloadTime = FPS / 2;

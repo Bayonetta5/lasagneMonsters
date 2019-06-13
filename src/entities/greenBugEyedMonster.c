@@ -38,7 +38,7 @@ void initGreenBugEyedMonster(Entity *e)
 	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 12;
-	m->coins = 10;
+	m->coins = 3;
 	m->aiFlags = AIF_HALT_AT_EDGE;
 	m->minShotsToFire = 3;
 	m->maxShotsToFire = 5;

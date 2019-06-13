@@ -38,7 +38,7 @@ void initGreenTentacleMonster(Entity *e)
 	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 12;
-	m->coins = 5;
+	m->coins = 3;
 	m->aiFlags = AIF_HALT_AT_EDGE;
 
 	if (textures[0] == NULL)

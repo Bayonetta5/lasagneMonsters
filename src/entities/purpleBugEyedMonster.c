@@ -38,7 +38,7 @@ void initPurpleBugEyedMonster(Entity *e)
 	m = (Monster*)e->data;
 
 	m->health = m->maxHealth = 18;
-	m->coins = 25;
+	m->coins = 5;
 	m->aiFlags = AIF_HALT_AT_EDGE+AIF_JUMPS;
 	m->minShotsToFire = 6;
 	m->maxShotsToFire = 12;
