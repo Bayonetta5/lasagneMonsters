@@ -86,7 +86,7 @@ static void tick(void)
 
 	if (self->isOnGround)
 	{
-		w->canAirJump = w->hasDoubleJump;
+		w->canAirJump = w->hasDoubleJump || app.dev.boots;
 
 		if (self->riding == NULL && --w->checkpointTimer <= 0)
 		{

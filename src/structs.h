@@ -393,5 +393,6 @@ typedef struct {
 		int drawing;
 		int editor;
 		int disableLights;
+		int boots;
 	} dev;
 } App;

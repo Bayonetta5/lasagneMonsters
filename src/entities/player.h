@@ -33,6 +33,7 @@ extern int isControl(int type);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern void playSound(int id, int channel);
 
+extern App app;
 extern Entity *self;
 extern Game game;
 extern World world;

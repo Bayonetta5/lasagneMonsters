@@ -126,6 +126,11 @@ static void handleCommandLine(int argc, char *argv[])
 
 			n = game.stageId;
 		}
+
+		if (strcmp(argv[i], "-boots") == 0)
+		{
+			app.dev.boots = 1;
+		}
 	}
 
 	if (n > 0)
