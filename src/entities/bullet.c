@@ -24,7 +24,7 @@ static Entity *initBullet(Entity *owner, int damage, int damageType);
 static void waterBulletDie(void);
 static void slimeBulletDie(void);
 static void drawSlimeBulletLight(void);
-static void tickBouncer(void);
+static void bouncerTick(void);
 static int isBulletOwner(Entity *other);
 
 static AtlasImage *waterBulletTexture;
@@ -84,6 +84,8 @@ void initSlimeBullet(Entity *owner)
 	{
 		e->x += self->w;
 	}
+
+	((Bullet*)e->data)->health = FPS * 5;
 }
 
 void initAimedSlimeBullet(Entity *owner, Entity *target)
@@ -105,6 +107,8 @@ void initAimedSlimeBullet(Entity *owner, Entity *target)
 
 	e->dx *= 8;
 	e->dy *= 8;
+
+	((Bullet*)e->data)->health = FPS * 5;
 }
 
 void initSlimeBouncerBullet(Entity *owner, Entity *target)
@@ -118,12 +122,10 @@ void initSlimeBouncerBullet(Entity *owner, Entity *target)
 	e->h = e->atlasImage->rect.h;
 	e->drawLight = drawSlimeBulletLight;
 	e->die = slimeBulletDie;
-	e->tick = tickBouncer;
+	e->tick = bouncerTick;
 
 	e->flags |= EF_BOUNCES;
 	e->flags &= ~EF_WEIGHTLESS;
-
-	((Bullet*)e)->health = FPS * 3;
 
 	e->x = owner->x;
 	e->y = owner->y;
@@ -142,6 +144,8 @@ void initSlimeBouncerBullet(Entity *owner, Entity *target)
 	{
 		e->dx = -6;
 	}
+
+	((Bullet*)e->data)->health = FPS * 5;
 }
 
 static void tick(void)
@@ -157,7 +161,7 @@ static void tick(void)
 	}
 }
 
-static void tickBouncer(void)
+static void bouncerTick(void)
 {
 	Bullet *b;
 
@@ -249,7 +253,6 @@ static Entity *initBullet(Entity *owner, int amount, int damageType)
 	b = malloc(sizeof(Bullet));
 	memset(b, 0, sizeof(Bullet));
 
-	b->health = FPS * 60;
 	b->damage = amount;
 	b->damageType = damageType;
 
