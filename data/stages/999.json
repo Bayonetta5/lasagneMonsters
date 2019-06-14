@@ -142,11 +142,18 @@
 			"pause":	60,
 			"speed":	2,
 			"enabled":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	1096,
+			"y":	438,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
 		}],
 	"map":	{
-		"data":	"eJzt18EJwCAQRcFWLCH231waUEOChMU/zFH28JAF7a1/cB1j3TI+zenfN1OV/vlWj7Y+a//3zVSlP73//T6f1f/PTFXr+094/+nXrz+7P/f/CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADy7ATbWAdI",
-		"eLen":	156,
-		"cLen":	116,
+		"data":	"eJzt19EJgDAMQMFVHMHuv1wXqG2VIiE57lPy8ZBA0672wZ3GvGX8tU7/uZmo9D9v9Wjra+3/uZmo9Ffvf7/Pufr/mYlq7/9nfv+te3K/f1c92d//857898+sp8L9V/3+rd0PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOzpzwQH",
+		"eLen":	176,
+		"cLen":	132,
 		"dLen":	32768
 	}
 }
