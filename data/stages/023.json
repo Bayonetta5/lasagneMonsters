@@ -119,15 +119,15 @@
 		}, {
 			"type":	"door",
 			"name":	"exitDoor",
-			"x":	5824,
+			"x":	6008,
 			"y":	3552,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_REMOTE",
-			"sx":	5824,
+			"sx":	6008,
 			"sy":	3552,
-			"ex":	5824,
-			"ey":	3460
+			"ex":	6008,
+			"ey":	3464
 		}, {
 			"type":	"door",
 			"name":	"tfDoor3",
@@ -842,28 +842,28 @@
 			"type":	"purpleBugEyedMonster",
 			"name":	"",
 			"x":	2728,
-			"y":	2168,
+			"y":	2166,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"purpleBugEyedMonster",
 			"name":	"",
 			"x":	2680,
-			"y":	3128,
+			"y":	3126,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"purpleBugEyedMonster",
 			"name":	"",
 			"x":	3920,
-			"y":	2168,
+			"y":	2166,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
 			"type":	"purpleBugEyedMonster",
 			"name":	"",
 			"x":	4048,
-			"y":	1872,
+			"y":	1878,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
@@ -905,7 +905,7 @@
 			"type":	"gumballMachine",
 			"name":	"",
 			"x":	2616,
-			"y":	2448,
+			"y":	2446,
 			"facing":	"FACING_RIGHT"
 		}, {
 			"type":	"chest",
@@ -914,7 +914,7 @@
 			"y":	2320,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -925,7 +925,7 @@
 			"y":	2176,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	10,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -936,7 +936,7 @@
 			"y":	2176,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	9,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -947,7 +947,7 @@
 			"y":	2752,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	5,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -958,7 +958,7 @@
 			"y":	2896,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -969,7 +969,7 @@
 			"y":	3616,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	9,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -980,7 +980,7 @@
 			"y":	2512,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -991,7 +991,7 @@
 			"y":	2512,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -1002,22 +1002,22 @@
 			"y":	2512,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	6,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
 		}, {
 			"type":	"door",
 			"name":	"",
-			"x":	5280,
+			"x":	5304,
 			"y":	2784,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
 			"requires":	"DR_KEY",
-			"sx":	5280,
+			"sx":	5304,
 			"sy":	2784,
-			"ex":	5280,
-			"ey":	2692
+			"ex":	5304,
+			"ey":	2696
 		}, {
 			"type":	"ceilingLamp",
 			"name":	"",
@@ -1055,6 +1055,16 @@
 			"y":	1664,
 			"facing":	"FACING_RIGHT",
 			"isStatEntity":	1
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	5240,
+			"y":	2808,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
 		"data":	"eJzt2n9uwyAMhuGr7AhJJd//avtnWlqwAdMN7PTVo0prAwmfmx8k3fF1AAAAAAAAAAAAAAAADDoDWpv/Pyvr3+p98s+OJ9qIyO8livbSq8Xq/NZo5I01auc0aS69Uq8//i1zFRjJlyP/TAXs9Bnzn+ZRYR0z/at6vPyeNqejl74O8ufLr6Ug/5jrzJAvfz0XuOP335r5lNeB0+yVN/9M63YvrR6fk19+9pjPyl/PgeRl2b3zazM/q2fm/Hovfd47VrmrJrvyv3vXa836s+R/5a1A7363zl9fOfPs/547Pit/3SpLfimyefrq+Z8/i55fqnHPbKdOLynyizLy9/IfxSeR85fHefuprmc79TEVMb91jutfMcs7J3vN+fL3+9XnDPv6sSv/yLNNf/a6X6uS0b//cb2K3Tt/xuf/a9LfPX/v14+4+e1fQD3a2SPnXyVqfv3v1SLk34n8e/PPPQGb/y+Rcqu785fnodHeVgW8ldyd/6qBthfo+4aYo5XfNcXPL8V7uwpaRm0PeJ4N2OuYe9r89/nL988eD3G9pMjeb2N/3/betbpCrZne4zhcr3LWM9LGmqO2lq2tUMuaCvnFqdAeK/MDAAAAAAAAAAAAAAAAAAAAAADM+QYDkh9",
