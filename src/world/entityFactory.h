@@ -22,7 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../json/cJSON.h"
 
 extern void initBBBBB(Entity *e);
+extern void initBabyBugEyedMonster(Entity *e);
 extern void initBattery(Entity *e);
+extern void initBlueBugEyedMonster(Entity *e);
 extern void initBlueHorse(Entity *e);
 extern void initBoots(Entity *e);
 extern void initCeilingLamp(Entity *e);
@@ -33,7 +35,6 @@ extern void initGreenBugEyedMonster(Entity *e);
 extern void initGreenFlyingCyclops(Entity *e);
 extern void initGreenHorse(Entity *e);
 extern void initGreenTentacleMonster(Entity *e);
-extern void initPurpleBugEyedMonster(Entity *e);
 extern void initGumball(Entity *e);
 extern void initGumballMachine(Entity *e);
 extern void initHeart(Entity *e);
@@ -43,6 +44,7 @@ extern void initLamp(Entity *e);
 extern void initPiggyBank(Entity *e);
 extern void initPlatform(Entity *e);
 extern void initPlayer(Entity *e);
+extern void initPurpleBugEyedMonster(Entity *e);
 extern void initRadarUpgrade(Entity *e);
 extern void initRedFlyingCyclops(Entity *e);
 extern void initRedHorse(Entity *e);

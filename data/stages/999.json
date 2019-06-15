@@ -59,28 +59,8 @@
 		}, {
 			"type":	"lamp",
 			"name":	"",
-			"x":	984,
+			"x":	872,
 			"y":	408,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	184,
-			"y":	648,
-			"facing":	"FACING_RIGHT",
-			"r":	255,
-			"g":	255,
-			"b":	255,
-			"a":	255
-		}, {
-			"type":	"lamp",
-			"name":	"",
-			"x":	608,
-			"y":	648,
 			"facing":	"FACING_RIGHT",
 			"r":	255,
 			"g":	255,
@@ -97,63 +77,47 @@
 			"b":	255,
 			"a":	255
 		}, {
-			"type":	"door",
+			"type":	"blueBugEyedMonster",
 			"name":	"",
-			"x":	736,
-			"y":	96,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"sx":	736,
-			"sy":	96,
-			"ex":	736,
-			"ey":	4
-		}, {
-			"type":	"horizontalDoor",
-			"name":	"",
-			"x":	1056,
-			"y":	192,
-			"facing":	"FACING_RIGHT",
-			"open":	0,
-			"requires":	"DR_NOTHING",
-			"sx":	1056,
-			"sy":	192,
-			"ex":	964,
-			"ey":	192
-		}, {
-			"type":	"bbbbb",
-			"name":	"",
-			"x":	112,
-			"y":	296,
-			"facing":	"FACING_RIGHT",
-			"health":	5,
-			"cageType":	"CT_HANGING",
-			"isGirl":	1
-		}, {
-			"type":	"platform",
-			"name":	"",
-			"x":	376,
-			"y":	672,
-			"facing":	"FACING_RIGHT",
-			"sx":	376,
-			"sy":	672,
-			"ex":	376,
-			"ey":	408,
-			"pause":	60,
-			"speed":	2,
-			"enabled":	1
-		}, {
-			"type":	"greenTentacleMonster",
-			"name":	"",
-			"x":	1096,
+			"x":	744,
 			"y":	438,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	256,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	544,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
+		}, {
+			"type":	"lamp",
+			"name":	"",
+			"x":	1168,
+			"y":	408,
+			"facing":	"FACING_RIGHT",
+			"r":	255,
+			"g":	255,
+			"b":	255,
+			"a":	255
 		}],
 	"map":	{
-		"data":	"eJzt19EJgDAMQMFVHMHuv1wXqG2VIiE57lPy8ZBA0672wZ3GvGX8tU7/uZmo9D9v9Wjra+3/uZmo9Ffvf7/Pufr/mYlq7/9nfv+te3K/f1c92d//857898+sp8L9V/3+rd0PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOzpzwQH",
+		"data":	"eJzt1sEJwCAMQNFVOkLdf7nei5UoUiR5vKPk8JWUtqstuNMYt/RP6/TvmzmV/u+t7m19rf3fN3Mq/dX75/c5V/8/M6da+fvL1x85ydz/Lhp3ZuyfednM/ZHbqNNf5ftXtx8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiHjkvAes",
 		"eLen":	176,
-		"cLen":	132,
+		"cLen":	131,
 		"dLen":	32768
 	}
 }

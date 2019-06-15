@@ -29,9 +29,11 @@ void initEntityFactory(void)
 	memset(&initFuncHead, 0, sizeof(InitFunc));
 	initFuncTail = &initFuncHead;
 
+	addInitFunc("babyBugEyedMonster", initBabyBugEyedMonster);
 	addInitFunc("battery", initBattery);
 	addInitFunc("bbbbb", initBBBBB);
 	addInitFunc("blueHorse", initBlueHorse);
+	addInitFunc("blueBugEyedMonster", initBlueBugEyedMonster);
 	addInitFunc("boots", initBoots);
 	addInitFunc("ceilingLamp", initCeilingLamp);
 	addInitFunc("chest", initChest);

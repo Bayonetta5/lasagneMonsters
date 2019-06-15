@@ -839,28 +839,28 @@
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
-			"type":	"purpleBugEyedMonster",
+			"type":	"blueBugEyedMonster",
 			"name":	"",
 			"x":	2728,
 			"y":	2166,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
-			"type":	"purpleBugEyedMonster",
+			"type":	"blueBugEyedMonster",
 			"name":	"",
 			"x":	2680,
 			"y":	3126,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
-			"type":	"purpleBugEyedMonster",
+			"type":	"blueBugEyedMonster",
 			"name":	"",
 			"x":	3920,
 			"y":	2166,
 			"facing":	"FACING_RIGHT",
 			"isMonster":	1
 		}, {
-			"type":	"purpleBugEyedMonster",
+			"type":	"blueBugEyedMonster",
 			"name":	"",
 			"x":	4048,
 			"y":	1878,

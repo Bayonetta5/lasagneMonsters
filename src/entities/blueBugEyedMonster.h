@@ -24,12 +24,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define WALK_SPEED   2
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
+extern void initBabyBugEyedMonster(Entity *e);
 extern void initMonster(Entity *e);
 extern void initSlimeBullet(Entity *owner);
 extern void lookForPlayer(void);
 extern void monsterTick(void);
 extern void playPositionalSound(int snd, int ch, int srcX, int srcY, int destX, int destY);
 extern int rrnd(int min, int max);
+extern Entity *spawnEntity(void);
 
 extern Entity *self;
 extern World world;

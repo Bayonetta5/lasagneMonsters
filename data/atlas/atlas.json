@@ -752,16 +752,32 @@
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/ceilingLamp.png",
+		"filename" : "gfx/entities/babyBugEyedMonster2.png",
 		"x" : 172,
+		"y" : 74,
+		"w" : 21,
+		"h" : 21,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/ceilingLamp.png",
+		"x" : 194,
 		"y" : 74,
 		"w" : 33,
 		"h" : 21,
 		"rotated" : 0
 	},
 	{
+		"filename" : "gfx/entities/babyBugEyedMonster1.png",
+		"x" : 228,
+		"y" : 74,
+		"w" : 21,
+		"h" : 21,
+		"rotated" : 0
+	},
+	{
 		"filename" : "gfx/entities/slimeBouncer1.png",
-		"x" : 206,
+		"x" : 250,
 		"y" : 74,
 		"w" : 18,
 		"h" : 18,
@@ -769,7 +785,7 @@
 	},
 	{
 		"filename" : "gfx/hud/key.png",
-		"x" : 225,
+		"x" : 269,
 		"y" : 74,
 		"w" : 32,
 		"h" : 18,
@@ -777,7 +793,7 @@
 	},
 	{
 		"filename" : "gfx/entities/horizontalDoor2.png",
-		"x" : 258,
+		"x" : 302,
 		"y" : 74,
 		"w" : 96,
 		"h" : 16,
@@ -785,7 +801,7 @@
 	},
 	{
 		"filename" : "gfx/entities/platform.png",
-		"x" : 355,
+		"x" : 399,
 		"y" : 74,
 		"w" : 96,
 		"h" : 16,
@@ -809,40 +825,24 @@
 	},
 	{
 		"filename" : "gfx/entities/slimeBullet.png",
-		"x" : 452,
-		"y" : 74,
+		"x" : 315,
+		"y" : 97,
 		"w" : 22,
-		"h" : 14,
-		"rotated" : 0
-	},
-	{
-		"filename" : "gfx/entities/babyBugEyedMonster2.png",
-		"x" : 492,
-		"y" : 42,
-		"w" : 14,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
 		"filename" : "gfx/entities/waterBullet.png",
-		"x" : 475,
-		"y" : 74,
+		"x" : 338,
+		"y" : 97,
 		"w" : 22,
 		"h" : 14,
 		"rotated" : 0
 	},
 	{
-		"filename" : "gfx/entities/babyBugEyedMonster1.png",
-		"x" : 498,
-		"y" : 74,
-		"w" : 14,
-		"h" : 14,
-		"rotated" : 0
-	},
-	{
 		"filename" : "gfx/entities/aimedSlimeBullet1.png",
-		"x" : 315,
-		"y" : 97,
+		"x" : 492,
+		"y" : 42,
 		"w" : 14,
 		"h" : 14,
 		"rotated" : 0

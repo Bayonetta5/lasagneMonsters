@@ -20,8 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define RUN_SPEED    4
-#define WALK_SPEED   2
+#define RUN_SPEED    2
+#define WALK_SPEED   1
 
 extern AtlasImage *getAtlasImage(char *filename, int required);
 extern void initMonster(Entity *e);
