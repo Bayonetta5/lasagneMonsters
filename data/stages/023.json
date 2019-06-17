@@ -38,8 +38,8 @@
 			"x":	6096,
 			"y":	3552,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	20,
-			"targetFlag":	"right",
+			"targetStage":	24,
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	2
 		}, {

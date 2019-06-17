@@ -1,31 +1,31 @@
 {
 	"id":	24,
 	"visited":	0,
-	"x":	0,
-	"y":	0,
+	"x":	4,
+	"y":	3,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",
 			"x":	1008,
 			"y":	1680,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	23,
+			"targetFlag":	"right",
 			"w":	1,
-			"h":	1
+			"h":	2
 		}, {
 			"type":	"transferCube",
 			"name":	"",
 			"x":	3696,
 			"y":	4080,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
-			"w":	1,
+			"targetStage":	25,
+			"targetFlag":	"top",
+			"w":	4,
 			"h":	1
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"left",
 			"x":	1072,
 			"y":	1744,
 			"facing":	"FACING_RIGHT",
@@ -33,7 +33,7 @@
 			"dy":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"bottom",
 			"x":	3760,
 			"y":	4040,
 			"facing":	"FACING_RIGHT",
@@ -54,7 +54,7 @@
 			"hasRadarUpgrade":	0
 		}, {
 			"type":	"platform",
-			"name":	"",
+			"name":	"platform1",
 			"x":	1752,
 			"y":	1440,
 			"facing":	"FACING_RIGHT",
@@ -64,7 +64,7 @@
 			"ey":	1744,
 			"pause":	60,
 			"speed":	2,
-			"enabled":	1
+			"enabled":	0
 		}, {
 			"type":	"platform",
 			"name":	"",
@@ -84,28 +84,28 @@
 			"x":	3128,
 			"y":	2056,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"platform1",
 			"on":	0
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"hDoor",
 			"x":	2360,
 			"y":	1152,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	2360,
 			"sy":	1152,
 			"ex":	2304,
 			"ey":	1152
 		}, {
 			"type":	"horizontalDoor",
-			"name":	"",
+			"name":	"hDoor",
 			"x":	2456,
 			"y":	1152,
 			"facing":	"FACING_LEFT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	2456,
 			"sy":	1152,
 			"ex":	2544,
@@ -130,7 +130,7 @@
 			"y":	1008,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_KEY",
 			"sx":	1888,
 			"sy":	1008,
 			"ex":	1888,
@@ -141,7 +141,7 @@
 			"x":	2304,
 			"y":	1048,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"hDoor",
 			"on":	0
 		}, {
 			"type":	"key",
@@ -157,7 +157,7 @@
 			"y":	2992,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	9,
+			"coins":	10,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -168,7 +168,7 @@
 			"y":	2752,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	8,
+			"coins":	4,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -179,7 +179,7 @@
 			"y":	3520,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	5,
+			"coins":	10,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -190,7 +190,7 @@
 			"y":	3472,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	6,
+			"coins":	8,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -213,7 +213,7 @@
 			"x":	3640,
 			"y":	2584,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"exitDoor",
 			"on":	0
 		}, {
 			"type":	"trafficLight",
@@ -221,28 +221,28 @@
 			"x":	3832,
 			"y":	2584,
 			"facing":	"FACING_RIGHT",
-			"targetName":	"",
+			"targetName":	"girlDoor",
 			"on":	0
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"exitDoor",
 			"x":	3472,
 			"y":	3840,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	3472,
 			"sy":	3840,
 			"ex":	3472,
 			"ey":	3748
 		}, {
 			"type":	"door",
-			"name":	"",
+			"name":	"girlDoor",
 			"x":	1888,
 			"y":	1344,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"requires":	"DR_NOTHING",
+			"requires":	"DR_REMOTE",
 			"sx":	1888,
 			"sy":	1344,
 			"ex":	1888,
@@ -515,7 +515,7 @@
 			"y":	2800,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	6,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -526,7 +526,7 @@
 			"y":	2992,
 			"facing":	"FACING_RIGHT",
 			"open":	0,
-			"coins":	0,
+			"coins":	9,
 			"nextRefill":	0,
 			"found":	0,
 			"isStatEntity":	1
@@ -860,11 +860,234 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	1136,
+			"y":	1206,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	1672,
+			"y":	1744,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	3640,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	3480,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	3288,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	3096,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	2904,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenHorse",
+			"name":	"",
+			"x":	2632,
+			"y":	1120,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	2192,
+			"y":	1062,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	1144,
+			"y":	1600,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	2664,
+			"y":	1952,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	2392,
+			"y":	1864,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	2672,
+			"y":	1744,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueBugEyedMonster",
+			"name":	"",
+			"x":	2632,
+			"y":	1398,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	3488,
+			"y":	1398,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	1392,
+			"y":	2934,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	2232,
+			"y":	2742,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	2064,
+			"y":	3318,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenBugEyedMonster",
+			"name":	"",
+			"x":	1352,
+			"y":	3366,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	1960,
+			"y":	2832,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	2264,
+			"y":	3240,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	2640,
+			"y":	2616,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenFlyingCyclops",
+			"name":	"",
+			"x":	1640,
+			"y":	3696,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueHorse",
+			"name":	"",
+			"x":	3720,
+			"y":	2320,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	2208,
+			"y":	3904,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	2448,
+			"y":	3904,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	2736,
+			"y":	3904,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"redHorse",
+			"name":	"",
+			"x":	3032,
+			"y":	3904,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	3128,
+			"y":	3414,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"blueBugEyedMonster",
+			"name":	"",
+			"x":	3824,
+			"y":	3174,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"greenTentacleMonster",
+			"name":	"",
+			"x":	3512,
+			"y":	3894,
+			"facing":	"FACING_RIGHT",
+			"isMonster":	1
+		}, {
+			"type":	"gumballMachine",
+			"name":	"",
+			"x":	3664,
+			"y":	2304,
+			"facing":	"FACING_RIGHT"
 		}],
 	"map":	{
-		"data":	"eJztmwmOwyAMRa8yR0gqcf+rzUgVZbONnUAxma+nqmmaheeAgSY9fg4AAAAAAAAAAAAAAMAf5yJWeyf/K1vcLf9O/jPKD//V3vqSBIJn+4fiXcpfVGwk9vCvt+D9bR4nsbSak7lCc/zDpf3m+ve3ePb1t239H/ypVjDS/37/Mc//3bvluaDs92p/LsMf5N7cWb3454bJUWr/NXzd8V//g9JR/k5qPZ7zf21/1T9atq3B5/Vv2/Zd//NzvDIGHv1HRZGn9feU/8dHoI5G6+/p+uvnLJoYRLN9/KWaW5dfH1PO32P+72GrA+0x8/Xt0mr6/vY68Dx/Ww0oc2Dr7yn/6/ytEZD997v+MQ/oo/A8f10m4GaK73PtmP9LXq8w9PXUevI6jqEvuf4hTpo47djvzI0TF6V946Snti7z9mpvm/+VWJX2cnRW+uvnKKnkliuf1/j0vto7969HU5Rn+lTetTyIT5T9SZzVA6UnXb527NA6cUZ0i/fpz5WvnZ3EVtMzosdf3v1TP55ydj430c5SyqwXjzDi+Ya5/mNKR9/tGHmGkf6jjyv3eP78uXuL1LogfObsffvHGJQOvX0D0Q9w9v79r+6vs3+uv85+D//ALMc17breOH8X//IJino5fNykrNBv937989K+3fPMeCpmrnp7j/5pdkOPznolttj79M/nwtYS2+y9+h+C/wj7cc83z/O3Xxu9va5urPb/hv2O/lTPd9Xep788B+J+1+v792ZDXvy50Wxc0tnXd3KtfcNa/7oOcGMC7UhXW0dW+6dfuqhttFb1lrrZkAf/6NnmOdu1r9328x9pv5u//H3Pnj5++e1u/pJ9vk8bJ/7faF79xx5X+j3dk//Ip22sz3LKNcFVlKY/Y7N7hPRY/tHabr+//z3of3ys5nv+eQT8+AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsJpf9mQ5ow=",
+		"data":	"eJztmwmOwyAMRa8yR0gqcf+rzUgVZbONnUAxma+nqmmahWeIgSY9fg4AAAAAAAAAAAAAAMAf5yJWeyf/K1vcLf9O/jPKD//V3vqSBIJn+4fiXcpfVGwk9vCvt+D9bR4nsbSak6mhOf7h0n5z/ftbPLv+bVv/B3/qKhjpf7//mOf/7t3yXFD2e7U/l+EPcm/urF78c8PkKF3/NXzb8d/+g9JR/k66ejzn/9r+qn+0bK8Gn/XfXtt3/c/P8coYePQfFUWe1t9T/h8fgToarb+n+tfPWTQxiGb7+Estty6/Pqacv8f838PWBtpj5uvbpdX0/e1t4Hn+thZQ5sDW31P+1/lbIyD771f/MQ/oo/A8f10m4GaK73PtmP9LXq8w9PXUdvI6jqEvuf0hTpo47djvzI0TF6V946Snti4z92pvm/+VWJX2cnRW+uvnKKnklprPW3x6X+2d+9ejKcozfSrvWh7EJ8r+JM7qgdKTLl87dmidOKNAxsanP1e+dnYSr5qeET3+8u6f+vGUsfO5iXaWUma9eIQRzzfM9R9TOvpux8gzjPQffVy5x/Pnz91bpNYF4TNn79s/xqB06O3LjeYoe//+V/fX2T/XX2e/h39gluOadl1vnL+Lf/kERb0cPm5SVuhf937989K+3fPMeDLj2Gv2Hv3T7IYenfVKbLH36Z/Pha0lttl79T8E/xH2455vnudvrxu9va5trPb/hv2O/lTPd9Xep788B+J+1+v792ZDXvy50Wxc0tnXd3KtfcNa/7oNcGMC7UhX20ZW+6dfuqhttFb1lrrZkAf/6NnmOVvd1277+few2O/mf8+ePn757d7+7RjuZPaV/o3m1X/scaXf0z35W56medOusT6/t8vccP6TNbtHSI/lf6zt9vv734P+n8dqvuefR8CPPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq/kF9kk3rA=",
 		"eLen":	960,
 		"cLen":	718,
-		"dLen":	33000
+		"dLen":	32990
 	}
 }
