@@ -163,8 +163,8 @@ static void drawEntities(void)
 			continue;
 		}
 
-		x = ((e->x + (e->w / 2)) / TILE_SIZE) - areaRect.x;
-		y = ((e->y + (e->h / 2)) / TILE_SIZE) - areaRect.y;
+		x = (e->x / TILE_SIZE) - areaRect.x;
+		y = (e->y / TILE_SIZE) - areaRect.y;
 
 		if (x > 0 && y > 0 && x < RADAR_WIDTH && y < RADAR_HEIGHT)
 		{
@@ -195,6 +195,33 @@ static void drawEntities(void)
 
 				case ET_SAVE_POINT:
 					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 255, 0, 255, 255);
+					break;
+
+				case ET_DOOR:
+					if (!((Door*)e->data)->open)
+					{
+						drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 160, 255, 160, 255);
+						if (++y < RADAR_HEIGHT)
+						{
+							drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 160, 255, 160, 255);
+						}
+					}
+					break;
+
+				case ET_HORIZONTAL_DOOR:
+					if (!((Door*)e->data)->open)
+					{
+						drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 160, 255, 160, 255);
+						if (++x < RADAR_WIDTH)
+						{
+							drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 160, 255, 160, 255);
+						}
+					}
+					break;
+
+				case ET_PLATFORM:
+					drawRect(ox + (x * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 192, 192, 192, 255);
+					drawRect(ox + ((x + 1) * CELL_SIZE), oy + (y * CELL_SIZE), CELL_SIZE - 1, CELL_SIZE - 1, 192, 192, 192, 255);
 					break;
 
 				default:

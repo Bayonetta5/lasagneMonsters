@@ -34,6 +34,7 @@ void initHorizontalDoor(Entity *e)
 
 	d = (Door*)e->data;
 
+	e->type = ET_HORIZONTAL_DOOR;
 	e->typeName = "horizontalDoor";
 	e->tick = tick;
 

@@ -139,7 +139,7 @@ static void toggleSelectEntity(void)
 				return;
 			}
 
-			if (e->type == ET_DOOR)
+			if (e->type == ET_DOOR || e->type == ET_HORIZONTAL_DOOR)
 			{
 				d = (Door*)e->data;
 
@@ -180,7 +180,7 @@ static void toggleSelectEntity(void)
 		}
 		else
 		{
-			if (selectedEntity->type == ET_DOOR)
+			if (selectedEntity->type == ET_DOOR || selectedEntity->type == ET_HORIZONTAL_DOOR)
 			{
 				d = (Door*)selectedEntity->data;
 
@@ -503,7 +503,7 @@ static void drawSelectedEnt(void)
 
 			addToQuadtree(selectedEntity, &world.quadtree);
 
-			if (selectedEntity->type == ET_DOOR)
+			if (selectedEntity->type == ET_DOOR || selectedEntity->type == ET_HORIZONTAL_DOOR)
 			{
 				d = (Door*)selectedEntity->data;
 
@@ -521,7 +521,7 @@ static void drawSelectedEnt(void)
 		}
 		else
 		{
-			if (selectedEntity->type == ET_DOOR)
+			if (selectedEntity->type == ET_DOOR || selectedEntity->type == ET_HORIZONTAL_DOOR)
 			{
 				d = (Door*)selectedEntity->data;
 
@@ -627,7 +627,7 @@ static void draw(void)
 
 	for (self = stage->entityHead.next ; self != NULL ; self = self->next)
 	{
-		if (self->type == ET_PLATFORM || self->type == ET_DOOR)
+		if (self->type == ET_PLATFORM || self->type == ET_DOOR || self->type == ET_HORIZONTAL_DOOR)
 		{
 			self->draw();
 		}

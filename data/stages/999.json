@@ -113,6 +113,43 @@
 			"g":	255,
 			"b":	255,
 			"a":	255
+		}, {
+			"type":	"door",
+			"name":	"",
+			"x":	736,
+			"y":	96,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"sx":	736,
+			"sy":	96,
+			"ex":	736,
+			"ey":	4
+		}, {
+			"type":	"horizontalDoor",
+			"name":	"",
+			"x":	1056,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"open":	0,
+			"requires":	"DR_NOTHING",
+			"sx":	1056,
+			"sy":	192,
+			"ex":	964,
+			"ey":	192
+		}, {
+			"type":	"platform",
+			"name":	"",
+			"x":	304,
+			"y":	192,
+			"facing":	"FACING_RIGHT",
+			"sx":	304,
+			"sy":	192,
+			"ex":	560,
+			"ey":	192,
+			"pause":	60,
+			"speed":	2,
+			"enabled":	1
 		}],
 	"map":	{
 		"data":	"eJzt1sEJwCAMQNFVOkLdf7nei5UoUiR5vKPk8JWUtqstuNMYt/RP6/TvmzmV/u+t7m19rf3fN3Mq/dX75/c5V/8/M6da+fvL1x85ydz/Lhp3ZuyfednM/ZHbqNNf5ftXtx8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiHjkvAes",
