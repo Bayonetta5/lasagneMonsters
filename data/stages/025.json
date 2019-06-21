@@ -1,16 +1,16 @@
 {
 	"id":	25,
 	"visited":	0,
-	"x":	0,
-	"y":	0,
+	"x":	4,
+	"y":	4,
 	"entities":	[{
 			"type":	"transferCube",
 			"name":	"",
 			"x":	5664,
 			"y":	2208,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	26,
+			"targetFlag":	"left",
 			"w":	1,
 			"h":	3
 		}, {
@@ -19,13 +19,13 @@
 			"x":	2448,
 			"y":	0,
 			"facing":	"FACING_RIGHT",
-			"targetStage":	0,
-			"targetFlag":	"",
+			"targetStage":	24,
+			"targetFlag":	"bottom",
 			"w":	6,
 			"h":	1
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"top",
 			"x":	2552,
 			"y":	48,
 			"facing":	"FACING_RIGHT",
@@ -33,7 +33,7 @@
 			"dy":	0
 		}, {
 			"type":	"startPoint",
-			"name":	"",
+			"name":	"right",
 			"x":	5632,
 			"y":	2320,
 			"facing":	"FACING_RIGHT",
